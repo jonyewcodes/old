@@ -5,7 +5,7 @@ export default function Home() {
       <header className="text-center">
         <h1 className="text-4xl font-bold mb-4">SG Econs League</h1>
         <p className="text-lg">
-          Empowering Singapore's next generation of economic leaders
+          Empowering Singapores next generation of economic leaders
         </p>
       </header>
       <section className="mt-10 flex flex-col items-center gap-4">
