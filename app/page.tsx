@@ -1,8 +1,10 @@
+"use client";
+
 import { useEffect } from "react";
 import useCountdown from "./hooks/useCountdown";
 
 export default function Home() {
-  const deadline = new Date(Date.parse(new Date().toString()) + 15 * 24 * 60 * 60 * 1000);
+  const deadline = new Date(Date.parse(new Date().toString()) + 185 * 24 * 60 * 60 * 1000);
 
   useCountdown(deadline, "clockdiv");
 
