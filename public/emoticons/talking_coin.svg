@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 204.6 144.83">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: KristenITC-Regular, 'Kristen ITC';
+        font-size: 29.87px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #f7931e;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-2, .cls-6, .cls-7, .cls-8 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-6 {
+        fill: none;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-6, .cls-9 {
+        stroke-linecap: round;
+      }
+
+      .cls-3, .cls-4, .cls-8, .cls-9 {
+        stroke: #000;
+      }
+
+      .cls-3, .cls-9 {
+        stroke-width: 2px;
+      }
+
+      .cls-4 {
+        stroke-width: 4px;
+      }
+
+      .cls-5, .cls-2, .cls-7 {
+        stroke: #fcee21;
+      }
+
+      .cls-2, .cls-6, .cls-7 {
+        stroke-width: 3px;
+      }
+
+      .cls-6 {
+        stroke: #f7931e;
+      }
+
+      .cls-7 {
+        fill: #fbb03b;
+      }
+
+      .cls-10 {
+        fill: #ed1c24;
+      }
+
+      .cls-8 {
+        stroke-width: 7px;
+      }
+
+      .cls-9 {
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g>
+        <path class="cls-7" d="M181.37,72.41c0,38.33-30.4,69.55-68.41,70.87-.83.04-1.66.05-2.51.05-39.16,0-70.91-31.75-70.91-70.92S71.28,1.5,110.45,1.5c.84,0,1.68.01,2.51.05,38.01,1.32,68.41,32.54,68.41,70.87Z"/>
+        <path class="cls-2" d="M187.76,72.41c0,39.17-31.75,70.92-70.92,70.92-.84,0-1.68-.01-2.51-.05,38.01-1.32,68.41-32.54,68.41-70.87S152.35,2.87,114.34,1.55c.83-.04,1.66-.05,2.51-.05,39.17,0,70.92,31.75,70.92,70.91Z"/>
+      </g>
+      <ellipse class="cls-8" cx="77.74" cy="58.97" rx="5.08" ry="7.97"/>
+      <ellipse class="cls-8" cx="137.33" cy="58.97" rx="5.08" ry="7.97"/>
+      <line class="cls-5" x1="173.74" y1="107.04" x2="177.54" y2="109.12"/>
+      <line class="cls-5" x1="167.03" y1="117.41" x2="170.83" y2="119.48"/>
+      <line class="cls-5" x1="165.2" y1="119.23" x2="169" y2="121.31"/>
+      <line class="cls-5" x1="179.22" y1="94.85" x2="183.02" y2="96.93"/>
+      <line class="cls-5" x1="180.44" y1="93.02" x2="184.24" y2="95.1"/>
+      <line class="cls-5" x1="181.05" y1="88.76" x2="184.85" y2="90.84"/>
+      <line class="cls-5" x1="183.49" y1="75.35" x2="187.29" y2="77.43"/>
+      <line class="cls-5" x1="181.05" y1="53.4" x2="184.85" y2="55.48"/>
+      <line class="cls-5" x1="179.83" y1="50.36" x2="183.63" y2="52.43"/>
+      <line class="cls-5" x1="173.74" y1="36.34" x2="177.54" y2="38.42"/>
+      <line class="cls-5" x1="171.91" y1="32.68" x2="175.71" y2="34.76"/>
+      <line class="cls-5" x1="182.88" y1="67.42" x2="186.68" y2="69.5"/>
+      <line class="cls-5" x1="163.38" y1="22.32" x2="168.93" y2="25.36"/>
+      <g>
+        <circle class="cls-3" cx="69.04" cy="57.75" r="30.48"/>
+        <circle class="cls-3" cx="69.04" cy="57.75" r="30.48"/>
+        <circle class="cls-3" cx="152.16" cy="57.75" r="30.48"/>
+        <path class="cls-3" d="M93.99,58.06c4.88-6.29,28.68-7.66,31.84-.36"/>
+      </g>
+      <text class="cls-1" transform="translate(103.77 116.14)"><tspan x="0" y="0">S</tspan></text>
+      <line class="cls-6" x1="113.05" y1="88.63" x2="113.05" y2="127.54"/>
+      <path class="cls-4" d="M200.08,38.47c6.8,14.68-.64,47.67-16.26,53.78"/>
+      <path class="cls-4" d="M39.57,95.42c-9.42.06-32.27-7.7-37.57-14.08"/>
+      <g>
+        <path class="cls-9" d="M118.51,69.72c-.32,2.96-1,5.29-1.91,7.04-4.39,8.45-14.22,3.67-15.55-6.45l17.46-.59Z"/>
+        <path class="cls-10" d="M115.92,75.89c0,1.08-2.62,4.22-5.38,4.23-3,.02-5.92-2.77-6.38-4.08-.56-1.6,3.31-2.23,5.88-2.23,2.73,0,5.88,0,5.88,2.08Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
