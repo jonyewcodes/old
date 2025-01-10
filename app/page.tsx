@@ -18,7 +18,7 @@ export default function Home() {
             The <span className="font-bold text-black">SG Economics League (SEL)</span> is a team-based competition that challenges your problem-solving skills in economics.
           </p>
           <ul className="text-gray-700 list-disc pl-6 space-y-2">
-            <li>3 hours long, online contest</li>
+            <li>4 hours long, online contest</li>
             <li>3-5 members per team</li>
             <li>Open to all pre-U students in Singapore</li>
           </ul>
