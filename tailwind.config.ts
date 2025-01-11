@@ -14,6 +14,7 @@ const config: Config = {
         primary: "#5073b1",
         secondary: "#5a96d9",
         accent: "#64c6fb",
+        glassBlue: "rgba(222, 231, 251, 0.5)"
       },
     },
   },

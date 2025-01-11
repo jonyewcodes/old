@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Navbar from "./components/Navbar"; // Import the Navbar component
 import "./styles/globals.css";
 
 const geistSans = localFont({
@@ -15,7 +16,8 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Singapore Economics League | SEL",
-  description: "By Students, For Students. Say Goodbye to Dull Economics Essays, as Singapore Economics League Is Bringing Excitement Back to the Heart of the Subject. Race Against Time and Challenge Your Wits in This Online, Team-Based Contest!",
+  description:
+    "By Students, For Students. Say Goodbye to Dull Economics Essays, as Singapore Economics League Is Bringing Excitement Back to the Heart of the Subject. Race Against Time and Challenge Your Wits in This Online, Team-Based Contest!",
 };
 
 export default function RootLayout({
@@ -28,6 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Navbar */}
+        <Navbar />
+        {/* Main Content */}
         {children}
       </body>
     </html>
