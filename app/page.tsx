@@ -14,14 +14,25 @@ const EventDetails = () => {
   const rulesLink = "/rules";
 
   return (
-    <section className="flex flex-col lg:flex-row items-start justify-start bg-glassBlue py-24 px-8 lg:px-32 gap-8">
-      {/* Left Section: Event Information */}
-      <div className="flex-1 max-w-2xl">
-        {/* Event Date and Time */}
-        <div className="mb-12">
-          <span className="bg-white text-gray-700 px-4 py-4 rounded-lg shadow-[0_0_15px_5px_rgba(255,255,255,0.8),0_12px_16px_rgba(0,0,0,0.1)] font-extralight text-2xl">
-            {eventDate}, {eventTime}
-          </span>
+    <main className="flex min-h-screen flex-col bg-gray-100 text-gray-800">
+      {/* Navbar */}
+      <Navbar />
+
+      {/* Main Content Section */}
+      <section className="flex flex-col lg:flex-row items-center justify-between px-8 py-12 lg:py-24">
+        {/* Left Section: Text */}
+        <div className="lg:w-1/2 text-left ml-20">
+          <h1 className="text-3xl lg:text-4xl font-bold text-green-600 mb-4">
+            What is SG Economics League?
+          </h1>
+          <p className="text-lg text-gray-700 mb-4">
+            The <span className="font-bold text-black">SG Economics League (SEL)</span> is a team-based competition that challenges your problem-solving skills in economics.
+          </p>
+          <ul className="text-gray-700 list-disc pl-6 space-y-2">
+            <li>3 hours long, online contest</li>
+            <li>3-5 members per team</li>
+            <li>Open to all pre-U students in Singapore</li>
+          </ul>
         </div>
 
         {/* Event Title */}
@@ -53,6 +64,4 @@ const EventDetails = () => {
       </div>
     </section>
   );
-};
-
-export default EventDetails;
+}
