@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar: React.FC = () => {
   return (
-    <div className="px-8 lg:px-32"> {/* Match padding with EventDetails */}
+    <div className="px-8 lg:px-32"> 
       <nav className="flex items-center justify-between py-4 max-w-screen-xl mx-auto">
         {/* SEL Logo */}
         <div className="flex items-center gap-2">
