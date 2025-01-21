@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import { useState, useEffect } from "react"
+const sectionIds = ["rules", "registration", "competition-platform", "question-types", "points-and-scoring"]
 
 interface SubHeadingProps{
     children: string;
@@ -186,9 +187,9 @@ function QuestionTypes(){
 }
 
 function SideBar({selected} : {selected?: string}){
-    const selectedStyle = "text-accent font-bold ml-4"
+    const selectedStyle = "text-accent font-bold lg:ml-4"
     return (
-        <div className="w-96  pr-8 py-8 flex flex-col gap-4 sticky top-6">
+        <div className="text-center lg:text-left items-center lg:items-start bg-white px-2 w-full lg:w-96 lg:pr-8 py-4 lg:py-8 flex flex-row lg:flex-col gap-4 sticky top-0 lg:top-6 border-b-2 lg:border-b-0 border-[#D0D0D0]">
             <Link href="#rules"><p className={selected=="rules"?selectedStyle:""}>Brief Rules</p></Link>
             <Link href="#registration"><p className={selected=="registration"?selectedStyle:""}>Registration</p></Link>
             <Link href="#competition-platform"><p className={selected=="competition-platform"?selectedStyle:""}>Competition Platform</p></Link>
@@ -214,7 +215,6 @@ function PointsAndScoring(){
 }
 export default function RulesPage() {
     const [selected, setSelected] = useState("rules")
-    const sectionIds = ["rules", "registration", "competition-platform", "question-types", "points-and-scoring"]
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -245,13 +245,13 @@ export default function RulesPage() {
             });
         };
 
-    },[sectionIds])
+    },[])
     return (
-        <div className="px-32 py-12">
-            <h1 className="text-5xl font-bold">Rules</h1>
-            <div className="my-16 flex items-start">
+        <div className="px-2 lg:px-32 py-12">
+            <h1 className="px-8 lg:px-0 text-5xl font-bold">Rules</h1>
+            <div className="my-4 lg:my-16 flex items-start flex-col lg:flex-row">
                 <SideBar selected={selected}/>
-                <div className="px-12 py-8 border-l-2 border-[#D0D0D0]">
+                <div className="px-12 py-8 lg:border-l-2 lg:border-t-0 border-[#D0D0D0]">
                     <BreifRules/>
                     <Registration/>
                     <CompetitionPlatform/>
