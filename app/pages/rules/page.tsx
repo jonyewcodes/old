@@ -189,12 +189,18 @@ function QuestionTypes(){
 function SideBar({selected} : {selected?: string}){
     const selectedStyle = "text-accent font-bold lg:ml-4"
     return (
-        <div className="text-center lg:text-left items-center lg:items-start bg-white px-2 w-full lg:w-96 lg:pr-8 py-4 lg:py-8 flex flex-row lg:flex-col gap-4 sticky top-0 lg:top-6 border-b-2 lg:border-b-0 border-[#D0D0D0]">
+        <div className="text-center lg:text-left items-center lg:items-start
+        bg-white px-2 w-full 
+        text-sm
+        lg:w-96 lg:pr-8 py-4 lg:py-8 flex flex-row lg:flex-col 
+        justify-evenly
+        overflow-hidden
+        gap-4 sticky top-0 lg:top-6 border-b-2 lg:border-b-0 border-[#D0D0D0]">
             <Link href="#rules"><p className={selected=="rules"?selectedStyle:""}>Brief Rules</p></Link>
             <Link href="#registration"><p className={selected=="registration"?selectedStyle:""}>Registration</p></Link>
-            <Link href="#competition-platform"><p className={selected=="competition-platform"?selectedStyle:""}>Competition Platform</p></Link>
+            <Link href="#competition-platform"><p className={selected=="competition-platform"?selectedStyle:""}>Platform</p></Link>
             <Link href="#question-types"><p className={selected=="question-types"?selectedStyle:""}>Question Types</p></Link>
-            <Link href="#points-and-scoring"><p className={selected=="points-and-scoring"?selectedStyle:""}>Points and Scoring</p></Link>
+            <Link href="#points-and-scoring"><p className={selected=="points-and-scoring"?selectedStyle:""}>Scoring</p></Link>
         </div>
     )
 }
