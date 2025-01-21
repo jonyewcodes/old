@@ -192,6 +192,7 @@ function SideBar({selected} : {selected?: string}){
         <div className="text-center lg:text-left items-center lg:items-start
         bg-white px-2 w-full 
         text-sm
+        md:text-lg
         lg:w-96 lg:pr-8 py-4 lg:py-8 flex flex-row lg:flex-col 
         justify-evenly
         overflow-hidden
