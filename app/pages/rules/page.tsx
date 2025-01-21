@@ -16,6 +16,7 @@ function SubHeading2({children, className}: SubHeadingProps){
 }
 
 function OrderedList({ items }: { items: (string | (string | string[])[])[] }) {
+    // Items is an array of strings or string arrays. String arrays are rendered as a sublist, with each layer of nesting representing a new level of the list.
     const renderList = (items: (string | (string | string[])[])[], level: number = 0) => {
         const isTopLevel = level === 0;
 
@@ -141,7 +142,7 @@ function QuestionTypes(){
             ["Participants choose 1 answer out of 4",
             "Default format is A/B/C/D. This should show up visually as buttons with hover states."]],
         ["MCQ Multi-Select*",
-            ["Participants choose N answers out of M options, where N  M",
+            ["Participants choose N answers out of M options, where N  M", //Incomplete sentence, needs to be fixed
             "Default format is A/B/C/D/…/M",
             "No partial marks are awarded for partially correct answers. "
         ]],
@@ -156,8 +157,8 @@ function QuestionTypes(){
         ]],
         ["Sort*",
             ["A/B/C/D/E/…/N (Sort N different values)",
-            "Visually, they must be able to drag the buttons around in a list from 1 to N.",
-            "Custom Options: Input into excel as custom data. "]
+            "Visually, they will drag the buttons around in a list from 1 to N.",
+            "Alternatively, input into excel as custom data. "]
         ],
         [
             "True False Set*",
@@ -166,8 +167,8 @@ function QuestionTypes(){
         [
             "String",
             ["Allow strings of up to 30 characters in length",
-            "Consider multiple cases. Account for accidental formatting problems eg white spaces",
-            "An exact match is needed. Additional characters or white spaces will render the answer incorrect"
+            "Some types will account for accidental formatting problems like white spaces",
+            "Sometimes an exact match is needed. Additional characters or white spaces will render the answer incorrect"
             ]
         ],
         ["String Set",
@@ -182,6 +183,8 @@ function QuestionTypes(){
         <section className="mt-12" id = "question-types">
             <SubHeading className="mb-6">Question Types</SubHeading>
             <OrderedList items={content}/>
+            <br/>
+            * Each MCQ, MCQ Multi select, Sort, and True False Set question part will be limited to 3 attempts per team. Following 3 incorrect attempts, the question part will be disabled and 0 points for that part will be awarded.
         </section>
     )
 }
