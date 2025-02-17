@@ -16,6 +16,7 @@ function SubHeading2({children, className}: SubHeadingProps){
 }
 
 function OrderedList({ items }: { items: (string | (string | string[])[])[] }) {
+    // Items is an array of strings or string arrays. String arrays are rendered as a sublist, with each layer of nesting representing a new level of the list.
     const renderList = (items: (string | (string | string[])[])[], level: number = 0) => {
         const isTopLevel = level === 0;
 
@@ -141,7 +142,7 @@ function QuestionTypes(){
             ["Participants choose 1 answer out of 4",
             "Default format is A/B/C/D. This should show up visually as buttons with hover states."]],
         ["MCQ Multi-Select*",
-            ["Participants choose N answers out of M options, where N  M",
+            ["Participants choose N answers out of M options, where N  M", //Incomplete sentence, needs to be fixed
             "Default format is A/B/C/D/…/M",
             "No partial marks are awarded for partially correct answers. "
         ]],
@@ -156,8 +157,8 @@ function QuestionTypes(){
         ]],
         ["Sort*",
             ["A/B/C/D/E/…/N (Sort N different values)",
-            "Visually, they must be able to drag the buttons around in a list from 1 to N.",
-            "Custom Options: Input into excel as custom data. "]
+            "Visually, they will drag the buttons around in a list from 1 to N.",
+            "Alternatively, input into excel as custom data. "]
         ],
         [
             "True False Set*",
@@ -166,8 +167,8 @@ function QuestionTypes(){
         [
             "String",
             ["Allow strings of up to 30 characters in length",
-            "Consider multiple cases. Account for accidental formatting problems eg white spaces",
-            "An exact match is needed. Additional characters or white spaces will render the answer incorrect"
+            "Some types will account for accidental formatting problems like white spaces",
+            "Sometimes an exact match is needed. Additional characters or white spaces will render the answer incorrect"
             ]
         ],
         ["String Set",
@@ -182,6 +183,8 @@ function QuestionTypes(){
         <section className="mt-12" id = "question-types">
             <SubHeading className="mb-6">Question Types</SubHeading>
             <OrderedList items={content}/>
+            <br/>
+            * Each MCQ, MCQ Multi select, Sort, and True False Set question part will be limited to 3 attempts per team. Following 3 incorrect attempts, the question part will be disabled and 0 points for that part will be awarded.
         </section>
     )
 }
@@ -189,12 +192,19 @@ function QuestionTypes(){
 function SideBar({selected} : {selected?: string}){
     const selectedStyle = "text-accent font-bold lg:ml-4"
     return (
-        <div className="text-center lg:text-left items-center lg:items-start bg-white px-2 w-full lg:w-96 lg:pr-8 py-4 lg:py-8 flex flex-row lg:flex-col gap-4 sticky top-0 lg:top-6 border-b-2 lg:border-b-0 border-[#D0D0D0]">
+        <div className="text-center lg:text-left items-center lg:items-start
+        bg-white px-2 w-full 
+        text-sm
+        md:text-lg
+        lg:w-96 lg:pr-8 py-4 lg:py-8 flex flex-row lg:flex-col 
+        justify-evenly
+        overflow-hidden
+        gap-4 sticky top-0 lg:top-6 border-b-2 lg:border-b-0 border-[#D0D0D0]">
             <Link href="#rules"><p className={selected=="rules"?selectedStyle:""}>Brief Rules</p></Link>
             <Link href="#registration"><p className={selected=="registration"?selectedStyle:""}>Registration</p></Link>
-            <Link href="#competition-platform"><p className={selected=="competition-platform"?selectedStyle:""}>Competition Platform</p></Link>
+            <Link href="#competition-platform"><p className={selected=="competition-platform"?selectedStyle:""}>Platform</p></Link>
             <Link href="#question-types"><p className={selected=="question-types"?selectedStyle:""}>Question Types</p></Link>
-            <Link href="#points-and-scoring"><p className={selected=="points-and-scoring"?selectedStyle:""}>Points and Scoring</p></Link>
+            <Link href="#points-and-scoring"><p className={selected=="points-and-scoring"?selectedStyle:""}>Scoring</p></Link>
         </div>
     )
 }
