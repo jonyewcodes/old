@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Global Styles */
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-roboto), sans-serif;
+  background-color: #F8F9FC;
 }
+

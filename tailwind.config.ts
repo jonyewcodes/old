@@ -14,10 +14,17 @@ const config: Config = {
         primary: "#5073b1",
         secondary: "#5a96d9",
         accent: "#64c6fb",
-        glassBlue: "rgba(222, 231, 251, 0.5)"
+        glassBlue: "rgba(222, 231, 251, 0.5)",
+      },
+      fontFamily: {
+        sans: "var(--font-roboto), sans-serif",
+        geist: "var(--font-geist-sans), sans-serif",
+        mono: "var(--font-geist-mono), monospace",
+        serif: "var(--font-roboto-serif), serif",
       },
     },
   },
   plugins: [],
 };
+
 export default config;

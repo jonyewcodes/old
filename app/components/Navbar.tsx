@@ -1,30 +1,33 @@
 import React from "react";
+import Link from "next/link"; // Import Next.js Link
 
 const Navbar: React.FC = () => {
   return (
-    <div className="px-8 lg:px-32"> 
-      <nav className="flex items-center justify-between py-4 max-w-screen-xl mx-auto">
-        {/* SEL Logo */}
-        <div className="flex items-center gap-2">
-          <img
-            src="/logo.png"
-            alt="Logo"
-            className="w-80 h-auto"
-          />
+    <div className="w-full px-8 lg:px-16"> {/* Increased padding for width */}
+      <nav className="flex items-center justify-between py-4 max-w-[1600px] mx-auto w-full"> 
+        {/* SEL Logo - Clickable */}
+        <div className="flex items-center">
+          <Link href="/">
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="w-60 h-auto cursor-pointer"
+            />
+          </Link>
         </div>
 
-        {/* Navigation Links and Sign-Up Button */}
-        <div className="flex items-center gap-12 text-black font-medium">
-          <a href="rules" className="hover:text-black transition">
+        {/* Navigation Links */}
+        <div className="flex items-center gap-16 text-black font-medium">
+          <Link href="/rules" className="hover:text-black transition">
             Rules
-          </a>
-          <a href="#sample-questions" className="hover:text-black transition">
+          </Link>
+          <Link href="#sample-questions" className="hover:text-black transition">
             Sample Questions
-          </a>
-          <a href="faq" className="hover:text-black transition">
+          </Link>
+          <Link href="/faq" className="hover:text-black transition">
             FAQ
-          </a>
-          <button className="px-5 py-2 bg-secondary text-sm text-white font-bold rounded-lg border-black transition">
+          </Link>
+          <button className="px-8 py-2 bg-secondary text-white text-sm font-bold rounded-lg shadow-md hover:bg-[#4CA9DF] transition">
             Sign Up
           </button>
         </div>
