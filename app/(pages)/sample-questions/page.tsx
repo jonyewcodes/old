@@ -7,7 +7,7 @@ export default function SampleQuestionsPage() {
         Sample Questions
       </h1>
 
-      <div className="max-w-5xl mb-7 p-4 bg-white rounded-lg shadow-md w-full mb-4 text-left relative">
+      <div className="mt-1 max-w-5xl p-4 bg-white rounded-lg shadow-md w-full mb-4 text-left relative">
         <span className="absolute right-3 text-green-600 font-bold text-lg">
           EASY
         </span>
