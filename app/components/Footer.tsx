@@ -29,7 +29,7 @@ export default function Footer() {
             </ul>
         </div>
         <div className="py-6 px-24 lg:px-4">
-            <p className="font-bold mb-6 text-xl">©2024, SEL</p>
+            <p className="font-bold mb-6 text-xl">©2025, SEL</p>
             <ul className="flex flex-col gap-4 text-lg">
                 <li><Link href="/rules" className="hover:text-accent transition-colors duration-200">Privacy</Link></li>
                 <li><Link href="/schedules" className="hover:text-accent transition-colors duration-200">Terms of Use</Link></li>
