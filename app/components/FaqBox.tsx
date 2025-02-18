@@ -26,8 +26,8 @@ export default function FaqBox({ question, answer }: FaqProps): JSX.Element {
             aria-controls={`collapse-${question}`}
             className={`group relative flex w-full rounded-lg items-center px-5 py-4 text-left text-base transition focus:outline-none ${
               activeElement === question
-                ? "bg-secondary dark:bg-neutral-800"
-                : "bg-white dark:bg-neutral-800"
+                ? "bg-sky-100 dark:bg-sky-100"
+                : "bg-white dark:bg-white"
             }`}
           >
             <strong>{question}</strong>
