@@ -78,6 +78,15 @@ function BreifRules() {
             <SubHeading className="mb-6">Brief Rules</SubHeading>
             <SubHeading2>What is Singapore Economics League?</SubHeading2>
             <UnorderedList items={["SEL is a 3-hour long, team online problem solving competition."]} />
+            <SubHeading2>Team rules:</SubHeading2>
+            <UnorderedList items={["Teams comprise of 3 to 5 members"]} />
+            <SubHeading2>Who can participate?</SubHeading2>
+            <UnorderedList items={["SEL is open to all students in pre-university education, ie Junior Colleges, Secondary Schools, Polytechnics, ITE, international high schools or equivalent"]} />
+            <SubHeading2>What is allowed?</SubHeading2>
+            <UnorderedList items={["All internet resources such as textbooks, and any computer programs such graphing software and IDEs are allowed. Generative AI tools such as ChatGPT are discouraged from use, but also allowed.", 
+                                    "Communication with individuals outside the team related to the problems is strictly prohibited."]} />
+            <SubHeading2>Competition format</SubHeading2>
+            <UnorderedList items={["Teams are awarded points for successfully answering problems. Correct answers unlock new, harder problems. Wrong answers and skipping problems lead to less points. The teams with the most points win!"]} />
         </section>
     );
 }
@@ -88,7 +97,12 @@ function Registration() {
             <SubHeading className="mb-6">Registration</SubHeading>
             <UnorderedList items={[
                 "Participants must register in the competition in order to participate.",
-                "Registration is open at sgeconsleague.org, during the period 1st May to 30th June 2025"
+                "Registration is open at sgeconsleague.org, during the period 1st May to 30th June 2025",
+                "Teams consist of 3 to 5 members",
+                "All team members must be pre-university students: ie studying in high school/equivalent or below. (Students at JCs/MI, Secondary Schools, Polytechnics, international high schools, and other equivalent institutions.)",
+                "Each contestant is a member of only one team",  
+                "Team names cannot be offensive. The SEL Organisers reserve the right to alter the name or disqualify any team whose team name is deemed to be offensive.",  
+                "By participating, teams agree to follow the rules of Singapore Economics League, and the participant Code of Conduct",
             ]} />
         </section>
     );
@@ -99,8 +113,10 @@ function CompetitionPlatform() {
         <section className="mt-12" id="Competition-platform">
             <SubHeading className="mb-6">Competition Platform</SubHeading>
             <UnorderedList items={[
-                "Teams participate in SEL via the online competition platform",
-                "The link to the competition platform will be accessible via the SEL website."
+                "Teams participate in SEL via the online competition platform",  
+                "The link to the competition platform will be accessible via the SEL website.",  
+                "Log-in details for individual teams will be sent to them by email a few days before the contest date.",  
+                "The competition platform will feature a live leaderboard that ranks the points of teams in real time. During the final 30 minutes of the contest, the live leaderboard will be hidden, for added suspense.",
             ]} />
         </section>
     );
@@ -111,8 +127,21 @@ function QuestionTypes() {
         <section className="mt-12" id="Question-types">
             <SubHeading className="mb-6">Question Types</SubHeading>
             <OrderedList items={[
-                ["MCQ", ["Participants choose 1 answer out of 4"]],
-                ["Integer", ["Participants enter an Integer from -99999 to 99999"]]
+                ["MCQ", ["Choose 1 answer out of 4 options, A/B/C/D."]],
+                ["MCQ Multi-select", ["Choose N answers out of M options, where N ≤ M.", "No marks are awarded for partially correct answers."]],
+                ["Integer", ["Enter an Integer from -99999 to 99999."]],
+                ["Integer Set", ["Individually input a set of N integers."]],
+                ["Float", ["Enter numeric values with decimals from -99999.99999 to 99999.99999.", "Submitted answers with a degree of accuracy greater than that specified by the question will also be accepted."]],
+                ["Sort", ["Sort N different values into the correct sequence."]],
+                ["True False Set", ["Give your answer to N True/False questions."]],
+                ["String", ["Input a string of up to 30 characters in length.", "An exact match is needed. Additional characters or white spaces will render the answer incorrect."]],
+                ["String Set", ["Input a set of N strings."]],
+                ["Table", ["Key in the contents of an N by M table.", "Questions can require answers as either String Tables or Integer Tables."]]
+            ]} />
+            <br></br>
+            <UnorderedList items = {[
+                "Each MCQ, MCQ Multi-select, Sort, and True False Set question-part will be limited to 3 attempts per team. Following 3 incorrect attempts, the question-part will be disabled and 0 points will be awarded for that part.",  
+                "Note that no marks are awarded for questions with partially correct answers. An exact match is always needed to gain credit."
             ]} />
         </section>
     );
@@ -222,6 +251,10 @@ function PointsAndScoring() {
                 </tbody>
 
             </table>
+            <UnorderedList items = {[
+                "Every 30 minutes, teams receive a free skip, allowing them to skip questions without penalty.",  
+                "If a team has no free skips, skipping a question will incur a penalty of 3 points.",
+            ]} />
             <SubHeading2>Ecomania</SubHeading2>
             <UnorderedList items = {[
                 "At 10.00 am, the additional section Economania is opened, with a table of 15 new problems to be attempted. There are 5 categories with 3 problems each, namely Microeconomics, Firms, Game Theory, Macroeconomics, and Financial Economics:"
