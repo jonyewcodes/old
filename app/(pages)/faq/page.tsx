@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import FaqBox from "../../components/FaqBox";
 
 const Faq: React.FC = () => {

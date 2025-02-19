@@ -377,15 +377,10 @@ const homePage = () => {
         <div className="max-w-screen-xl mx-auto flex flex-col gap-6">
           {/* Large Centered Box */}
           <div className="border-2 border-[#DEE7FB] rounded-tl-2xl rounded-br-2xl p-14 w-full flex flex-col items-center text-center bg-white">
-<<<<<<< HEAD
-            <h3 className="text-3xl font-bold text-[#343131] mt-6">Join our Community</h3>
-            <p className="text-[#43291F] mt-7 max-w-lg">
-=======
             <h3 className="text-3xl font-bold text-[#343131]">
               Join our Community
             </h3>
             <p className="text-[#43291F] mt-6 max-w-lg">
->>>>>>> 1a5ef33f7444c3a967eccea10838ae36bbfa00eb
               Ask questions, make friends, and form teams. Good vibes only!
             </p>
 
