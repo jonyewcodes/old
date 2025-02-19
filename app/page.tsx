@@ -367,8 +367,8 @@ const homePage = () => {
           
           {/* Large Centered Box */}
           <div className="border-2 border-[#DEE7FB] rounded-tl-2xl rounded-br-2xl p-14 w-full flex flex-col items-center text-center bg-white">
-            <h3 className="text-3xl font-bold text-[#343131]">Join our Community</h3>
-            <p className="text-[#43291F] mt-6 max-w-lg">
+            <h3 className="text-3xl font-bold text-[#343131] mt-6">Join our Community</h3>
+            <p className="text-[#43291F] mt-7 max-w-lg">
               Ask questions, make friends, and form teams. Good vibes only!
             </p>
 
@@ -377,7 +377,7 @@ const homePage = () => {
               href="https://discord.gg/SEk9HrXk" 
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 px-5 py-2 bg-[#5865F2] text-white text-lg font-semibold rounded-lg hover:bg-[#3A91C9] transition flex items-center space-x-2"
+              className="mt-9 px-5 py-2 bg-[#5865F2] text-white text-base font-semibold rounded-lg hover:bg-[#3A91C9] transition flex items-center space-x-2"
             >
               {/* Discord Animated Logo (GIF) */}
               <img 
@@ -403,9 +403,9 @@ const homePage = () => {
                 {/* Button linking to FAQ page */}
                 <a 
                   href="/faq"
-                  className="mt-6 inline-block px-6 py-3 bg-[#4CA9DF] text-white text-base font-semibold rounded-lg hover:bg-[#3A91C9] transition"
+                  className="border-2 border-[#dde7e3] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg hover:bg-[#3A91C9] transition"
                 >
-                  Read our FAQ →
+                  Read our FAQ 🡒
                 </a>
               </div>
             </div>
@@ -420,9 +420,9 @@ const homePage = () => {
                 {/* Button linking to Sample Questions page */}
                 <a 
                   href="/sample-questions"
-                  className="mt-6 inline-block px-6 py-3 bg-[#4CA9DF] text-white text-base font-semibold rounded-lg hover:bg-[#3A91C9] transition"
+                  className="border-2 border-[#dde7e3] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg hover:bg-[#3A91C9] transition"
                 >
-                  View Past Questions →
+                  View Past Questions 🡒
                 </a>
               </div>
             </div>
