@@ -15,8 +15,9 @@ export default function SampleQuestionsPage() {
           Economic Crisis on Arrakis
         </h2>
         <p className="text-gray-600 mb-4">
-          The planet Arrakis faces economic turmoil after a sudden change in
-          spice trade regulations. How will this impact supply and demand?
+          Examines the economic consequences of political upheaval and market
+          restructuring, analysing the effects of decentralised production and
+          supply chain disruptions on trade and labour allocation.
         </p>
         <a
           href="https://drive.google.com/file/d/1FlMD5ZZ6KlNwrxzEght5rgBpR2WhH8PN/view?usp=drive_link"
@@ -36,8 +37,9 @@ export default function SampleQuestionsPage() {
           Competition Sign-Ups
         </h2>
         <p className="text-gray-600 mb-4">
-          Jon is organizing an economics contest and needs to price entry fees
-          effectively to maximize sign-ups and revenue.
+          Analyses the impact of network externalities on competition
+          participation and pricing strategy, examining how an organiser can
+          maximise revenue by considering price elasticity and peer influence.
         </p>
         <a
           href="https://drive.google.com/file/d/1Hz9QmDKc_W0HmpxKWzWJBOMor7yDyIGE/view?usp=drive_link"
@@ -54,14 +56,15 @@ export default function SampleQuestionsPage() {
           HARD
         </span>
         <h2 className="text-xl font-bold mb-2 w-4/5 truncate ">
-          Market Failure & Government Intervention
+          The AI Dilemma: Growth versus Existential Risk
         </h2>
         <p className="text-gray-600 mb-4">
-          Examine how government policies can resolve market failures and their
-          potential unintended consequences.
+          Explores the trade-off between economic growth and existential risks
+          posed by Artificial Intelligence, as discussed in a research paper by
+          Stanford professor Dr. Charles Jones.
         </p>
         <a
-          href="https://drive.google.com/file/d/1Hz9QmDKc_W0HmpxKWzWJBOMor7yDyIGE/view?usp=drive_link" // Update when Hard question is ready
+          href="https://drive.google.com/file/d/132-pfUdmQSYnAhOySHH39MSS-P66aQZQ/view?usp=drive_link"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white bg-gradient-to-r from-blue-500 to-blue-700 px-4 py-2 rounded-lg font-bold hover:opacity-80 "
