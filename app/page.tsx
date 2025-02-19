@@ -43,9 +43,18 @@ const homePage = () => {
     }
 
     return {
-      days: String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, "0"),
-      hours: String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, "0"),
-      minutes: String(Math.floor((difference / (1000 * 60)) % 60)).padStart(2, "0"),
+      days: String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(
+        2,
+        "0"
+      ),
+      hours: String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(
+        2,
+        "0"
+      ),
+      minutes: String(Math.floor((difference / (1000 * 60)) % 60)).padStart(
+        2,
+        "0"
+      ),
       seconds: String(Math.floor((difference / 1000) % 60)).padStart(2, "0"),
     };
   }
@@ -177,54 +186,50 @@ const homePage = () => {
       </section>
 
       {/* Countdown Timer Section */}
-      <section className="flex flex-col items-center justify-center py-14 px-12 relative">
-        {/* Title */}
-        <h2 className="text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#E0E0E0] to-[#F1F3F5]">
+      <section className="flex flex-col items-center justify-center py-12 px-10 relative">
+        <h2 className="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4CA9DF] to-[#1DBF9F]">
           Let’s roll
         </h2>
 
         {/* Countdown Box */}
-        <div className="bg-[#f4f4f4] w-full max-w-3xl p-12 rounded-xl shadow-lg text-center relative overflow-hidden">
-          
-          {/* Stronger Glossy Diagonal Streak */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "linear-gradient(120deg, rgba(255,255,255,0.25) 20%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.25) 80%)",
-              mixBlendMode: "overlay",  // Ensures it interacts with background colors
-              opacity: "0.6",  // Makes it more visible
-              transform: "scale(1.5) rotate(10deg)",  // Enlarges and positions the gloss correctly
-              pointerEvents: "none",
-            }}
-          ></div>
-
-          {/* Timer Labels */}
-          <div className="relative z-10 flex justify-center gap-12 text-sm font-medium text-[#3F3B3A] uppercase mb-4 tracking-widest">
-            <span>Days</span>
-            <span>Hours</span>
-            <span>Minutes</span>
-            <span>Seconds</span>
-          </div>
-
-          {/* Countdown Digits */}
-          <div className="relative z-10 flex justify-center items-center text-7xl font-bold text-[#3F3B3A]">
-            <span>{timeLeft.days}</span>
-            <span className="mx-2 text-5xl font-light">:</span>
-            <span>{timeLeft.hours}</span>
-            <span className="mx-2 text-5xl font-light">:</span>
-            <span>{timeLeft.minutes}</span>
-            <span className="mx-2 text-5xl font-light">:</span>
-            <span>{timeLeft.seconds}</span>
+        <div className="bg-[#f4f4f4] w-full max-w-3xl p-10 rounded-xl shadow-lg text-center relative mt-5">
+          {/* Timer Labels & Digits */}
+          <div className="flex items-center justify-center gap-6">
+            {["Days", "Hours", "Minutes", "Seconds"]
+              .map((label, index) => (
+                <div key={label} className="flex flex-col items-center">
+                  <span className="text-xs font-medium text-[#3F3B3A] uppercase tracking-widest mb-2 flex items-center justify-center">
+                    {label}
+                  </span>
+                  <span className="text-6xl font-bold text-[#3F3B3A] flex items-center">
+                    {Object.values(timeLeft)[index]}
+                  </span>
+                </div>
+              ))
+              .reduce<JSX.Element[]>((acc, elem, idx, arr) => {
+                if (idx < arr.length - 1) {
+                  return [
+                    ...acc,
+                    elem,
+                    <span
+                      key={`colon-${idx}`}
+                      className="text-5xl font-light mx-2 flex items-center"
+                    >
+                      :
+                    </span>,
+                  ];
+                }
+                return [...acc, elem];
+              }, [])}
           </div>
 
           {/* Countdown Footer */}
-          <div className="relative z-10">
-            <p className="text-[#43291F] text-xl mt-5">Till the Challenge Starts</p>
-            <p className="text-xl font-semibold text-[#43291F]">- 12th July 2025 -</p>
-          </div>
+          <p className="text-[#43291F] text-lg mt-4">
+            Till the Challenge Starts
+          </p>
+          <p className="text-lg font-semibold text-[#43291F]">19th July 2025</p>
         </div>
       </section>
-
       {/* Numbered Section with Alternating Layout */}
       <section className="py-24 px-10 lg:px-36 w-full">
         <div className="flex flex-col gap-24">
@@ -240,7 +245,8 @@ const homePage = () => {
                 No Boundaries, No Limits
               </h3>
               <p className="text-black mt-6 text-2xl">
-                An online contest, accessible from anywhere. Log on from <br /> the comfort of your home and put your wits to the test!
+                An online contest, accessible from anywhere. Log on from <br />{" "}
+                the comfort of your home and put your wits to the test!
               </p>
             </div>
           </div>
@@ -253,7 +259,8 @@ const homePage = () => {
                 Calling all Pre-U Students!
               </h3>
               <p className="text-black mt-6 text-2xl">
-                Studying in a JC/MI, local polytechnic, ITE, or <br /> secondary school? You are eligible to participate!
+                Studying in a JC/MI, local polytechnic, ITE, or <br /> secondary
+                school? You are eligible to participate!
               </p>
             </div>
             <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FFAE00] to-[#F9E866] relative z-10">
@@ -273,7 +280,8 @@ const homePage = () => {
                 Build Your Dream Team
               </h3>
               <p className="text-black mt-6 text-2xl">
-                From classmates to friends in other schools, assemble <br /> the team of your choice to win it all!
+                From classmates to friends in other schools, assemble <br /> the
+                team of your choice to win it all!
               </p>
             </div>
           </div>
@@ -286,7 +294,8 @@ const homePage = () => {
                 From Numbers to Narrative
               </h3>
               <p className="text-black mt-6 mb-6 text-2xl">
-                Every question will challenge your wit, <br /> knowledge, and problem-solving skills in novel <br /> and unexpected ways.
+                Every question will challenge your wit, <br /> knowledge, and
+                problem-solving skills in novel <br /> and unexpected ways.
               </p>
               <a
                 href="/sample-questions"
@@ -346,7 +355,9 @@ const homePage = () => {
 
           {/* Description */}
           <p className="text-center text-black text-lg mb-12">
-            Register now and be part of an exciting journey where you get to put your economics knowledge to the test, work with others, and have fun while doing it!
+            Register now and be part of an exciting journey where you get to put
+            your economics knowledge to the test, work with others, and have fun
+            while doing it!
           </p>
 
           {/* Register Button */}
@@ -364,25 +375,31 @@ const homePage = () => {
       {/* Information Section with One Large Centered Box and Two Side Boxes */}
       <section className="w-full py-16 px-8 lg:px-20">
         <div className="max-w-screen-xl mx-auto flex flex-col gap-6">
-          
           {/* Large Centered Box */}
           <div className="border-2 border-[#DEE7FB] rounded-tl-2xl rounded-br-2xl p-14 w-full flex flex-col items-center text-center bg-white">
+<<<<<<< HEAD
             <h3 className="text-3xl font-bold text-[#343131] mt-6">Join our Community</h3>
             <p className="text-[#43291F] mt-7 max-w-lg">
+=======
+            <h3 className="text-3xl font-bold text-[#343131]">
+              Join our Community
+            </h3>
+            <p className="text-[#43291F] mt-6 max-w-lg">
+>>>>>>> 1a5ef33f7444c3a967eccea10838ae36bbfa00eb
               Ask questions, make friends, and form teams. Good vibes only!
             </p>
 
             {/* Discord Button with Link */}
-            <a 
-              href="https://discord.gg/SEk9HrXk" 
+            <a
+              href="https://discord.gg/SEk9HrXk"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-9 px-5 py-2 bg-[#5865F2] text-white text-base font-semibold rounded-lg hover:bg-[#3A91C9] transition flex items-center space-x-2"
             >
               {/* Discord Animated Logo (GIF) */}
-              <img 
-                src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif" 
-                alt="Discord" 
+              <img
+                src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif"
+                alt="Discord"
                 className="w-6 h-6"
               />
               {/* Button Text */}
@@ -392,16 +409,16 @@ const homePage = () => {
 
           {/* Two Smaller Boxes (Equal Width Combined) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-            
             {/* Small Box 1 - FAQ */}
             <div className="bg-[#DEE7FB] rounded-tl-2xl rounded-br-2xl p-14 flex flex-col items-start">
               <div className="max-w-sm">
                 <h3 className="text-3xl font-bold text-[#343131]">FAQ</h3>
                 <p className="text-[#43291F] mt-4">
-                  Got a question on your mind? <br/>We may have already answered it!
+                  Got a question on your mind? <br />
+                  We may have already answered it!
                 </p>
                 {/* Button linking to FAQ page */}
-                <a 
+                <a
                   href="/faq"
                   className="border-2 border-[#dde7e3] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg hover:bg-[#3A91C9] transition"
                 >
@@ -413,12 +430,15 @@ const homePage = () => {
             {/* Small Box 2 - Sample Questions */}
             <div className="bg-[#DEE7FB] rounded-tl-2xl rounded-br-2xl p-14 flex flex-col items-start">
               <div className="max-w-sm">
-                <h3 className="text-3xl font-bold text-[#343131]">Sample Questions</h3>
+                <h3 className="text-3xl font-bold text-[#343131]">
+                  Sample Questions
+                </h3>
                 <p className="text-[#43291F] mt-4">
-                  Learn more about the format and <br />structure of our questions!
+                  Learn more about the format and <br />
+                  structure of our questions!
                 </p>
                 {/* Button linking to Sample Questions page */}
-                <a 
+                <a
                   href="/sample-questions"
                   className="border-2 border-[#dde7e3] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg hover:bg-[#3A91C9] transition"
                 >
@@ -429,7 +449,6 @@ const homePage = () => {
           </div>
         </div>
       </section>
-
 
       {/* Team Members Section */}
       <section className="py-12 px-12 text-center">
