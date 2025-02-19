@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -6,10 +7,10 @@ import { useState, useEffect } from "react";
 const sectionIds = [
   "Rules",
   "Registration",
-  "Competition-platform",
-  "Question-types",
-  "Points-and-scoring",
-  "Awards-and-rankings",
+  "Competition Platform",
+  "Question Types",
+  "Points and Scoring",
+  "Awards and Rankings",
 ];
 
 interface SubHeadingProps {
@@ -219,7 +220,7 @@ function QuestionTypes() {
 }
 
 function SideBar({ selected }: { selected?: string }) {
-  const selectedStyle = "text-accent font-bold lg:ml-4";
+  const selectedStyle = "text-secondary font-bold lg:ml-4";
   return (
     <div className="text-center lg:text-left items-center lg:items-start bg-transparent px-2 w-full lg:w-96 lg:pr-8 py-4 lg:py-8 flex flex-row lg:flex-col gap-4 sticky top-0 lg:top-6 border-b-2 lg:border-b-0 border-[#D0D0D0]">
       {sectionIds.map((id) => (
@@ -359,7 +360,7 @@ function PointsAndScoring() {
               Firms Q1
             </td>
             <td className="border border-gray-300 px-4 py-2 text-center">
-              Game tdeory Q1
+              Game theory Q1
             </td>
             <td className="border border-gray-300 px-4 py-2 text-center">
               Macro Q1
@@ -376,7 +377,7 @@ function PointsAndScoring() {
               Firms Q2 (Locked)
             </td>
             <td className="border border-gray-300 px-4 py-2 text-center">
-              Game tdeory Q2 (Locked)
+              Game theory Q2 (Locked)
             </td>
             <td className="border border-gray-300 px-4 py-2 text-center">
               Macro Q2 (Locked)
@@ -393,7 +394,7 @@ function PointsAndScoring() {
               Firms Q3 (Locked)
             </td>
             <td className="border border-gray-300 px-4 py-2 text-center">
-              Game tdeory Q3 (Locked)
+              Game theory Q3 (Locked)
             </td>
             <td className="border border-gray-300 px-4 py-2 text-center">
               Macro Q3 (Locked)
@@ -458,24 +459,33 @@ export default function RulesPage() {
         if (element) observer.unobserve(element);
       });
     };
-  }, [sectionIds]); // ✅ Fix: Adding sectionIds to dependency array
+  }, [sectionIds]); 
 
   return (
-    <div className="px-2 lg:px-32 py-12">
-      <h1 className="px-8 lg:px-0 text-5xl font-bold text-center mb-6">
-        Rules
-      </h1>
-      <div className="my-4 lg:my-16 flex items-start flex-col lg:flex-row">
-        <SideBar selected={selected} />
-        <div className="px-12 py-8 lg:border-l-2 lg:border-t-0 border-[#D0D0D0]">
-          <BreifRules />
-          <Registration />
-          <CompetitionPlatform />
-          <QuestionTypes />
-          <PointsAndScoring />
-          <AwardsAndRankings />
+    <>
+      {/* Compact Gradient Background for Header */}
+      <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[120px] flex items-center px-6 lg:px-12">
+        <h1 className="mr-auto ml-auto max-w-[1550px] text-6xl font-medium text-left font-serif">Rules</h1>
+      </div>
+
+      {/* Main Content Section - Proper Left Alignment */}
+      <div className="px-2 lg:px-8 ml-auto mr-auto max-w-[1550px] pb-32">
+        <div className="my-4 lg:my-12 flex items-start flex-col lg:flex-row">
+          {/* Sidebar Navigation - Shifted Left */}
+          <div className="lg:w-64 lg:pr-4">
+            <SideBar selected={selected} />
+          </div>
+
+          <div className="px-12 py-6 lg:border-l-2 lg:border-t-0 border-[#D0D0D0] w-full max-w-[800px] lg:max-w-[960px]">
+            <BreifRules />
+            <Registration />
+            <CompetitionPlatform />
+            <QuestionTypes />
+            <PointsAndScoring />
+            <AwardsAndRankings />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    </>
+  );  
 }

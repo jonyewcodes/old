@@ -1,34 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 import FaqBox from "../../components/FaqBox";
 
 const Faq: React.FC = () => {
   return (
-    <main className="flex min-h-screen flex-col bg-gray-100 text-gray-800 max-w-">
-      <div className="px-4 lg:px-16 py-10 flex flex-col items-center text-center">
-        <section className="text-center">
-          <h1 className="px-8 lg:px-0 text-5xl font-bold text-center mb-6">
-            Frequently Asked Questions (FAQs)
-          </h1>
-          <div id="accordion" className="w-[100%] mx-auto">
+    <main className="flex min-h-screen flex-col text-gray-800">
+      {/* Gradient Header - Fully Spread, Left-Aligned */}
+      <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[120px] flex items-center px-6 lg:px-12">
+        <h1 className="max-w-[1550px] text-6xl font-medium text-left font-serif">
+          FAQ
+        </h1>
+      </div>
+
+      {/* FAQ Content - Fully Left-Aligned, Controlled Width */}
+      <div className="px-6 lg:px-12 ml-auto mr-auto max-w-[1550px] pb-32">
+        <div className="my-4 lg:my-12 flex flex-col items-start">
+          {/* FAQ Container - Left Aligned & Consistent Width */}
+          <div className="w-full max-w-[1000px]">
             <FaqBox
               question="Can my team be composed of members from different schools?"
               answer="Absolutely, as long as each teammate meets the eligibility criteria!"
             />
             <FaqBox
-              question="Change I change the name and details of my team after registration?"
+              question="Can I change the name and details of my team after registration?"
               answer="The information submitted during registration is final!"
             />
             <FaqBox
-              question="Should I participate even if I have not studied H2 or Olympiad level economics"
-              answer="Yes! All pre-U students, regardless of their subjects, can participate. SEL has questions of a wide range of difficulties, so you can challenge yourself regardless of your economics proficiency. !"
+              question="Should I participate even if I have not studied H2 or Olympiad level economics?"
+              answer="Yes! All pre-U students, regardless of their subjects, can participate. SEL has questions of a wide range of difficulties, so you can challenge yourself regardless of your economics proficiency."
             />
             <FaqBox
               question="May I use the internet during this competition?"
-              answer="Yes! Online resources such as textbooks, research papers, graphing calculators and computing software can all be used to aid in solving questions.!"
+              answer="Yes! Online resources such as textbooks, research papers, graphing calculators, and computing software can all be used to aid in solving questions."
             />
             <FaqBox
               question="How do we obtain new problems to solve during the contest?"
-              answer="After completing or skipping an existing question, your team can choose a new questions from a pool of subsequent questions. You can attempt a maximum of 4 main problems at any one time."
+              answer="After completing or skipping an existing question, your team can choose new questions from a pool of subsequent questions. You can attempt a maximum of 4 main problems at any one time."
             />
             <FaqBox
               question="What is the difficulty of SEL questions?"
@@ -36,7 +42,7 @@ const Faq: React.FC = () => {
             />
             <FaqBox
               question="What happens if I submit a wrong answer?"
-              answer="you can reattempt a question-part as many times as you need, but the points awarded for a correct answer will diminish. Certain questions such as MCQs have a limit of 3 attempts."
+              answer="You can reattempt a question-part as many times as you need, but the points awarded for a correct answer will diminish. Certain questions such as MCQs have a limit of 3 attempts."
             />
             <FaqBox
               question="May I skip questions?"
@@ -51,7 +57,7 @@ const Faq: React.FC = () => {
               answer="Please email contact@sgeconsleague.org, and we will tend to any further questions you may have!"
             />
           </div>
-        </section>
+        </div>
       </div>
     </main>
   );

@@ -1,66 +1,73 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaInstagram } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-secondary text-white py-12">
-      <div className="relative mx-auto grid grid-cols-1 lg:grid-cols-3 px-6 lg:px-24 justify-start w-full gap-6 lg:gap-20">
+    <footer className="relative bg-[#d1e3ec] text-[#3F3B3A] py-12">
+      <div className="relative mx-auto px-6 lg:px-24 flex flex-col lg:flex-row items-start justify-start w-full max-w-screen-xl gap-16">
         
-        {/* Logo & Contact Section */}
-        <div className="flex flex-col gap-8 items-start">
-          <Image
-            src="/footer.png"
-            alt="Logo"
-            className="w-42 h-auto"
-            width={160}
-            height={68}
-          />
-          <div>
-            <Link href="https://www.instagram.com/sgeconsleague/">
-                <FaInstagram size={40}/>
+        {/* Left Section - Site Map */}
+        <div className="flex flex-col gap-2">
+          <p className="text-lg font-semibold">Site Map</p>
+          <ul className="text-base gap-2 flex flex-col">
+            <li><Link href="/rules" className="hover:underline transition">Rules</Link></li>
+            <li><Link href="/sample-questions" className="hover:underline transition">Sample Problems</Link></li>
+            <li><Link href="/faq" className="hover:underline transition">FAQ</Link></li>
+          </ul>
+        </div>
+
+        {/* Middle Section - Contact Us */}
+        <div className="flex flex-col gap-2">
+          <p className="text-lg font-semibold">Us</p>
+          <ul className="text-base gap-2 flex flex-col">
+            <li>
+              <Link href="mailto:contact@sgeconsleague.org" className="flex items-center gap-2 hover:underline transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" />
+                  <path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" />
+                </svg>
+                <span>contact@sgeconsleague.org</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="https://www.instagram.com/sgeconsleague/" className="flex items-center gap-2 hover:underline transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M16 3a5 5 0 0 1 5 5v8a5 5 0 0 1 -5 5h-8a5 5 0 0 1 -5 -5v-8a5 5 0 0 1 5 -5zm-4 5a4 4 0 0 0 -3.995 3.8l-.005 .2a4 4 0 1 0 4 -4m4.5 -1.5a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1" />
+                </svg>
+                <span>@sgeconsleague</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Right Section - Design Credits */}
+        <div className="flex flex-col gap-2">
+          <p className="text-lg font-semibold">Design</p>
+          <div className="flex items-center gap-2">
+            <p>Inspired by</p>
+            <Link href="https://sgbioleague.org/" className="hover:underline transition">
+              <span className="text-[#4CA9DF]">@Singapore Biology League</span>
             </Link>
           </div>
-          <p className="text-lg font-bold">
-            Email:{" "}
-            <Link href="mailto:contact@sgeconsleague.org" className="underline hover:text-[#7AD6D4] transition">
-                <MdEmail /><span>contact@sgeconsleague.org</span>
-            </Link>
-          </p>
         </div>
+      </div>
 
-        {/* Sitemap Section */}
-        <div className="border-y-2 lg:border-y-0 lg:border-x-2 border-white/30 px-16 py-6">
-          <p className="font-bold text-xl mb-6">Sitemap</p>
-          <ul className="text-lg gap-4 flex flex-col">
-            <li><Link href="/rules" className="hover:text-[#A0E7E6] transition-colors duration-200">Rules</Link></li>
-            <li><Link href="/schedules" className="hover:text-[#A0E7E6] transition-colors duration-200">Schedules</Link></li>
-            <li><Link href="/sample-questions" className="hover:text-[#A0E7E6] transition-colors duration-200">Sample Questions</Link></li>
-            <li><Link href="/faq" className="hover:text-[#A0E7E6] transition-colors duration-200">FAQ</Link></li>
-          </ul>
-        </div>
+      {/* Copyright - Now Aligned with the Sections */}
+      <div className="mt-8 px-6 lg:px-24 text-left text-sm text-gray-600">
+        © 2025 Singapore Economics League
+      </div>
 
-        {/* Legal Section */}
-        <div className="py-6 px-16 lg:px-2">
-          <p className="font-bold mb-6 text-xl">© 2025 SEL</p>
-          <ul className="flex flex-col gap-4 text-lg">
-            <li><Link href="/privacy" className="hover:text-[#A0E7E6] transition-colors duration-200">Privacy</Link></li>
-            <li><Link href="/terms" className="hover:text-[#A0E7E6] transition-colors duration-200">Terms of Use</Link></li>
-          </ul>
-        </div>
-
-        {/* Coin Image Shifted Left and Higher */}
-        <div className="absolute bottom-[80px] right-[30px] hidden lg:block">
-          <Image 
-            src="/emoticons/coin_holding_sunglasses.png" // Replace with actual path
-            alt="Big Coin"
-            width={450} // Adjusted for better visibility
-            height={450}
-            className="opacity-90"
-          />
-        </div>
-
+      {/* Big Coin Image - Properly Positioned */}
+      <div className="absolute bottom-6 right-80 hidden lg:block">
+        <Image 
+          src="/emoticons/coin_holding_sunglasses.png"
+          alt="Big Coin"
+          width={380}
+          height={380}
+          className="opacity-90 transition-transform duration-300 ease-in-out hover:scale-110 hover:rotate-[10deg]"
+        />
       </div>
     </footer>
   );
