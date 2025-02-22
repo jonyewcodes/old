@@ -13,16 +13,13 @@ import {
   Legend,
 } from "chart.js";
 
-// Register Chart.js components
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
-// Dynamically import the Line component (disabling SSR for Chart.js)
 const LineChart = dynamic(
   () => import("react-chartjs-2").then((mod) => mod.Line),
   { ssr: false }
 );
 
-// Generate stock data (random walk with drift)
 const generateStockData = () => {
   const days = 100;
   const labels = [];
@@ -41,25 +38,16 @@ const generateStockData = () => {
   return { labels, data };
 };
 
-// StockChart component
 const StockChart = () => {
-  // Generate the base data once
   const { labels, data } = useMemo(() => generateStockData(), []);
-
-  // Main line is shifted up by 5
   const mainLine = data.map((val) => val + 5);
-
-  // Supporting line #1: slightly offset + small random variation
   const line2 = data.map((val) => val + (Math.random() - 0.5) * 2);
-
-  // Supporting line #2: offset further up + small random variation
   const line3 = data.map((val) => val + 8 + (Math.random() - 0.5) * 2);
 
   const chartData = {
     labels,
     datasets: [
       {
-        // Main line
         label: "",
         data: mainLine,
         borderColor: "#5a96d9",
@@ -68,7 +56,6 @@ const StockChart = () => {
         tension: 0.1,
       },
       {
-        // Supporting line #1
         label: "",
         data: line2,
         borderColor: "#a5c1ed",
@@ -77,7 +64,6 @@ const StockChart = () => {
         tension: 0.1,
       },
       {
-        // Supporting line #2
         label: "",
         data: line3,
         borderColor: "#c2d4f4",
@@ -98,14 +84,8 @@ const StockChart = () => {
       tooltip: { enabled: false },
     },
     scales: {
-      x: {
-        display: false,
-        grid: { display: false },
-      },
-      y: {
-        display: false,
-        grid: { display: false },
-      },
+      x: { display: false, grid: { display: false } },
+      y: { display: false, grid: { display: false } },
     },
   };
 
@@ -117,12 +97,10 @@ const StockChart = () => {
 };
 
 const homePage = () => {
-  // Event details
   const eventDate = "Sat · 19th July 2025 ·";
   const eventTime = "9 AM — 1 PM SGT";
   const eventTimestamp = new Date("July 19, 2025 09:00:00").getTime();
 
-  // Title and description
   const title = (
     <>
       Competitive Online <br />
@@ -141,7 +119,6 @@ const homePage = () => {
 
   const rulesLink = "/rules";
 
-  // Countdown initialization
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   const [isModalOpen, setModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -161,7 +138,6 @@ const homePage = () => {
   }
 
   useEffect(() => {
-    // Tally embed script
     const script = document.createElement("script");
     script.src = "https://tally.so/widgets/embed.js";
     script.async = true;
@@ -171,7 +147,6 @@ const homePage = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Team members list
   const teamMembers = [
     { name: "Ho Jon Yew", roles: ["Chief Organiser"], link: "https://www.linkedin.com/in/jon-yew-ho/" },
     { name: "Tevel Sho", roles: ["Deputy Chief Organiser", "Lead Developer"], link: "https://www.linkedin.com/in/tevelsho" },
@@ -200,14 +175,11 @@ const homePage = () => {
 
   return (
     <>
-      {/* Event Details Section with Chart in the background */}
+      {/* Event Details Section */}
       <section className="relative flex flex-col lg:flex-row items-start justify-start bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] py-24 px-8 lg:px-32 gap-8 overflow-hidden">
-        {/* Chart behind everything, slightly transparent */}
         <div className="absolute inset-0 z-0 opacity-30">
           <StockChart />
         </div>
-
-        {/* Main Event Content (z-10 so it appears above the chart) */}
         <div className="flex-1 max-w-[1650px] mx-auto px-8 lg:px-20 relative z-10">
           <div className="mb-12">
             <span className="border-2 border-[#D5E6F5] rounded-2xl bg-white text-[#343131] px-6 py-5 text-2xl">
@@ -218,10 +190,7 @@ const homePage = () => {
             {title}
           </h1>
           <p className="text-black font-small mb-6 leading-relaxed text-base">{description}</p>
-          <a
-            href={rulesLink}
-            className="text-accent font-bold underline hover:text-[#0092E8] transition text-lg"
-          >
+          <a href={rulesLink} className="text-accent font-bold underline hover:text-[#0092E8] transition text-lg">
             Competition Rules
           </a>
         </div>
@@ -263,10 +232,9 @@ const homePage = () => {
         </div>
       </section>
 
-      {/* Numbered Section with Alternating Layout */}
+      {/* Information Layout */}
       <section className="py-24 px-10 lg:px-36 w-full">
         <div className="flex flex-col gap-24">
-          {/* Item 1 */}
           <div className="relative flex items-center w-full">
             <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] skew-y-2 bg-[#e1ecf8]/30"></div>
             <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D1C6F3] to-[#E9BCAC] relative z-10">
@@ -280,7 +248,6 @@ const homePage = () => {
             </div>
           </div>
 
-          {/* Item 2 */}
           <div className="relative flex items-center justify-end w-full">
             <div className="relative z-10 -mr-8 pr-6 text-right max-w-3xl">
               <h3 className="text-3xl font-bold text-[#343131] mt-14">Calling all Pre-U Students!</h3>
@@ -293,7 +260,6 @@ const homePage = () => {
             </span>
           </div>
 
-          {/* Item 3 */}
           <div className="relative flex items-center w-full">
             <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] -skew-y-2 bg-[#e1ecf8]/30"></div>
             <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#A0F1EA] to-[#EAD6EE] relative z-10">
@@ -307,7 +273,6 @@ const homePage = () => {
             </div>
           </div>
 
-          {/* Item 4 */}
           <div className="relative flex items-center justify-end w-full">
             <div className="relative z-10 -mr-8 pr-6 text-right max-w-3xl">
               <h3 className="text-3xl font-bold text-[#343131] mt-36">From Numbers to Narrative</h3>
@@ -323,7 +288,6 @@ const homePage = () => {
             </span>
           </div>
 
-          {/* Item 5 */}
           <div className="relative flex items-center w-full">
             <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] skew-y-2 bg-[#e1ecf8]/30"></div>
             <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F1FEC6] to-[#107F5C] relative z-10">
@@ -343,9 +307,7 @@ const homePage = () => {
         </div>
       </section>
 
-      {/* (Timeline Section REMOVED) */}
-
-      {/* Call-to-Action Section */}
+      {/* Register Section */}
       <section className="flex items-center justify-center py-16 px-12 relative">
         <div className="border-2 border-[#D5E6F5] rounded-tr-3xl rounded-br-3xl w-full max-w-3xl p-12 relative">
           <h2 className="font-medium font-raleway text-center text-3xl font-bold mb-8">
@@ -369,7 +331,6 @@ const homePage = () => {
         </div>
       </section>
 
-      {/* Tally Form Modal - Smooth Transition */}
       {isModalOpen && (
         <div
           className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 ${
@@ -413,7 +374,7 @@ const homePage = () => {
         </div>
       )}
 
-      {/* Information Section with One Large Centered Box and Two Side Boxes */}
+      {/* Resource Section */}
       <section className="w-full py-16 px-8 lg:px-20">
         <div className="max-w-screen-xl mx-auto flex flex-col gap-6">
           <div className="border-2 border-[#DEE7FB] rounded-tl-2xl rounded-br-2xl p-14 w-full flex flex-col items-center text-center bg-white">
@@ -474,7 +435,7 @@ const homePage = () => {
         </div>
       </section>
 
-      {/* Team Members Section */}
+      {/* Organising Section */}
       <section className="py-12 px-8 lg:px-20 text-center">
         <h2 className="text-[#AEAEC066] text-5xl font-bold mb-4">Meet the</h2>
         <h1 className="text-black text-5xl lg:text-5xl font-bold mb-14">
@@ -523,10 +484,7 @@ const homePage = () => {
                     </a>
                     <div className="mt-2">
                       {member.roles.map((role, roleIndex) => (
-                        <p
-                          key={roleIndex}
-                          className="text-gray-600 text-lg whitespace-nowrap truncate"
-                        >
+                        <p key={roleIndex} className="text-gray-600 text-lg whitespace-nowrap truncate">
                           {role}
                         </p>
                       ))}
