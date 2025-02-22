@@ -4,18 +4,19 @@ import FaqBox from "../../components/FaqBox";
 const Faq: React.FC = () => {
   return (
     <main className="flex min-h-screen flex-col text-gray-800">
-      {/* Gradient Header - Fully Spread, Left-Aligned */}
-      <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[120px] flex items-center px-6 lg:px-12">
-        <h1 className="max-w-[1550px] text-6xl font-medium text-left font-serif">
-          FAQ
-        </h1>
+      <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center">
+        <div className="max-w-[1400px] w-full px-6 lg:px-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left font-serif">
+            FAQ
+          </h1>
+        </div>
       </div>
 
       {/* FAQ Content - Fully Left-Aligned, Controlled Width */}
-      <div className="px-6 lg:px-12 ml-auto mr-auto max-w-[1550px] pb-32">
-        <div className="my-4 lg:my-12 flex flex-col items-start">
+      <div className="flex items-center justify-center">
+        <div className="max-w-[1400px] w-full px-6 lg:px-12">
           {/* FAQ Container - Left Aligned & Consistent Width */}
-          <div className="w-full max-w-[1000px]">
+          <div className="w-full max-w-[1800px]">
             <FaqBox
               question="Can my team be composed of members from different schools?"
               answer="Absolutely, as long as each teammate meets the eligibility criteria!"

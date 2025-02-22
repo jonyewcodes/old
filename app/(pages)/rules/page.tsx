@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
 
 // Keep `sectionIds` outside the component to prevent unnecessary re-renders
@@ -152,7 +151,7 @@ function Registration() {
 
 function CompetitionPlatform() {
   return (
-    <section className="mt-12" id="Competition-platform">
+    <section className="mt-12" id="Competition Platform">
       <SubHeading className="mb-6">Competition Platform</SubHeading>
       <UnorderedList
         items={[
@@ -168,7 +167,7 @@ function CompetitionPlatform() {
 
 function QuestionTypes() {
   return (
-    <section className="mt-12" id="Question-types">
+    <section className="mt-12" id="Question Types">
       <SubHeading className="mb-6">Question Types</SubHeading>
       <OrderedList
         items={[
@@ -221,21 +220,29 @@ function QuestionTypes() {
 
 function SideBar({ selected }: { selected?: string }) {
   const selectedStyle = "text-secondary font-bold lg:ml-4";
+
+  const handleScroll = (id: string) => {
+    const mainContent = document.getElementById("main-content");
+    const section = document.getElementById(id);
+
+    if (mainContent && section) {
+      mainContent.scrollTo({
+        top: section.offsetTop - mainContent.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="text-center lg:text-left items-center lg:items-start bg-transparent px-2 w-full lg:w-96 lg:pr-8 py-4 lg:py-8 flex flex-row lg:flex-col gap-4 sticky top-0 lg:top-6 border-b-2 lg:border-b-0 border-[#D0D0D0]">
+    <div className="hidden lg:flex text-center lg:text-left items-center lg:items-start bg-transparent px-2 w-full lg:w-96 lg:pr-8 py-4 lg:py-8 flex-col gap-4 sticky top-0 lg:top-6 border-b-2 lg:border-b-0 border-[#D0D0D0]">
       {sectionIds.map((id) => (
-        <Link
-          href={`#${id}`}
+        <button
           key={id}
-          onClick={(e) => {
-            e.preventDefault();
-            document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-          }}
+          onClick={() => handleScroll(id)}
+          className={`text-left w-full ${selected === id ? selectedStyle : ""}`}
         >
-          <p className={selected === id ? selectedStyle : ""}>
-            {id.replace("-", " ")}
-          </p>
-        </Link>
+          {id.replace(/-/g, " ")}
+        </button>
       ))}
     </div>
   );
@@ -243,7 +250,7 @@ function SideBar({ selected }: { selected?: string }) {
 
 function PointsAndScoring() {
   return (
-    <section className="mt-12" id="Points-and-scoring">
+    <section className="mt-12" id="Points and Scoring">
       <SubHeading className="mb-6">Points and Scoring</SubHeading>
       <SubHeading2>Main Problems</SubHeading2>
       <UnorderedList
@@ -252,92 +259,46 @@ function PointsAndScoring() {
           "If a question-part is a Multiple Choice Question, a single incorrect answer will lead to all the points for that question being deducted.",
         ]}
       />
-      <table className="w-full mt-6 border-collapse border border-gray-300 text-center">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border border-gray-300 px-4 py-2 text-left">
-              No incorrect answers (total points)
-            </th>
-            <th className="border border-gray-300 px-4 py-2 text-left">
-              1 incorrect answer
-            </th>
-            <th className="border border-gray-300 px-4 py-2 text-left">
-              2 incorrect answers
-            </th>
-            <th className="border border-gray-300 px-4 py-2 text-left">
-              3 incorrect answers
-            </th>
-            <th className="border border-gray-300 px-4 py-2 text-left">
-              4+ incorrect answers
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2">2</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-          </tr>
-          <tr className="bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2">3</td>
-            <td className="border border-gray-300 px-4 py-2">2</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-          </tr>
-          <tr className="bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2">4</td>
-            <td className="border border-gray-300 px-4 py-2">3</td>
-            <td className="border border-gray-300 px-4 py-2">2</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-          </tr>
-          <tr className="bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2">5</td>
-            <td className="border border-gray-300 px-4 py-2">3</td>
-            <td className="border border-gray-300 px-4 py-2">2</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-          </tr>
-          <tr className="bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2">6</td>
-            <td className="border border-gray-300 px-4 py-2">4</td>
-            <td className="border border-gray-300 px-4 py-2">2</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-          </tr>
-          <tr className="bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2">7</td>
-            <td className="border border-gray-300 px-4 py-2">4</td>
-            <td className="border border-gray-300 px-4 py-2">2</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-          </tr>
-          <tr className="bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2">8</td>
-            <td className="border border-gray-300 px-4 py-2">5</td>
-            <td className="border border-gray-300 px-4 py-2">3</td>
-            <td className="border border-gray-300 px-4 py-2">2</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-          </tr>
-          <tr className="bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2">9</td>
-            <td className="border border-gray-300 px-4 py-2">5</td>
-            <td className="border border-gray-300 px-4 py-2">3</td>
-            <td className="border border-gray-300 px-4 py-2">2</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-          </tr>
-          <tr className="bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2">10</td>
-            <td className="border border-gray-300 px-4 py-2">5</td>
-            <td className="border border-gray-300 px-4 py-2">4</td>
-            <td className="border border-gray-300 px-4 py-2">2</td>
-            <td className="border border-gray-300 px-4 py-2">1</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table className="w-full mt-6 border-collapse border border-gray-300 text-center">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="border border-gray-300 px-4 py-2">
+                No incorrect answers (total points)
+              </th>
+              <th className="border border-gray-300 px-4 py-2">
+                1 incorrect answer
+              </th>
+              <th className="border border-gray-300 px-4 py-2">
+                2 incorrect answers
+              </th>
+              <th className="border border-gray-300 px-4 py-2">
+                3 incorrect answers
+              </th>
+              <th className="border border-gray-300 px-4 py-2">
+                4+ incorrect answers
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {[...Array(9)].map((_, i) => (
+              <tr key={i} className="bg-gray-100">
+                <td className="border border-gray-300 px-4 py-2">{i + 2}</td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {Math.max(i - 1, 1)}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {Math.max(i - 2, 1)}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {Math.max(i - 3, 1)}
+                </td>
+                <td className="border border-gray-300 px-4 py-2">1</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <UnorderedList
         items={[
           "Every 30 minutes, teams receive a free skip, allowing them to skip questions without penalty.",
@@ -350,66 +311,53 @@ function PointsAndScoring() {
           "At 10.00 am, the additional section Economania is opened, with a table of 15 new problems to be attempted. There are 5 categories with 3 problems each, namely Microeconomics, Firms, Game Theory, Macroeconomics, and Financial Economics:",
         ]}
       />
-      <table className="w-full mt-6 border-collapse border border-gray-300 text-center">
-        <tbody>
-          <tr className="bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Micro Q1
-            </td>
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Firms Q1
-            </td>
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Game theory Q1
-            </td>
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Macro Q1
-            </td>
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Finance Q1
-            </td>
-          </tr>
-          <tr className="bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Micro Q2 (Locked)
-            </td>
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Firms Q2 (Locked)
-            </td>
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Game theory Q2 (Locked)
-            </td>
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Macro Q2 (Locked)
-            </td>
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Finance Q2 (Locked)
-            </td>
-          </tr>
-          <tr className="bg-gray-100">
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Micro Q3 (Locked)
-            </td>
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Firms Q3 (Locked)
-            </td>
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Game theory Q3 (Locked)
-            </td>
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Macro Q3 (Locked)
-            </td>
-            <td className="border border-gray-300 px-4 py-2 text-center">
-              Finance Q3 (Locked)
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table className="w-full mt-6 border-collapse border border-gray-300 text-center">
+          <tbody>
+            <tr className="bg-gray-100">
+              <td className="border border-gray-300 px-4 py-2 text-center">
+                Micro Q1
+              </td>
+              <td className="border border-gray-300 px-4 py-2 text-center">
+                Firms Q1
+              </td>
+              <td className="border border-gray-300 px-4 py-2 text-center">
+                Game theory Q1
+              </td>
+              <td className="border border-gray-300 px-4 py-2 text-center">
+                Macro Q1
+              </td>
+              <td className="border border-gray-300 px-4 py-2 text-center">
+                Finance Q1
+              </td>
+            </tr>
+            {[2, 3].map((q) => (
+              <tr key={q} className="bg-gray-100">
+                <td className="border border-gray-300 px-4 py-2 text-center">
+                  Micro Q{q} (Locked)
+                </td>
+                <td className="border border-gray-300 px-4 py-2 text-center">
+                  Firms Q{q} (Locked)
+                </td>
+                <td className="border border-gray-300 px-4 py-2 text-center">
+                  Game theory Q{q} (Locked)
+                </td>
+                <td className="border border-gray-300 px-4 py-2 text-center">
+                  Macro Q{q} (Locked)
+                </td>
+                <td className="border border-gray-300 px-4 py-2 text-center">
+                  Finance Q{q} (Locked)
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <UnorderedList
         items={[
           "Later problems in each category can be unlocked by completing the earlier problem(s).",
           "From 10.00 am to 11.00 am: successfully answering one category of problems will grant teams a point bonus, where the points they obtained from that category are doubled.",
-          "After 11.00 am, teams can still access the Economania Problems, however the point bonus will no longer apply. ",
+          "After 11.00 am, teams can still access the Economania Problems, however the point bonus will no longer apply.",
           "Economania problems cannot be skipped.",
         ]}
       />
@@ -419,7 +367,7 @@ function PointsAndScoring() {
 
 function AwardsAndRankings() {
   return (
-    <section className="mt-12" id="Awards-and-rankings">
+    <section className="mt-12" id="Awards and Rankings">
       <SubHeading className="mb-6">Awards and Rankings</SubHeading>
       <UnorderedList
         items={[
@@ -436,6 +384,10 @@ export default function RulesPage() {
   const [selected, setSelected] = useState("rules");
 
   useEffect(() => {
+    const mainContent = document.getElementById("main-content");
+
+    if (!mainContent) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -444,10 +396,13 @@ export default function RulesPage() {
           }
         });
       },
-      { threshold: 0, rootMargin: "0px 0px -100% 0px", root: null }
+      {
+        root: mainContent, // Observe within main-content only
+        threshold: 0.3, // Trigger when 30% of a section is visible
+      }
     );
 
-    // Observe Sections
+    // Observe each section
     sectionIds.forEach((id) => {
       const section = document.getElementById(id);
       if (section) observer.observe(section);
@@ -455,28 +410,36 @@ export default function RulesPage() {
 
     return () => {
       sectionIds.forEach((id) => {
-        const element = document.getElementById(id);
-        if (element) observer.unobserve(element);
+        const section = document.getElementById(id);
+        if (section) observer.unobserve(section);
       });
     };
-  }, [sectionIds]); 
+  }, []);
 
   return (
     <>
-      {/* Compact Gradient Background for Header */}
-      <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[120px] flex items-center px-6 lg:px-12">
-        <h1 className="mr-auto ml-auto max-w-[1550px] text-6xl font-medium text-left font-serif">Rules</h1>
+      {/* Gradient Header */}
+      <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center">
+        <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left font-serif">
+            Rules
+          </h1>
+        </div>
       </div>
 
-      {/* Main Content Section - Proper Left Alignment */}
-      <div className="px-2 lg:px-8 ml-auto mr-auto max-w-[1550px] pb-32">
-        <div className="my-4 lg:my-12 flex items-start flex-col lg:flex-row">
-          {/* Sidebar Navigation - Shifted Left */}
-          <div className="lg:w-64 lg:pr-4">
+      {/* Main Layout */}
+      <div className="flex items-center justify-center mb-10">
+        <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex items-start flex-col lg:flex-row h-screen">
+          {/* Sidebar Navigation */}
+          <div className="hidden lg:block lg:w-64 lg:pr-4">
             <SideBar selected={selected} />
           </div>
 
-          <div className="px-12 py-6 lg:border-l-2 lg:border-t-0 border-[#D0D0D0] w-full max-w-[800px] lg:max-w-[960px]">
+          {/* Scrollable Main Content */}
+          <div
+            id="main-content"
+            className="w-full lg:border-l-2 lg:border-[#D0D0D0] lg:pl-8 lg:h-[calc(100vh-160px)] lg:overflow-y-auto"
+          >
             <BreifRules />
             <Registration />
             <CompetitionPlatform />
@@ -487,5 +450,5 @@ export default function RulesPage() {
         </div>
       </div>
     </>
-  );  
+  );
 }

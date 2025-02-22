@@ -13,7 +13,15 @@ import {
   Legend,
 } from "chart.js";
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const LineChart = dynamic(
   () => import("react-chartjs-2").then((mod) => mod.Line),
@@ -96,7 +104,7 @@ const StockChart = () => {
   );
 };
 
-const homePage = () => {
+const HomePage = () => {
   const eventDate = "Sat · 19th July 2025 ·";
   const eventTime = "9 AM — 1 PM SGT";
   const eventTimestamp = new Date("July 19, 2025 09:00:00").getTime();
@@ -130,9 +138,18 @@ const homePage = () => {
       return { days: "00", hours: "00", minutes: "00", seconds: "00" };
     }
     return {
-      days: String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, "0"),
-      hours: String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, "0"),
-      minutes: String(Math.floor((difference / (1000 * 60)) % 60)).padStart(2, "0"),
+      days: String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(
+        2,
+        "0"
+      ),
+      hours: String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(
+        2,
+        "0"
+      ),
+      minutes: String(Math.floor((difference / (1000 * 60)) % 60)).padStart(
+        2,
+        "0"
+      ),
       seconds: String(Math.floor((difference / 1000) % 60)).padStart(2, "0"),
     };
   }
@@ -148,19 +165,67 @@ const homePage = () => {
   }, []);
 
   const teamMembers = [
-    { name: "Ho Jon Yew", roles: ["Chief Organiser"], link: "https://www.linkedin.com/in/jon-yew-ho/" },
-    { name: "Tevel Sho", roles: ["Deputy Chief Organiser", "Lead Developer"], link: "https://www.linkedin.com/in/tevelsho" },
-    { name: "Lucas Lee", roles: ["Head of Operations"], link: "https://www.linkedin.com/in/lucas-lee-zy " },
-    { name: "Li Zonglun", roles: ["Head of Academics", "Problem Setter"], link: "https://www.linkedin.com/in/zonglun-li-80970a276" },
-    { name: "Zhao Yuxuan", roles: ["Academics Consultant", "Problem Setter"], link: "#" },
-    { name: "Jonas Lim", roles: ["Problem Setter"], link: "https://www.linkedin.com/in/jonas-lim-489a05330" },
-    { name: "Fan Yixiang", roles: ["Problem Setter"], link: "https://www.linkedin.com/in/yixiang-fan-38700a352" },
-    { name: "Theodore Chou", roles: ["Problem Setter"], link: "https://www.linkedin.com/in/theodore-chou-sales-marketing-entrepreneurship-economics" },
-    { name: "Jeffrey Lee", roles: ["Lead Developer"], link: "https://www.linkedin.com/in/jeffrey-lee-8a9461236" },
-    { name: "Chua Zhong Ding", roles: ["Full Stack Developer", "Penetration Tester"], link: "https://www.linkedin.com/in/chua-zhong-ding-94412728b" },
-    { name: "Chew Jin Hao", roles: ["Full Stack Developer"], link: "http://www.linkedin.com/in/chew-jin-hao-274850196" },
+    {
+      name: "Ho Jon Yew",
+      roles: ["Chief Organiser"],
+      link: "https://www.linkedin.com/in/jon-yew-ho/",
+    },
+    {
+      name: "Tevel Sho",
+      roles: ["Deputy Chief Organiser", "Lead Developer"],
+      link: "https://www.linkedin.com/in/tevelsho",
+    },
+    {
+      name: "Lucas Lee",
+      roles: ["Head of Operations"],
+      link: "https://www.linkedin.com/in/lucas-lee-zy ",
+    },
+    {
+      name: "Li Zonglun",
+      roles: ["Head of Academics", "Problem Setter"],
+      link: "https://www.linkedin.com/in/zonglun-li-80970a276",
+    },
+    {
+      name: "Zhao Yuxuan",
+      roles: ["Academics Consultant", "Problem Setter"],
+      link: "#",
+    },
+    {
+      name: "Jonas Lim",
+      roles: ["Problem Setter"],
+      link: "https://www.linkedin.com/in/jonas-lim-489a05330",
+    },
+    {
+      name: "Fan Yixiang",
+      roles: ["Problem Setter"],
+      link: "https://www.linkedin.com/in/yixiang-fan-38700a352",
+    },
+    {
+      name: "Theodore Chou",
+      roles: ["Problem Setter"],
+      link: "https://www.linkedin.com/in/theodore-chou-sales-marketing-entrepreneurship-economics",
+    },
+    {
+      name: "Jeffrey Lee",
+      roles: ["Lead Developer"],
+      link: "https://www.linkedin.com/in/jeffrey-lee-8a9461236",
+    },
+    {
+      name: "Chua Zhong Ding",
+      roles: ["Full Stack Developer", "Penetration Tester"],
+      link: "https://www.linkedin.com/in/chua-zhong-ding-94412728b",
+    },
+    {
+      name: "Chew Jin Hao",
+      roles: ["Full Stack Developer"],
+      link: "http://www.linkedin.com/in/chew-jin-hao-274850196",
+    },
     { name: "----", roles: ["---"], link: "----" },
-    { name: "Dylan Saga", roles: ["Data Analyst"], link: "https://www.linkedin.com/in/dylan-saga-551430273" },
+    {
+      name: "Dylan Saga",
+      roles: ["Data Analyst"],
+      link: "https://www.linkedin.com/in/dylan-saga-551430273",
+    },
   ];
 
   const openModal = () => {
@@ -189,8 +254,13 @@ const homePage = () => {
           <h1 className="text-3xl lg:text-5xl font-medium text-[#0081EA] mb-6 font-raleway whitespace-break-spaces">
             {title}
           </h1>
-          <p className="text-black font-small mb-6 leading-relaxed text-base">{description}</p>
-          <a href={rulesLink} className="text-accent font-bold underline hover:text-[#0092E8] transition text-lg">
+          <p className="text-black font-small mb-6 leading-relaxed text-base">
+            {description}
+          </p>
+          <a
+            href={rulesLink}
+            className="text-accent font-bold underline hover:text-[#0092E8] transition text-lg"
+          >
             Competition Rules
           </a>
         </div>
@@ -214,21 +284,29 @@ const homePage = () => {
                   </span>
                 </div>
               ))
-              .reduce((acc, elem, idx, arr) => {
+              .reduce<JSX.Element[]>((acc, elem, idx, arr) => {
                 if (idx < arr.length - 1) {
                   return [
                     ...acc,
                     elem,
-                    <span key={`colon-${idx}`} className="text-5xl font-light mx-2 flex items-center">
+                    <span
+                      key={`colon-${idx}`}
+                      className="text-5xl font-light mx-2 flex items-center"
+                    >
                       :
                     </span>,
                   ];
                 }
                 return [...acc, elem];
-              }, [])}
+              }, [])}{" "}
+            {/* <-- Ensure this closing bracket exists */}
           </div>
-          <p className="text-[#43291F] text-lg mt-8">Till the Challenge Starts</p>
-          <p className="text-lg font-semibold text-[#43291F]">- 19th July 2025 -</p>
+          <p className="text-[#43291F] text-lg mt-8">
+            Till the Challenge Starts
+          </p>
+          <p className="text-lg font-semibold text-[#43291F]">
+            - 19th July 2025 -
+          </p>
         </div>
       </section>
 
@@ -241,18 +319,24 @@ const homePage = () => {
               1
             </span>
             <div className="relative z-10 -ml-12 pl-6 max-w-3xl">
-              <h3 className="text-3xl font-bold text-[#343131] mt-10">No Boundaries, No Limits</h3>
+              <h3 className="text-3xl font-bold text-[#343131] mt-10">
+                No Boundaries, No Limits
+              </h3>
               <p className="text-black mt-6 text-2xl">
-                An online contest, accessible from anywhere. Log on from <br /> the comfort of your home and put your wits to the test!
+                An online contest, accessible from anywhere. Log on from <br />{" "}
+                the comfort of your home and put your wits to the test!
               </p>
             </div>
           </div>
 
           <div className="relative flex items-center justify-end w-full">
             <div className="relative z-10 -mr-8 pr-6 text-right max-w-3xl">
-              <h3 className="text-3xl font-bold text-[#343131] mt-14">Calling all Pre-U Students!</h3>
+              <h3 className="text-3xl font-bold text-[#343131] mt-14">
+                Calling all Pre-U Students!
+              </h3>
               <p className="text-black mt-6 text-2xl">
-                Studying in a JC/MI, local polytechnic, ITE, or <br /> secondary school? You are eligible to participate!
+                Studying in a JC/MI, local polytechnic, ITE, or <br /> secondary
+                school? You are eligible to participate!
               </p>
             </div>
             <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FFAE00] to-[#F9E866] relative z-10">
@@ -266,20 +350,29 @@ const homePage = () => {
               3
             </span>
             <div className="relative z-10 -ml-12 pl-6 max-w-3xl">
-              <h3 className="text-3xl font-bold text-[#343131] mt-14">Build Your Dream Team</h3>
+              <h3 className="text-3xl font-bold text-[#343131] mt-14">
+                Build Your Dream Team
+              </h3>
               <p className="text-black mt-6 text-2xl">
-                From classmates to friends in other schools, assemble <br /> the team of your choice to win it all!
+                From classmates to friends in other schools, assemble <br /> the
+                team of your choice to win it all!
               </p>
             </div>
           </div>
 
           <div className="relative flex items-center justify-end w-full">
             <div className="relative z-10 -mr-8 pr-6 text-right max-w-3xl">
-              <h3 className="text-3xl font-bold text-[#343131] mt-36">From Numbers to Narrative</h3>
+              <h3 className="text-3xl font-bold text-[#343131] mt-36">
+                From Numbers to Narrative
+              </h3>
               <p className="text-black mt-6 mb-6 text-2xl">
-                Every question will challenge your wit, <br /> knowledge, and problem-solving skills in novel <br /> and unexpected ways.
+                Every question will challenge your wit, <br /> knowledge, and
+                problem-solving skills in novel <br /> and unexpected ways.
               </p>
-              <a href="/sample-questions" className="text-[#0092E8] font-semibold underline text-2xl">
+              <a
+                href="/sample-questions"
+                className="text-[#0092E8] font-semibold underline text-2xl"
+              >
                 Try some sample problems!
               </a>
             </div>
@@ -294,10 +387,15 @@ const homePage = () => {
               5
             </span>
             <div className="relative z-10 -ml-12 pl-6 max-w-3xl">
-              <h3 className="text-3xl font-bold text-[#343131] mt-22">Got Any Questions?</h3>
+              <h3 className="text-3xl font-bold text-[#343131] mt-22">
+                Got Any Questions?
+              </h3>
               <p className="text-black mt-6 mb-6 text-2xl">
                 Check out our{" "}
-                <a href="/faq" className="text-[#0092E8] font-semibold underline text-2xl">
+                <a
+                  href="/faq"
+                  className="text-[#0092E8] font-semibold underline text-2xl"
+                >
                   Frequently Asked Questions
                 </a>
                 !
@@ -318,7 +416,9 @@ const homePage = () => {
             have what it takes?
           </h2>
           <p className="text-center text-black text-lg mb-12">
-            Register now and be part of an exciting journey where you get to put your economics knowledge to the test, work with others, and have fun while doing it!
+            Register now and be part of an exciting journey where you get to put
+            your economics knowledge to the test, work with others, and have fun
+            while doing it!
           </p>
           <div className="flex justify-center">
             <button
@@ -401,7 +501,9 @@ const homePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
             <div className="bg-[#e1ecf8]/30 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
               <div className="max-w-sm">
-                <h3 className="font-medium font-raleway text-3xl text-[#343131]">FAQ</h3>
+                <h3 className="font-medium font-raleway text-3xl text-[#343131]">
+                  FAQ
+                </h3>
                 <p className="text-[#43291F] mt-4">
                   Got a question on your mind? <br />
                   We may have already answered it!
@@ -446,51 +548,61 @@ const homePage = () => {
         </h1>
         <div className="max-w-screen-xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-10 gap-y-14">
-            {teamMembers.slice(0, Math.floor(teamMembers.length / 5) * 5).map((member, index) => (
-              <div
-                key={index}
-                className="w-full text-center transition-transform duration-300 hover:scale-105 px-4"
-              >
-                <a
-                  href={member.link}
-                  className="text-[#3E8E96] text-2xl font-semibold no-underline hover:no-underline transition-transform duration-300"
+            {teamMembers
+              .slice(0, Math.floor(teamMembers.length / 5) * 5)
+              .map((member, index) => (
+                <div
+                  key={index}
+                  className="w-full text-center transition-transform duration-300 hover:scale-105 px-4"
                 >
-                  {member.name}
-                </a>
-                <div className="mt-2">
-                  {member.roles.map((role, roleIndex) => (
-                    <p key={roleIndex} className="text-gray-600 text-lg whitespace-nowrap truncate">
-                      {role}
-                    </p>
-                  ))}
+                  <a
+                    href={member.link}
+                    className="text-[#3E8E96] text-2xl font-semibold no-underline hover:no-underline transition-transform duration-300"
+                  >
+                    {member.name}
+                  </a>
+                  <div className="mt-2">
+                    {member.roles.map((role, roleIndex) => (
+                      <p
+                        key={roleIndex}
+                        className="text-gray-600 text-lg whitespace-nowrap truncate"
+                      >
+                        {role}
+                      </p>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
 
           {teamMembers.length % 5 === 3 && (
             <div className="flex justify-center mt-6 pb-32">
               <div className="grid grid-cols-3 gap-x-10">
-                {teamMembers.slice(Math.floor(teamMembers.length / 5) * 5).map((member, index) => (
-                  <div
-                    key={index}
-                    className="w-full text-center transition-transform duration-300 hover:scale-105 px-4"
-                  >
-                    <a
-                      href={member.link}
-                      className="text-[#3E8E96] text-2xl font-semibold no-underline hover:no-underline transition-transform duration-300"
+                {teamMembers
+                  .slice(Math.floor(teamMembers.length / 5) * 5)
+                  .map((member, index) => (
+                    <div
+                      key={index}
+                      className="w-full text-center transition-transform duration-300 hover:scale-105 px-4"
                     >
-                      {member.name}
-                    </a>
-                    <div className="mt-2">
-                      {member.roles.map((role, roleIndex) => (
-                        <p key={roleIndex} className="text-gray-600 text-lg whitespace-nowrap truncate">
-                          {role}
-                        </p>
-                      ))}
+                      <a
+                        href={member.link}
+                        className="text-[#3E8E96] text-2xl font-semibold no-underline hover:no-underline transition-transform duration-300"
+                      >
+                        {member.name}
+                      </a>
+                      <div className="mt-2">
+                        {member.roles.map((role, roleIndex) => (
+                          <p
+                            key={roleIndex}
+                            className="text-gray-600 text-lg whitespace-nowrap truncate"
+                          >
+                            {role}
+                          </p>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
           )}
@@ -500,4 +612,4 @@ const homePage = () => {
   );
 };
 
-export default homePage;
+export default HomePage;

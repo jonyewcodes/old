@@ -15,12 +15,12 @@ export default function FaqBox({ question, answer }: FaqProps): JSX.Element {
   };
 
   return (
-    <div className="w-full max-w-[1000px] border-2 border-[#D5E6F5] rounded-tl-3xl rounded-br-3xl bg-white mb-4 overflow-hidden">
+    <div className="w-full max-w-[1800px] border-2 border-[#D5E6F5] rounded-tl-3xl rounded-br-3xl bg-white mb-4 overflow-hidden">
       {/* Question Button */}
       <button
         type="button"
         onClick={toggleDropdown}
-        className="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-normal bg-white hover:bg-[#f3f8fc] transition-all duration-300 ease-in-out focus:outline-none"
+        className="w-full max-w-[1800px] flex justify-between items-center px-6 py-4 text-left text-lg font-normal bg-white hover:bg-[#f3f8fc] transition-all duration-300 ease-in-out focus:outline-none"
       >
         {question}
         <span
