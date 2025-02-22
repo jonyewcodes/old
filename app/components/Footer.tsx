@@ -58,17 +58,6 @@ export default function Footer() {
       <div className="mt-8 px-6 lg:px-24 text-left text-sm text-gray-600">
         © 2025 Singapore Economics League
       </div>
-
-      {/* Big Coin Image - Properly Positioned */}
-      <div className="absolute bottom-6 right-80 hidden lg:block">
-        <Image 
-          src="/emoticons/coin_holding_sunglasses.png"
-          alt="Big Coin"
-          width={380}
-          height={380}
-          className="opacity-90 transition-transform duration-300 ease-in-out hover:scale-110 hover:rotate-[10deg]"
-        />
-      </div>
     </footer>
   );
 }

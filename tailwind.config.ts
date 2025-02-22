@@ -21,6 +21,9 @@ const config: Config = {
         geist: "var(--font-geist-sans), sans-serif",
         mono: "var(--font-geist-mono), monospace",
         serif: "var(--font-roboto-serif), serif",
+
+        // ADD THIS:
+        raleway: "var(--font-raleway), sans-serif",
       },
     },
   },
