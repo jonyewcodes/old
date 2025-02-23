@@ -24,14 +24,14 @@ export default function SampleQuestionsPage() {
       difficultyColor: "bg-[#FFEBEE] text-[#D32F2F]",
       description:
         "Balance AI development while mitigating risks in a futuristic society.",
-      link: "https://drive.google.com/file/d/132-pfUdmQSYnAhOySHH39MSS-P66aQZQ/view?usp=drive_link",
+      link: "https://drive.google.com/file/d/1kQAE_XaK6dwx8fY6e551qG5yQR2CNIWf/view?usp=sharing",
     },
   ];
 
   return (
     <main className="flex min-h-screen flex-col text-gray-800">
       {/* Top Gradient Header */}
-      <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center">
+      <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[80px] sm:h-[100px] md:h-[100px] flex items-center justify-center">
         <div className="max-w-[1400px] w-full px-6 lg:px-12">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left font-roboto-slab">
             Sample Questions
@@ -59,20 +59,13 @@ export default function SampleQuestionsPage() {
                 key={index}
                 className="bg-white border-2 border-[#96D0C8] rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
               >
-                {/* Title */}
                 <h2 className="text-xl font-semibold">{question.title}</h2>
-
-                {/* Difficulty Badge */}
                 <span
                   className={`inline-block w-fit px-3 py-1 text-sm font-medium rounded-full ${question.difficultyColor}`}
                 >
                   {question.difficulty}
                 </span>
-
-                {/* Description */}
                 <p className="text-gray-600">{question.description}</p>
-
-                {/* Download Button with "zoom in" hover */}
                 <a
                   href={question.link}
                   target="_blank"

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#d1e3ec] text-[#3F3B3A] py-12">
+    <footer className="relative bg-[#d1e3ec] text-[#3F3B3A] py-12 mt-32">
       {/* Wrap both sections in the same container */}
       <div className="relative mx-auto px-6 lg:px-20 w-full max-w-[1450px]">
         {/* Flex container for “Site Map” & “Us” sections */}

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 
-// Keep `sectionIds` outside the component to prevent unnecessary re-renders
 const sectionIds = [
   "Rules",
   "Registration",
@@ -429,7 +428,7 @@ export default function RulesPage() {
       </div>
 
       {/* Main Layout */}
-      <div className="flex justify-center mb-10">
+      <div className="flex justify-center">
         <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row">
           {/* Sidebar Navigation (Sticky & No X-Overflow) */}
           <div className="hidden lg:block lg:w-64 lg:pr-4">

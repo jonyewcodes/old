@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
@@ -9,18 +9,13 @@ const Navbar: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://tally.so/widgets/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
+  // Open Modal
   const openModal = () => {
     setModalOpen(true);
     setTimeout(() => setShowModal(true), 50);
   };
 
+  // Close Modal
   const closeModal = () => {
     setShowModal(false);
     setTimeout(() => setModalOpen(false), 300);
@@ -60,7 +55,12 @@ const Navbar: React.FC = () => {
           >
             FAQ
           </Link>
-          {/* Updated Pre-Register Button */}
+          <Link
+            href="/archives"
+            className="transition hover:text-[#3D9796] hover:underline hover:decoration-[#3D9796]"
+          >
+            Archives
+          </Link>
           <button
             onClick={openModal}
             className="
@@ -69,13 +69,16 @@ const Navbar: React.FC = () => {
               hover:scale-105 hover:bg-[#3A8B91]
             "
           >
-            Pre-Register Now!
+            Register Now!
           </button>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
-          <button onClick={() => setMenuOpen(!isMenuOpen)} className="text-black">
+          <button
+            onClick={() => setMenuOpen(!isMenuOpen)}
+            className="text-black"
+          >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
@@ -105,7 +108,6 @@ const Navbar: React.FC = () => {
           >
             FAQ
           </Link>
-          {/* Updated Mobile Pre-Register Button */}
           <button
             onClick={openModal}
             className="
@@ -114,12 +116,11 @@ const Navbar: React.FC = () => {
               hover:scale-105 hover:bg-[#3A8B91]
             "
           >
-            Pre-Register Now!
+            Register Now!
           </button>
         </div>
       )}
 
-      {/* Modal */}
       {isModalOpen && (
         <div
           className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 ${
@@ -138,12 +139,16 @@ const Navbar: React.FC = () => {
               <X size={24} className="text-gray-600 hover:text-gray-900 transition" />
             </button>
             <iframe
-              data-tally-src="https://tally.so/r/3NRLlG?transparentBackground=1"
+              src="https://docs.google.com/forms/d/e/1FAIpQLSdQNx8PQhG4mRq7pSO4JSqVapdOcO5QGS4MuIlBgsrmJWHJaQ/viewform?embedded=true"
               width="100%"
-              height="700px"
-              title="SG Econs League: Registration"
+              height="800px"
+              frameBorder="0"
+              marginHeight={0}
+              marginWidth={0}
               className="rounded-lg"
-            ></iframe>
+            >
+              Loading…
+            </iframe>
           </div>
         </div>
       )}

@@ -1,108 +1,60 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
-import dynamic from "next/dynamic";
-import {
-  Chart as ChartJS,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
+import React, { useState, useEffect} from "react";
+import { IgrFinancialChart, IgrFinancialChartModule } from "igniteui-react-charts";
+import StocksHistory from './services/StocksHistory';
+import Timeline from "./components/Timeline";
+import WaveText from "./components/WaveText";
 
-ChartJS.register(
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Title,
-  Tooltip,
-  Legend
-);
+IgrFinancialChartModule.register();
 
-const LineChart = dynamic(
-  () => import("react-chartjs-2").then((mod) => mod.Line),
-  { ssr: false }
-);
+const CandleChart = () => {
+  const [data, setData] = useState<any[]>([]);
 
-const generateStockData = () => {
-  const days = 100;
-  const labels = [];
-  const data = [];
-  let price = 100;
-  const drift = 0.05;
-  const volatility = 2;
-
-  for (let i = 0; i < days; i++) {
-    const randomShock = (Math.random() - 0.5) * volatility;
-    price = price + drift + randomShock;
-    price = Math.max(0, price);
-    labels.push(`Day ${i + 1}`);
-    data.push(parseFloat(price.toFixed(2)));
-  }
-  return { labels, data };
-};
-
-const StockChart = () => {
-  const { labels, data } = useMemo(() => generateStockData(), []);
-  const mainLine = data.map((val) => val + 5);
-  const line2 = data.map((val) => val + (Math.random() - 0.5) * 2);
-  const line3 = data.map((val) => val + 8 + (Math.random() - 0.5) * 2);
-
-  const chartData = {
-    labels,
-    datasets: [
-      {
-        label: "",
-        data: mainLine,
-        borderColor: "#5a96d9",
-        backgroundColor: "transparent",
-        fill: false,
-        tension: 0.1,
-      },
-      {
-        label: "",
-        data: line2,
-        borderColor: "#a5c1ed",
-        backgroundColor: "transparent",
-        fill: false,
-        tension: 0.1,
-      },
-      {
-        label: "",
-        data: line3,
-        borderColor: "#c2d4f4",
-        backgroundColor: "transparent",
-        fill: false,
-        tension: 0.1,
-      },
-    ],
-  };
-
-  const options = {
-    animation: { duration: 0 },
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      title: { display: false },
-      tooltip: { enabled: false },
-    },
-    scales: {
-      x: { display: false, grid: { display: false } },
-      y: { display: false, grid: { display: false } },
-    },
-  };
+  useEffect(() => {
+    StocksHistory.getMultipleStocks().then((stocks) => {
+      setData(stocks);
+    });
+  }, []);
 
   return (
-    <div className="w-full" style={{ height: "500px" }}>
-      <LineChart data={chartData} options={options} />
+    <div style={{ width: "100%", height: "600px", margin: 0, padding: 0 }}>
+      <IgrFinancialChart
+        width="100%"
+        height="100%"
+        chartType="Candle"
+        isToolbarVisible={false}
+        chartTitle=""
+        subtitle=""
+        yAxisTitle=""
+        xAxisLabelVisibility="Collapsed"
+        yAxisLabelVisibility="Collapsed"
+        xAxisMajorStroke="transparent"
+        yAxisMajorStroke="transparent"
+        xAxisMinorStroke="transparent"
+        yAxisMinorStroke="transparent"
+        xAxisTickLength={0}
+        yAxisTickLength={0}
+        leftMargin={0}
+        rightMargin={0}
+        topMargin={0}
+        bottomMargin={0}
+        toolTipType="None"
+        isSeriesHighlightingEnabled={false}
+        isHorizontalZoomEnabled={false}
+        isVerticalZoomEnabled={false}
+        zoomSliderType="None"
+        thickness={2.5}
+        brushes="#3D9796"
+        outlines="#3D9796"
+        negativeBrushes="transparent"
+        negativeOutlines="#FF004F"
+        dataSource={data}
+      />
     </div>
   );
 };
+
 
 const HomePage = () => {
   const eventDate = "Sat · 19th July 2025 ·";
@@ -220,13 +172,15 @@ const HomePage = () => {
       roles: ["Full Stack Developer"],
       link: "http://www.linkedin.com/in/chew-jin-hao-274850196",
     },
-    { name: "Dylan Saga",
-      roles: ["Data Analyst"],
-      link: "https://www.linkedin.com/in/dylan-saga-551430273", },
     {
       name: "Dylan Saga",
       roles: ["Data Analyst"],
       link: "https://www.linkedin.com/in/dylan-saga-551430273",
+    },
+    {
+      name: "Raeanne Zou",
+      roles: ["Graphic Illustrator"],
+      link: "https://www.linkedin.com/in/raeanne-zou/",
     },
   ];
 
@@ -245,15 +199,16 @@ const HomePage = () => {
       {/* Event Details Section */}
       <section className="relative flex flex-col lg:flex-row items-start justify-start bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] py-0 px-4 sm:py-16 sm:px-6 lg:py-24 lg:px-32 gap-8 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-30">
-          <StockChart />
+          <CandleChart />
         </div>
-        <div className="flex-1 max-w-[1650px] mx-auto px-8 lg:px-20 relative z-10">
+
+        <div className="flex-1 max-w-[1450px] mx-auto px-8 lg:px-20 relative z-10">
           <div className="mb-12">
-            <span className="border-2 border-[#D5E6F5] rounded-2xl bg-white text-[#343131] px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base md:px-6 md:py-4 md:text-lg leading-tight block sm:inline text-center">
+            <span className="border-2 border-[#96D0C8] rounded-2xl bg-white text-[#343131] px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base md:px-6 md:py-4 md:text-lg leading-tight block sm:inline text-center">
               {eventDate} <span className="block sm:inline"> {eventTime}</span>
             </span>
           </div>
-          <h1 className="text-3xl lg:text-5xl font-medium text-[#0081EA] mb-6 font-raleway whitespace-break-spaces">
+          <h1 className="text-3xl lg:text-5xl font-medium text-primary mb-6 font-roboto-slab whitespace-break-spaces">
             {title}
           </h1>
           <p className="text-black font-small mb-6 leading-relaxed text-base">
@@ -261,7 +216,7 @@ const HomePage = () => {
           </p>
           <a
             href={rulesLink}
-            className="text-accent font-bold underline hover:text-[#0092E8] transition text-lg"
+            className="text-secondary font-bold underline hover:text-[#3D9796] transition text-lg"
           >
             Competition Rules
           </a>
@@ -270,11 +225,11 @@ const HomePage = () => {
 
       {/* Countdown Timer Section */}
       <section className="flex flex-col items-center justify-center py-12 px-10 relative">
-        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4CA9DF] to-[#1DBF9F] mb-5 sm:mb-7">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4CA9DF] to-[#1DBF9F]">
           Let’s Roll
         </h2>
 
-        <div className="border-2 border-[#D5E6F5] rounded-tl-3xl rounded-br-3xl bg-white w-full max-w-3xl p-12 shadow-lg text-center relative">
+        <div className="border-2 border-[#96D0C8] rounded-xl bg-white w-full max-w-3xl p-12 shadow-lg text-center relative">
           <div className="flex items-center justify-center gap-3 sm:gap-6">
             {["Days", "Hours", "Minutes", "Seconds"]
               .map((label, index) => (
@@ -410,8 +365,8 @@ const HomePage = () => {
 
       {/* Register Section */}
       <section className="flex items-center justify-center py-16 px-12 relative">
-        <div className="border-2 border-[#D5E6F5] rounded-tr-3xl rounded-br-3xl w-full max-w-3xl p-12 relative">
-          <h2 className="font-medium font-raleway text-center text-3xl font-bold mb-8">
+        <div className="bg-white border-2 border-[#96D0C8] rounded-tl-3xl rounded-tr-3xl w-full max-w-3xl p-12 relative">
+          <h2 className="font-medium font-roboto-slab text-center text-3xl font-bold mb-8">
             Do{" "}
             <span className="bg-gradient-to-r from-[#4CA9DF] to-[#1DBF9F] bg-clip-text text-transparent">
               you
@@ -425,10 +380,12 @@ const HomePage = () => {
           </p>
           <div className="flex justify-center">
             <button
-              className="px-10 py-4 bg-[#4CA9DF] text-white text-xl font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-primary transition-all"
+              className="px-10 py-3 bg-[#3D979F] text-white text-lg font-semibold rounded-lg shadow-lg
+              transition-transform duration-200 ease-in-out
+              hover:scale-105 hover:bg-[#3A8B91]"
               onClick={openModal}
             >
-              Pre-Register Now!
+              Register Now!
             </button>
           </div>
         </div>
@@ -477,11 +434,25 @@ const HomePage = () => {
         </div>
       )}
 
+      {/* Timeline Section */}
+      <section className="my-12">
+        <div className="bg-[#e1ecf8]/30 py-20">
+          <h3 className="text-3xl font-medium font-roboto-slab text-[#343131] text-center mb-8">
+            <WaveText text="Important Dates" />
+          </h3>
+          <div className="flex justify-center">
+            <div className="w-full max-w-4xl px-6">
+              <Timeline />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Resource Section */}
       <section className="w-full py-16 px-8 lg:px-20">
         <div className="max-w-screen-xl mx-auto flex flex-col gap-6">
-          <div className="border-2 border-[#DEE7FB] rounded-tl-2xl rounded-br-2xl p-14 w-full flex flex-col items-center text-center bg-white">
-            <h3 className="text-3xl font-medium font-raleway text-[#343131] mt-6">
+          <div className="border-2 border-[#96D0C8] rounded-tl-2xl rounded-br-2xl p-14 w-full flex flex-col items-center text-center bg-white">
+            <h3 className="text-3xl font-medium font-roboto-slab text-[#343131] mt-6">
               Join our Community
             </h3>
             <p className="text-[#43291F] mt-6 max-w-lg">
@@ -491,7 +462,9 @@ const HomePage = () => {
               href="https://discord.gg/SEk9HrXk"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-9 px-5 py-2 bg-[#5865F2] text-white text-base font-semibold rounded-lg hover:bg-[#3A91C9] transition flex items-center space-x-2"
+              className="mt-9 px-5 py-2 bg-[#5865F2] text-white text-base font-semibold rounded-lg
+                transition-transform duration-200 ease-in-out hover:scale-105
+                flex items-center space-x-2"
             >
               <img
                 src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif"
@@ -502,9 +475,9 @@ const HomePage = () => {
             </a>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-            <div className="bg-[#e1ecf8]/30 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
+            <div className="bg-[#96D0C8]/30 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
               <div className="max-w-sm">
-                <h3 className="font-medium font-raleway text-3xl text-[#343131]">
+                <h3 className="font-medium font-roboto-slab text-3xl text-[#343131]">
                   FAQ
                 </h3>
                 <p className="text-[#43291F] mt-4">
@@ -513,15 +486,16 @@ const HomePage = () => {
                 </p>
                 <a
                   href="/faq"
-                  className="border-2 border-[#D5E6F5] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg hover:bg-[#eaf2fb] transition"
+                  className="border-2 border-[#96D0C8] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
+                    hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
                 >
                   Read our FAQ 🡒
                 </a>
               </div>
             </div>
-            <div className="bg-[#e1ecf8]/30 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
+            <div className="bg-[#96D0C8]/30 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
               <div className="max-w-sm">
-                <h3 className="text-3xl font-medium font-raleway text-[#343131]">
+                <h3 className="text-3xl font-medium font-roboto-slab text-[#343131]">
                   Sample Questions
                 </h3>
                 <p className="text-[#43291F] mt-4">
@@ -530,7 +504,8 @@ const HomePage = () => {
                 </p>
                 <a
                   href="/sample-questions"
-                  className="border-2 border-[#D5E6F5] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg hover:bg-[#eaf2fb] transition"
+                  className="border-2 border-[#96D0C8] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
+                    hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
                 >
                   View Past Questions 🡒
                 </a>
@@ -549,6 +524,7 @@ const HomePage = () => {
             Team
           </span>
         </h1>
+
         <div className="max-w-screen-xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-10 gap-y-14">
             {teamMembers
@@ -560,16 +536,13 @@ const HomePage = () => {
                 >
                   <a
                     href={member.link}
-                    className="text-[#3E8E96] text-2xl font-semibold no-underline hover:no-underline transition-transform duration-300"
+                    className="text-[#3E8E96] text-2xl font-semibold no-underline hover:no-underline transition-transform duration-300 whitespace-nowrap"
                   >
                     {member.name}
                   </a>
-                  <div className="mt-2">
+                  <div className="mt-2 flex flex-col items-center space-y-1">
                     {member.roles.map((role, roleIndex) => (
-                      <p
-                        key={roleIndex}
-                        className="text-gray-600 text-lg whitespace-nowrap truncate"
-                      >
+                      <p key={roleIndex} className="text-gray-600 text-lg whitespace-nowrap">
                         {role}
                       </p>
                     ))}
@@ -579,7 +552,7 @@ const HomePage = () => {
           </div>
 
           {teamMembers.length % 5 === 3 && (
-            <div className="flex justify-center mt-6 pb-32">
+            <div className="flex justify-center mt-6">
               <div className="grid grid-cols-3 gap-x-10">
                 {teamMembers
                   .slice(Math.floor(teamMembers.length / 5) * 5)
@@ -590,16 +563,13 @@ const HomePage = () => {
                     >
                       <a
                         href={member.link}
-                        className="text-[#3E8E96] text-2xl font-semibold no-underline hover:no-underline transition-transform duration-300"
+                        className="text-[#3E8E96] text-2xl font-semibold no-underline hover:no-underline transition-transform duration-300 whitespace-nowrap"
                       >
                         {member.name}
                       </a>
-                      <div className="mt-2">
+                      <div className="mt-2 flex flex-col items-center space-y-1">
                         {member.roles.map((role, roleIndex) => (
-                          <p
-                            key={roleIndex}
-                            className="text-gray-600 text-lg whitespace-nowrap truncate"
-                          >
+                          <p key={roleIndex} className="text-gray-600 text-lg whitespace-nowrap">
                             {role}
                           </p>
                         ))}

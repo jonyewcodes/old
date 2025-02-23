@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
 
 :root {
   --font-raleway: 'Raleway', sans-serif;
@@ -19,3 +18,16 @@ html, body {
   width: 100%;
 }
 
+@keyframes waveUpDownPause {
+  0%, 9%, 100% {
+    transform: translateY(0);
+  }
+  4.5% {
+    transform: translateY(-10px);
+  }
+}
+
+.wave-letter {
+  display: inline-block;
+  animation: waveUpDownPause 16.5s infinite ease-in-out;
+}
