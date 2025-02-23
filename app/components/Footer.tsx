@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="relative bg-[#d1e3ec] text-[#3F3B3A] py-12">
-      <div className="relative mx-auto px-6 lg:px-24 flex flex-col lg:flex-row items-start justify-start w-full max-w-screen-xl gap-16">
+      <div className="relative mx-auto px-6 lg:px-24 flex flex-col lg:flex-row items-start justify-start w-full max-w-[1300] gap-16">
         
         {/* Left Section - Site Map */}
         <div className="flex flex-col gap-2">
@@ -40,17 +40,6 @@ export default function Footer() {
               </Link>
             </li>
           </ul>
-        </div>
-
-        {/* Right Section - Design Credits */}
-        <div className="flex flex-col gap-2">
-          <p className="text-lg font-semibold">Design</p>
-          <div className="flex items-center gap-2">
-            <p>Inspired by</p>
-            <Link href="https://sgbioleague.org/" className="hover:underline transition">
-              <span className="text-[#4CA9DF]">@Singapore Biology League</span>
-            </Link>
-          </div>
         </div>
       </div>
 

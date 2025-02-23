@@ -207,7 +207,7 @@ function QuestionTypes() {
           ],
         ]}
       />
-      <br></br>
+      <br />
       <UnorderedList
         items={[
           "Each MCQ, MCQ Multi-select, Sort, and True False Set question-part will be limited to 3 attempts per team. Following 3 incorrect attempts, the question-part will be disabled and 0 points will be awarded for that part.",
@@ -385,7 +385,6 @@ export default function RulesPage() {
 
   useEffect(() => {
     const mainContent = document.getElementById("main-content");
-
     if (!mainContent) return;
 
     const observer = new IntersectionObserver(
@@ -398,7 +397,7 @@ export default function RulesPage() {
       },
       {
         root: mainContent, // Observe within main-content only
-        threshold: 0.3, // Trigger when 30% of a section is visible
+        threshold: 0.3,
       }
     );
 
@@ -428,17 +427,17 @@ export default function RulesPage() {
       </div>
 
       {/* Main Layout */}
-      <div className="flex items-center justify-center mb-10">
-        <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex items-start flex-col lg:flex-row h-screen">
+      <div className="flex items-center justify-center mb-10 mt-16">
+        <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex items-start flex-col lg:flex-row">
           {/* Sidebar Navigation */}
           <div className="hidden lg:block lg:w-64 lg:pr-4">
             <SideBar selected={selected} />
           </div>
 
-          {/* Scrollable Main Content */}
+          {/* Main Content */}
           <div
             id="main-content"
-            className="w-full lg:border-l-2 lg:border-[#D0D0D0] lg:pl-8 lg:h-[calc(100vh-160px)] lg:overflow-y-auto"
+            className="w-full lg:border-l-2 lg:border-[#D0D0D0] lg:pl-8 mb-32"
           >
             <BreifRules />
             <Registration />

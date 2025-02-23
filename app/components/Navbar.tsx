@@ -28,20 +28,20 @@ const Navbar: React.FC = () => {
 
   return (
     <div className="w-full px-6 lg:px-20 bg-gradient-to-b from-[#eaf2fb] to-[#f3f8fc] pb-8">
-      <nav className="flex items-center justify-between py-6 max-w-[1500px] mx-auto w-full">
+      <nav className="flex items-center justify-between py-10 max-w-[1300px] mx-auto w-full">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/">
             <img
               src="/logo.png"
               alt="Logo"
-              className="w-40 md:w-60 h-auto cursor-pointer"
+              className="w-48 md:w-72 h-auto cursor-pointer"
             />
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8 text-black font-medium text-lg">
+        <div className="hidden md:flex items-center gap-14 text-black font-medium text-base">
           <Link href="/rules" className="hover:text-[#4CA9DF] transition">
             Rules
           </Link>
