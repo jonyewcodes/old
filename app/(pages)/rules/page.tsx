@@ -429,7 +429,7 @@ export default function RulesPage() {
 
       {/* Main Layout */}
       <div className="flex items-center justify-center mb-10 mt-16">
-        <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex items-start flex-col lg:flex-row h-screen">
+        <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex items-start flex-col lg:flex-row">
           {/* Sidebar Navigation */}
           <div className="hidden lg:block lg:w-64 lg:pr-4">
             <SideBar selected={selected} />
@@ -438,7 +438,7 @@ export default function RulesPage() {
           {/* Scrollable Main Content */}
           <div
             id="main-content"
-            className="w-full lg:border-l-2 lg:border-[#D0D0D0] lg:pl-8 lg:h-[calc(100vh-160px)] lg:overflow-y-auto"
+            className="w-full lg:border-l-2 lg:border-[#D0D0D0] lg:pl-8 lg:overflow-y-auto"
           >
             <BreifRules />
             <Registration />

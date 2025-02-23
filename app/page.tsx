@@ -220,7 +220,9 @@ const HomePage = () => {
       roles: ["Full Stack Developer"],
       link: "http://www.linkedin.com/in/chew-jin-hao-274850196",
     },
-    { name: "----", roles: ["---"], link: "----" },
+    { name: "Dylan Saga",
+      roles: ["Data Analyst"],
+      link: "https://www.linkedin.com/in/dylan-saga-551430273", },
     {
       name: "Dylan Saga",
       roles: ["Data Analyst"],
