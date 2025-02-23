@@ -384,10 +384,6 @@ export default function RulesPage() {
   const [selected, setSelected] = useState("rules");
 
   useEffect(() => {
-    const mainContent = document.getElementById("main-content");
-
-    if (!mainContent) return;
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -396,13 +392,9 @@ export default function RulesPage() {
           }
         });
       },
-      {
-        root: mainContent, // Observe within main-content only
-        threshold: 0.3, // Trigger when 30% of a section is visible
-      }
+      { threshold: 0.3 }
     );
 
-    // Observe each section
     sectionIds.forEach((id) => {
       const section = document.getElementById(id);
       if (section) observer.observe(section);
@@ -418,6 +410,15 @@ export default function RulesPage() {
 
   return (
     <>
+      {/* Prevent global horizontal scrolling */}
+      <style jsx global>{`
+        html,
+        body {
+          height: 100vh;
+          overflow-x: hidden;
+        }
+      `}</style>
+
       {/* Gradient Header */}
       <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center">
         <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12">
@@ -428,17 +429,19 @@ export default function RulesPage() {
       </div>
 
       {/* Main Layout */}
-      <div className="flex items-center justify-center mb-10 mt-16">
-        <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex items-start flex-col lg:flex-row">
-          {/* Sidebar Navigation */}
+      <div className="flex justify-center mb-10">
+        <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row">
+          {/* Sidebar Navigation (Sticky & No X-Overflow) */}
           <div className="hidden lg:block lg:w-64 lg:pr-4">
-            <SideBar selected={selected} />
+            <div className="sticky top-6 h-[calc(100vh-160px)] overflow-y-auto overflow-x-hidden">
+              <SideBar selected={selected} />
+            </div>
           </div>
 
-          {/* Main Content without Scrollable Behavior */}
+          {/* Main Content (Expands Fully) */}
           <div
             id="main-content"
-            className="w-full lg:border-l-2 lg:border-[#D0D0D0] lg:pl-8 lg:overflow-y-auto"
+            className="w-full lg:border-l-2 lg:border-[#D0D0D0] lg:pl-8"
           >
             <BreifRules />
             <Registration />

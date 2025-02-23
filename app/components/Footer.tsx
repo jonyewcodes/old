@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -12,9 +11,24 @@ export default function Footer() {
           <div className="flex flex-col gap-2">
             <p className="text-lg font-semibold">Site Map</p>
             <ul className="text-base gap-2 flex flex-col">
-              <li><Link href="/rules" className="hover:underline transition">Rules</Link></li>
-              <li><Link href="/sample-questions" className="hover:underline transition">Sample Problems</Link></li>
-              <li><Link href="/faq" className="hover:underline transition">FAQ</Link></li>
+              <li>
+                <Link href="/rules" className="hover:underline transition">
+                  Rules
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/sample-questions"
+                  className="hover:underline transition"
+                >
+                  Sample Problems
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="hover:underline transition">
+                  FAQ
+                </Link>
+              </li>
             </ul>
           </div>
 
