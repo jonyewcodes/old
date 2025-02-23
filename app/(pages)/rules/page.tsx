@@ -9,6 +9,8 @@ const sectionIds = [
   "Question Types",
   "Points and Scoring",
   "Awards and Rankings",
+  "Participants' Code of Conduct",
+  "Terms and Conditions"
 ];
 
 interface SubHeadingProps {
@@ -379,6 +381,44 @@ function AwardsAndRankings() {
   );
 }
 
+function ParticipantsCodeofConduct() {
+  return (
+    <section className="mt-12" id="Awards and Rankings">
+      <SubHeading className="mb-6">Pariticpants' Code of Conduct</SubHeading>
+      <div>
+        <p>By participating in the Singapore Economics League (SEL), players agree to abide by our Code of Conduct. 
+          Players also acknowledge that any breach of the Code of Conduct or the Rules of SEL may result in substantial 
+          penalties for themselves and their team, including permanent disqualification from SEL.</p>
+        <p><br />As a player of SEL, I henceforth agree that for the duration of this competition, I shall:</p>
+      </div>
+      <UnorderedList
+        items={[
+          "Strictly avoid using any and all Generative AI tools, such as online chatbots, as these would confer an unfair advantage to my team.",
+          "Strictly refrain from engaging in any form of communication related to SEL problems with individuals who are not members of my team, such as my school teachers or friends on other SEL teams.",
+          "Not use SEL’s website, Discord server, or associated platforms to engage in any form of inappropriate, hurtful, or offensive behavior, including but not limited to sharing hate speech, spam messages, and other harmful content.",
+          "Report any suspected foul play by other players to the SEL organizers, so as to ensure a fair and enjoyable competition experience for all participants.",
+        ]}
+      />
+    </section>
+  );
+}
+
+function TermsAndConditions() {
+  return (
+    <section className="mt-12" id="Awards and Rankings">
+      <SubHeading className="mb-6">Terms and Conditions</SubHeading>
+      <UnorderedList
+        items={[
+          "Teams will be ranked according to the cumulative point total obtained during the contest.",
+          "A rank of n denotes that n - 1 teams scored strictly more than that team",
+          "The top 5% of teams will receive the Gold award. The top 15% of teams will receive the Silver awards. The top 30% of teams will receive the Bronze Award.",
+        ]}
+      />
+    </section>
+  );
+}
+
+
 export default function RulesPage() {
   const [selected, setSelected] = useState("rules");
 
@@ -428,7 +468,7 @@ export default function RulesPage() {
       </div>
 
       {/* Main Layout */}
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-16">
         <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row">
           {/* Sidebar Navigation (Sticky & No X-Overflow) */}
           <div className="hidden lg:block lg:w-64 lg:pr-4">
@@ -440,7 +480,7 @@ export default function RulesPage() {
           {/* Main Content (Expands Fully) */}
           <div
             id="main-content"
-            className="w-full lg:border-l-2 lg:border-[#D0D0D0] lg:pl-8"
+            className="w-full lg:border-l-2 lg:border-[#D0D0D0] lg:pl-16"
           >
             <BreifRules />
             <Registration />
@@ -448,6 +488,8 @@ export default function RulesPage() {
             <QuestionTypes />
             <PointsAndScoring />
             <AwardsAndRankings />
+            <ParticipantsCodeofConduct />
+            <TermsAndConditions />
           </div>
         </div>
       </div>
