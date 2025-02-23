@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react"; // Icons for mobile menu toggle
+import { Menu, X } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [isMenuOpen, setMenuOpen] = useState(false); // Mobile menu state
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -42,21 +42,32 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-14 text-black font-medium text-base">
-          <Link href="/rules" className="hover:text-[#4CA9DF] transition">
+          <Link
+            href="/rules"
+            className="transition hover:text-[#3D9796] hover:underline hover:decoration-[#3D9796]"
+          >
             Rules
           </Link>
           <Link
             href="/sample-questions"
-            className="hover:text-[#4CA9DF] transition"
+            className="transition hover:text-[#3D9796] hover:underline hover:decoration-[#3D9796]"
           >
             Sample Questions
           </Link>
-          <Link href="/faq" className="hover:text-[#4CA9DF] transition">
+          <Link
+            href="/faq"
+            className="transition hover:text-[#3D9796] hover:underline hover:decoration-[#3D9796]"
+          >
             FAQ
           </Link>
+          {/* Updated Pre-Register Button */}
           <button
-            className="px-6 py-2 bg-secondary text-white font-bold rounded-lg shadow-lg hover:bg-[#4CA9DF] transition"
             onClick={openModal}
+            className="
+              px-6 py-2 bg-[#3D979F] text-white font-bold rounded-lg shadow-lg
+              transition-transform duration-200 ease-in-out
+              hover:scale-105 hover:bg-[#3A8B91]
+            "
           >
             Pre-Register Now!
           </button>
@@ -64,10 +75,7 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
-          <button
-            onClick={() => setMenuOpen(!isMenuOpen)}
-            className="text-black"
-          >
+          <button onClick={() => setMenuOpen(!isMenuOpen)} className="text-black">
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
@@ -79,27 +87,32 @@ const Navbar: React.FC = () => {
           <Link
             href="/rules"
             onClick={() => setMenuOpen(false)}
-            className="hover:text-[#4CA9DF] transition"
+            className="transition hover:text-[#3D9796] hover:underline hover:decoration-[#3D9796]"
           >
             Rules
           </Link>
           <Link
             href="/sample-questions"
             onClick={() => setMenuOpen(false)}
-            className="hover:text-[#4CA9DF] transition"
+            className="transition hover:text-[#3D9796] hover:underline hover:decoration-[#3D9796]"
           >
             Sample Questions
           </Link>
           <Link
             href="/faq"
             onClick={() => setMenuOpen(false)}
-            className="hover:text-[#4CA9DF] transition"
+            className="transition hover:text-[#3D9796] hover:underline hover:decoration-[#3D9796]"
           >
             FAQ
           </Link>
+          {/* Updated Mobile Pre-Register Button */}
           <button
-            className="px-6 py-2 bg-secondary text-white font-bold rounded-lg shadow-lg hover:bg-[#4CA9DF] transition"
             onClick={openModal}
+            className="
+              px-6 py-2 bg-[#3D979F] text-white font-bold rounded-lg shadow-lg
+              transition-transform duration-200 ease-in-out
+              hover:scale-105 hover:bg-[#3A8B91]
+            "
           >
             Pre-Register Now!
           </button>
@@ -122,10 +135,7 @@ const Navbar: React.FC = () => {
               className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-200 transition"
               onClick={closeModal}
             >
-              <X
-                size={24}
-                className="text-gray-600 hover:text-gray-900 transition"
-              />
+              <X size={24} className="text-gray-600 hover:text-gray-900 transition" />
             </button>
             <iframe
               data-tally-src="https://tally.so/r/3NRLlG?transparentBackground=1"

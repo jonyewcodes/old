@@ -10,6 +10,7 @@
 body {
   margin: 0;
   font-family: var(--font-roboto), sans-serif;
+  font-family: var(--font-roboto-slab), serif;
   background-color: #fafcff;
 }
 

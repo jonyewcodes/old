@@ -6,7 +6,7 @@ const Faq: React.FC = () => {
     <main className="flex min-h-screen flex-col text-gray-800">
       <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center">
         <div className="max-w-[1400px] w-full px-6 lg:px-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left font-serif">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left font-roboto-slab">
             FAQ
           </h1>
         </div>

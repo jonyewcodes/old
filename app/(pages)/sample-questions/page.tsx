@@ -30,22 +30,34 @@ export default function SampleQuestionsPage() {
 
   return (
     <main className="flex min-h-screen flex-col text-gray-800">
+      {/* Top Gradient Header */}
       <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center">
         <div className="max-w-[1400px] w-full px-6 lg:px-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left font-serif">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left font-roboto-slab">
             Sample Questions
           </h1>
         </div>
       </div>
 
-      {/* Content Section - Matching Header Width */}
+      {/* Main Content Section */}
       <div className="flex items-center justify-center py-16">
         <div className="max-w-[1400px] w-full px-6 lg:px-12">
+          {/* Intro Text */}
+          <div className="max-w-[600px] mb-12">
+            <p className="mb-4">
+              We've put together these questions to help you get familiar with what you'll see on contest day, covering a range of difficulty levels.
+            </p>
+            <p>
+            We hope you find them helpful!
+            </p>
+          </div>
+
+          {/* Sample Questions Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {sampleQuestions.map((question, index) => (
               <div
                 key={index}
-                className="bg-white border-2 border-[#D5E6F5] rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
+                className="bg-white border-2 border-[#96D0C8] rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
               >
                 {/* Title */}
                 <h2 className="text-xl font-semibold">{question.title}</h2>
@@ -60,12 +72,21 @@ export default function SampleQuestionsPage() {
                 {/* Description */}
                 <p className="text-gray-600">{question.description}</p>
 
-                {/* Download Button */}
+                {/* Download Button with "zoom in" hover */}
                 <a
                   href={question.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-full text-secondary font-semibold border-2 border-[#D5E6F5] rounded-xl px-4 py-2 hover:bg-[#eaf2fb] transition"
+                  className="
+                    flex items-center justify-center w-full
+                    text-secondary font-semibold
+                    border-2 border-[#96D0C8]
+                    rounded-xl px-4 py-2
+                    hover:bg-[#eaf2fb]
+                    shadow-lg
+                    transition-transform duration-200 ease-in-out
+                    hover:scale-105
+                  "
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
