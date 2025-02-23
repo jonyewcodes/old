@@ -435,7 +435,7 @@ export default function RulesPage() {
             <SideBar selected={selected} />
           </div>
 
-          {/* Scrollable Main Content */}
+          {/* Main Content without Scrollable Behavior */}
           <div
             id="main-content"
             className="w-full lg:border-l-2 lg:border-[#D0D0D0] lg:pl-8 lg:overflow-y-auto"
