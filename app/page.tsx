@@ -241,14 +241,14 @@ const HomePage = () => {
   return (
     <>
       {/* Event Details Section */}
-      <section className="relative flex flex-col lg:flex-row items-start justify-start bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] py-24 px-8 lg:px-32 gap-8 overflow-hidden">
+      <section className="relative flex flex-col lg:flex-row items-start justify-start bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] py-0 px-4 sm:py-16 sm:px-6 lg:py-24 lg:px-32 gap-8 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-30">
           <StockChart />
         </div>
         <div className="flex-1 max-w-[1650px] mx-auto px-8 lg:px-20 relative z-10">
           <div className="mb-12">
-            <span className="border-2 border-[#D5E6F5] rounded-2xl bg-white text-[#343131] px-6 py-5 text-2xl">
-              {eventDate} {eventTime}
+            <span className="border-2 border-[#D5E6F5] rounded-2xl bg-white text-[#343131] px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base md:px-6 md:py-4 md:text-lg leading-tight block sm:inline text-center">
+              {eventDate} <span className="block sm:inline"> {eventTime}</span>
             </span>
           </div>
           <h1 className="text-3xl lg:text-5xl font-medium text-[#0081EA] mb-6 font-raleway whitespace-break-spaces">
@@ -268,18 +268,19 @@ const HomePage = () => {
 
       {/* Countdown Timer Section */}
       <section className="flex flex-col items-center justify-center py-12 px-10 relative">
-        <h2 className="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4CA9DF] to-[#1DBF9F]">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4CA9DF] to-[#1DBF9F] mb-5 sm:mb-7">
           Let’s Roll
         </h2>
+
         <div className="border-2 border-[#D5E6F5] rounded-tl-3xl rounded-br-3xl bg-white w-full max-w-3xl p-12 shadow-lg text-center relative">
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center justify-center gap-3 sm:gap-6">
             {["Days", "Hours", "Minutes", "Seconds"]
               .map((label, index) => (
                 <div key={label} className="flex flex-col items-center">
-                  <span className="text-xs font-medium text-[#3F3B3A] uppercase tracking-widest mb-2 flex items-center justify-center">
+                  <span className="text-[10px] sm:text-xs font-medium text-[#3F3B3A] uppercase tracking-widest mb-1 sm:mb-2 flex items-center justify-center">
                     {label}
                   </span>
-                  <span className="text-6xl font-bold text-[#3F3B3A] flex items-center">
+                  <span className="text-4xl sm:text-6xl font-bold text-[#3F3B3A] flex items-center">
                     {Object.values(timeLeft)[index]}
                   </span>
                 </div>
@@ -291,16 +292,16 @@ const HomePage = () => {
                     elem,
                     <span
                       key={`colon-${idx}`}
-                      className="text-5xl font-light mx-2 flex items-center"
+                      className="text-3xl sm:text-5xl font-light mx-1 sm:mx-2 flex items-center"
                     >
                       :
                     </span>,
                   ];
                 }
                 return [...acc, elem];
-              }, [])}{" "}
-            {/* <-- Ensure this closing bracket exists */}
+              }, [])}
           </div>
+
           <p className="text-[#43291F] text-lg mt-8">
             Till the Challenge Starts
           </p>
@@ -311,14 +312,14 @@ const HomePage = () => {
       </section>
 
       {/* Information Layout */}
-      <section className="py-24 px-10 lg:px-36 w-full">
+      <section className="py-16 px-6 sm:py-20 sm:px-8 lg:py-24 lg:px-36 w-full max-w-[1800px] mx-auto">
         <div className="flex flex-col gap-24">
           <div className="relative flex items-center w-full">
             <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] skew-y-2 bg-[#e1ecf8]/30"></div>
             <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D1C6F3] to-[#E9BCAC] relative z-10">
               1
             </span>
-            <div className="relative z-10 -ml-12 pl-6 max-w-3xl">
+            <div className="relative z-10 -ml-8 pl-6 max-w-3xl ml-1">
               <h3 className="text-3xl font-bold text-[#343131] mt-10">
                 No Boundaries, No Limits
               </h3>
@@ -330,7 +331,7 @@ const HomePage = () => {
           </div>
 
           <div className="relative flex items-center justify-end w-full">
-            <div className="relative z-10 -mr-8 pr-6 text-right max-w-3xl">
+            <div className="relative z-10 -mr-8 pr-6 text-right max-w-3xl mr-1">
               <h3 className="text-3xl font-bold text-[#343131] mt-14">
                 Calling all Pre-U Students!
               </h3>
@@ -344,12 +345,12 @@ const HomePage = () => {
             </span>
           </div>
 
-          <div className="relative flex items-center w-full">
+          <div className="relative flex items-center w-full translate-x-7">
             <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] -skew-y-2 bg-[#e1ecf8]/30"></div>
-            <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#A0F1EA] to-[#EAD6EE] relative z-10">
+            <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#A0F1EA] to-[#EAD6EE] relative z-10 -ml-16">
               3
             </span>
-            <div className="relative z-10 -ml-12 pl-6 max-w-3xl">
+            <div className="relative z-10 pl-6 max-w-3xl ml-1">
               <h3 className="text-3xl font-bold text-[#343131] mt-14">
                 Build Your Dream Team
               </h3>
@@ -361,7 +362,7 @@ const HomePage = () => {
           </div>
 
           <div className="relative flex items-center justify-end w-full">
-            <div className="relative z-10 -mr-8 pr-6 text-right max-w-3xl">
+            <div className="relative z-10 -mr-8 pr-6 text-right max-w-3xl mr-1">
               <h3 className="text-3xl font-bold text-[#343131] mt-36">
                 From Numbers to Narrative
               </h3>
@@ -381,13 +382,13 @@ const HomePage = () => {
             </span>
           </div>
 
-          <div className="relative flex items-center w-full">
-            <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] skew-y-2 bg-[#e1ecf8]/30"></div>
-            <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F1FEC6] to-[#107F5C] relative z-10">
+          <div className="relative flex items-center w-full translate-x-7">
+            <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] -skew-y-2 bg-[#e1ecf8]/30"></div>
+            <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F1FEC6] to-[#107F5C] relative z-10 -ml-16">
               5
             </span>
-            <div className="relative z-10 -ml-12 pl-6 max-w-3xl">
-              <h3 className="text-3xl font-bold text-[#343131] mt-22">
+            <div className="relative z-10 pl-6 max-w-3xl ml-1">
+              <h3 className="text-3xl font-bold text-[#343131] mt-14">
                 Got Any Questions?
               </h3>
               <p className="text-black mt-6 mb-6 text-2xl">
