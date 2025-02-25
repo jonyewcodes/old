@@ -16,8 +16,6 @@
     "@mui/material": "^6.4.5",
     "@mui/styled-engine-sc": "^6.4.3",
     "@next/font": "^14.2.15",
-    "@pqina/flip": "^1.8.4",
-    "@rumess/react-flip-countdown": "^1.2.6",
     "chart.js": "^4.4.7",
     "framer-motion": "^12.4.3",
     "igniteui-react": "^18.7.7",
