@@ -49,7 +49,7 @@ export default function SampleQuestionsPage() {
           {/* Intro Text */}
           <div className="max-w-[600px] mb-12">
             <p className="mb-4">
-              We've put together these questions to help you get familiar with what you'll see on contest day, covering a range of difficulty levels.
+              We&apos;ve put together these questions to help you get familiar with what you&apos;ll see on contest day, covering a range of difficulty levels.
             </p>
             <p>
             We hope you find them helpful!
