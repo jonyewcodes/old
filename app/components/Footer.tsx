@@ -1,15 +1,20 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="relative bg-[#5a96d9]/50 text-[#3F3B3A] py-12 mt-32">
       <div className="relative mx-auto px-6 lg:px-20 w-full max-w-[1450px]">
+
         {/* 1. Logo on top (left-aligned) */}
         <div className="mb-6">
-          <img
-            src="/logos/footer.png" // <-- Change to your actual logo path
+          {/* Replace <img> with <Image> */}
+          <Image
+            src="/logos/footer.png"
             alt="Singapore Economics League Logo"
-            className="w-40 h-auto" // Adjust width/height as desired
+            width={160}      // Adjust to suit your design
+            height={80}
+            priority         // If important for LCP
           />
         </div>
 

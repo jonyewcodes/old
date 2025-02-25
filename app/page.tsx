@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect} from "react";
+import Image from "next/image";
 import Timeline from "./components/Timeline";
 import CountDown from "./components/CountDown";
 import dynamic from "next/dynamic";
@@ -135,11 +136,6 @@ const HomePage = () => {
     },
   ];
 
-  const openModal = () => {
-    setModalOpen(true);
-    setTimeout(() => setShowModal(true), 50);
-  };
-
   const closeModal = () => {
     setShowModal(false);
     setTimeout(() => setModalOpen(false), 300);
@@ -147,6 +143,7 @@ const HomePage = () => {
 
   const [hasMounted, setHasMounted] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setHasMounted(true);
   }, []);
@@ -424,70 +421,77 @@ const HomePage = () => {
 
       {/* Resource Section */}
       <section className="w-full py-16 px-8 lg:px-20">
-        <div className="max-w-screen-xl mx-auto flex flex-col gap-6">
-          <div className="border-2 border-[#3D9796] rounded-tl-2xl rounded-br-2xl p-14 w-full flex flex-col items-center text-center bg-white">
-            <h3 className="text-3xl font-medium slab text-[#343131] mt-6">
-              Join our Community
-            </h3>
-            <p className="text-[#43291F] mt-6 max-w-lg">
-              Ask questions, make friends, and form teams. Good vibes only!
-            </p>
-            <a
-              href="https://discord.gg/SEk9HrXk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-9 px-5 py-2 bg-[#5865F2] text-white text-base font-semibold rounded-lg
-                transition-transform duration-200 ease-in-out hover:scale-105
-                flex items-center space-x-2"
-            >
-              <img
-                src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif"
-                alt="Discord"
-                className="w-6 h-6"
-              />
-              <span>Join the SEL Discord Server!</span>
-            </a>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-            <div className="bg-[#5a96d9]/50 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
-              <div className="max-w-sm">
-                <h3 className="font-medium slab text-3xl text-[#343131]">
-                  FAQ
-                </h3>
-                <p className="text-[#43291F] mt-4">
-                  Got a question on your mind? <br />
-                  We may have already answered it!
-                </p>
-                <a
-                  href="/faq"
-                  className="border-2 border-[#3D9796] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
-                    hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
-                >
-                  Read our FAQ 🡒
-                </a>
-              </div>
+      <div className="max-w-screen-xl mx-auto flex flex-col gap-6">
+
+        {/* "Join our Community" Box */}
+        <div className="border-2 border-[#3D9796] rounded-tl-2xl rounded-br-2xl p-14 w-full flex flex-col items-center text-center bg-white">
+          <h3 className="text-3xl font-medium slab text-[#343131] mt-6">
+            Join our Community
+          </h3>
+          <p className="text-[#43291F] mt-6 max-w-lg">
+            Ask questions, make friends, and form teams. Good vibes only!
+          </p>
+
+          {/* Discord Button */}
+          <a
+            href="https://discord.gg/SEk9HrXk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-9 px-5 py-2 bg-[#5865F2] text-white text-base font-semibold rounded-lg
+              transition-transform duration-200 ease-in-out hover:scale-105
+              flex items-center space-x-2"
+          >
+            {/* Replaced <img> with Next.js <Image> */}
+            <Image
+              src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif"
+              alt="Discord"
+              width={24}
+              height={24}
+            />
+            <span>Join the SEL Discord Server!</span>
+          </a>
+        </div>
+
+        {/* FAQ & Sample Questions Boxes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <div className="bg-[#5a96d9]/50 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
+            <div className="max-w-sm">
+              <h3 className="font-medium slab text-3xl text-[#343131]">FAQ</h3>
+              <p className="text-[#43291F] mt-4">
+                Got a question on your mind? <br />
+                We may have already answered it!
+              </p>
+              <a
+                href="/faq"
+                className="border-2 border-[#3D9796] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
+                  hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
+              >
+                Read our FAQ 🡒
+              </a>
             </div>
-            <div className="bg-[#5a96d9]/50 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
-              <div className="max-w-sm">
-                <h3 className="text-3xl font-medium slab text-[#343131]">
-                  Sample Questions
-                </h3>
-                <p className="text-[#43291F] mt-4">
-                  Learn more about the format and <br />
-                  structure of our questions!
-                </p>
-                <a
-                  href="/sample-questions"
-                  className="border-2 border-[#3D9796] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
-                    hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
-                >
-                  View Past Questions 🡒
-                </a>
-              </div>
+          </div>
+
+          <div className="bg-[#5a96d9]/50 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
+            <div className="max-w-sm">
+              <h3 className="text-3xl font-medium slab text-[#343131]">
+                Sample Questions
+              </h3>
+              <p className="text-[#43291F] mt-4">
+                Learn more about the format and <br />
+                structure of our questions!
+              </p>
+              <a
+                href="/sample-questions"
+                className="border-2 border-[#3D9796] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
+                  hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
+              >
+                View Past Questions 🡒
+              </a>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Organising Section */}
       <section className="py-12 px-8 lg:px-20 text-center">

@@ -32,41 +32,6 @@ function SubHeading2({ children, className }: SubHeadingProps) {
   return <h3 className={`${className} text-lg font-bold`}>{children}</h3>;
 }
 
-/* ORDERED LIST COMPONENT */
-function OrderedList({ items }: { items: (string | (string | string[])[])[] }) {
-  const renderList = (
-    items: (string | (string | string[])[])[],
-    level: number = 0
-  ) => {
-    const isTopLevel = level === 0;
-    return (
-      <ol
-        className={isTopLevel ? "list-decimal ml-4" : "list-[lower-alpha] ml-8"}
-      >
-        {items.map((item, index) => {
-          if (Array.isArray(item)) {
-            const [nonListItem, subList] = item;
-            return (
-              <li key={index}>
-                <span className={isTopLevel ? "font-bold" : ""}>
-                  {typeof nonListItem === "string" && nonListItem}
-                </span>
-                {Array.isArray(subList) && renderList(subList, level + 1)}
-              </li>
-            );
-          } else {
-            return (
-              <li key={index}>
-                <span className={isTopLevel ? "font-bold" : ""}>{item}</span>
-              </li>
-            );
-          }
-        })}
-      </ol>
-    );
-  };
-  return renderList(items);
-}
 
 /* UNORDERED LIST COMPONENT */
 function UnorderedList({ items }: { items: string[] }) {
@@ -875,6 +840,7 @@ function MobileContents() {
 export default function RulesPage() {
   const [selected, setSelected] = useState("Rules");
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

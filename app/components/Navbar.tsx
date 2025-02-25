@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const Navbar: React.FC = () => {
@@ -10,13 +11,18 @@ const Navbar: React.FC = () => {
   return (
     <div className="w-full px-6 lg:px-20 bg-gradient-to-b from-[#dbe8f8] to-[#e8f1f9] pb-8">
       <nav className="flex items-center justify-between py-10 max-w-[1300px] mx-auto w-full">
+
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/">
-            <img
+          <Link href="/" aria-label="Go to Home">
+            {/* Replace <img> with Next.js <Image> */}
+            <Image
               src="/logos/navbar.png"
               alt="Logo"
-              className="w-40 md:w-64 h-auto cursor-pointer"
+              width={256}      // Adjust width & height as needed
+              height={80}
+              className="cursor-pointer"
+              priority        // Optionally mark as priority for LCP
             />
           </Link>
         </div>
