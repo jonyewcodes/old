@@ -1,12 +1,16 @@
 import React from "react";
 import FaqBox from "../../components/FaqBox";
 
+export const metadata = {
+  title: "FAQ | Singapore Economics League",
+};
+
 const Faq: React.FC = () => {
   return (
     <main className="flex min-h-screen flex-col text-gray-800">
-      <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center">
+      <div className="bg-gradient-to-b from-[#e8f1f9] to-[#f5fbff] h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center">
         <div className="max-w-[1400px] w-full px-6 lg:px-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left font-roboto-slab">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left slab">
             FAQ
           </h1>
         </div>
@@ -57,6 +61,18 @@ const Faq: React.FC = () => {
               question="Where can I send my enquiries about SEL?"
               answer="Please email contact@sgeconsleague.org, and we will tend to any further questions you may have!"
             />
+
+            {/* New line after all FAQ boxes */}
+            <div className="mt-8">
+              Still have more questions? Send us an email at{" "}
+              <a
+                href="mailto:contact@sgeconsleague.org"
+                className="font-bold hover:underline"
+              >
+                contact@sgeconsleague.org
+              </a>
+              .
+            </div>
           </div>
         </div>
       </div>

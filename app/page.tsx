@@ -1,72 +1,23 @@
 "use client";
 
 import React, { useState, useEffect} from "react";
-import { IgrFinancialChart, IgrFinancialChartModule } from "igniteui-react-charts";
-import StocksHistory from './services/StocksHistory';
 import Timeline from "./components/Timeline";
-import WaveText from "./components/WaveText";
+import CountDown from "./components/CountDown";
+import dynamic from "next/dynamic";
 
-IgrFinancialChartModule.register();
-
-const CandleChart = () => {
-  const [data, setData] = useState<any[]>([]);
-
-  useEffect(() => {
-    StocksHistory.getMultipleStocks().then((stocks) => {
-      setData(stocks);
-    });
-  }, []);
-
-  return (
-    <div style={{ width: "100%", height: "600px", margin: 0, padding: 0 }}>
-      <IgrFinancialChart
-        width="100%"
-        height="100%"
-        chartType="Candle"
-        isToolbarVisible={false}
-        chartTitle=""
-        subtitle=""
-        yAxisTitle=""
-        xAxisLabelVisibility="Collapsed"
-        yAxisLabelVisibility="Collapsed"
-        xAxisMajorStroke="transparent"
-        yAxisMajorStroke="transparent"
-        xAxisMinorStroke="transparent"
-        yAxisMinorStroke="transparent"
-        xAxisTickLength={0}
-        yAxisTickLength={0}
-        leftMargin={0}
-        rightMargin={0}
-        topMargin={0}
-        bottomMargin={0}
-        toolTipType="None"
-        isSeriesHighlightingEnabled={false}
-        isHorizontalZoomEnabled={false}
-        isVerticalZoomEnabled={false}
-        zoomSliderType="None"
-        thickness={2.5}
-        brushes="#3D9796"
-        outlines="#3D9796"
-        negativeBrushes="transparent"
-        negativeOutlines="#FF004F"
-        dataSource={data}
-      />
-    </div>
-  );
-};
-
+const CandleChart = dynamic(() => import("./components/CandleChart"), { ssr: false });
 
 const HomePage = () => {
-  const eventDate = "Sat · 19th July 2025 ·";
+  const eventDate = "Sat · 26 July 2025 ·";
   const eventTime = "9 AM — 1 PM SGT";
-  const eventTimestamp = new Date("July 19, 2025 09:00:00").getTime();
+  const eventTimestamp = new Date("July 4, 2025 09:00:00").getTime();
 
   const title = (
     <>
-      Competitive Online <br />
+      Singapore <br />
       Economics
       <br />
-      Contest
+      League
     </>
   );
 
@@ -194,21 +145,30 @@ const HomePage = () => {
     setTimeout(() => setModalOpen(false), 300);
   };
 
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   return (
     <>
       {/* Event Details Section */}
-      <section className="relative flex flex-col lg:flex-row items-start justify-start bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] py-0 px-4 sm:py-16 sm:px-6 lg:py-24 lg:px-32 gap-8 overflow-hidden">
+      <section className="relative flex flex-col lg:flex-row items-start justify-start
+          bg-gradient-to-b from-[#e8f1f9] to-[#f5fbff]
+          pt-10 sm:pt-16 px-4 sm:px-6 lg:py-30 lg:px-32 gap-8
+          lg:overflow-hidden overflow-visible">
         <div className="absolute inset-0 z-0 opacity-30">
           <CandleChart />
         </div>
 
         <div className="flex-1 max-w-[1450px] mx-auto px-8 lg:px-20 relative z-10">
           <div className="mb-12">
-            <span className="border-2 border-[#96D0C8] rounded-2xl bg-white text-[#343131] px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base md:px-6 md:py-4 md:text-lg leading-tight block sm:inline text-center">
+            <span className="border-2 border-[#3D9796] rounded-xl bg-white text-[#343131] px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base md:px-6 md:py-4 md:text-lg leading-tight block sm:inline text-center">
               {eventDate} <span className="block sm:inline"> {eventTime}</span>
             </span>
           </div>
-          <h1 className="text-3xl lg:text-5xl font-medium text-primary mb-6 font-roboto-slab whitespace-break-spaces">
+          <h1 className="text-4xl lg:text-6xl font-medium text-primary mb-6 slab whitespace-break-spaces">
             {title}
           </h1>
           <p className="text-black font-small mb-6 leading-relaxed text-base">
@@ -224,24 +184,20 @@ const HomePage = () => {
       </section>
 
       {/* Countdown Timer Section */}
-      <section className="flex flex-col items-center justify-center py-12 px-10 relative">
-        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4CA9DF] to-[#1DBF9F]">
-          Let’s Roll
-        </h2>
+      {hasMounted && (
+        <section className="flex flex-col items-center justify-center py-12 px-10 relative">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4CA9DF] to-[#1DBF9F]">
+            Let’s Roll
+          </h2>
 
-        <div className="border-2 border-[#96D0C8] rounded-xl bg-white w-full max-w-3xl p-12 shadow-lg text-center relative">
-          <div className="flex items-center justify-center gap-3 sm:gap-6">
+          {/* FlipCard usage */}
+          <div className="mt-10 flex items-center justify-center gap-3 sm:gap-6">
             {["Days", "Hours", "Minutes", "Seconds"]
-              .map((label, index) => (
-                <div key={label} className="flex flex-col items-center">
-                  <span className="text-[10px] sm:text-xs font-medium text-[#3F3B3A] uppercase tracking-widest mb-1 sm:mb-2 flex items-center justify-center">
-                    {label}
-                  </span>
-                  <span className="text-4xl sm:text-6xl font-bold text-[#3F3B3A] flex items-center">
-                    {Object.values(timeLeft)[index]}
-                  </span>
-                </div>
-              ))
+              .map((label, index) => {
+                const value = Object.values(timeLeft)[index] as string;
+                return <CountDown key={label} label={label} value={value} />;
+              })
+              // Insert colons in between
               .reduce<JSX.Element[]>((acc, elem, idx, arr) => {
                 if (idx < arr.length - 1) {
                   return [
@@ -249,7 +205,19 @@ const HomePage = () => {
                     elem,
                     <span
                       key={`colon-${idx}`}
-                      className="text-3xl sm:text-5xl font-light mx-1 sm:mx-2 flex items-center"
+                      className="
+                        flex 
+                        items-center 
+                        justify-center 
+                        h-32 
+                        text-4xl 
+                        sm:text-6xl 
+                        font-light 
+                        mx-1 
+                        sm:mx-2 
+                        text-[#43291F]
+                        leading-none
+                      "
                     >
                       :
                     </span>,
@@ -259,20 +227,18 @@ const HomePage = () => {
               }, [])}
           </div>
 
-          <p className="text-[#43291F] text-lg mt-8">
-            Till the Challenge Starts
-          </p>
-          <p className="text-lg font-semibold text-[#43291F]">
-            - 19th July 2025 -
-          </p>
-        </div>
-      </section>
+          <p className="text-[#43291F] text-lg mt-8">Till Registration Ends</p>
+          <p className="text-lg font-semibold text-[#43291F]">— 4 July 2025 —</p>
+        </section>
+      )}
 
+
+      
       {/* Information Layout */}
       <section className="py-16 px-6 sm:py-20 sm:px-8 lg:py-24 lg:px-36 w-full max-w-[1800px] mx-auto">
         <div className="flex flex-col gap-24">
           <div className="relative flex items-center w-full">
-            <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] skew-y-2 bg-[#e1ecf8]/30"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] skew-y-2 bg-[#e1ecf8]/50"></div>
             <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D1C6F3] to-[#E9BCAC] relative z-10">
               1
             </span>
@@ -303,7 +269,7 @@ const HomePage = () => {
           </div>
 
           <div className="relative flex items-center w-full translate-x-7">
-            <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] -skew-y-2 bg-[#e1ecf8]/30"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] -skew-y-2 bg-[#e1ecf8]/50"></div>
             <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#A0F1EA] to-[#EAD6EE] relative z-10 -ml-16">
               3
             </span>
@@ -340,7 +306,7 @@ const HomePage = () => {
           </div>
 
           <div className="relative flex items-center w-full translate-x-7">
-            <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] -skew-y-2 bg-[#e1ecf8]/30"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] -skew-y-2 bg-[#e1ecf8]/50"></div>
             <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F1FEC6] to-[#107F5C] relative z-10 -ml-16">
               5
             </span>
@@ -365,8 +331,8 @@ const HomePage = () => {
 
       {/* Register Section */}
       <section className="flex items-center justify-center py-16 px-12 relative">
-        <div className="bg-white border-2 border-[#96D0C8] rounded-tl-3xl rounded-tr-3xl w-full max-w-3xl p-12 relative">
-          <h2 className="font-medium font-roboto-slab text-center text-3xl font-bold mb-8">
+        <div className="bg-white border-2 border-[#3D9796] rounded-tl-3xl rounded-tr-3xl w-full max-w-3xl p-12 relative">
+          <h2 className="font-medium slab text-center text-3xl font-bold mb-8">
             Do{" "}
             <span className="bg-gradient-to-r from-[#4CA9DF] to-[#1DBF9F] bg-clip-text text-transparent">
               you
@@ -379,17 +345,22 @@ const HomePage = () => {
             while doing it!
           </p>
           <div className="flex justify-center">
-            <button
-              className="px-10 py-3 bg-[#3D979F] text-white text-lg font-semibold rounded-lg shadow-lg
-              transition-transform duration-200 ease-in-out
-              hover:scale-105 hover:bg-[#3A8B91]"
-              onClick={openModal}
+            <a
+              href="https://tally.so/r/3NRLlG"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                px-10 py-3 bg-[#3D979F] text-white text-lg font-semibold rounded-lg shadow-lg
+                transition-transform duration-200 ease-in-out
+                hover:scale-105 hover:bg-[#3A8B91]
+              "
             >
               Register Now!
-            </button>
+            </a>
           </div>
         </div>
       </section>
+
 
       {isModalOpen && (
         <div
@@ -435,13 +406,16 @@ const HomePage = () => {
       )}
 
       {/* Timeline Section */}
-      <section className="my-12">
-        <div className="bg-[#e1ecf8]/30 py-20">
-          <h3 className="text-3xl font-medium font-roboto-slab text-[#343131] text-center mb-8">
-            <WaveText text="Important Dates" />
-          </h3>
+      <section className="relative my-16 w-full">
+        <div className="bg-[#e1ecf8]/50 py-28 w-full relative z-10">
+          <h2 className="text-5xl font-bold slab text-[#343131] text-center mb-12">
+            Important{" "}
+            <span className="bg-gradient-to-r from-[#4CA9DF] to-[#1DBF9F] bg-clip-text text-transparent">
+            Dates
+            </span>
+          </h2>
           <div className="flex justify-center">
-            <div className="w-full max-w-4xl px-6">
+            <div className="w-full max-w-6xl px-10">
               <Timeline />
             </div>
           </div>
@@ -451,8 +425,8 @@ const HomePage = () => {
       {/* Resource Section */}
       <section className="w-full py-16 px-8 lg:px-20">
         <div className="max-w-screen-xl mx-auto flex flex-col gap-6">
-          <div className="border-2 border-[#96D0C8] rounded-tl-2xl rounded-br-2xl p-14 w-full flex flex-col items-center text-center bg-white">
-            <h3 className="text-3xl font-medium font-roboto-slab text-[#343131] mt-6">
+          <div className="border-2 border-[#3D9796] rounded-tl-2xl rounded-br-2xl p-14 w-full flex flex-col items-center text-center bg-white">
+            <h3 className="text-3xl font-medium slab text-[#343131] mt-6">
               Join our Community
             </h3>
             <p className="text-[#43291F] mt-6 max-w-lg">
@@ -475,9 +449,9 @@ const HomePage = () => {
             </a>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-            <div className="bg-[#96D0C8]/30 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
+            <div className="bg-[#5a96d9]/50 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
               <div className="max-w-sm">
-                <h3 className="font-medium font-roboto-slab text-3xl text-[#343131]">
+                <h3 className="font-medium slab text-3xl text-[#343131]">
                   FAQ
                 </h3>
                 <p className="text-[#43291F] mt-4">
@@ -486,16 +460,16 @@ const HomePage = () => {
                 </p>
                 <a
                   href="/faq"
-                  className="border-2 border-[#96D0C8] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
+                  className="border-2 border-[#3D9796] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
                     hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
                 >
                   Read our FAQ 🡒
                 </a>
               </div>
             </div>
-            <div className="bg-[#96D0C8]/30 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
+            <div className="bg-[#5a96d9]/50 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
               <div className="max-w-sm">
-                <h3 className="text-3xl font-medium font-roboto-slab text-[#343131]">
+                <h3 className="text-3xl font-medium slab text-[#343131]">
                   Sample Questions
                 </h3>
                 <p className="text-[#43291F] mt-4">
@@ -504,7 +478,7 @@ const HomePage = () => {
                 </p>
                 <a
                   href="/sample-questions"
-                  className="border-2 border-[#96D0C8] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
+                  className="border-2 border-[#3D9796] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
                     hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
                 >
                   View Past Questions 🡒
@@ -526,7 +500,7 @@ const HomePage = () => {
         </h1>
 
         <div className="max-w-screen-xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-10 gap-y-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-14">
             {teamMembers
               .slice(0, Math.floor(teamMembers.length / 5) * 5)
               .map((member, index) => (
@@ -536,11 +510,14 @@ const HomePage = () => {
                 >
                   <a
                     href={member.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-[#3E8E96] text-2xl font-semibold no-underline hover:no-underline transition-transform duration-300 whitespace-nowrap"
                   >
                     {member.name}
                   </a>
-                  <div className="mt-2 flex flex-col items-center space-y-1">
+                  {/* Reduced vertical spacing */}
+                  <div className="mt-1 flex flex-col items-center space-y-0.5">
                     {member.roles.map((role, roleIndex) => (
                       <p key={roleIndex} className="text-gray-600 text-lg whitespace-nowrap">
                         {role}
@@ -563,11 +540,13 @@ const HomePage = () => {
                     >
                       <a
                         href={member.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-[#3E8E96] text-2xl font-semibold no-underline hover:no-underline transition-transform duration-300 whitespace-nowrap"
                       >
                         {member.name}
                       </a>
-                      <div className="mt-2 flex flex-col items-center space-y-1">
+                      <div className="mt-1 flex flex-col items-center space-y-0.5">
                         {member.roles.map((role, roleIndex) => (
                           <p key={roleIndex} className="text-gray-600 text-lg whitespace-nowrap">
                             {role}
@@ -581,6 +560,7 @@ const HomePage = () => {
           )}
         </div>
       </section>
+
     </>
   );
 };

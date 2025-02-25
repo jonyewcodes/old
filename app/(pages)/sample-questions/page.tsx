@@ -1,4 +1,8 @@
-"use client";
+import React from "react";
+
+export const metadata = {
+  title: "Sample Questions | Singapore Economics League",
+};
 
 export default function SampleQuestionsPage() {
   const sampleQuestions = [
@@ -31,9 +35,9 @@ export default function SampleQuestionsPage() {
   return (
     <main className="flex min-h-screen flex-col text-gray-800">
       {/* Top Gradient Header */}
-      <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[80px] sm:h-[100px] md:h-[100px] flex items-center justify-center">
+      <div className="bg-gradient-to-b from-[#e8f1f9] to-[#f5fbff] h-[80px] sm:h-[100px] md:h-[100px] flex items-center justify-center">
         <div className="max-w-[1400px] w-full px-6 lg:px-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left font-roboto-slab">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left slab">
             Sample Questions
           </h1>
         </div>
@@ -57,7 +61,7 @@ export default function SampleQuestionsPage() {
             {sampleQuestions.map((question, index) => (
               <div
                 key={index}
-                className="bg-white border-2 border-[#96D0C8] rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
+                className="bg-white border-2 border-[#3D9796] rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
               >
                 <h2 className="text-xl font-semibold">{question.title}</h2>
                 <span

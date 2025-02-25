@@ -3,14 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --font-raleway: 'Raleway', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-roboto-slab: 'Roboto Slab', serif;
 }
 
+/* Default body font = Roboto */
 body {
   margin: 0;
   font-family: var(--font-roboto), sans-serif;
-  font-family: var(--font-roboto-slab), serif;
-  background-color: #fafcff;
+  background-color: #f5fbff;
 }
 
 html, body {
@@ -18,16 +19,10 @@ html, body {
   width: 100%;
 }
 
-@keyframes waveUpDownPause {
-  0%, 9%, 100% {
-    transform: translateY(0);
-  }
-  4.5% {
-    transform: translateY(-10px);
-  }
-}
-
-.wave-letter {
-  display: inline-block;
-  animation: waveUpDownPause 16.5s infinite ease-in-out;
+/* 
+  A custom class for Roboto Slab.
+  Apply this to any text that needs Slab 
+*/
+.slab {
+  font-family: var(--font-roboto-slab), serif;
 }
