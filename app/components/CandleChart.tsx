@@ -47,7 +47,7 @@ export default function CandleChart() {
         brushes="#3D9796"
         outlines="#3D9796"
         negativeBrushes="transparent"
-        negativeOutlines="#FF004F"
+        negativeOutlines="#ffffff"
         dataSource={data}
       />
     </div>

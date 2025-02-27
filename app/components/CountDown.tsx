@@ -23,10 +23,10 @@ export default function CountDown({ label, value }: CountDownProps) {
           relative
           w-32 h-36
           flex items-center justify-center
-          bg-[#3D9796]/40
+          bg-[#272a30]
           rounded-md
           text-5xl font-semibold
-          text-[#43291F]
+          text-white
         "
       >
         {/* Middle horizontal line (for a flip-like look) */}
@@ -34,7 +34,7 @@ export default function CountDown({ label, value }: CountDownProps) {
           absolute
           top-1/2 left-0
           w-full h-px
-          bg-[#f5fbff]
+          bg-[#fefefb]
           -translate-y-1/2
           pointer-events-none
         " />

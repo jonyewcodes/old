@@ -9,7 +9,7 @@ import "./styles/globals.css";
 
 /* 1. Add default site metadata */
 export const metadata: Metadata = {
-  title: "Singapore Economics League  (SEL)", 
+  title: "Singapore Economics League | SEL ", 
   description: "Your default site-wide description here",
 };
 

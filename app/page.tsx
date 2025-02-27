@@ -9,27 +9,7 @@ import dynamic from "next/dynamic";
 const CandleChart = dynamic(() => import("./components/CandleChart"), { ssr: false });
 
 const HomePage = () => {
-  const eventDate = "Sat · 26 July 2025 ·";
-  const eventTime = "9 AM — 1 PM SGT";
   const eventTimestamp = new Date("July 4, 2025 09:00:00").getTime();
-
-  const title = (
-    <>
-      Singapore <br />
-      Economics
-      <br />
-      League
-    </>
-  );
-
-  const description = (
-    <>
-      A team-based competition for problem-solving in economics. <br />
-      Battle your fellow students for the crown!
-    </>
-  );
-
-  const rulesLink = "/rules";
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   const [isModalOpen, setModalOpen] = useState(false);
@@ -69,74 +49,6 @@ const HomePage = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const teamMembers = [
-    {
-      name: "Ho Jon Yew",
-      roles: ["Chief Organiser"],
-      link: "https://www.linkedin.com/in/jon-yew-ho/",
-    },
-    {
-      name: "Tevel Sho",
-      roles: ["Deputy Chief Organiser", "Lead Developer"],
-      link: "https://www.linkedin.com/in/tevelsho",
-    },
-    {
-      name: "Lucas Lee",
-      roles: ["Head of Operations"],
-      link: "https://www.linkedin.com/in/lucas-lee-zy ",
-    },
-    {
-      name: "Li Zonglun",
-      roles: ["Head of Academics", "Problem Setter"],
-      link: "https://www.linkedin.com/in/zonglun-li-80970a276",
-    },
-    {
-      name: "Zhao Yuxuan",
-      roles: ["Academics Consultant", "Problem Setter"],
-      link: "#",
-    },
-    {
-      name: "Jonas Lim",
-      roles: ["Problem Setter"],
-      link: "https://www.linkedin.com/in/jonas-lim-489a05330",
-    },
-    {
-      name: "Fan Yixiang",
-      roles: ["Problem Setter"],
-      link: "https://www.linkedin.com/in/yixiang-fan-38700a352",
-    },
-    {
-      name: "Theodore Chou",
-      roles: ["Problem Setter"],
-      link: "https://www.linkedin.com/in/theodore-chou-sales-marketing-entrepreneurship-economics",
-    },
-    {
-      name: "Jeffrey Lee",
-      roles: ["Lead Developer"],
-      link: "https://www.linkedin.com/in/jeffrey-lee-8a9461236",
-    },
-    {
-      name: "Chua Zhong Ding",
-      roles: ["Full Stack Developer", "Penetration Tester"],
-      link: "https://www.linkedin.com/in/chua-zhong-ding-94412728b",
-    },
-    {
-      name: "Chew Jin Hao",
-      roles: ["Full Stack Developer"],
-      link: "http://www.linkedin.com/in/chew-jin-hao-274850196",
-    },
-    {
-      name: "Dylan Saga",
-      roles: ["Data Analyst"],
-      link: "https://www.linkedin.com/in/dylan-saga-551430273",
-    },
-    {
-      name: "Raeanne Zou",
-      roles: ["Graphic Illustrator"],
-      link: "https://www.linkedin.com/in/raeanne-zou/",
-    },
-  ];
-
   const closeModal = () => {
     setShowModal(false);
     setTimeout(() => setModalOpen(false), 300);
@@ -149,42 +61,190 @@ const HomePage = () => {
     setHasMounted(true);
   }, []);
 
+  const sampleQuestions = [
+    {
+      title: "Economic Crisis on Arrakis",
+      difficulty: "Easy",
+      difficultyColor: "bg-[#D4F5E2] text-[#2E7D32]",
+      description: "Solve economic instability on a desert planet using optimal resource management.",
+      link: "/sample-questions/easy.pdf",
+    },
+    {
+      title: "Competition Sign-Ups",
+      difficulty: "Medium",
+      difficultyColor: "bg-[#FFF3C4] text-[#FF9800]",
+      description: "Efficiently manage multiple sign-ups for an event using data structures.",
+      link: "/sample-questions/medium.pdf",
+    },
+    {
+      title: "The AI Dilemma: Growth vs Risk",
+      difficulty: "Hard",
+      difficultyColor: "bg-[#FFEBEE] text-[#D32F2F]",
+      description: "Balance AI development while mitigating risks in a futuristic society.",
+      link: "/sample-questions/hard.pdf",
+    },
+  ];
+
+  const [showAnnouncement, setShowAnnouncement] = useState(true);
+  
   return (
     <>
-      {/* Event Details Section */}
-      <section className="relative flex flex-col lg:flex-row items-start justify-start
-          bg-gradient-to-b from-[#e8f1f9] to-[#f5fbff]
-          pt-10 sm:pt-16 px-4 sm:px-6 lg:py-30 lg:px-32 gap-8
-          lg:overflow-hidden overflow-visible">
-        <div className="absolute inset-0 z-0 opacity-30">
-          <CandleChart />
+      {/* ===== Announcement Bar ===== */}
+      <div
+        className={`
+          bg-[#C22224] text-white
+          overflow-hidden
+          transition-all duration-500 ease-in-out
+          ${showAnnouncement ? "opacity-100 max-h-28 py-4" : "opacity-0 max-h-0 py-0"}
+        `}
+      >
+        <div className="max-w-100% mx-auto px-4 flex items-center justify-between">
+          {/* Left side: Megaphone icon + text in a row */}
+          <div className="flex items-center gap-2">
+          {/* Megaphone Icon */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="icon icon-tabler icons-tabler-outline icon-tabler-speakerphone"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M18 8a3 3 0 0 1 0 6" />
+            <path d="M10 8v11a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-5" />
+            <path d="M12 8h0l4.524 -3.77a.9 .9 0 0 1 1.476 .692v12.156a.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8" />
+          </svg>
+          <p className="text-sm sm:text-base">
+            We are actively expanding our team and looking for passionate individuals. If you’re interested in any role, please{" "}
+            <a href="https://your-form-link.com" className="underline">
+              apply here
+            </a>!
+          </p>
         </div>
 
-        <div className="flex-1 max-w-[1450px] mx-auto px-8 lg:px-20 relative z-10">
-          <div className="mb-12">
-            <span className="border-2 border-[#3D9796] rounded-xl bg-white text-[#343131] px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base md:px-6 md:py-4 md:text-lg leading-tight block sm:inline text-center">
-              {eventDate} <span className="block sm:inline"> {eventTime}</span>
-            </span>
-          </div>
-          <h1 className="text-4xl lg:text-6xl font-medium text-primary mb-6 slab whitespace-break-spaces">
-            {title}
-          </h1>
-          <p className="text-black font-small mb-6 leading-relaxed text-base">
-            {description}
-          </p>
-          <a
-            href={rulesLink}
-            className="text-secondary font-bold underline hover:text-[#3D9796] transition text-lg"
+
+          {/* Right side: Close (X) icon */}
+          <button
+            onClick={() => setShowAnnouncement(false)}
+            className="hover:scale-110 transition-transform"
+            aria-label="Close announcement"
           >
-            Competition Rules
-          </a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-x"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M18 6l-12 12" />
+              <path d="M6 6l12 12" />
+            </svg>
+          </button>
         </div>
-      </section>
+      </div>
+      {/* Event Details Section */}
+      <section
+      className="
+        relative
+        bg-primary/85
+        py-16 px-4
+        sm:py-20 sm:px-6
+        lg:py-24 lg:px-32
+        text-white
+        overflow-hidden
+      "
+    >
+      {/* Background CandleChart */}
+      <div className="absolute inset-0 z-0 opacity-30">
+        <CandleChart />
+      </div>
+
+      {/* Main content container */}
+      {/* Main content container */}
+      <div className="relative z-10 flex flex-col items-center">
+        {/* 1) Big heading, centered */}
+        <h1
+          className="
+            text-[4rem]
+            sm:text-[5rem]
+            lg:text-[6rem]
+            font-medium
+            text-center
+            mb-4
+            mt-4
+            slab
+            leading-tight
+          "
+        >
+          Singapore <br />
+          Economics League
+        </h1>
+
+        {/* Two side-by-side boxes, same width as the heading */}
+        <div className="w-full max-w-4xl mx-auto flex flex-col sm:flex-row items-stretch justify-center gap-6 mb-8">
+          {/* Left Box */}
+          <div
+            className="
+              basis-1/2
+              bg-secondary/85
+              text-white
+              border-2 border-[#272a30]
+              rounded-xl
+              px-4 py-3
+              shadow-sm
+              flex
+              items-center
+              justify-center
+            "
+          >
+            <p className="font-semibold text-base leading-tight whitespace-normal text-center text-sm">
+              Fri · 4 July 2025 · 11:59 PM SGT (Registration Closes)
+            </p>
+          </div>
+
+          {/* Right Box */}
+          <div
+            className="
+              basis-1/2
+              bg-secondary/85
+              text-white
+              border-2 border-[#272a30]
+              rounded-xl
+              px-4 py-3
+              shadow-sm
+              flex
+              items-center
+              justify-center
+            "
+          >
+            <p className="font-semibold text-base leading-tight whitespace-normal text-center text-sm">
+              Sat · 26 July 2025 · 09:00 AM — 01:00 PM SGT (Competition)
+            </p>
+          </div>
+        </div>
+
+        {/* Centered paragraph below */}
+        <p className="max-w-3xl text-center text-white">
+          A team based competition for problem solving in economics. Battle your fellow
+          students for the crown!
+        </p>
+      </div>
+
+    </section>
 
       {/* Countdown Timer Section */}
       {hasMounted && (
         <section className="flex flex-col items-center justify-center py-12 px-10 relative">
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#4CA9DF] to-[#1DBF9F]">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#7f9fd8] to-[#5073b1]">
             Let’s Roll
           </h2>
 
@@ -232,132 +292,76 @@ const HomePage = () => {
 
 
       
-      {/* Information Layout */}
-      <section className="py-16 px-6 sm:py-20 sm:px-8 lg:py-24 lg:px-36 w-full max-w-[1800px] mx-auto">
+      <section className="py-16 px-6 sm:py-20 sm:px-8 lg:py-24 lg:px-36 w-full max-w-[1400px] mx-auto">
         <div className="flex flex-col gap-24">
-          <div className="relative flex items-center w-full">
-            <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] skew-y-2 bg-[#e1ecf8]/50"></div>
-            <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D1C6F3] to-[#E9BCAC] relative z-10">
-              1
-            </span>
-            <div className="relative z-10 -ml-8 pl-6 max-w-3xl ml-1">
-              <h3 className="text-3xl font-bold text-[#343131] mt-10">
-                No Boundaries, No Limits
-              </h3>
-              <p className="text-black mt-6 text-2xl">
-                An online contest, accessible from anywhere. Log on from <br />{" "}
-                the comfort of your home and put your wits to the test!
-              </p>
+          
+          {/* 1 - Number Left, Text Right */}
+          <div className="flex justify-start">
+            <div className="border-2 border-primary rounded-xl px-8 py-6 inline-flex items-center gap-6">
+              {/* Large gradient “1” (smaller) */}
+              <span className="text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#C9DAF3] to-[#7F9FD8]">
+                1
+              </span>
+
+              {/* Text Block (heading smaller, paragraph smaller) */}
+              <div>
+                <h3 className="text-2xl font-bold text-[#343131]">
+                  No Boundaries, No Limits
+                </h3>
+                <p className="text-black mt-4 text-xl">
+                  An online contest, accessible from anywhere. Log on from <br />
+                  the comfort of your home and put your wits to the test!
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="relative flex items-center justify-end w-full">
-            <div className="relative z-10 -mr-8 pr-6 text-right max-w-3xl mr-1">
-              <h3 className="text-3xl font-bold text-[#343131] mt-14">
-                Calling all Pre-U Students!
-              </h3>
-              <p className="text-black mt-6 text-2xl">
-                Studying in a JC/MI, local polytechnic, ITE, or <br /> secondary
-                school? You are eligible to participate!
-              </p>
-            </div>
-            <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FFAE00] to-[#F9E866] relative z-10">
-              2
-            </span>
-          </div>
+          {/* 2 - Text Left, Number Right */}
+          <div className="flex justify-end">
+            <div className="border-2 border-primary  rounded-xl px-8 py-6 inline-flex items-center gap-6">
+              {/* Text Block (right-aligned) */}
+              <div className="text-right">
+                <h3 className="text-2xl font-bold text-[#343131]">
+                  Calling all Pre-U Students!
+                </h3>
+                <p className="text-black mt-4 text-xl">
+                  Studying in a JC/MI, local polytechnic, ITE, or <br />
+                  secondary school? You are eligible to participate!
+                </p>
+              </div>
 
-          <div className="relative flex items-center w-full translate-x-7">
-            <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] -skew-y-2 bg-[#e1ecf8]/50"></div>
-            <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#A0F1EA] to-[#EAD6EE] relative z-10 -ml-16">
-              3
-            </span>
-            <div className="relative z-10 pl-6 max-w-3xl ml-1">
-              <h3 className="text-3xl font-bold text-[#343131] mt-14">
-                Build Your Dream Team
-              </h3>
-              <p className="text-black mt-6 text-2xl">
-                From classmates to friends in other schools, assemble <br /> the
-                team of your choice to win it all!
-              </p>
+              {/* Large gradient “2” (smaller) */}
+              <span className="text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#7F9FD8] to-[#5073b1]">
+                2
+              </span>
             </div>
           </div>
 
-          <div className="relative flex items-center justify-end w-full">
-            <div className="relative z-10 -mr-8 pr-6 text-right max-w-3xl mr-1">
-              <h3 className="text-3xl font-bold text-[#343131] mt-36">
-                From Numbers to Narrative
-              </h3>
-              <p className="text-black mt-6 mb-6 text-2xl">
-                Every question will challenge your wit, <br /> knowledge, and
-                problem-solving skills in novel <br /> and unexpected ways.
-              </p>
-              <a
-                href="/sample-questions"
-                className="text-[#0092E8] font-semibold underline text-2xl"
-              >
-                Try some sample problems!
-              </a>
+          {/* 3 - Number Left, Text Right */}
+          <div className="flex justify-start">
+            <div className="border-2 border-primary rounded-xl px-8 py-6 inline-flex items-center gap-6">
+              {/* Large gradient “3” (smaller) */}
+              <span className="text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#5073b1] to-[#32447E]">
+                3
+              </span>
+
+              {/* Text Block */}
+              <div>
+                <h3 className="text-2xl font-bold text-[#343131]">
+                  Build Your Dream Team
+                </h3>
+                <p className="text-black mt-4 text-xl">
+                  From classmates to friends in other schools, assemble <br />
+                  the team of your choice to win it all!
+                </p>
+              </div>
             </div>
-            <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FFC145] to-[#EC368D] relative z-10">
-              4
-            </span>
           </div>
 
-          <div className="relative flex items-center w-full translate-x-7">
-            <div className="absolute left-0 top-0 bottom-0 w-[250vw] -ml-[50vw] h-[420px] -skew-y-2 bg-[#e1ecf8]/50"></div>
-            <span className="text-[18rem] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F1FEC6] to-[#107F5C] relative z-10 -ml-16">
-              5
-            </span>
-            <div className="relative z-10 pl-6 max-w-3xl ml-1">
-              <h3 className="text-3xl font-bold text-[#343131] mt-14">
-                Got Any Questions?
-              </h3>
-              <p className="text-black mt-6 mb-6 text-2xl">
-                Check out our{" "}
-                <a
-                  href="/faq"
-                  className="text-[#0092E8] font-semibold underline text-2xl"
-                >
-                  Frequently Asked Questions
-                </a>
-                !
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Register Section */}
-      <section className="flex items-center justify-center py-16 px-12 relative">
-        <div className="bg-white border-2 border-[#3D9796] rounded-tl-3xl rounded-tr-3xl w-full max-w-3xl p-12 relative">
-          <h2 className="font-medium slab text-center text-3xl font-bold mb-8">
-            Do{" "}
-            <span className="bg-gradient-to-r from-[#4CA9DF] to-[#1DBF9F] bg-clip-text text-transparent">
-              you
-            </span>{" "}
-            have what it takes?
-          </h2>
-          <p className="text-center text-black text-lg mb-12">
-            Register now and be part of an exciting journey where you get to put
-            your economics knowledge to the test, work with others, and have fun
-            while doing it!
-          </p>
-          <div className="flex justify-center">
-            <a
-              href="https://tally.so/r/3NRLlG"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                px-10 py-3 bg-[#3D979F] text-white text-lg font-semibold rounded-lg shadow-lg
-                transition-transform duration-200 ease-in-out
-                hover:scale-105 hover:bg-[#3A8B91]
-              "
-            >
-              Register Now!
-            </a>
-          </div>
-        </div>
-      </section>
+
 
 
       {isModalOpen && (
@@ -403,29 +407,106 @@ const HomePage = () => {
         </div>
       )}
 
+      {/* Sample Questions Section */}
+      <section className="flex items-center justify-center">
+        <div className="max-w-[1400px] w-full px-6 lg:px-12 ">
+          {/* Heading & Intro Text */}
+          <h1 className="text-black text-5xl lg:text-5xl font-bold mb-6 text-center">
+          Sample{" "}
+          <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
+            Questions
+          </span>
+        </h1>
+        <div className="border-b border-[#cdcac8] mb-8 w-full max-w-[1400px] mx-auto" />
+          {/* The same grid styling from your snippet */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sampleQuestions.map((question, index) => (
+              <div
+                key={index}
+                className="bg-white border-2 border-primary rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
+              >
+                <h3 className="text-xl font-semibold">{question.title}</h3>
+                <span
+                  className={`inline-block w-fit px-3 py-1 text-sm font-medium rounded-full ${question.difficultyColor}`}
+                >
+                  {question.difficulty}
+                </span>
+                <p className="text-gray-600">{question.description}</p>
+                <a
+                  href={question.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    flex items-center justify-center w-full
+                    text-secondary font-semibold
+                    border-2 border-secondary
+                    rounded-xl px-4 py-2
+                    hover:bg-[#eaf2fb]
+                    shadow-lg
+                    transition-transform duration-200 ease-in-out
+                    hover:scale-105
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="mr-2"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                    <path d="M7 11l5 5l5 -5" />
+                    <path d="M12 4l0 12" />
+                  </svg>
+                  Download
+                </a>
+              </div>
+            ))}
+          </div>
+          <div className="border-b border-[#cdcac8] mt-8 w-full max-w-[1400px] mx-auto" />
+        </div>
+      </section>
+
       {/* Timeline Section */}
       <section className="relative my-16 w-full">
-        <div className="bg-[#e1ecf8]/50 py-28 w-full relative z-10">
-          <h2 className="text-5xl font-bold slab text-[#343131] text-center mb-12">
+        <div className="py-28 w-full relative z-10">
+          <h2 className="text-5xl font-bold slab text-[#343131] text-center mb-6">
             Important{" "}
-            <span className="bg-gradient-to-r from-[#4CA9DF] to-[#1DBF9F] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
             Dates
             </span>
           </h2>
+          <div className="border-b border-[#cdcac8] mb-8 w-full max-w-[1400px] mx-auto" />
           <div className="flex justify-center">
             <div className="w-full max-w-6xl px-10">
               <Timeline />
             </div>
           </div>
+          <div className="border-b border-[#cdcac8] mt-8 w-full max-w-[1400px] mx-auto" />
         </div>
       </section>
 
+
       {/* Resource Section */}
       <section className="w-full py-16 px-8 lg:px-20">
+                  {/* Heading & Intro Text */}
+                  <h1 className="text-black text-5xl lg:text-5xl font-bold mb-6 text-center">
+          Useful{" "}
+          <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
+            Resources
+          </span>
+        </h1>
+        <div className="border-b border-[#cdcac8] mb-8 w-full max-w-[1400px] mx-auto" />
       <div className="max-w-screen-xl mx-auto flex flex-col gap-6">
 
         {/* "Join our Community" Box */}
-        <div className="border-2 border-[#3D9796] rounded-tl-2xl rounded-br-2xl p-14 w-full flex flex-col items-center text-center bg-white">
+        <div className="border-2 border-primary rounded-tl-3xl rounded-tr-3xl p-14 w-full flex flex-col items-center text-center bg-white">
           <h3 className="text-3xl font-medium slab text-[#343131] mt-6">
             Join our Community
           </h3>
@@ -442,7 +523,6 @@ const HomePage = () => {
               transition-transform duration-200 ease-in-out hover:scale-105
               flex items-center space-x-2"
           >
-            {/* Replaced <img> with Next.js <Image> */}
             <Image
               src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif"
               alt="Discord"
@@ -455,27 +535,27 @@ const HomePage = () => {
 
         {/* FAQ & Sample Questions Boxes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-          <div className="bg-[#5a96d9]/50 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
+          <div className="border-2 border-primary rounded-3xl bg-white p-14 flex flex-col items-start">
             <div className="max-w-sm">
-              <h3 className="font-medium slab text-3xl text-[#343131]">FAQ</h3>
+              <h3 className="font-medium slab text-3xl text-[#343131]">About Us</h3>
               <p className="text-[#43291F] mt-4">
                 Got a question on your mind? <br />
                 We may have already answered it!
               </p>
               <a
                 href="/faq"
-                className="border-2 border-[#3D9796] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
+                className="border-2 border-primary mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
                   hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
               >
-                Read our FAQ 🡒
+                Get to Know Us 🡒
               </a>
             </div>
           </div>
 
-          <div className="bg-[#5a96d9]/50 rounded-tl-3xl rounded-br-3xl p-14 flex flex-col items-start">
+          <div className="border-2 border-primary rounded-3xl bg-white p-14 flex flex-col items-start">
             <div className="max-w-sm">
               <h3 className="text-3xl font-medium slab text-[#343131]">
-                Sample Questions
+                Archives
               </h3>
               <p className="text-[#43291F] mt-4">
                 Learn more about the format and <br />
@@ -483,89 +563,17 @@ const HomePage = () => {
               </p>
               <a
                 href="/sample-questions"
-                className="border-2 border-[#3D9796] mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
+                className="border-2 border-primary mt-6 inline-block px-6 py-2.5 bg-[#ffffff] text-[#4CA9DF] text-base font-medium rounded-lg
                   hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
               >
-                View Past Questions 🡒
+                View Past Winners 🡒
               </a>
             </div>
           </div>
         </div>
+        <div className="border-b border-[#cdcac8] mt-8 w-full max-w-[1400px] mx-auto" />
       </div>
     </section>
-
-      {/* Organising Section */}
-      <section className="py-12 px-8 lg:px-20 text-center">
-        <h2 className="text-[#AEAEC066] text-5xl font-bold mb-4">Meet the</h2>
-        <h1 className="text-black text-5xl lg:text-5xl font-bold mb-14">
-          2025 Organising{" "}
-          <span className="bg-gradient-to-r from-[#4CA9DF] to-[#1DBF9F] bg-clip-text text-transparent">
-            Team
-          </span>
-        </h1>
-
-        <div className="max-w-screen-xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-14">
-            {teamMembers
-              .slice(0, Math.floor(teamMembers.length / 5) * 5)
-              .map((member, index) => (
-                <div
-                  key={index}
-                  className="w-full text-center transition-transform duration-300 hover:scale-105 px-4"
-                >
-                  <a
-                    href={member.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#3E8E96] text-2xl font-semibold no-underline hover:no-underline transition-transform duration-300 whitespace-nowrap"
-                  >
-                    {member.name}
-                  </a>
-                  {/* Reduced vertical spacing */}
-                  <div className="mt-1 flex flex-col items-center space-y-0.5">
-                    {member.roles.map((role, roleIndex) => (
-                      <p key={roleIndex} className="text-gray-600 text-lg whitespace-nowrap">
-                        {role}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              ))}
-          </div>
-
-          {teamMembers.length % 5 === 3 && (
-            <div className="flex justify-center mt-6">
-              <div className="grid grid-cols-3 gap-x-10">
-                {teamMembers
-                  .slice(Math.floor(teamMembers.length / 5) * 5)
-                  .map((member, index) => (
-                    <div
-                      key={index}
-                      className="w-full text-center transition-transform duration-300 hover:scale-105 px-4"
-                    >
-                      <a
-                        href={member.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#3E8E96] text-2xl font-semibold no-underline hover:no-underline transition-transform duration-300 whitespace-nowrap"
-                      >
-                        {member.name}
-                      </a>
-                      <div className="mt-1 flex flex-col items-center space-y-0.5">
-                        {member.roles.map((role, roleIndex) => (
-                          <p key={roleIndex} className="text-gray-600 text-lg whitespace-nowrap">
-                            {role}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
-
     </>
   );
 };

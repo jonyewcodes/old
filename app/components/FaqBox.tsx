@@ -15,7 +15,7 @@ export default function FaqBox({ question, answer }: FaqProps): JSX.Element {
   };
 
   return (
-    <div className="w-full max-w-[1800px] border-2 border-[#3D9796] rounded-tl-3xl rounded-br-3xl bg-white mb-4 overflow-hidden">
+    <div className="w-full max-w-[1800px] border-2 border-[#3D9796] rounded-tl-3xl rounded-tr-3xl bg-white mb-6 overflow-hidden">
       {/* Question Button */}
       <button
         type="button"

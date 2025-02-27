@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Latex from "react-latex-next";
 
 /* SECTION IDs */
 const sectionIds = [
@@ -10,7 +11,7 @@ const sectionIds = [
   "Contest Format and Scoring",
   "Awards and Rankings",
   "Conduct of the Contest",
-  "Participants&apos; Code of Conduct",
+  "Participants' Code of Conduct",
   "Terms and Conditions",
 ];
 
@@ -22,7 +23,7 @@ interface SubHeadingProps {
 
 function SubHeading({ children, className }: SubHeadingProps) {
   return (
-    <h2 className={`${className} text-xl text-[#3D9796] font-bold mb-6`}>
+    <h2 className={`${className} text-xl text-primary font-bold mb-6`}>
       {children}
     </h2>
   );
@@ -75,9 +76,9 @@ function BriefRules() {
       <p className="mt-4">
         <span className="font-semibold">What is allowed?:</span>{" "}
         All internet resources such as textbooks, and any computer programs (e.g.
-        graphing software, IDEs) are allowed. Generative AI tools such as
-        ChatGPT are <b>discouraged from use</b>, but also allowed. Communication with
-        individuals outside the team related to the problems is <b>strictly
+        graphing software, IDEs) are allowed. Communication with individuals outside 
+        the team related to the problems is <b>strictly prohibited</b>. The usage of <b>any </b>
+        Generative AI tools such as ChatGPT is also <b>strictly
         prohibited</b>.
       </p>
 
@@ -99,11 +100,11 @@ function Registration() {
         items={[
           "Participants must register in the competition in order to participate.",
           "Registration is open at sgeconsleague.org from <b>1 May</b> to <b>4 July 2025</b>.",
-          "Teams consist of <b>3 to 5 members</b>.",
+          "Each team must comprise <b>3 to 5 members</b>.",
           "All team members must be <b>pre-university students</b>: i.e. studying in high school/equivalent or below (JCs/MI, Secondary Schools, Polytechnics, international high schools, etc.).",
-          "Each contestant is a member of only <b>one team</b>.",
+          "Each contestant must be a member of only <b>one team</b>.",
           "Team names <b>cannot be offensive</b>. The SEL Organisers reserve the right to alter the name or disqualify any team whose name is deemed offensive.",
-          "By participating, teams agree to follow the rules of Singapore Economics League and the participant Code of Conduct.",
+          "By participating in SEL, all participants agree to follow the rules of Singapore Economics League, as well as the Participant Code of Conduct.",
         ]}
       />
     </section>
@@ -118,7 +119,7 @@ function CompetitionPlatform() {
       <SubHeading>Competition Platform</SubHeading>
       <UnorderedList
         items={[
-          "Teams participate in SEL via the online competition platform",
+          "Teams participate through SEL's own online competition platform",
           "The link to the competition platform will be accessible via the SEL website.",
           "Log-in details for individual teams will be sent to them via <b>email</b> a few days before the contest date.",
           "The competition platform will feature a <b>live leaderboard</b> that ranks the points of teams in real time. During the final <b>30 minutes</b> of the contest, the live leaderboard will be hidden, for added suspense.",
@@ -136,13 +137,8 @@ function ContestFormatAndScoring() {
 
       {/* INTRO PARAGRAPH */}
       <p className="mt-4">
-        In <b>SEL</b>, the competition consists of two main parts:{" "}
-        <b>Main Problems</b> and a special bonus section called <b>Ecomania</b>.{" "}
-        Each problem can have multiple sub-questions, each scored independently.
-        Teams can attempt up to <b>four</b> problems at once. After completing
-        or skipping a problem, a new one may be selected. This section also
-        outlines the <b>question types</b> you will encounter and how the{" "}
-        <b>scoring</b> works.
+        The contest includes a variety of question formats to test your versatility. Below
+        is an overview of the different question formats you may encounter.
       </p>
 
       {/* QUESTION TYPES SECTION */}
@@ -155,7 +151,7 @@ function ContestFormatAndScoring() {
       {/* Card-like list of question types */}
       <div className="mt-6 space-y-6">
         {/* 1. MCQ */}
-        <div className="border-l-4 border-[#3D9796] pl-4 py-2">
+        <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-[#343131]">1. Multiple Choice (MCQ)</h4>
           <p className="text-sm text-[#343131] mt-1">
             Choose <b>1</b> answer out of <b>4</b> options (A, B, C, D).
@@ -163,7 +159,7 @@ function ContestFormatAndScoring() {
         </div>
 
         {/* 2. MCQ Multi-select */}
-        <div className="border-l-4 border-[#3D9796] pl-4 py-2">
+        <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-[#343131]">2. MCQ Multi-select</h4>
           <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-[#343131]">
             <li>Choose N answers out of M options, where N ≤ M.</li>
@@ -172,7 +168,7 @@ function ContestFormatAndScoring() {
         </div>
 
         {/* 3. Integer */}
-        <div className="border-l-4 border-[#3D9796] pl-4 py-2">
+        <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-[#343131]">3. Integer</h4>
           <p className="text-sm text-[#343131] mt-1">
             Enter an integer from <b>-99999</b> to <b>99999</b>.
@@ -180,7 +176,7 @@ function ContestFormatAndScoring() {
         </div>
 
         {/* 4. Integer Set */}
-        <div className="border-l-4 border-[#3D9796] pl-4 py-2">
+        <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-[#343131]">4. Integer Set</h4>
           <p className="text-sm text-[#343131] mt-1">
             Individually input a set of N integers.
@@ -188,7 +184,7 @@ function ContestFormatAndScoring() {
         </div>
 
         {/* 5. Float */}
-        <div className="border-l-4 border-[#3D9796] pl-4 py-2">
+        <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-[#343131]">5. Float</h4>
           <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-[#343131]">
             <li>
@@ -203,7 +199,7 @@ function ContestFormatAndScoring() {
         </div>
 
         {/* 6. Sort */}
-        <div className="border-l-4 border-[#3D9796] pl-4 py-2">
+        <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-[#343131]">6. Sort</h4>
           <p className="text-sm text-[#343131] mt-1">
             Sort N different values into the correct sequence.
@@ -211,7 +207,7 @@ function ContestFormatAndScoring() {
         </div>
 
         {/* 7. True/False Set */}
-        <div className="border-l-4 border-[#3D9796] pl-4 py-2">
+        <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-[#343131]">7. True/False Set</h4>
           <p className="text-sm text-[#343131] mt-1">
             Give your answer to N True/False questions.
@@ -219,7 +215,7 @@ function ContestFormatAndScoring() {
         </div>
 
         {/* 8. String */}
-        <div className="border-l-4 border-[#3D9796] pl-4 py-2">
+        <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-[#343131]">8. String</h4>
           <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-[#343131]">
             <li>Input a string of up to 30 characters in length.</li>
@@ -231,7 +227,7 @@ function ContestFormatAndScoring() {
         </div>
 
         {/* 9. String Set */}
-        <div className="border-l-4 border-[#3D9796] pl-4 py-2">
+        <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-[#343131]">9. String Set</h4>
           <p className="text-sm text-[#343131] mt-1">
             Input a set of N strings. Each must be exactly correct.
@@ -239,7 +235,7 @@ function ContestFormatAndScoring() {
         </div>
 
         {/* 10. Table */}
-        <div className="border-l-4 border-[#3D9796] pl-4 py-2">
+        <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-[#343131]">10. Table</h4>
           <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-[#343131]">
             <li>Key in the contents of an N×M table.</li>
@@ -249,7 +245,7 @@ function ContestFormatAndScoring() {
       </div>
 
       {/* Additional info about attempts */}
-      <SubHeading2 className="mt-12">Submission Atempts and Scoring</SubHeading2>
+      <SubHeading2 className="mt-12">Submission Attempts and Scoring</SubHeading2>
       <ul className="list-disc ml-6 mt-2 space-y-2 text-[#343131]">
         <li>
           Each MCQ, MCQ Multi-select, Sort, and True/False Set question-part
@@ -267,61 +263,117 @@ function ContestFormatAndScoring() {
       {/* SCORING SECTION */}
       <SubHeading2 className="mt-12">Main Problems Scoring</SubHeading2>
       <p className="mt-4">
-        Each sub-question or question-part has a certain number of points. For
-        multiple-choice questions (MCQs), a single incorrect answer deducts all
-        points for that part. The table below illustrates an example scoring
-        scheme:
+        Each sub-question or question-part has a certain number of points.
       </p>
 
+      <p className="mt-4">
+        {/* Here we separate plain text from the LaTeX markup */}
+        <Latex>
+          {`
+          If a question-part had previous incorrect attempts, fewer points will be awarded for a correct answer.
+          The points awarded for a correct answer is
+          $\\lceil \\frac{P}{x + 1} \\rceil$,
+          where $P$ is the full number of points, $x$ is the number of incorrect submissions prior to the correct answer,
+          and $\\lceil \\rceil$ denotes the ceiling function.
+          `}
+        </Latex>
+      </p>
+
+      <p className="mt-4">
+        The following lookup table illustrates SEL&apos;s scoring scheme:
+      </p>
       {/* SCORING TABLE */}
-      <div className="mt-6 border-2 border-[#dee7e3] rounded-xl overflow-hidden">
-        <table
-          className="w-full text-left border-separate"
-          style={{ borderSpacing: 0 }}
-        >
-          <thead className="bg-[#3D9796]/20 text-[#343131]">
-            <tr>
-              <th className="px-4 py-3 border-1 border-[#dee7e3] font-medium">
-                No incorrect answers
-              </th>
-              <th className="px-4 py-3 border-1 border-[#dee7e3] font-medium">
-                1 incorrect answer
-              </th>
-              <th className="px-4 py-3 border-1 border-[#dee7e3] font-medium">
-                2 incorrect answers
-              </th>
-              <th className="px-4 py-3 border-1 border-[#dee7e3] font-medium">
-                3 incorrect answers
-              </th>
-              <th className="px-4 py-3 border-1 border-[#dee7e3] font-medium">
-                4+ incorrect answers
-              </th>
-            </tr>
-          </thead>
-          <tbody className="bg-white text-[#343131]">
-            {[...Array(9)].map((_, i) => {
-              const rowNumber = i + 2;
-              return (
-                <tr key={i}>
-                  <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                    {rowNumber}
-                  </td>
-                  <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                    {Math.max(i - 1, 1)}
-                  </td>
-                  <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                    {Math.max(i - 2, 1)}
-                  </td>
-                  <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                    {Math.max(i - 3, 1)}
-                  </td>
-                  <td className="px-4 py-3 border-1 border-[#dee7e3]">1</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      {/* Wrap in a parent <div> that uses inline-block and margin-right: auto 
+     to left-align while letting the table be as wide as needed. */}
+    <div className="mt-6 border-2 border-primary rounded-xl overflow-hidden w-full">
+    <table
+        className="w-full text-center border-separate"
+        style={{ borderSpacing: 0 }} // ensures no extra gap between cells
+      >
+        {/* Define column widths via colgroup */}
+        <colgroup>
+          {/* Narrower first column */}
+          <col className="w-[140px]" />
+          {/* Wider columns for 0..5+ */}
+          <col className="w-[90px]" />
+          <col className="w-[90px]" />
+          <col className="w-[90px]" />
+          <col className="w-[90px]" />
+          <col className="w-[90px]" />
+          <col className="w-[90px]" />
+        </colgroup>
+
+        <thead className="bg-secondary text-white">
+          <tr>
+            {/* First header spans 2 rows */}
+            <th
+              rowSpan={2}
+              className="px-3 py-2 border border-primary font-medium whitespace-normal break-words"
+            >
+              Full number of points
+            </th>
+            {/* Second header spans 6 columns */}
+            <th
+              colSpan={6}
+              className="px-3 py-2 border border-primary font-medium whitespace-normal break-words"
+            >
+              Number of incorrect answers
+            </th>
+          </tr>
+          {/* Sub-headers for 0..5+ */}
+          <tr>
+            <th className="px-3 py-2 border border-primary font-medium">0</th>
+            <th className="px-3 py-2 border border-primary font-medium">1</th>
+            <th className="px-3 py-2 border border-primary font-medium">2</th>
+            <th className="px-3 py-2 border border-primary font-medium">3</th>
+            <th className="px-3 py-2 border border-primary font-medium">4</th>
+            <th className="px-3 py-2 border border-primary font-medium">5+</th>
+          </tr>
+        </thead>
+
+        <tbody className="bg-white text-[#343131]">
+          {[...Array(9)].map((_, i) => {
+            const rowNumber = i + 2; // Full points from 2..10
+
+            // Example scoring function
+            const getPoints = (incorrect: number): number => {
+              if (incorrect === 0) return rowNumber;
+              if (incorrect >= 4) return 1;
+              return Math.max(rowNumber - incorrect, 1);
+            };
+
+            return (
+              <tr key={rowNumber}>
+                <td className="px-3 py-2 border border-primary font-semibold">
+                  {rowNumber}
+                </td>
+                <td className="px-3 py-2 border border-primary">
+                  {getPoints(0)}
+                </td>
+                <td className="px-3 py-2 border border-primary">
+                  {getPoints(1)}
+                </td>
+                <td className="px-3 py-2 border border-primary">
+                  {getPoints(2)}
+                </td>
+                <td className="px-3 py-2 border border-primary">
+                  {getPoints(3)}
+                </td>
+                <td className="px-3 py-2 border border-primary">
+                  {getPoints(4)}
+                </td>
+                <td className="px-3 py-2 border border-primary">
+                  {getPoints(5)}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+
+
+
 
       <ul className="list-disc ml-6 mt-4 space-y-2 text-[#343131]">
         <li>
@@ -329,7 +381,7 @@ function ContestFormatAndScoring() {
           problem without penalty.
         </li>
         <li>
-          If no free skips are available, skipping costs <b>3 points</b>.
+          If no free skips are available, skipping a question iccurs a <b>3 point</b> penalty.
         </li>
       </ul>
 
@@ -342,45 +394,68 @@ function ContestFormatAndScoring() {
         in ascending difficulty:
       </p>
 
-      <div className="mt-6 border-2 border-[#dee7e3] rounded-xl overflow-hidden">
-        <table
-          className="w-full text-left border-separate"
-          style={{ borderSpacing: 0 }}
-        >
-          <tbody className="bg-white text-[#343131]">
-            <tr className="text-[#343131]">
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">Micro Q1</td>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">Firms Q1</td>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                Game Theory Q1
-              </td>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">Macro Q1</td>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                Finance Q1
-              </td>
-            </tr>
-            {[2, 3].map((q) => (
-              <tr key={q}>
-                <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                  Micro Q{q} (Locked)
-                </td>
-                <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                  Firms Q{q} (Locked)
-                </td>
-                <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                  Game Theory Q{q} (Locked)
-                </td>
-                <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                  Macro Q{q} (Locked)
-                </td>
-                <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                  Finance Q{q} (Locked)
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <div className="mt-6 border-2 border-primary rounded-xl overflow-hidden">
+<table
+  className="w-full text-left border-separate"
+  style={{ borderSpacing: 0 }} // ensures no extra gap between cells
+>
+  {/* Table Header */}
+  <thead className="bg-secondary text-white">
+    <tr>
+      <th className="px-4 py-3 border border-primary font-medium">
+        Microeconomics
+      </th>
+      <th className="px-4 py-3 border border-primary font-medium">
+        Firm Theory
+      </th>
+      <th className="px-4 py-3 border border-primary font-medium">
+        Game Theory
+      </th>
+      <th className="px-4 py-3 border border-primary font-medium">
+        Macroeconomics
+      </th>
+      <th className="px-4 py-3 border border-primary font-medium">
+        Finance
+      </th>
+    </tr>
+  </thead>
+
+  {/* Table Body */}
+  <tbody className="bg-white text-[#343131]">
+    {/* Q1 (unlocked) row */}
+    <tr className="text-[#343131]">
+      <td className="px-4 py-3 border border-primary">Micro Q1</td>
+      <td className="px-4 py-3 border border-primary">Firms Q1</td>
+      <td className="px-4 py-3 border border-primary">Game Theory Q1</td>
+      <td className="px-4 py-3 border border-primary">Macro Q1</td>
+      <td className="px-4 py-3 border border-primary">Finance Q1</td>
+    </tr>
+
+    {/* Q2, Q3 locked rows */}
+    {[2, 3].map((q) => (
+      <tr key={q}>
+        <td className="px-4 py-3 border border-primary">
+          Micro Q{q} (Locked)
+        </td>
+        <td className="px-4 py-3 border border-primary">
+          Firms Q{q} (Locked)
+        </td>
+        <td className="px-4 py-3 border border-primary">
+          Game Theory Q{q} (Locked)
+        </td>
+        <td className="px-4 py-3 border border-primary">
+          Macro Q{q} (Locked)
+        </td>
+        <td className="px-4 py-3 border border-primary">
+          Finance Q{q} (Locked)
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+    </div>
+
 
       <ul className="list-disc ml-6 mt-4 space-y-2 text-[#343131]">
         <li>
@@ -392,8 +467,7 @@ function ContestFormatAndScoring() {
           its points as a <b>bonus</b>.
         </li>
         <li>
-          After <b>11:00 AM</b>, you can still access Ecomania but no longer earn
-          the bonus.
+          After <b>11:00 AM</b>, participants can still access Economania questions, however bonus points shall no longer be awarded.
         </li>
         <li>Ecomania problems cannot be skipped.</li>
       </ul>
@@ -421,44 +495,50 @@ function AwardsAndRankings() {
         30%</b> of teams will receive the <b>Bronze</b> award.
       </p>
 
-      {/* Table Container */}
-      <div className="mt-6 border-2 border-[#dee7e3] rounded-xl overflow-hidden">
-        <table
-          className="w-full text-left border-separate"
-          style={{ borderSpacing: 0 }}
-        >
-          <thead className="bg-[#3D9796]/20 text-[#343131]">
-            <tr>
-              <th className="px-4 py-3 border-1 border-[#dee7e3] font-medium">Award</th>
-              <th className="px-4 py-3 border-1 border-[#dee7e3] font-medium">Rank Range</th>
-              <th className="px-4 py-3 border-1 border-[#dee7e3] font-medium">% Cutoff</th>
-            </tr>
-          </thead>
-          <tbody className="bg-white text-[#343131]">
-            <tr>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">Gold</td>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                rank ≤ ⌈0.05 × n⌉
-              </td>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">Top 5%</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">Silver</td>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                ⌈0.05 × n⌉+1 to ⌈0.15 × n⌉
-              </td>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">Top 15%</td>
-            </tr>
-            <tr>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">Bronze</td>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">
-                ⌈0.15 × n⌉+1 to ⌈0.30 × n⌉
-              </td>
-              <td className="px-4 py-3 border-1 border-[#dee7e3]">Top 30%</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+{/* Table Container */}
+<div className="mt-6 border-2 border-primary rounded-xl overflow-hidden">
+  <table
+    className="w-full text-left border-separate"
+    style={{ borderSpacing: 0 }}
+  >
+    <thead className="bg-secondary text-white">
+
+      {/* Second header row: 3 columns */}
+      <tr>
+        <th className="px-4 py-3 border border-primary font-medium">Award</th>
+        <th className="px-4 py-3 border border-primary font-medium">
+          Rank Range
+        </th>
+        <th className="px-4 py-3 border border-primary font-medium">
+          % Cutoff
+        </th>
+      </tr>
+    </thead>
+
+    <tbody className="bg-white text-[#343131]">
+      <tr>
+        <td className="px-4 py-3 border border-primary">Gold</td>
+        <td className="px-4 py-3 border border-primary">rank ≤ ⌈0.05 × n⌉</td>
+        <td className="px-4 py-3 border border-primary">Top 5%</td>
+      </tr>
+      <tr>
+        <td className="px-4 py-3 border border-primary">Silver</td>
+        <td className="px-4 py-3 border border-primary">
+          ⌈0.05 × n⌉+1 to ⌈0.15 × n⌉
+        </td>
+        <td className="px-4 py-3 border border-primary">Top 15%</td>
+      </tr>
+      <tr>
+        <td className="px-4 py-3 border border-primary">Bronze</td>
+        <td className="px-4 py-3 border border-primary">
+          ⌈0.15 × n⌉+1 to ⌈0.30 × n⌉
+        </td>
+        <td className="px-4 py-3 border border-primary">Top 30%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 
       {/* Additional Bullet Points */}
       <ul className="list-disc ml-6 mt-4 space-y-2 text-[#343131]">
@@ -484,24 +564,24 @@ function ConductOfTheContest() {
       <p className="mt-4">
         Participants may sign into the official <b>SEL Platform</b> at{" "}
         <b>08:40</b> on the day of the contest. The contest will begin promptly
-        at <b>09:00</b> and end at <b>13:30</b>.
+        at <b>09:00</b> and end at <b>13:00</b>.
       </p>
 
       {/* 2. Main Problems */}
       <p className="mt-4">
-        The <b>Main Problems</b> are accessible throughout the contest and
-        contain multiple problems of varying difficulty. Each team may work on
+        The <b>Main Problems</b> are accessible throughout the contest may each contain multiple question parts.
+        Main problems have a wide spectrum of difficulties, and later problems will tend to be harder.
+        Each team may work on
         up to <b>four</b> problems at once. Upon completing a problem, the team
-        may select a new problem to attempt from among the four available.
+        may select a new problem to attempt from a pool of other questions.
       </p>
 
       {/* 3. Ecomania */}
       <p className="mt-4">
-        From <b>10:00</b> to <b>11:00</b>, <b>Ecomania</b> problems will be
+        From <b>10:00</b> to <b>11:00</b>, <b>Ecoonomania</b> problems will be
         available for teams to attempt independently and concurrently with the
-        Main Problems. Ecomania problems can range from Easy, Medium, or Hard
-        levels, and may contain special variants of question types (e.g., unique
-        multi-step MCQs). Points earned from Ecomania problems will be{" "}
+        Main Problems. Economania problems can range from Easy, Medium, or Hard
+        levels, and may contain special variants of question types (e.g., unique multi-step MCQs). Regular Points and Bonus Points earned from Economania problems will be{" "}
         <b>added to the team’s overall score</b>.
       </p>
 
@@ -524,8 +604,7 @@ function ConductOfTheContest() {
         >
           contact@sgeconsleague.org
         </a>
-        . Requests for clarifications, expansions, or translations of specialized
-        economic terms or diagrams will not be entertained.
+        . The SEL organisers shall not reply to any requests for clarifications, expansions, or translations of specialized economic terms or diagrams.
       </p>
     </section>
   );
@@ -549,7 +628,7 @@ function ParticipantsCodeofConduct() {
         items={[
           "Computational aids (Scientific and Graphing Calculators)",
           "Computer programs (Microsoft Excel, Wolfram Mathematica, Desmos, Python, MATLAB, etc.)",
-          "The internet, including websites and services utilizing Artificial Intelligence",
+          "The internet, including websites and search engines",
           "Digital or printed matter (e.g., notes, textbooks, research papers)",
         ]}
       />
@@ -576,6 +655,14 @@ function ParticipantsCodeofConduct() {
           "Refraining from sharing information with or collaborating with other teams",
         ]}
       />
+
+      <SubHeading2 className="mt-10">
+        Ban of Generative AI
+      </SubHeading2>
+      <p className="mt-4">
+        For the duration of the competition, any usage of Generative Artificial Intelligence (Gen AI) tools is strictly prohibited. Participants must refrain from any usage of Gen AI tools, including but not limited to: Chatbots such as ChatGPT and Deepseek that are capable of generating complex, coherent, and contextually relevant answers to questions posed by the user.
+
+      </p>
 
       <SubHeading2 className="mt-10">Maintaining Fair Play and Integrity</SubHeading2>
       <p className="mt-4">
@@ -749,7 +836,7 @@ function SideBar({ selected }: { selected?: string }) {
               block w-full text-left px-3 py-2 rounded transition-colors
               ${
                 isActive
-                  ? "bg-[#4CA9DF]/40 rounded-xl text-[#343131] font-semibold"
+                  ? "bg-secondary rounded-xl border-2 border-[#272a30] text-white font-semibold"
                   : "hover:underline text-[#343131]"
               }
             `}
@@ -877,11 +964,9 @@ export default function RulesPage() {
       `}</style>
 
       {/* 1. Header */}
-      <div className="bg-gradient-to-b from-[#e8f1f9] to-[#f5fbff] h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center">
-        <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left slab">
-            Rules
-          </h1>
+      <div className="flex justify-center pt-8 pb-6">
+        <div className="bg-primary text-white text-center text-3xl font-bold px-8 py-4 rounded-xl w-full max-w-7xl mx-6">
+          Rules
         </div>
       </div>
 
@@ -893,8 +978,6 @@ export default function RulesPage() {
         <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row">
           {/* Sidebar with vertical line only as tall as its content */}
           <div className="hidden lg:block relative w-96 pr-4">
-            {/* The vertical line: absolutely positioned in this container */}
-            <div className="absolute top-0 left-0 w-px bg-[#D0D0D0] h-full" />
             {/* Actual sidebar content, padded so text is to the right of the line */}
             <SideBar selected={selected} />
           </div>

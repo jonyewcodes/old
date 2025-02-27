@@ -1,78 +1,63 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#5a96d9]/50 text-[#3F3B3A] py-12 mt-32">
-      <div className="relative mx-auto px-6 lg:px-20 w-full max-w-[1450px]">
+    <footer className="relative bg-[#3f3c47] text-xs text-gray-400 mt-12">
+      {/* 1. Black shadow at the top (small gradient from black to transparent) */}
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-b from-black to-transparent pointer-events-none" />
 
-        {/* 1. Logo on top (left-aligned) */}
-        <div className="mb-6">
-          {/* Replace <img> with <Image> */}
-          <Image
-            src="/logos/footer.png"
-            alt="Singapore Economics League Logo"
-            width={160}      // Adjust to suit your design
-            height={80}
-            priority         // If important for LCP
-          />
-        </div>
+      {/* 2. Top row: Email (left), Instagram (right) */}
+      <div className="relative max-w-screen-lg mx-auto px-4 py-4 flex items-center justify-between">
+        {/* Left: Email with icon on the right */}
+        <Link
+          href="mailto:contact@sgeconsleague.org"
+          className="group flex items-center gap-1 hover:text-white transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="icon icon-tabler icon-tabler-mail w-4 h-4"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" />
+            <path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" />
+          </svg>
+          <span>contact@sgeconsleague.org</span>
 
-        {/* 2. Flex container for “Site Map” & “Us” sections */}
-        <div className="flex flex-col lg:flex-row items-start justify-start gap-16">
-          {/* Left Section - Site Map */}
-          <div className="flex flex-col gap-2">
-            <p className="text-lg font-semibold">Site Map</p>
-            <ul className="text-base gap-2 flex flex-col">
-              <li>
-                <Link href="/rules" className="hover:underline transition">
-                  Rules
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/sample-questions"
-                  className="hover:underline transition"
-                >
-                  Sample Problems
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="hover:underline transition">
-                  FAQ
-                </Link>
-              </li>
-            </ul>
-          </div>
+        </Link>
 
-          {/* Right Section - Contact Us */}
-          <div className="flex flex-col gap-2">
-            <p className="text-lg font-semibold">Us</p>
-            <ul className="text-base gap-2 flex flex-col">
-              <li>
-                <Link
-                  href="mailto:contact@sgeconsleague.org"
-                  className="flex items-center gap-2 hover:underline transition"
-                >
-                  <span>contact@sgeconsleague.org</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://www.instagram.com/sgeconsleague/"
-                  className="flex items-center gap-2 hover:underline transition"
-                >
-                  <span>@sgeconsleague</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
+        {/* Right: Instagram with icon on the right */}
+        <Link
+          href="https://www.instagram.com/sgeconsleague/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-1 hover:text-white transition"
+        >
+           <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="icon icon-tabler icon-tabler-brand-instagram w-4 h-4"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M16 3a5 5 0 0 1 5 5v8a5 5 0 0 1 -5 5h-8a5 5 0 0 1 -5 -5v-8a5 5 0 0 1 5 -5zm-4 5a4 4 0 0 0 -3.995 3.8l-.005 .2a4 4 0 1 0 4 -4m4.5 -1.5a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1" />
+          </svg>
 
-        {/* 3. Copyright */}
-        <div className="mt-8 text-left text-sm text-gray-600">
-          © 2025 Singapore Economics League.
-        </div>
+          <span>@sgeconsleague</span>
+        </Link>
+      </div>
+
+      {/* 3. Horizontal line */}
+      <hr className="mx-auto max-w-screen-lg border-t border-white" />
+
+      {/* 4. Copyright at bottom */}
+      <div className="text-center py-4 text-sm text-white">
+        © 2025 Singapore Economics League
       </div>
     </footer>
   );

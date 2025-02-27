@@ -9,7 +9,7 @@ const Faq: React.FC = () => {
   return (
     <main className="flex min-h-screen flex-col text-gray-800">
       <div className="bg-gradient-to-b from-[#e8f1f9] to-[#f5fbff] h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center">
-        <div className="max-w-[1400px] w-full px-6 lg:px-12">
+        <div className="max-w-[1385px] w-full px-6 lg:px-12">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left slab">
             FAQ
           </h1>
