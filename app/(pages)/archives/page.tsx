@@ -33,7 +33,7 @@ const Archives = () => {
       <div className="flex items-center justify-center py-16">
         <div className="max-w-7xl w-full px-6 lg:px-12">
           {/* Intro Text */}
-          <div className="max-w-[600px] mb-12">
+          <div className="text-center mb-12">
             <p className="mb-4">
               Want to know who took the crown every year at SEL? <br />
               View the results here now!

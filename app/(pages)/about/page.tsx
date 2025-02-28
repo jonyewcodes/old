@@ -1,8 +1,10 @@
-"use client"; // If you’re using Next.js App Router
-
 import React from "react";
 import Image from "next/image"; // if you need images
 import Link from "next/link";   // if you need Next.js routing
+
+export const metadata = {
+  title: "About | SEL",
+};
 
 // Team members array
 const teamMembers = [
@@ -266,12 +268,7 @@ export default function AboutPage() {
         {/* Short paragraph */}
         <p className="text-center text-[#43291F] max-w-3xl mx-auto mb-8">
           Some of are working, some are studying, and some have been serving the
-          nation since graduating from Junior College. We’ve all found a common
-          passion for chemistry; from the virtual phenomena around us down to
-          the intricate molecular complexity that explains our world! We hope
-          that SChL can be a welcoming and accessible experience for all of you.
-          Do take a deep dive into the fascinating topic that is chemistry and
-          have a fun together!
+          nation since graduating from Junior College. [to replace about SEL Team]!
         </p>
 
         <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-primary mb-8">

@@ -485,7 +485,7 @@ function AwardsAndRankings() {
       <p className="mt-4">
         The awards are determined according to the cutoffs below, where{" "}
         <b>n</b> is the total number of teams, and <b>⌈x⌉</b> represents the{" "}
-        <i>ceiling</i> function. Teams are ranked by the cumulative point total.
+        ceiling function. Teams are ranked by the cumulative point total.
         A rank of <b>r</b> indicates that exactly <b>r - 1</b> teams scored
         strictly more points.
       </p>
@@ -593,14 +593,14 @@ function ConductOfTheContest() {
           href="https://discord.gg/SEk9HrXk"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline text-[#3D9796] hover:text-[#4CA9DF]"
+          className="underline text-primary hover:text-secondary"
         >
           official SEL Discord Server
         </a>{" "}
         or email us at{" "}
         <a
           href="mailto:contact@sgeconsleague.org"
-          className="underline text-[#3D9796] hover:text-[#4CA9DF]"
+          className="underline text-primary hover:text-secondary"
         >
           contact@sgeconsleague.org
         </a>

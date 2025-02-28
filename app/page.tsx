@@ -119,9 +119,9 @@ const HomePage = () => {
             <path d="M12 8h0l4.524 -3.77a.9 .9 0 0 1 1.476 .692v12.156a.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8" />
           </svg>
           <p className="text-sm sm:text-base">
-            We are actively expanding our team and looking for passionate individuals. If you’re interested in any role, please{" "}
+            We are actively expanding our team and looking for passionate individuals. If you’re interested in any role(s), please{" "}
             <a href="https://your-form-link.com" className="underline">
-              apply here
+              <b>apply here</b>
             </a>!
           </p>
         </div>
