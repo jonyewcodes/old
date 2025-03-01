@@ -1,7 +1,5 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
-import katex from "katex";
-import "katex/dist/katex.min.css";
+import React, { useEffect, useState } from "react";
 
 const sectionIds = [
   "Brief Rules",
@@ -100,17 +98,6 @@ function CompetitionPlatform() {
 }
 
 function ContestFormatAndScoring() {
-  const mathContainerRef = useRef(null);
-
-  useEffect(() => {
-    if (mathContainerRef.current) {
-      katex.render("\\left\\lceil \\frac{P}{x + 1} \\right\\rceil", mathContainerRef.current, {
-        throwOnError: false,
-        displayMode: true,
-      });
-    }
-  }, []);
-
   return (
     <section id="Contest Format and Scoring" className="mt-12">
       <SubHeading>Contest Format and Scoring</SubHeading>
@@ -206,7 +193,7 @@ function ContestFormatAndScoring() {
       <p>
         If a question-part had previous incorrect attempts, fewer points will be awarded. The points awarded for a correct answer is:
       </p>
-      <div ref={mathContainerRef} />
+      {/* <div ref={mathContainerRef} /> */}
       <p>
         where P is the full number of points, x is the number of incorrect submissions prior to the correct answer, and the notation denotes the ceiling function.
       </p>
