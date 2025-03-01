@@ -1,10 +1,9 @@
 "use client";
-
 import { useState, useEffect } from "react";
 
 interface CountDownProps {
-  label: string;  // e.g. "Days"
-  value: string;  // e.g. "03"
+  label: string;
+  value: string;
 }
 
 export default function CountDown({ label, value }: CountDownProps) {
@@ -18,32 +17,30 @@ export default function CountDown({ label, value }: CountDownProps) {
 
   return (
     <div className="flex flex-col items-center">
-      {/* The static card */}
-      <div className="
+      <div
+        className="
           relative
-          w-32 h-36
+          w-36 h-48
           flex items-center justify-center
           bg-[#272a30]
           rounded-md
-          text-5xl font-semibold
+          text-6xl font-semibold
           text-white
         "
       >
-        {/* Middle horizontal line (for a flip-like look) */}
-        <div className="
+        <div
+          className="
           absolute
           top-1/2 left-0
           w-full h-px
           bg-[#fefefb]
           -translate-y-1/2
           pointer-events-none
-        " />
-
+        "
+        />
         {currentValue}
       </div>
-
-      {/* Label beneath the card */}
-      <span className="mt-2 text-xs sm:text-sm font-medium uppercase tracking-widest text-[#43291F]">
+      <span className="mt-2 text-base sm:text-base font-medium uppercase tracking-widest text-[#43291F]">
         {label}
       </span>
     </div>

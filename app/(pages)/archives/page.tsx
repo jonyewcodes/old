@@ -1,64 +1,49 @@
-import React from "react";
-
 /* https://tabler.io/icons */
+import React from "react";
 
 export const metadata = {
   title: "Archives | SEL",
 };
 
-const Archives = () => {
+export default function Archives() {
   const archiveInfo = [
     {
       title: "2025",
       category: "Did you know?",
-      content:
-        "The unemployment rate for men is 8.4%. For married men, it's 4.9%.",
+      content: "The unemployment rate for men is 8.4%. For married men, it's 4.9%.",
       link: "--",
     },
   ];
 
   return (
     <main className="flex min-h-screen flex-col text-gray-800">
-      {/* 
-        Rounded Black Header 
-        (matching the screenshot: black rectangle, white text, centered, with margins & rounding)
-      */}
       <div className="flex justify-center pt-8 pb-6">
-        <div className="bg-primary text-white text-center text-3xl font-bold px-8 py-4 rounded-xl w-full max-w-7xl mx-6">
+        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-7xl mx-6 slab">
           Archives
         </div>
       </div>
-
-      {/* ===== Main Content Section ===== */}
       <div className="flex items-center justify-center py-16">
         <div className="max-w-7xl w-full px-6 lg:px-12">
-          {/* Intro Text */}
-          <div className="text-center mb-12">
+          <div className="text-center text-lg mb-12">
             <p className="mb-4">
               Want to know who took the crown every year at SEL? <br />
               View the results here now!
             </p>
           </div>
-
-          {/* Archive Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {archiveInfo.map((info, index) => (
               <div
                 key={index}
-                className="bg-white border-2 border-primary rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
+                className="bg-white border-4 border-primary rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
               >
-                <h2 className="text-xl font-semibold">{info.title}</h2>
-                <span className="inline-block w-fit text-sm font-medium text-gray-400 italic">
+                <h2 className="text-2xl font-semibold">{info.title}</h2>
+                <span className="inline-block w-fit text-lg font-medium text-gray-400 italic">
                   {info.category}
                 </span>
-                <p className="text-gray-600">{info.content}</p>
-
-                {/* Example of results button (currently disabled) */}
+                <p className="text-gray-600 text-lg">{info.content}</p>
                 <button
                   disabled
-                  className="flex items-center justify-center w-full text-gray-400
-                             font-semibold border-2 border-gray-300 rounded-xl px-4 py-2
-                             cursor-not-allowed"
+                  className="flex items-center justify-center w-full text-gray-400 font-semibold border-2 border-gray-300 rounded-xl px-4 py-2 cursor-not-allowed text-lg"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -86,6 +71,4 @@ const Archives = () => {
       </div>
     </main>
   );
-};
-
-export default Archives;
+}

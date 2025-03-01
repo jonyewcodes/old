@@ -1,12 +1,11 @@
 import React from "react";
-import Image from "next/image"; // if you need images
-import Link from "next/link";   // if you need Next.js routing
+import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
   title: "About | SEL",
 };
 
-// Team members array
 const teamMembers = [
   {
     name: "Ho Jon Yew",
@@ -20,7 +19,7 @@ const teamMembers = [
   },
   {
     name: "Lucas Lee",
-    roles: ["Head of Operations"],
+    roles: ["Head of Operations", "Head of Outreach"],
     link: "https://www.linkedin.com/in/lucas-lee-zy ",
   },
   {
@@ -78,241 +77,247 @@ const teamMembers = [
 export default function AboutPage() {
   return (
     <main className="flex flex-col items-center w-full">
-      {/* Main Content Container */}
       <section className="max-w-[1400px] w-full px-6 sm:px-12 py-16">
-        {/* ========== FIRST HEADING: “What is SEL?” ========== */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-primary mb-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-primary mb-8 slab">
           What is SEL?
         </h2>
-
-        {/* Row of 3 “info” items */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Item #1 */}
-          <div className="bg-white border-2 border-primary rounded-xl p-6 flex flex-col gap-4 shadow-md hover:shadow-lg transition">
-            {/* Icon in a circle */}
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#4CA9DF]/10">
-              {/* Placeholder icon */}
+          <div className="bg-white border-4 border-primary rounded-xl p-6 flex flex-col gap-4 shadow-md hover:shadow-lg transition">
+            <div className="flex items-center justify-center w-24 h-24 rounded-full bg-[#4CA9DF]/10">
               <svg
-                className="text-[#4CA9DF]"
-                width="24"
-                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth={2}
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className="text-[#4CA9DF]"
               >
-                <path d="M3 12h18M12 3v18" />
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 15h-6a1 1 0 0 1 -1 -1v-8a1 1 0 0 1 1 -1h6" />
+                <path d="M13 4m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" />
+                <path d="M7 19l3 0" />
+                <path d="M17 8l0 .01" />
+                <path d="M17 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                <path d="M9 15l0 4" />
               </svg>
             </div>
-            {/* Title */}
-            <h3 className="text-xl font-semibold text-[#343131]">
+            <h3 className="text-2xl font-semibold text-baseText">
               Online and accessible, at your fingertips
             </h3>
-            {/* Description */}
-            <p className="text-[#43291F]">
+            <p className="text-baseText text-lg">
               SEL is fully online, so you can join from anywhere in the world.
               All you need is an internet connection and a desire to tackle
               exciting economics problems!
             </p>
           </div>
-
-          {/* Item #2 */}
-          <div className="bg-white border-2 border-primary rounded-xl p-6 flex flex-col gap-4 shadow-md hover:shadow-lg transition">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#4CA9DF]/10">
+          <div className="bg-white border-4 border-primary rounded-xl p-6 flex flex-col gap-4 shadow-md hover:shadow-lg transition">
+            <div className="flex items-center justify-center w-24 h-24 rounded-full bg-[#4CA9DF]/10">
               <svg
-                className="text-[#4CA9DF]"
-                width="24"
-                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth={2}
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className="text-[#4CA9DF]"
               >
-                <path d="M9 12l2 2l4 -4" />
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
+                <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                <path d="M17 10h2a2 2 0 0 1 2 2v1" />
+                <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-[#343131]">
+            <h3 className="text-2xl font-semibold text-baseText">
               Teamwork makes the dream work
             </h3>
-            <p className="text-[#43291F]">
+            <p className="text-baseText text-lg">
               Participate in teams of up to 5, combining your strengths and
               interests. Explore economics together, brainstorm solutions, and
               grow your knowledge as a unit.
             </p>
           </div>
-
-          {/* Item #3 */}
-          <div className="bg-white border-2 border-primary rounded-xl p-6 flex flex-col gap-4 shadow-md hover:shadow-lg transition">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#4CA9DF]/10">
+          <div className="bg-white border-4 border-primary rounded-xl p-6 flex flex-col gap-4 shadow-md hover:shadow-lg transition">
+            <div className="flex items-center justify-center w-24 h-24 rounded-full bg-[#4CA9DF]/10">
               <svg
-                className="text-[#4CA9DF]"
-                width="24"
-                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth={2}
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className="text-[#4CA9DF]"
               >
-                <path d="M3 3h18v18H3z" />
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                <path d="M3 6l0 13" />
+                <path d="M12 6l0 13" />
+                <path d="M21 6l0 13" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-[#343131]">
+            <h3 className="text-2xl font-semibold text-baseText">
               Open-book, the sky’s your limit
             </h3>
-            <p className="text-[#43291F]">
+            <p className="text-baseText text-lg">
+              <br />
               SEL is open-book, letting you consult references, papers, or even
               software. Explore advanced topics and push your limits without the
               fear of closed-book restrictions.
             </p>
           </div>
         </div>
-
-        {/* ========== SECOND HEADING: “Tips and Resources” ========== */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-primary mt-12 mb-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-primary mt-12 mb-8 slab">
           Tips and Resources
         </h2>
-
-        {/* Row of 2 “info” items */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Item #1 */}
-          <div className="bg-white border-2 border-primary rounded-xl p-6 flex flex-col gap-4 shadow-md hover:shadow-lg transition">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#4CA9DF]/10">
+          <div className="bg-white border-4 border-primary rounded-xl p-6 flex flex-col gap-4 shadow-md hover:shadow-lg transition">
+            <div className="flex items-center justify-center w-24 h-24 rounded-full bg-[#4CA9DF]/10">
               <svg
-                className="text-[#4CA9DF]"
-                width="24"
-                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth={2}
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className="text-[#4CA9DF]"
               >
-                <path d="M5 12h14" />
-                <path d="M12 5l7 7-7 7" />
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 8a3.5 3.5 0 0 1 3.5 -3h1a3.5 3.5 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4" />
+                <path d="M12 19l0 .01" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-[#343131]">Questions</h3>
-            <p className="text-[#43291F]">
+            <h3 className="text-2xl font-semibold text-baseText">Questions</h3>
+            <p className="text-baseText text-lg">
               Practice with a variety of sample questions—MCQ, short-answer, or
               full problem sets. Get comfortable with the question styles to
               maximize your performance.
             </p>
             <Link
-              href="/sample-questions"
-              className="text-[#0092E8] font-semibold underline text-base"
+              href="/"
+              className="text-secondary font-semibold underline text-base"
             >
               Example &amp; past-year questions
             </Link>
           </div>
-
-          {/* Item #2 */}
-          <div className="bg-white border-2 border-primary rounded-xl p-6 flex flex-col gap-4 shadow-md hover:shadow-lg transition">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#4CA9DF]/10">
+          <div className="bg-white border-4 border-primary rounded-xl p-6 flex flex-col gap-4 shadow-md hover:shadow-lg transition">
+            <div className="flex items-center justify-center w-24 h-24 rounded-full bg-[#4CA9DF]/10">
               <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="currentColor"
                 className="text-[#4CA9DF]"
-                width="24"
-                height="24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
               >
-                <path d="M4 19h16" />
-                <path d="M4 9h16" />
-                <path d="M12 9v10" />
+                <path
+                  stroke="none"
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+                <path d="M12 1a1 1 0 0 1 1 1v1.055a9.004 9.004 0 0 1 7.946 7.945h1.054a1 1 0 0 1 0 2h-1.055a9.004 9.004 0 0 1 -7.944 7.945l-.001 1.055a1 1 0 0 1 -2 0v-1.055a9.004 9.004 0 0 1 -7.945 -7.944l-1.055 -.001a1 1 0 0 1 0 -2h1.055a9.004 9.004 0 0 1 7.945 -7.945v-1.055a1 1 0 0 1 1 -1m0 4a7 7 0 1 0 0 14a7 7 0 0 0 0 -14m0 3a4 4 0 1 1 -4 4l.005 -.2a4 4 0 0 1 3.995 -3.8" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-[#343131]">Scope</h3>
-            <p className="text-[#43291F]">
+            <h3 className="text-2xl font-semibold text-baseText">Scope</h3>
+            <p className="text-baseText text-lg">
               SEL covers a broad scope, from fundamental micro &amp; macro
               theories to advanced topics. Check out the official guidelines for
               more on the scope of questions.
             </p>
-            <Link href="/faq" className="text-[#0092E8] font-semibold underline text-base">
+            <Link
+              href="/syllabus"
+              className="text-secondary font-semibold underline text-base"
+            >
               Official scope
             </Link>
           </div>
         </div>
       </section>
-
-      {/* ========== MEET THE TEAM SECTION (no boxes) ========== */}
-      <section className="max-w-[1400px] w-full px-6 sm:px-12 py-16">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-primary mb-8">
+      <section className="max-w-[1400px] w-full px-6 sm:px-12 py-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-primary mb-8 slab">
           Meet the Team
         </h2>
-
-        {/* Two bubble icons at the top (optional) */}
         <div className="flex justify-center mb-8">
           <div className="mr-4">
             <Image
-              src="/team-bubble-left.png" // change path if needed
+              src="/emoticons/Cool.png"
               alt="Team Bubble Left"
-              width={60}
-              height={60}
+              width={280}
+              height={280}
             />
           </div>
           <div>
             <Image
-              src="/team-bubble-right.png" // change path if needed
+              src="/emoticons/Laughing.png"
               alt="Team Bubble Right"
-              width={60}
-              height={60}
+              width={300}
+              height={300}
             />
           </div>
         </div>
-
-        {/* Short paragraph */}
-        <p className="text-center text-[#43291F] max-w-3xl mx-auto mb-8">
-          Some of are working, some are studying, and some have been serving the
-          nation since graduating from Junior College. [to replace about SEL Team]!
+        <p className="text-center text-baseText mb-8 text-lg">
+          Our team includes final-year polytechnic students, JC graduates, and
+          national servicemen—united by a shared passion for economics. We hope
+          that SEL will be a welcoming and accessible experience for everyone,
+          inviting you to explore higher-level economic concepts while having
+          fun along the way!
         </p>
-
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-center text-primary mb-8">
-          Organising Committee of SEL 2025
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-primary mb-8 slab">
+          Organising Committee of SEL{" "}
+          <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent font-extrabold">
+            2025
+          </span>
         </h3>
-
         <div className="border-b border-[#cdcac8] mb-8 w-full max-w-[1400px] mx-auto" />
-
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-      {teamMembers.map((member) => (
-        <a
-          key={member.name}
-          href={member.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="
-            block
-            text-center
-            transform
-            transition-transform
-            duration-200
-            hover:scale-105
-          "
-        >
-          <p className="font-semibold text-[#343131]">{member.name}</p>
-          {member.roles.map((role) => (
-            <p key={role} className="text-[#43291F]">
-              {role}
-            </p>
+          {teamMembers.map((member) => (
+            <a
+              key={member.name}
+              href={member.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                block
+                text-center
+                transform
+                transition-transform
+                duration-200
+                hover:scale-105
+              "
+            >
+              <p className="font-semibold text-baseText text-lg">
+                {member.name}
+              </p>
+              {member.roles.map((role) => (
+                <p key={role} className="text-baseText">
+                  {role}
+                </p>
+              ))}
+            </a>
           ))}
-        </a>
-      ))}
-    </div>
-
-
+        </div>
         <div className="border-b border-[#cdcac8] mt-8 w-full max-w-[1400px] mx-auto" />
       </section>
-
-      {/* Paragraph with underlined links */}
-      <p className="text-center text-[#343131] max-w-3xl mx-auto mb-8">
+      <p className="text-center text-baseText max-w-3xl mx-auto text-lg">
         SEL was originally inspired by (but is not directly associated with) the{" "}
         <a
           href="https://singaporephysicsleague.com"
-          className="underline text-[#0092E8] font-normal"
+          className="underline text-secondary font-bold"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -321,7 +326,7 @@ export default function AboutPage() {
         ,{" "}
         <a
           href="https://singaporechemistryleague.com"
-          className="underline text-[#0092E8] font-normal"
+          className="underline text-secondary font-bold"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -330,15 +335,15 @@ export default function AboutPage() {
         , and{" "}
         <a
           href="https://singaporebiologyleague.com"
-          className="underline text-[#0092E8] font-normal"
+          className="underline text-secondary font-bold"
           target="_blank"
           rel="noopener noreferrer"
         >
           Singapore Biology League (SBL)
         </a>
         .<br />
-        If you enjoy SEL, you would probably enjoy the other leagues too, so do check
-        them out!
+        If you enjoy SEL, you would probably enjoy the other leagues too, so do
+        check them out!
       </p>
     </main>
   );

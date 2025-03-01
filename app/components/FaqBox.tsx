@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 
 interface FaqProps {
@@ -15,12 +14,11 @@ export default function FaqBox({ question, answer }: FaqProps): JSX.Element {
   };
 
   return (
-    <div className="w-full max-w-[1800px] border-2 border-[#3D9796] rounded-tl-3xl rounded-tr-3xl bg-white mb-6 overflow-hidden">
-      {/* Question Button */}
+    <div className="w-full max-w-[1800px] border-4 border-primary rounded-tl-3xl rounded-tr-3xl bg-white mb-6 overflow-hidden">
       <button
         type="button"
         onClick={toggleDropdown}
-        className="w-full max-w-[1800px] flex justify-between items-center px-6 py-4 text-left text-lg font-normal bg-white hover:bg-[#f3f8fc] transition-all duration-300 ease-in-out focus:outline-none"
+        className="w-full max-w-[1800px] flex justify-between items-center px-6 py-4 text-left text-xl font-normal bg-white hover:bg-[#f3f8fc] transition-all duration-300 ease-in-out focus:outline-none"
       >
         {question}
         <span
@@ -44,8 +42,6 @@ export default function FaqBox({ question, answer }: FaqProps): JSX.Element {
           </svg>
         </span>
       </button>
-
-      {/* Answer - Smooth Expand/Collapse */}
       <div
         className={`transition-all duration-500 ease-in-out overflow-hidden ${
           isOpen ? "max-h-96 opacity-100 py-4" : "max-h-0 opacity-0"

@@ -1,19 +1,14 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { IgrFinancialChart, IgrFinancialChartModule } from "igniteui-react-charts";
 import StocksHistory, { StockItem } from "../services/StocksHistory";
 
-// Register the Ignite UI module
 IgrFinancialChartModule.register();
 
 export default function CandleChart() {
-  // Instead of `any[]`, we define StockItem[]
   const [data, setData] = useState<StockItem[]>([]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    // getMultipleStocks returns a Promise<StockItem[]>
     StocksHistory.getMultipleStocks().then((stocks) => {
       setData(stocks);
     });
@@ -25,6 +20,8 @@ export default function CandleChart() {
         width="100%"
         height="100%"
         chartType="Candle"
+        xAxisMode="Time"
+        yAxisMode="Numeric"
         isToolbarVisible={false}
         xAxisLabelVisibility="Collapsed"
         yAxisLabelVisibility="Collapsed"

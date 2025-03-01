@@ -7,13 +7,11 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./styles/globals.css";
 
-/* 1. Add default site metadata */
 export const metadata: Metadata = {
   title: "Singapore Economics League | SEL ", 
   description: "Your default site-wide description here",
 };
 
-/* 2. Define your fonts */
 const roboto = Roboto({
   subsets: ["latin"],
   variable: "--font-roboto",
@@ -32,7 +30,6 @@ const robotoSlab = Roboto_Slab({
   weight: ["100", "300", "400", "500", "700", "900"],
 });
 
-/* 3. Root Layout */
 export default function RootLayout({
   children,
 }: {

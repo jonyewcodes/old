@@ -1,7 +1,6 @@
 "use client";
-
 import * as React from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
@@ -14,7 +13,6 @@ import HowToRegIcon from "@mui/icons-material/HowToReg";
 import EventBusyIcon from "@mui/icons-material/EventBusy";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 
-// Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -46,14 +44,13 @@ export default function CustomizedTimeline() {
             </motion.div>
             <TimelineConnector sx={{ bgcolor: "#5a96d9" }} />
           </TimelineSeparator>
-          <TimelineContent sx={{ py: "32px", px: 2 }}>
+          <TimelineContent sx={{ py: "64px", px: 2 }}>
             <Typography variant="h6" component="span">
               Registration Opens
             </Typography>
             <Typography sx={{ color: "text.secondary" }}>09:00 AM</Typography>
           </TimelineContent>
         </TimelineItem>
-
         <TimelineItem>
           <TimelineOppositeContent
             sx={{ m: "auto 0" }}
@@ -71,14 +68,13 @@ export default function CustomizedTimeline() {
             </motion.div>
             <TimelineConnector sx={{ bgcolor: "#5a96d9" }} />
           </TimelineSeparator>
-          <TimelineContent sx={{ py: "32px", px: 2 }}>
+          <TimelineContent sx={{ py: "64px", px: 2 }}>
             <Typography variant="h6" component="span">
               Registration Closes
             </Typography>
             <Typography sx={{ color: "text.secondary" }}>11:59 PM</Typography>
           </TimelineContent>
         </TimelineItem>
-
         <TimelineItem>
           <TimelineOppositeContent
             sx={{ m: "auto 0" }}
@@ -97,7 +93,7 @@ export default function CustomizedTimeline() {
             </motion.div>
             <TimelineConnector sx={{ bgcolor: "#5a96d9" }} />
           </TimelineSeparator>
-          <TimelineContent sx={{ py: "32px", px: 2 }}>
+          <TimelineContent sx={{ py: "64px", px: 2 }}>
             <Typography variant="h6" component="span">
               Contest Date
             </Typography>

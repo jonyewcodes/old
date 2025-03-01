@@ -7,7 +7,6 @@
   --font-roboto-slab: 'Roboto Slab', serif;
 }
 
-/* Default body font = Roboto */
 body {
   margin: 0;
   font-family: var(--font-roboto), sans-serif;
@@ -19,10 +18,6 @@ html, body {
   width: 100%;
 }
 
-/* 
-  A custom class for Roboto Slab.
-  Apply this to any text that needs Slab 
-*/
 .slab {
   font-family: var(--font-roboto-slab), serif;
 }

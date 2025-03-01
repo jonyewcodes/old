@@ -1,9 +1,8 @@
 "use client";
+import React, { useEffect, useState, useRef } from "react";
+import katex from "katex";
+import "katex/dist/katex.min.css";
 
-import { useState, useEffect } from "react";
-import Latex from "react-latex-next";
-
-/* SECTION IDs */
 const sectionIds = [
   "Brief Rules",
   "Registration",
@@ -15,7 +14,6 @@ const sectionIds = [
   "Terms and Conditions",
 ];
 
-/* SUBHEADING COMPONENTS */
 interface SubHeadingProps {
   children: string;
   className?: string;
@@ -33,60 +31,34 @@ function SubHeading2({ children, className }: SubHeadingProps) {
   return <h3 className={`${className} text-lg font-bold`}>{children}</h3>;
 }
 
-
-/* UNORDERED LIST COMPONENT */
 function UnorderedList({ items }: { items: string[] }) {
   return (
     <ul className="list-disc ml-4">
       {items.map((item, index) => (
-        <li
-          key={index}
-          className="ml-4"
-          dangerouslySetInnerHTML={{ __html: item }} // interpret HTML
-        />
+        <li key={index} className="ml-4" dangerouslySetInnerHTML={{ __html: item }} />
       ))}
     </ul>
   );
 }
-/* =========== SECTIONS =========== */
+
 function BriefRules() {
   return (
     <section id="Rules">
-      {/* Section Title */}
       <SubHeading>Brief Rules</SubHeading>
-
-      {/* Each rule as a single paragraph with bold label */}
       <p className="mt-4">
-        <span className="font-semibold">What is it:</span>{" "}
-        SEL is a <b>4-hour long</b>, team online problem solving competition.
+        <span className="font-semibold">What is it:</span> SEL is a <b>4-hour long</b>, team online problem solving competition.
       </p>
-
       <p className="mt-4">
-        <span className="font-semibold">Team rules:</span>{" "}
-        Teams comprise of <b>3 to 5 members</b>.
+        <span className="font-semibold">Team rules:</span> Teams comprise of <b>3 to 5 members</b>.
       </p>
-
       <p className="mt-4">
-        <span className="font-semibold">Who can participate?:</span>{" "}
-        SEL is open to all students in <b>pre-university education</b>, i.e. Junior
-        Colleges, Secondary Schools, Polytechnics, ITE, international high
-        schools or equivalent.
+        <span className="font-semibold">Who can participate?:</span> SEL is open to all students in <b>pre-university education</b>, i.e. Junior Colleges, Secondary Schools, Polytechnics, ITE, international high schools or equivalent.
       </p>
-
       <p className="mt-4">
-        <span className="font-semibold">What is allowed?:</span>{" "}
-        All internet resources such as textbooks, and any computer programs (e.g.
-        graphing software, IDEs) are allowed. Communication with individuals outside 
-        the team related to the problems is <b>strictly prohibited</b>. The usage of <b>any </b>
-        Generative AI tools such as ChatGPT is also <b>strictly
-        prohibited</b>.
+        <span className="font-semibold">What is allowed?:</span> All internet resources such as textbooks, and any computer programs (e.g. graphing software, IDEs) are allowed. Communication with individuals outside the team related to the problems is <b>strictly prohibited</b>. The usage of <b>any</b> Generative AI tools such as ChatGPT is also <b>strictly prohibited</b>.
       </p>
-
       <p className="mt-4">
-        <span className="font-semibold">Competition format:</span>{" "}
-        Teams are awarded points for successfully answering problems. Correct
-        answers unlock new, harder problems. Wrong answers and skipping problems
-        lead to fewer points. The teams with the most points win!
+        <span className="font-semibold">Competition format:</span> Teams are awarded points for successfully answering problems. Correct answers unlock new, harder problems. Wrong answers and skipping problems lead to fewer points. The teams with the most points win!
       </p>
     </section>
   );
@@ -111,8 +83,6 @@ function Registration() {
   );
 }
 
-
-
 function CompetitionPlatform() {
   return (
     <section className="mt-12" id="Competition Platform">
@@ -130,341 +100,229 @@ function CompetitionPlatform() {
 }
 
 function ContestFormatAndScoring() {
+  const mathContainerRef = useRef(null);
+
+  useEffect(() => {
+    if (mathContainerRef.current) {
+      katex.render("\\left\\lceil \\frac{P}{x + 1} \\right\\rceil", mathContainerRef.current, {
+        throwOnError: false,
+        displayMode: true,
+      });
+    }
+  }, []);
+
   return (
     <section id="Contest Format and Scoring" className="mt-12">
-      {/* MAIN SECTION TITLE */}
       <SubHeading>Contest Format and Scoring</SubHeading>
-
-      {/* INTRO PARAGRAPH */}
       <p className="mt-4">
-        The contest includes a variety of question formats to test your versatility. Below
-        is an overview of the different question formats you may encounter.
+        The contest includes a variety of question formats to test your versatility. Below is an overview of the different question formats you may encounter.
       </p>
-
-      {/* QUESTION TYPES SECTION */}
       <SubHeading2 className="mt-10">Question Types</SubHeading2>
       <p className="mt-4">
-        The contest includes a variety of question formats to test your
-        versatility. Below is an overview of the most common formats.
+        The contest includes a variety of question formats to test your versatility. Below is an overview of the most common formats.
       </p>
-
-      {/* Card-like list of question types */}
       <div className="mt-6 space-y-6">
-        {/* 1. MCQ */}
         <div className="border-l-4 border-primary pl-4 py-2">
-          <h4 className="font-semibold text-[#343131]">1. Multiple Choice (MCQ)</h4>
-          <p className="text-sm text-[#343131] mt-1">
+          <h4 className="font-semibold text-baseText">1. Multiple Choice (MCQ)</h4>
+          <p className="text-sm text-baseText mt-1">
             Choose <b>1</b> answer out of <b>4</b> options (A, B, C, D).
           </p>
         </div>
-
-        {/* 2. MCQ Multi-select */}
         <div className="border-l-4 border-primary pl-4 py-2">
-          <h4 className="font-semibold text-[#343131]">2. MCQ Multi-select</h4>
-          <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-[#343131]">
+          <h4 className="font-semibold text-baseText">2. MCQ Multi-select</h4>
+          <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-baseText">
             <li>Choose N answers out of M options, where N ≤ M.</li>
             <li>No marks are awarded for partially correct answers.</li>
           </ul>
         </div>
-
-        {/* 3. Integer */}
         <div className="border-l-4 border-primary pl-4 py-2">
-          <h4 className="font-semibold text-[#343131]">3. Integer</h4>
-          <p className="text-sm text-[#343131] mt-1">
+          <h4 className="font-semibold text-baseText">3. Integer</h4>
+          <p className="text-sm text-baseText mt-1">
             Enter an integer from <b>-99999</b> to <b>99999</b>.
           </p>
         </div>
-
-        {/* 4. Integer Set */}
         <div className="border-l-4 border-primary pl-4 py-2">
-          <h4 className="font-semibold text-[#343131]">4. Integer Set</h4>
-          <p className="text-sm text-[#343131] mt-1">
+          <h4 className="font-semibold text-baseText">4. Integer Set</h4>
+          <p className="text-sm text-baseText mt-1">
             Individually input a set of N integers.
           </p>
         </div>
-
-        {/* 5. Float */}
         <div className="border-l-4 border-primary pl-4 py-2">
-          <h4 className="font-semibold text-[#343131]">5. Float</h4>
-          <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-[#343131]">
+          <h4 className="font-semibold text-baseText">5. Float</h4>
+          <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-baseText">
             <li>
-              Enter numeric values (with decimals) from <b>-99999.99999</b> to{" "}
-              <b>99999.99999</b>.
+              Enter numeric values (with decimals) from <b>-99999.99999</b> to <b>99999.99999</b>.
             </li>
             <li>
-              Answers with extra decimal precision are accepted if they remain
-              within the specified tolerance.
+              Answers with extra decimal precision are accepted if they remain within the specified tolerance.
             </li>
           </ul>
         </div>
-
-        {/* 6. Sort */}
         <div className="border-l-4 border-primary pl-4 py-2">
-          <h4 className="font-semibold text-[#343131]">6. Sort</h4>
-          <p className="text-sm text-[#343131] mt-1">
+          <h4 className="font-semibold text-baseText">6. Sort</h4>
+          <p className="text-sm text-baseText mt-1">
             Sort N different values into the correct sequence.
           </p>
         </div>
-
-        {/* 7. True/False Set */}
         <div className="border-l-4 border-primary pl-4 py-2">
-          <h4 className="font-semibold text-[#343131]">7. True/False Set</h4>
-          <p className="text-sm text-[#343131] mt-1">
+          <h4 className="font-semibold text-baseText">7. True/False Set</h4>
+          <p className="text-sm text-baseText mt-1">
             Give your answer to N True/False questions.
           </p>
         </div>
-
-        {/* 8. String */}
         <div className="border-l-4 border-primary pl-4 py-2">
-          <h4 className="font-semibold text-[#343131]">8. String</h4>
-          <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-[#343131]">
+          <h4 className="font-semibold text-baseText">8. String</h4>
+          <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-baseText">
             <li>Input a string of up to 30 characters in length.</li>
-            <li>
-              An exact match is required. Extra characters or spaces result in
-              an incorrect answer.
-            </li>
+            <li>An exact match is required. Extra characters or spaces result in an incorrect answer.</li>
           </ul>
         </div>
-
-        {/* 9. String Set */}
         <div className="border-l-4 border-primary pl-4 py-2">
-          <h4 className="font-semibold text-[#343131]">9. String Set</h4>
-          <p className="text-sm text-[#343131] mt-1">
+          <h4 className="font-semibold text-baseText">9. String Set</h4>
+          <p className="text-sm text-baseText mt-1">
             Input a set of N strings. Each must be exactly correct.
           </p>
         </div>
-
-        {/* 10. Table */}
         <div className="border-l-4 border-primary pl-4 py-2">
-          <h4 className="font-semibold text-[#343131]">10. Table</h4>
-          <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-[#343131]">
+          <h4 className="font-semibold text-baseText">10. Table</h4>
+          <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-baseText">
             <li>Key in the contents of an N×M table.</li>
             <li>Answers can require either string or integer table entries.</li>
           </ul>
         </div>
       </div>
-
-      {/* Additional info about attempts */}
       <SubHeading2 className="mt-12">Submission Attempts and Scoring</SubHeading2>
-      <ul className="list-disc ml-6 mt-2 space-y-2 text-[#343131]">
+      <ul className="list-disc ml-6 mt-2 space-y-2 text-baseText">
         <li>
-          Each MCQ, MCQ Multi-select, Sort, and True/False Set question-part
-          allows <b>3 attempts</b>.
+          Each MCQ, MCQ Multi-select, Sort, and True/False Set question-part allows <b>3 attempts</b>.
         </li>
         <li>
-          After <b>3 incorrect attempts</b>, that question-part is disabled and
-          scores <b>0</b>.
+          After <b>3 incorrect attempts</b>, that question-part is disabled and scores <b>0</b>.
         </li>
-        <li>
-          No partial credit is given; an exact match is always required.
-        </li>
+        <li>No partial credit is given; an exact match is always required.</li>
       </ul>
-
-      {/* SCORING SECTION */}
       <SubHeading2 className="mt-12">Main Problems Scoring</SubHeading2>
-      <p className="mt-4">
-        Each sub-question or question-part has a certain number of points.
+      <p className="mt-4">Each sub-question or question-part has a certain number of points.</p>
+      <p>
+        If a question-part had previous incorrect attempts, fewer points will be awarded. The points awarded for a correct answer is:
       </p>
-
-      <p className="mt-4">
-        {/* Here we separate plain text from the LaTeX markup */}
-        <Latex>
-          {`
-          If a question-part had previous incorrect attempts, fewer points will be awarded for a correct answer.
-          The points awarded for a correct answer is
-          $\\lceil \\frac{P}{x + 1} \\rceil$,
-          where $P$ is the full number of points, $x$ is the number of incorrect submissions prior to the correct answer,
-          and $\\lceil \\rceil$ denotes the ceiling function.
-          `}
-        </Latex>
+      <div ref={mathContainerRef} />
+      <p>
+        where P is the full number of points, x is the number of incorrect submissions prior to the correct answer, and the notation denotes the ceiling function.
       </p>
-
-      <p className="mt-4">
-        The following lookup table illustrates SEL&apos;s scoring scheme:
-      </p>
-      {/* SCORING TABLE */}
-      {/* Wrap in a parent <div> that uses inline-block and margin-right: auto 
-     to left-align while letting the table be as wide as needed. */}
-    <div className="mt-6 border-2 border-primary rounded-xl overflow-hidden w-full">
-    <table
-        className="w-full text-center border-separate"
-        style={{ borderSpacing: 0 }} // ensures no extra gap between cells
-      >
-        {/* Define column widths via colgroup */}
-        <colgroup>
-          {/* Narrower first column */}
-          <col className="w-[140px]" />
-          {/* Wider columns for 0..5+ */}
-          <col className="w-[90px]" />
-          <col className="w-[90px]" />
-          <col className="w-[90px]" />
-          <col className="w-[90px]" />
-          <col className="w-[90px]" />
-          <col className="w-[90px]" />
-        </colgroup>
-
-        <thead className="bg-secondary text-white">
-          <tr>
-            {/* First header spans 2 rows */}
-            <th
-              rowSpan={2}
-              className="px-3 py-2 border border-primary font-medium whitespace-normal break-words"
-            >
-              Full number of points
-            </th>
-            {/* Second header spans 6 columns */}
-            <th
-              colSpan={6}
-              className="px-3 py-2 border border-primary font-medium whitespace-normal break-words"
-            >
-              Number of incorrect answers
-            </th>
-          </tr>
-          {/* Sub-headers for 0..5+ */}
-          <tr>
-            <th className="px-3 py-2 border border-primary font-medium">0</th>
-            <th className="px-3 py-2 border border-primary font-medium">1</th>
-            <th className="px-3 py-2 border border-primary font-medium">2</th>
-            <th className="px-3 py-2 border border-primary font-medium">3</th>
-            <th className="px-3 py-2 border border-primary font-medium">4</th>
-            <th className="px-3 py-2 border border-primary font-medium">5+</th>
-          </tr>
-        </thead>
-
-        <tbody className="bg-white text-[#343131]">
-          {[...Array(9)].map((_, i) => {
-            const rowNumber = i + 2; // Full points from 2..10
-
-            // Example scoring function
-            const getPoints = (incorrect: number): number => {
-              if (incorrect === 0) return rowNumber;
-              if (incorrect >= 4) return 1;
-              return Math.max(rowNumber - incorrect, 1);
-            };
-
-            return (
-              <tr key={rowNumber}>
-                <td className="px-3 py-2 border border-primary font-semibold">
-                  {rowNumber}
-                </td>
-                <td className="px-3 py-2 border border-primary">
-                  {getPoints(0)}
-                </td>
-                <td className="px-3 py-2 border border-primary">
-                  {getPoints(1)}
-                </td>
-                <td className="px-3 py-2 border border-primary">
-                  {getPoints(2)}
-                </td>
-                <td className="px-3 py-2 border border-primary">
-                  {getPoints(3)}
-                </td>
-                <td className="px-3 py-2 border border-primary">
-                  {getPoints(4)}
-                </td>
-                <td className="px-3 py-2 border border-primary">
-                  {getPoints(5)}
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-
-
-
-
-      <ul className="list-disc ml-6 mt-4 space-y-2 text-[#343131]">
+      <p className="mt-4">The following lookup table illustrates SEL&apos;s scoring scheme:</p>
+      <div className="mt-6 border-2 border-primary rounded-xl overflow-hidden w-full">
+        <table className="w-full text-center border-separate" style={{ borderSpacing: 0 }}>
+          <colgroup>
+            <col className="w-[140px]" />
+            <col className="w-[90px]" />
+            <col className="w-[90px]" />
+            <col className="w-[90px]" />
+            <col className="w-[90px]" />
+            <col className="w-[90px]" />
+            <col className="w-[90px]" />
+          </colgroup>
+          <thead className="bg-secondary text-white">
+            <tr>
+              <th rowSpan={2} className="px-3 py-2 border border-primary font-medium whitespace-normal break-words">
+                Full number of points
+              </th>
+              <th colSpan={6} className="px-3 py-2 border border-primary font-medium whitespace-normal break-words">
+                Number of incorrect answers
+              </th>
+            </tr>
+            <tr>
+              <th className="px-3 py-2 border border-primary font-medium">0</th>
+              <th className="px-3 py-2 border border-primary font-medium">1</th>
+              <th className="px-3 py-2 border border-primary font-medium">2</th>
+              <th className="px-3 py-2 border border-primary font-medium">3</th>
+              <th className="px-3 py-2 border border-primary font-medium">4</th>
+              <th className="px-3 py-2 border border-primary font-medium">5+</th>
+            </tr>
+          </thead>
+          <tbody className="bg-white text-baseText">
+            {[...Array(9)].map((_, i) => {
+              const rowNumber = i + 2;
+              const getPoints = (incorrect: number): number => {
+                if (incorrect === 0) return rowNumber;
+                if (incorrect >= 4) return 1;
+                return Math.max(rowNumber - incorrect, 1);
+              };
+              return (
+                <tr key={rowNumber}>
+                  <td className="px-3 py-2 border border-primary font-semibold">{rowNumber}</td>
+                  <td className="px-3 py-2 border border-primary">{getPoints(0)}</td>
+                  <td className="px-3 py-2 border border-primary">{getPoints(1)}</td>
+                  <td className="px-3 py-2 border border-primary">{getPoints(2)}</td>
+                  <td className="px-3 py-2 border border-primary">{getPoints(3)}</td>
+                  <td className="px-3 py-2 border border-primary">{getPoints(4)}</td>
+                  <td className="px-3 py-2 border border-primary">{getPoints(5)}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <ul className="list-disc ml-6 mt-4 space-y-2 text-baseText">
         <li>
-          Every <b>30 minutes</b>, teams receive a <b>free skip</b> to discard a
-          problem without penalty.
+          Every <b>30 minutes</b>, teams receive a <b>free skip</b> to discard a problem without penalty.
         </li>
         <li>
           If no free skips are available, skipping a question iccurs a <b>3 point</b> penalty.
         </li>
       </ul>
-
-      {/* ECOMANIA SECTION */}
       <SubHeading2 className="mt-12">Ecomania</SubHeading2>
       <p className="mt-4">
-        At <b>10:00 AM</b>, the Ecomania section unlocks, offering 15 new
-        problems across <b>5 categories</b> (Microeconomics, Firms, Game Theory,
-        Macroeconomics, and Financial Economics). Each category has 3 problems
-        in ascending difficulty:
+        At <b>10:00 AM</b>, the Ecomania section unlocks, offering 15 new problems across <b>5 categories</b> (Microeconomics, Firms, Game Theory,
+        Macroeconomics, and Financial Economics). Each category has 3 problems in ascending difficulty:
       </p>
-
       <div className="mt-6 border-2 border-primary rounded-xl overflow-hidden">
-<table
-  className="w-full text-left border-separate"
-  style={{ borderSpacing: 0 }} // ensures no extra gap between cells
->
-  {/* Table Header */}
-  <thead className="bg-secondary text-white">
-    <tr>
-      <th className="px-4 py-3 border border-primary font-medium">
-        Microeconomics
-      </th>
-      <th className="px-4 py-3 border border-primary font-medium">
-        Firm Theory
-      </th>
-      <th className="px-4 py-3 border border-primary font-medium">
-        Game Theory
-      </th>
-      <th className="px-4 py-3 border border-primary font-medium">
-        Macroeconomics
-      </th>
-      <th className="px-4 py-3 border border-primary font-medium">
-        Finance
-      </th>
-    </tr>
-  </thead>
-
-  {/* Table Body */}
-  <tbody className="bg-white text-[#343131]">
-    {/* Q1 (unlocked) row */}
-    <tr className="text-[#343131]">
-      <td className="px-4 py-3 border border-primary">Micro Q1</td>
-      <td className="px-4 py-3 border border-primary">Firms Q1</td>
-      <td className="px-4 py-3 border border-primary">Game Theory Q1</td>
-      <td className="px-4 py-3 border border-primary">Macro Q1</td>
-      <td className="px-4 py-3 border border-primary">Finance Q1</td>
-    </tr>
-
-    {/* Q2, Q3 locked rows */}
-    {[2, 3].map((q) => (
-      <tr key={q}>
-        <td className="px-4 py-3 border border-primary">
-          Micro Q{q} (Locked)
-        </td>
-        <td className="px-4 py-3 border border-primary">
-          Firms Q{q} (Locked)
-        </td>
-        <td className="px-4 py-3 border border-primary">
-          Game Theory Q{q} (Locked)
-        </td>
-        <td className="px-4 py-3 border border-primary">
-          Macro Q{q} (Locked)
-        </td>
-        <td className="px-4 py-3 border border-primary">
-          Finance Q{q} (Locked)
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-
-    </div>
-
-
-      <ul className="list-disc ml-6 mt-4 space-y-2 text-[#343131]">
+        <table className="w-full text-left border-separate" style={{ borderSpacing: 0 }}>
+          <thead className="bg-secondary text-white">
+            <tr>
+              <th className="px-4 py-3 border border-primary font-medium">Microeconomics</th>
+              <th className="px-4 py-3 border border-primary font-medium">Firm Theory</th>
+              <th className="px-4 py-3 border border-primary font-medium">Game Theory</th>
+              <th className="px-4 py-3 border border-primary font-medium">Macroeconomics</th>
+              <th className="px-4 py-3 border border-primary font-medium">Finance</th>
+            </tr>
+          </thead>
+          <tbody className="bg-white text-baseText">
+            <tr className="text-baseText">
+              <td className="px-4 py-3 border border-primary">Micro Q1</td>
+              <td className="px-4 py-3 border border-primary">Firms Q1</td>
+              <td className="px-4 py-3 border border-primary">Game Theory Q1</td>
+              <td className="px-4 py-3 border border-primary">Macro Q1</td>
+              <td className="px-4 py-3 border border-primary">Finance Q1</td>
+            </tr>
+            {[2, 3].map((q) => (
+              <tr key={q}>
+                <td className="px-4 py-3 border border-primary">
+                  Micro Q{q} <span className="text-[#FF004F] font-semibold">(Locked)</span>
+                </td>
+                <td className="px-4 py-3 border border-primary">
+                  Firms Q{q} <span className="text-[#FF004F] font-semibold">(Locked)</span>
+                </td>
+                <td className="px-4 py-3 border border-primary">
+                  Game Theory Q{q} <span className="text-[#FF004F] font-semibold">(Locked)</span>
+                </td>
+                <td className="px-4 py-3 border border-primary">
+                  Macro Q{q} <span className="text-[#FF004F] font-semibold">(Locked)</span>
+                </td>
+                <td className="px-4 py-3 border border-primary">
+                  Finance Q{q} <span className="text-[#FF004F] font-semibold">(Locked)</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <ul className="list-disc ml-6 mt-4 space-y-2 text-baseText">
         <li>
-          Unlock each subsequent problem by completing the earlier ones in that
-          category.
+          Unlock each subsequent problem by completing the earlier ones in that category.
         </li>
         <li>
-          From <b>10:00 AM to 11:00 AM</b>, completing an entire category doubles
-          its points as a <b>bonus</b>.
+          From <b>10:00 AM to 11:00 AM</b>, completing an entire category doubles its points as a <b>bonus</b>.
         </li>
         <li>
           After <b>11:00 AM</b>, participants can still access Economania questions, however bonus points shall no longer be awarded.
@@ -478,77 +336,46 @@ function ContestFormatAndScoring() {
 function AwardsAndRankings() {
   return (
     <section className="mt-12" id="Awards and Rankings">
-      {/* Section Title */}
       <SubHeading>Awards and Rankings</SubHeading>
-
-      {/* Intro Explanation */}
       <p className="mt-4">
-        The awards are determined according to the cutoffs below, where{" "}
-        <b>n</b> is the total number of teams, and <b>⌈x⌉</b> represents the{" "}
-        ceiling function. Teams are ranked by the cumulative point total.
-        A rank of <b>r</b> indicates that exactly <b>r - 1</b> teams scored
-        strictly more points.
+        The awards are determined according to the cutoffs below, where <b>n</b> is the total number of teams, and <b>⌈x⌉</b> represents the ceiling function.
+        Teams are ranked by the cumulative point total. A rank of <b>r</b> indicates that exactly <b>r - 1</b> teams scored strictly more points.
       </p>
       <p className="mt-4">
-        The <b>top 5%</b> of teams will receive the <b>Gold</b> award, the{" "}
-        <b>top 15%</b> will receive the <b>Silver</b> award, and the <b>top
-        30%</b> of teams will receive the <b>Bronze</b> award.
+        The <b>top 5%</b> of teams will receive the <b>Gold</b> award, the <b>top 15%</b> will receive the <b>Silver</b> award, and the <b>top 30%</b> of teams will receive the <b>Bronze</b> award.
       </p>
-
-{/* Table Container */}
-<div className="mt-6 border-2 border-primary rounded-xl overflow-hidden">
-  <table
-    className="w-full text-left border-separate"
-    style={{ borderSpacing: 0 }}
-  >
-    <thead className="bg-secondary text-white">
-
-      {/* Second header row: 3 columns */}
-      <tr>
-        <th className="px-4 py-3 border border-primary font-medium">Award</th>
-        <th className="px-4 py-3 border border-primary font-medium">
-          Rank Range
-        </th>
-        <th className="px-4 py-3 border border-primary font-medium">
-          % Cutoff
-        </th>
-      </tr>
-    </thead>
-
-    <tbody className="bg-white text-[#343131]">
-      <tr>
-        <td className="px-4 py-3 border border-primary">Gold</td>
-        <td className="px-4 py-3 border border-primary">rank ≤ ⌈0.05 × n⌉</td>
-        <td className="px-4 py-3 border border-primary">Top 5%</td>
-      </tr>
-      <tr>
-        <td className="px-4 py-3 border border-primary">Silver</td>
-        <td className="px-4 py-3 border border-primary">
-          ⌈0.05 × n⌉+1 to ⌈0.15 × n⌉
-        </td>
-        <td className="px-4 py-3 border border-primary">Top 15%</td>
-      </tr>
-      <tr>
-        <td className="px-4 py-3 border border-primary">Bronze</td>
-        <td className="px-4 py-3 border border-primary">
-          ⌈0.15 × n⌉+1 to ⌈0.30 × n⌉
-        </td>
-        <td className="px-4 py-3 border border-primary">Top 30%</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
-      {/* Additional Bullet Points */}
-      <ul className="list-disc ml-6 mt-4 space-y-2 text-[#343131]">
+      <div className="mt-6 border-2 border-primary rounded-xl overflow-hidden">
+        <table className="w-full text-left border-separate" style={{ borderSpacing: 0 }}>
+          <thead className="bg-secondary text-white">
+            <tr>
+              <th className="px-4 py-3 border border-primary font-medium">Award</th>
+              <th className="px-4 py-3 border border-primary font-medium">Rank Range</th>
+              <th className="px-4 py-3 border border-primary font-medium">% Cutoff</th>
+            </tr>
+          </thead>
+          <tbody className="bg-white text-baseText">
+            <tr>
+              <td className="px-4 py-3 border border-primary text-[#D4AF37] font-medium">Gold</td>
+              <td className="px-4 py-3 border border-primary">rank ≤ ⌈0.05 × n⌉</td>
+              <td className="px-4 py-3 border border-primary">Top 5%</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-3 border border-primary text-[#C0C0C0] font-medium">Silver</td>
+              <td className="px-4 py-3 border border-primary">⌈0.05 × n⌉+1 to ⌈0.15 × n⌉</td>
+              <td className="px-4 py-3 border border-primary">Top 15%</td>
+            </tr>
+            <tr>
+              <td className="px-4 py-3 border border-primary text-[#CD7F32] font-medium">Bronze</td>
+              <td className="px-4 py-3 border border-primary">⌈0.15 × n⌉+1 to ⌈0.30 × n⌉</td>
+              <td className="px-4 py-3 border border-primary">Top 30%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ul className="list-disc ml-6 mt-4 space-y-2 text-baseText">
+        <li>Teams will be ranked according to the cumulative point total obtained during the contest.</li>
         <li>
-          Teams will be ranked according to the cumulative point total obtained
-          during the contest.
-        </li>
-        <li>
-          A rank of <b>r</b> denotes that <b>r - 1</b> teams scored strictly more
-          than that team.
+          A rank of <b>r</b> denotes that <b>r - 1</b> teams scored strictly more than that team.
         </li>
       </ul>
     </section>
@@ -559,48 +386,29 @@ function ConductOfTheContest() {
   return (
     <section className="mt-12" id="Conduct of the Contest">
       <SubHeading>Conduct of the Contest</SubHeading>
-
-      {/* 1. Intro / Timing */}
       <p className="mt-4">
-        Participants may sign into the official <b>SEL Platform</b> at{" "}
-        <b>08:40</b> on the day of the contest. The contest will begin promptly
-        at <b>09:00</b> and end at <b>13:00</b>.
+        Participants may sign into the official <b>SEL Platform</b> at <b>08:40</b> on the day of the contest. The contest will begin promptly at <b>09:00</b>
+        and end at <b>13:00</b>.
       </p>
-
-      {/* 2. Main Problems */}
       <p className="mt-4">
-        The <b>Main Problems</b> are accessible throughout the contest may each contain multiple question parts.
-        Main problems have a wide spectrum of difficulties, and later problems will tend to be harder.
-        Each team may work on
-        up to <b>four</b> problems at once. Upon completing a problem, the team
-        may select a new problem to attempt from a pool of other questions.
+        The <b>Main Problems</b> are accessible throughout the contest may each contain multiple question parts. Main problems have a wide spectrum of
+        difficulties, and later problems will tend to be harder. Each team may work on up to <b>four</b> problems at once. Upon completing a problem, the
+        team may select a new problem to attempt from a pool of other questions.
       </p>
-
-      {/* 3. Ecomania */}
       <p className="mt-4">
-        From <b>10:00</b> to <b>11:00</b>, <b>Ecoonomania</b> problems will be
-        available for teams to attempt independently and concurrently with the
-        Main Problems. Economania problems can range from Easy, Medium, or Hard
-        levels, and may contain special variants of question types (e.g., unique multi-step MCQs). Regular Points and Bonus Points earned from Economania problems will be{" "}
-        <b>added to the team’s overall score</b>.
+        From <b>10:00</b> to <b>11:00</b>, <b>Ecoonomania</b> problems will be available for teams to attempt independently and concurrently with the Main
+        Problems. Economania problems can range from Easy, Medium, or Hard levels, and may contain special variants of question types (e.g., unique
+        multi-step MCQs). Regular Points and Bonus Points earned from Economania problems will be <b>added to the team’s overall score</b>.
       </p>
-
-      {/* 4. Support / Contact */}
       <p className="mt-4">
-        In the event of technical difficulties, disruptions, or questions about
-        the platform, participants should raise a <b>Support Ticket</b> on the{" "}
-        <a
-          href="https://discord.gg/SEk9HrXk"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline text-primary hover:text-secondary"
-        >
+        In the event of technical difficulties, disruptions, or questions about the platform, participants should raise a <b>Support Ticket</b> on the{" "}
+        <a href="https://discord.gg/FMn74arxZd" target="_blank" rel="noopener noreferrer" className="underline text-secondary font-bold hover:text-secondary">
           official SEL Discord Server
         </a>{" "}
         or email us at{" "}
         <a
           href="mailto:contact@sgeconsleague.org"
-          className="underline text-primary hover:text-secondary"
+          className="underline text-secondary font-bold hover:text-secondary"
         >
           contact@sgeconsleague.org
         </a>
@@ -610,18 +418,16 @@ function ConductOfTheContest() {
   );
 }
 
-
 function ParticipantsCodeofConduct() {
   return (
     <section className="mt-12" id="Participants&apos; Code of Conduct">
       <SubHeading>Participants&apos; Code of Conduct</SubHeading>
-
-      <SubHeading2 className="mt-6">
-        Permissible Collaboration and Resources
-      </SubHeading2>
       <p className="mt-4">
-        Participants may confer with their team members for the duration of the
-        contest, and are allowed the use of open-book aids and sources of
+        This Code of Conduct outlines the rules and expectations that all participants must follow during the competition.
+      </p>
+      <SubHeading2 className="mt-6">Permissible Collaboration and Resources</SubHeading2>
+      <p className="mt-4">
+        Participants may confer with their team members for the duration of the contest, and are allowed the use of open-book aids and sources of
         information including but not limited to:
       </p>
       <UnorderedList
@@ -633,20 +439,13 @@ function ParticipantsCodeofConduct() {
         ]}
       />
       <p className="mt-6">
-        The list above is neither prescriptive nor exhaustive and does not
-        constitute endorsement or warranty for any named item. Participants
-        agree that they must access such resources in accordance with all other
-        conditions specified in this Code of Conduct.
+        The list above is neither prescriptive nor exhaustive and does not constitute endorsement or warranty for any named item. Participants agree that
+        they must access such resources in accordance with all other conditions specified in this Code of Conduct.
       </p>
-
-      <SubHeading2 className="mt-10">
-        Confidentiality and Prohibited External Communication
-      </SubHeading2>
+      <SubHeading2 className="mt-10">Confidentiality and Prohibited External Communication</SubHeading2>
       <p className="mt-4">
-        Participants must not communicate about contest problems with anyone
-        outside their own team. In addition, they should exercise due caution to
-        safeguard their team’s communications, contest materials, and solutions
-        from unauthorized access. Such measures include but are not limited to:
+        Participants must not communicate about contest problems with anyone outside their own team. In addition, they should exercise due caution to
+        safeguard their team’s communications, contest materials, and solutions from unauthorized access. Such measures include but are not limited to:
       </p>
       <UnorderedList
         items={[
@@ -655,20 +454,16 @@ function ParticipantsCodeofConduct() {
           "Refraining from sharing information with or collaborating with other teams",
         ]}
       />
-
-      <SubHeading2 className="mt-10">
-        Ban of Generative AI
-      </SubHeading2>
+      <SubHeading2 className="mt-10">Ban of Generative AI</SubHeading2>
       <p className="mt-4">
-        For the duration of the competition, any usage of Generative Artificial Intelligence (Gen AI) tools is strictly prohibited. Participants must refrain from any usage of Gen AI tools, including but not limited to: Chatbots such as ChatGPT and Deepseek that are capable of generating complex, coherent, and contextually relevant answers to questions posed by the user.
-
+        For the duration of the competition, any usage of Generative Artificial Intelligence (Gen AI) tools is strictly prohibited. Participants must
+        refrain from any usage of Gen AI tools, including but not limited to: Chatbots such as ChatGPT and Deepseek that are capable of generating complex,
+        coherent, and contextually relevant answers to questions posed by the user.
       </p>
-
       <SubHeading2 className="mt-10">Maintaining Fair Play and Integrity</SubHeading2>
       <p className="mt-4">
-        Each participant is expected to uphold the competition’s integrity and
-        refrain from behaviors that disrupt the Singapore Economics League
-        (SEL). Examples of disallowed actions include, but are not limited to:
+        Each participant is expected to uphold the competition’s integrity and refrain from behaviors that disrupt the Singapore Economics League (SEL).
+        Examples of disallowed actions include, but are not limited to:
       </p>
       <UnorderedList
         items={[
@@ -677,15 +472,10 @@ function ParticipantsCodeofConduct() {
           "Verbal, physical, or digital communications that malign the reputation of the SEL, the organizers, or any participant",
         ]}
       />
-
-      <SubHeading2 className="mt-10">
-        Legal Compliance and Responsible Usage of Digital Platforms
-      </SubHeading2>
+      <SubHeading2 className="mt-10">Legal Compliance and Responsible Usage of Digital Platforms</SubHeading2>
       <p className="mt-4">
-        All participants must abide by the laws of the Republic of Singapore and
-        use the competition’s platforms, software, and websites responsibly.
-        Offenses covered under the Computer Misuse Act 1993 are strictly
-        prohibited, including:
+        All participants must abide by the laws of the Republic of Singapore and use the competition’s platforms, software, and websites responsibly.
+        Offenses covered under the Computer Misuse Act 1993 are strictly prohibited, including:
       </p>
       <UnorderedList
         items={[
@@ -694,14 +484,11 @@ function ParticipantsCodeofConduct() {
           "Illegally intercepting or misusing computing services",
         ]}
       />
-
       <SubHeading2 className="mt-10">Enforcement and Penalties</SubHeading2>
       <p className="mt-4 mb-6">
-        The SEL Organizing Team enforces a zero-tolerance policy on breaches of
-        this Code of Conduct. Infractions may result in immediate
-        disqualification or other penalties. The organizers reserve the right to
-        refer serious violations to the participants’ respective schools for
-        further disciplinary measures.
+        The SEL Organizing Team enforces a zero-tolerance policy on breaches of this Code of Conduct. Infractions may result in immediate disqualification
+        or other penalties. The organizers reserve the right to refer serious violations to the participants’ respective schools for further disciplinary
+        measures.
       </p>
     </section>
   );
@@ -711,99 +498,68 @@ function TermsAndConditions() {
   return (
     <section className="mt-12" id="Terms and Conditions">
       <SubHeading>Terms and Conditions</SubHeading>
-
+      <p className="mt-4">
+        These Terms and Conditions govern your use of this website and participation in the Singapore Economics League.
+      </p>
       <SubHeading2 className="mt-6">Views and Opinions Disclaimer</SubHeading2>
       <p className="mt-4">
-        Any opinions expressed on this website reflect the personal views of the
-        Singapore Economics League (SEL) Organizing Team. These views do not
-        necessarily represent or reflect the positions of any individuals,
-        institutions, or organizations with which the SEL Organizing Team may be
-        affiliated, unless expressly stated. No intention exists to target,
-        discredit, or defame any group—be it religious, racial, corporate,
-        governmental, or otherwise. Any resemblance to real persons, living or
-        deceased, or to actual events, entities, or organizations is
-        unintentional and purely coincidental.
+        Any opinions expressed on this website reflect the personal views of the Singapore Economics League (SEL) Organizing Team. These views do not
+        necessarily represent or reflect the positions of any individuals, institutions, or organizations with which the SEL Organizing Team may be
+        affiliated, unless expressly stated. No intention exists to target, discredit, or defame any group—be it religious, racial, corporate,
+        governmental, or otherwise. Any resemblance to real persons, living or deceased, or to actual events, entities, or organizations is unintentional
+        and purely coincidental.
       </p>
-
       <SubHeading2 className="mt-10">Warranty Disclaimer</SubHeading2>
       <p className="mt-4">
-        All information and material provided on this website are intended
-        solely for general informational use. The SEL Organizing Team makes no
-        claim or promise, explicit or implied, regarding the accuracy,
-        availability, suitability, or completeness of the content—this includes
-        (but is not limited to) implied warranties of merchantability or
-        non-infringement. To the fullest extent permitted under applicable law,
-        the SEL Organizing Team disclaims liability for any errors, omissions,
-        or inconsistencies in the content, and for any direct or indirect
-        damages, losses, or injuries arising from its use.
+        All information and material provided on this website are intended solely for general informational use. The SEL Organizing Team makes no claim or
+        promise, explicit or implied, regarding the accuracy, availability, suitability, or completeness of the content—this includes (but is not limited
+        to) implied warranties of merchantability or non-infringement. To the fullest extent permitted under applicable law, the SEL Organizing Team
+        disclaims liability for any errors, omissions, or inconsistencies in the content, and for any direct or indirect damages, losses, or injuries
+        arising from its use.
       </p>
       <p className="mt-4">
-        This site does not offer professional, medical, or investment advice.
-        Participants remain responsible for seeking qualified, expert guidance
-        where appropriate. By using this website, you acknowledge that any
-        reliance on the resources or links provided here is at your own risk.
+        This site does not offer professional, medical, or investment advice. Participants remain responsible for seeking qualified, expert guidance where
+        appropriate. By using this website, you acknowledge that any reliance on the resources or links provided here is at your own risk.
       </p>
-
       <SubHeading2 className="mt-10">Fair Use</SubHeading2>
       <p className="mt-4">
-        While the SEL Organizing Team strives to avoid unauthorized usage of
-        copyrighted material, some elements on this website may include
-        copyrighted works not explicitly cleared by the copyright holder.
-        Information is made available for purposes of critique, education, and
-        scholarship. In good faith, the SEL Organizing Team believes such use
-        constitutes “fair use” under Section 190 of the Copyright Act 2021 in
-        the Republic of Singapore.
+        While the SEL Organizing Team strives to avoid unauthorized usage of copyrighted material, some elements on this website may include copyrighted
+        works not explicitly cleared by the copyright holder. Information is made available for purposes of critique, education, and scholarship. In good
+        faith, the SEL Organizing Team believes such use constitutes “fair use” under Section 190 of the Copyright Act 2021 in the Republic of Singapore.
       </p>
-
-      <SubHeading2 className="mt-10">
-        Data Protection and Privacy
-      </SubHeading2>
+      <SubHeading2 className="mt-10">Data Protection and Privacy</SubHeading2>
       <p className="mt-4">
-        The SEL Organizing Team values your privacy and strives to comply with
-        Singapore’s Personal Data Protection Act 2012 (PDPA). Any personal data
-        collected through this website or as part of the competition
-        registration process is used only for the administration and operation
-        of the Singapore Economics League, unless otherwise indicated or
-        required by law. Your data will not be sold or voluntarily shared with
-        third parties for marketing or other unrelated activities.
+        The SEL Organizing Team values your privacy and strives to comply with Singapore’s Personal Data Protection Act 2012 (PDPA). Any personal data
+        collected through this website or as part of the competition registration process is used only for the administration and operation of the
+        Singapore Economics League, unless otherwise indicated or required by law. Your data will not be sold or voluntarily shared with third parties
+        for marketing or other unrelated activities.
       </p>
-
       <SubHeading2 className="mt-10">Other Relevant Disclaimers</SubHeading2>
       <p className="mt-4">
-        By using this website and participating in the Singapore Economics
-        League, you agree not to:
+        By using this website and participating in the Singapore Economics League, you agree not to:
       </p>
       <ul className="list-disc ml-6 mt-2">
         <li>
-          Violate any Singapore laws pertaining to defamation, sedition,
-          harassment, or other prohibited acts, whether in written, digital,
-          or spoken communications
+          Violate any Singapore laws pertaining to defamation, sedition, harassment, or other prohibited acts, whether in written, digital, or spoken
+          communications
         </li>
         <li>
-          Engage in activities that could compromise the security or integrity
-          of this website or the competition’s digital platforms
+          Engage in activities that could compromise the security or integrity of this website or the competition’s digital platforms
         </li>
         <li>
-          Misrepresent any material facts or misuse logos, branding, or other
-          intellectual property belonging to the SEL Organizing Team or its
-          partners
+          Misrepresent any material facts or misuse logos, branding, or other intellectual property belonging to the SEL Organizing Team or its partners
         </li>
       </ul>
-
       <SubHeading2 className="mt-10">Governing Law and Venue</SubHeading2>
       <p className="mt-4 mb-6">
-        These Terms and Conditions shall be governed by and interpreted in
-        accordance with the laws of the Republic of Singapore. Any disputes or
-        claims arising from the use of this website or participation in the
-        Singapore Economics League shall fall under the exclusive jurisdiction
-        of the Singapore courts.
+        These Terms and Conditions shall be governed by and interpreted in accordance with the laws of the Republic of Singapore. Any disputes or claims
+        arising from the use of this website or participation in the Singapore Economics League shall fall under the exclusive jurisdiction of the
+        Singapore courts.
       </p>
     </section>
   );
 }
 
-
-/* SIDEBAR */
 function SideBar({ selected }: { selected?: string }) {
   const handleScroll = (id: string) => {
     const section = document.getElementById(id);
@@ -837,7 +593,7 @@ function SideBar({ selected }: { selected?: string }) {
               ${
                 isActive
                   ? "bg-secondary rounded-xl border-2 border-[#272a30] text-white font-semibold"
-                  : "hover:underline text-[#343131]"
+                  : "hover:underline text-baseText"
               }
             `}
           >
@@ -849,7 +605,6 @@ function SideBar({ selected }: { selected?: string }) {
   );
 }
 
-/* MOBILE CONTENTS DROPDOWN (if you need it) */
 function MobileContents() {
   const [showBar, setShowBar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -859,13 +614,12 @@ function MobileContents() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY) {
-        setShowBar(false); // hide on scroll down
+        setShowBar(false);
       } else {
-        setShowBar(true); // show on scroll up
+        setShowBar(true);
       }
       setLastScrollY(currentScrollY);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
@@ -889,29 +643,50 @@ function MobileContents() {
         ${showBar ? "translate-y-0" : "-translate-y-full"}
       `}
     >
-      <div className="bg-white border border-gray-300 rounded shadow overflow-hidden">
+      <div className="bg-white border-2 border-primary rounded shadow overflow-hidden">
         <div className="p-4 flex items-center justify-between">
           <span className="font-bold text-lg">Contents</span>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-xl font-bold"
-          >
-            {isOpen ? "▲" : "▼"}
+          <button onClick={() => setIsOpen(!isOpen)} className="text-xl font-bold">
+            {isOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-compact-up"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 13l8 -3l8 3" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-compact-down"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 11l8 3l8 -3" />
+              </svg>
+            )}
           </button>
         </div>
-        <div
-          className={`
-            overflow-hidden transition-all duration-300
-            ${isOpen ? "max-h-[300px]" : "max-h-0"}
-          `}
-        >
+        <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[300px]" : "max-h-0"}`}>
           <ul className="flex flex-col space-y-2 p-4">
             {sectionIds.map((id) => (
               <li key={id}>
-                <button
-                  onClick={() => handleScrollTo(id)}
-                  className="text-[#3D9796] font-semibold text-left w-full"
-                >
+                <button onClick={() => handleScrollTo(id)} className="text-primary font-semibold text-left w-full">
                   {id}
                 </button>
               </li>
@@ -923,11 +698,9 @@ function MobileContents() {
   );
 }
 
-/* MAIN PAGE */
 export default function RulesPage() {
   const [selected, setSelected] = useState("Rules");
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -939,12 +712,10 @@ export default function RulesPage() {
       },
       { threshold: 0.3 }
     );
-
     sectionIds.forEach((id) => {
       const section = document.getElementById(id);
       if (section) observer.observe(section);
     });
-
     return () => {
       sectionIds.forEach((id) => {
         const section = document.getElementById(id);
@@ -955,37 +726,19 @@ export default function RulesPage() {
 
   return (
     <>
-      <style jsx global>{`
-        html,
-        body {
-          height: 100vh;
-          overflow-x: hidden;
-        }
-      `}</style>
-
-      {/* 1. Header */}
       <div className="flex justify-center pt-8 pb-6">
-        <div className="bg-primary text-white text-center text-3xl font-bold px-8 py-4 rounded-xl w-full max-w-7xl mx-6">
+        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-7xl mx-6 slab">
           Rules
         </div>
       </div>
-
-      {/* 2. MobileContents */}
       <MobileContents />
-
-      {/* 3. Main Layout */}
       <div className="flex justify-center mt-16">
         <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row">
-          {/* Sidebar with vertical line only as tall as its content */}
           <div className="hidden lg:block relative w-96 pr-4">
-            {/* Actual sidebar content, padded so text is to the right of the line */}
             <SideBar selected={selected} />
           </div>
-
-          {/* Main Content */}
           <div className="w-full lg:pl-8 flex-1">
-            {/* Here&apos;s where we restrict the width but keep it left-aligned */}
-            <div className="max-w-3xl">
+            <div className="max-w-3xl text-lg">
               <BriefRules />
               <Registration />
               <CompetitionPlatform />
@@ -994,9 +747,7 @@ export default function RulesPage() {
               <ConductOfTheContest />
               <ParticipantsCodeofConduct />
               <TermsAndConditions />
-              <p className="text-sm text-gray-500 mt-8">
-                Last modified: 24 February 2025.
-              </p>
+              <p className="text-base text-gray-500 mt-8">Last modified: 1 March 2025.</p>
             </div>
           </div>
         </div>
