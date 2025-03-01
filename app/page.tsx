@@ -7,45 +7,28 @@ import dynamic from "next/dynamic";
 
 const CandleChart = dynamic(() => import("./components/CandleChart"), { ssr: false });
 
+function calculateTimeLeft() {
+  const now = new Date().getTime();
+  const eventTimestamp = new Date("July 4, 2025 09:00:00").getTime();
+  const difference = eventTimestamp - now;
+  if (difference <= 0) {
+    return { days: "00", hours: "00", minutes: "00", seconds: "00" };
+  }
+  return {
+    days: String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, "0"),
+    hours: String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, "0"),
+    minutes: String(Math.floor((difference / (1000 * 60)) % 60)).padStart(2, "0"),
+    seconds: String(Math.floor((difference / 1000) % 60)).padStart(2, "0"),
+  };
+}
+
 export default function HomePage() {
   const eventTimestamp = new Date("July 4, 2025 09:00:00").getTime();
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   const [isModalOpen, setModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
-  function calculateTimeLeft() {
-    const now = new Date().getTime();
-    const difference = eventTimestamp - now;
-    if (difference <= 0) {
-      return { days: "00", hours: "00", minutes: "00", seconds: "00" };
-    }
-    return {
-      days: String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, "0"),
-      hours: String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, "0"),
-      minutes: String(Math.floor((difference / (1000 * 60)) % 60)).padStart(2, "0"),
-      seconds: String(Math.floor((difference / 1000) % 60)).padStart(2, "0"),
-    };
-  }
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://tally.so/widgets/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-    const timer = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const closeModal = () => {
-    setShowModal(false);
-    setTimeout(() => setModalOpen(false), 300);
-  };
-
   const [hasMounted, setHasMounted] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
+  const [showAnnouncement, setShowAnnouncement] = useState(true);
 
   const sampleQuestions = [
     {
@@ -71,7 +54,24 @@ export default function HomePage() {
     },
   ];
 
-  const [showAnnouncement, setShowAnnouncement] = useState(true);
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://tally.so/widgets/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    const timer = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  const closeModal = () => {
+    setShowModal(false);
+    setTimeout(() => setModalOpen(false), 300);
+  };
 
   return (
     <>
@@ -137,6 +137,7 @@ export default function HomePage() {
           </button>
         </div>
       </div>
+
       <section
         className="
           relative
@@ -214,6 +215,7 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
       {hasMounted && (
         <section className="flex flex-col items-center justify-center py-12 px-10 relative">
           <h2 className="text-6xl sm:text-7xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#7f9fd8] to-[#5073b1]">
@@ -257,6 +259,7 @@ export default function HomePage() {
           <p className="text-2xl font-semibold text-baseText">— 4 July 2025 —</p>
         </section>
       )}
+
       <section className="py-16 px-6 sm:py-20 sm:px-8 lg:py-24 lg:px-36 w-full max-w-[1400px] mx-auto">
         <div className="flex flex-col gap-24">
           <div className="flex items-center justify-start">
@@ -274,16 +277,21 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <img
+            <Image
               src="/emoticons/Excited.png"
               alt="Box 1 illustration"
+              width={384}
+              height={384}
               className="w-96 h-auto ml-32"
             />
           </div>
+
           <div className="flex items-center justify-end">
-            <img
+            <Image
               src="/emoticons/ThumbsUp.png"
               alt="Box 2 illustration"
+              width={320}
+              height={320}
               className="w-80 h-auto mr-32"
             />
             <div className="border-4 border-primary rounded-xl px-8 py-6 inline-flex items-center gap-6">
@@ -301,6 +309,7 @@ export default function HomePage() {
               </span>
             </div>
           </div>
+
           <div className="flex items-center justify-start">
             <div className="border-4 border-primary rounded-xl px-8 py-6 inline-flex items-center gap-6">
               <span className="text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#AAD8F9] to-[#4E8EE2]">
@@ -318,20 +327,23 @@ export default function HomePage() {
                   href="https://tally.so/r/3NRLlG"
                   target="_blank"
                   rel="noreferrer"
-                  className="border-4 border-primary mt-6 inline-block px-8 py-2 bg-[#ffffff] text-baseText text-xl font-medium rounded-lg hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
+                  className="border-4 border-primary mt-6 inline-block px-8 py-2 bg-[#ffffff] text-secondary text-xl font-medium rounded-lg hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
                 >
                   Register Now!
                 </a>
               </div>
             </div>
-            <img
-              src="emoticons/Excited.png"
+            <Image
+              src="/emoticons/Excited.png"
               alt="Box 3 illustration"
+              width={384}
+              height={384}
               className="w-96 h-auto ml-24"
             />
           </div>
         </div>
       </section>
+
       {isModalOpen && (
         <div
           className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 ${
@@ -374,6 +386,7 @@ export default function HomePage() {
           </div>
         </div>
       )}
+
       <section className="relative w-full flex items-center justify-center">
         <div className=" w-full relative z-10 max-w-[1400px] w-full px-6 lg:px-12">
           <h2 className="text-6xl font-bold slab text-baseText text-center mb-6">
@@ -391,6 +404,7 @@ export default function HomePage() {
           <div className="border-b border-[#cdcac8] mt-8 w-full max-w-[1400px] mx-auto mb-32" />
         </div>
       </section>
+
       <section className="flex items-center justify-center">
         <div className="max-w-[1400px] w-full px-6 lg:px-12">
           <h1 className="text-black text-6xl font-bold mb-6 text-center slab">
@@ -419,7 +433,7 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="
                     flex items-center justify-center w-full
-                    text-secondary font-semibold
+                    text-secondary font-semibold text-lg
                     border-4 border-secondary
                     rounded-xl px-4 py-2
                     hover:bg-[#eaf2fb]
@@ -438,7 +452,7 @@ export default function HomePage() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="mr-2"
+                    className="mr-2 text-secondary"
                   >
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
@@ -453,6 +467,7 @@ export default function HomePage() {
           <div className="border-b border-[#cdcac8] mt-8 w-full max-w-[1400px] mx-auto mb-32" />
         </div>
       </section>
+
       <section className="flex items-center justify-center">
         <div className="max-w-[1400px] w-full px-6 lg:px-12">
           <h1 className="text-baseText text-6xl lg:text-6xl font-bold mb-6 text-center slab">
@@ -473,9 +488,11 @@ export default function HomePage() {
                 text-center bg-white text-lg
               "
             >
-              <img
+              <Image
                 src="/emoticons/Laughing.png"
                 alt="Community Left"
+                width={256}
+                height={256}
                 className="
                   hidden
                   md:block
@@ -484,14 +501,15 @@ export default function HomePage() {
                   top-1/2
                   transform
                   -translate-y-1/2
-                  w-64
                   h-auto
                   ml-12
                 "
               />
-              <img
+              <Image
                 src="/emoticons/Laughing.png"
                 alt="Community Right"
+                width={256}
+                height={256}
                 className="
                   hidden
                   md:block
@@ -500,7 +518,6 @@ export default function HomePage() {
                   top-1/2
                   transform
                   -translate-y-1/2
-                  w-64
                   h-auto
                   mr-12
                 "
@@ -519,7 +536,7 @@ export default function HomePage() {
                   mt-9
                   px-5
                   py-2
-                  bg-[#5865F2]
+                  bg-discordBlue
                   text-white
                   text-lg
                   font-semibold
@@ -533,7 +550,7 @@ export default function HomePage() {
                   space-x-2
                 "
               >
-                <img
+                <Image
                   src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif"
                   alt="Discord"
                   width={24}
@@ -542,6 +559,7 @@ export default function HomePage() {
                 <span>Join the SEL Discord Server!</span>
               </a>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 text-lg">
               <div
                 className="
@@ -568,7 +586,7 @@ export default function HomePage() {
                       mt-6 inline-block
                       px-6 py-2.5
                       bg-[#ffffff]
-                      text-baseText
+                      text-secondary
                       text-lg font-medium
                       rounded-lg
                       hover:bg-[#eaf2fb]
@@ -581,9 +599,11 @@ export default function HomePage() {
                     Read Our FAQ 🡒
                   </a>
                 </div>
-                <img
+                <Image
                   src="/emoticons/Cool.png"
                   alt="FAQ Illustration"
+                  width={256}
+                  height={256}
                   className="
                     hidden
                     md:block
@@ -592,7 +612,6 @@ export default function HomePage() {
                     top-1/2
                     transform
                     -translate-y-1/2
-                    w-64
                     h-auto
                     mr-4
                   "
@@ -625,7 +644,7 @@ export default function HomePage() {
                       mt-6 inline-block
                       px-6 py-2.5
                       bg-[#ffffff]
-                      text-baseText
+                      text-secondary
                       text-lg font-medium
                       rounded-lg
                       hover:bg-[#eaf2fb]
@@ -638,9 +657,11 @@ export default function HomePage() {
                     View the Syllabus 🡒
                   </a>
                 </div>
-                <img
+                <Image
                   src="/emoticons/Excited.png"
                   alt="Syllabus Illustration"
+                  width={256}
+                  height={256}
                   className="
                     hidden
                     md:block
@@ -649,7 +670,6 @@ export default function HomePage() {
                     top-1/2
                     transform
                     -translate-y-1/2
-                    w-64
                     h-auto
                   "
                 />
@@ -659,7 +679,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

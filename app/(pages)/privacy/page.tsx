@@ -10,7 +10,7 @@ export default function PrivacyPolicyPage() {
         </div>
       </div>
       <div className="max-w-4xl w-full px-6 sm:px-10 md:px-12 lg:px-0 text-baseText">
-        <h1 className="text-xl font-semibold mb-2 mt-16 text-primary">
+        <h1 className="text-xl font-semibold mb-2 mt-16 text-primary slab">
           Why am I reading this webpage?
         </h1>
         <p className="mb-4 leading-relaxed">
@@ -62,7 +62,7 @@ export default function PrivacyPolicyPage() {
             <b>sgeconsleague.org</b>.
           </li>
         </ul>
-        <h2 className="text-xl font-semibold mb-2 text-primary">
+        <h2 className="text-xl font-semibold mb-2 text-primary slab">
           What information do we collect?
         </h2>
         <p className="mb-4 leading-relaxed">
@@ -89,7 +89,7 @@ export default function PrivacyPolicyPage() {
             are not shared with third parties.
           </li>
         </ul>
-        <h2 className="text-xl font-semibold mb-2 text-primary">
+        <h2 className="text-xl font-semibold mb-2 text-primary slab">
           Who has access to my personal data?
         </h2>
         <p className="mb-6 leading-relaxed">
@@ -100,7 +100,7 @@ export default function PrivacyPolicyPage() {
           with your school, but not personal information such as your email
           address.
         </p>
-        <h2 className="text-xl font-semibold mb-2 text-primary">
+        <h2 className="text-xl font-semibold mb-2 text-primary slab">
           How do we collect your data?
         </h2>
         <p className="mb-4 leading-relaxed">
@@ -113,7 +113,7 @@ export default function PrivacyPolicyPage() {
           other server records are handled in accordance with this Policy and
           Discord’s own privacy policy.
         </p>
-        <h2 className="text-xl font-semibold mb-2 text-primary">
+        <h2 className="text-xl font-semibold mb-2 text-primary slab">
           Why do we collect your data?
         </h2>
         <p className="mb-4 leading-relaxed">
@@ -134,7 +134,7 @@ export default function PrivacyPolicyPage() {
             cheating or dishonest acts.
           </li>
         </ul>
-        <h2 className="text-xl font-semibold mb-2 text-primary">
+        <h2 className="text-xl font-semibold mb-2 text-primary slab">
           How do we protect your data?
         </h2>
         <p className="mb-6 leading-relaxed">
@@ -149,7 +149,7 @@ export default function PrivacyPolicyPage() {
           answers and personalization settings) will be deleted after the
           competition period and resolution of any outstanding issues.
         </p>
-        <h2 className="text-xl font-semibold mb-2 text-primary">
+        <h2 className="text-xl font-semibold mb-2 text-primary slab">
           How can I access, amend, or withdraw my data?
         </h2>
         <p className="mb-6 leading-relaxed">
@@ -167,7 +167,7 @@ export default function PrivacyPolicyPage() {
           competition, and late requests close to the event date may not be
           accommodated.
         </p>
-        <h2 className="text-xl font-semibold mb-2 text-primary">
+        <h2 className="text-xl font-semibold mb-2 text-primary slab">
           Advisory clause on data collection relating to minors
         </h2>
         <p className="mb-6 leading-relaxed">
@@ -175,7 +175,7 @@ export default function PrivacyPolicyPage() {
           Commission (PDPC) in Singapore, the SEL Organising Team follows
           best-practice standards for collecting and handling data from minors.
         </p>
-        <h2 className="text-xl font-semibold mb-2 text-primary">
+        <h2 className="text-xl font-semibold mb-2 text-primary slab">
           Who can I contact for questions?
         </h2>
         <p className="mb-6 leading-relaxed">

@@ -40,7 +40,7 @@ export default function SyllabusPage() {
           syllabus, some harder questions can sometimes delve into topics
           covered at the university level.
         </p>
-        <h2 className="text-2xl font-semibold mb-2 text-primary">Mathematical methods</h2>
+        <h2 className="text-2xl font-semibold mb-2 text-primary slab">Mathematical methods</h2>
         <p className="mb-4">
           Some of the economics questions set in SEL will be highly rigorous and
           analytical in their approach. Therefore, we encourage teams to
@@ -59,7 +59,7 @@ export default function SyllabusPage() {
           <li>Sequences and Series</li>
           <li>Geometry</li>
         </ul>
-        <h2 className="text-2xl font-semibold mb-2 text-primary">How to prepare</h2>
+        <h2 className="text-2xl font-semibold mb-2 text-primary slab">How to prepare</h2>
         <p className="mb-4">
           While SEL questions range in difficulty, a majority of our problems
           are solvable via the application of concepts taught at the JC level.

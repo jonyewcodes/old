@@ -44,7 +44,7 @@ function UnorderedList({ items }: { items: string[] }) {
 function BriefRules() {
   return (
     <section id="Rules">
-      <SubHeading>Brief Rules</SubHeading>
+      <SubHeading className="slab">Brief Rules</SubHeading>
       <p className="mt-4">
         <span className="font-semibold">What is it:</span> SEL is a <b>4-hour long</b>, team online problem solving competition.
       </p>
@@ -67,7 +67,7 @@ function BriefRules() {
 function Registration() {
   return (
     <section className="mt-12" id="Registration">
-      <SubHeading>Registration</SubHeading>
+      <SubHeading className="slab">Registration</SubHeading>
       <UnorderedList
         items={[
           "Participants must register in the competition in order to participate.",

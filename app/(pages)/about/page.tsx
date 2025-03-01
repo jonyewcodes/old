@@ -105,7 +105,7 @@ export default function AboutPage() {
                 <path d="M9 15l0 4" />
               </svg>
             </div>
-            <h3 className="text-2xl font-semibold text-baseText">
+            <h3 className="text-2xl font-semibold text-baseText slab">
               Online and accessible, at your fingertips
             </h3>
             <p className="text-baseText text-lg">
@@ -137,7 +137,7 @@ export default function AboutPage() {
                 <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
               </svg>
             </div>
-            <h3 className="text-2xl font-semibold text-baseText">
+            <h3 className="text-2xl font-semibold text-baseText slab">
               Teamwork makes the dream work
             </h3>
             <p className="text-baseText text-lg">
@@ -168,7 +168,7 @@ export default function AboutPage() {
                 <path d="M21 6l0 13" />
               </svg>
             </div>
-            <h3 className="text-2xl font-semibold text-baseText">
+            <h3 className="text-2xl font-semibold text-baseText slab">
               Open-book, the sky’s your limit
             </h3>
             <p className="text-baseText text-lg">
@@ -202,7 +202,7 @@ export default function AboutPage() {
                 <path d="M12 19l0 .01" />
               </svg>
             </div>
-            <h3 className="text-2xl font-semibold text-baseText">Questions</h3>
+            <h3 className="text-2xl font-semibold text-baseText slab">Questions</h3>
             <p className="text-baseText text-lg">
               Practice with a variety of sample questions—MCQ, short-answer, or
               full problem sets. Get comfortable with the question styles to
@@ -233,7 +233,7 @@ export default function AboutPage() {
                 <path d="M12 1a1 1 0 0 1 1 1v1.055a9.004 9.004 0 0 1 7.946 7.945h1.054a1 1 0 0 1 0 2h-1.055a9.004 9.004 0 0 1 -7.944 7.945l-.001 1.055a1 1 0 0 1 -2 0v-1.055a9.004 9.004 0 0 1 -7.945 -7.944l-1.055 -.001a1 1 0 0 1 0 -2h1.055a9.004 9.004 0 0 1 7.945 -7.945v-1.055a1 1 0 0 1 1 -1m0 4a7 7 0 1 0 0 14a7 7 0 0 0 0 -14m0 3a4 4 0 1 1 -4 4l.005 -.2a4 4 0 0 1 3.995 -3.8" />
               </svg>
             </div>
-            <h3 className="text-2xl font-semibold text-baseText">Scope</h3>
+            <h3 className="text-2xl font-semibold text-baseText slab">Scope</h3>
             <p className="text-baseText text-lg">
               SEL covers a broad scope, from fundamental micro &amp; macro
               theories to advanced topics. Check out the official guidelines for

@@ -7,7 +7,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-[#272a30] text-lg text-white">
+    <header className="bg-navbar text-lg text-white">
       <nav className="max-w-screen-lg mx-auto px-4 py-6 flex items-center justify-between">
         <div className="flex items-center space-x-6 font-semibold">
           <Link href="/" aria-label="Go to Home">

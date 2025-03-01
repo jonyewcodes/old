@@ -15,6 +15,9 @@ const config: Config = {
         secondary: "#5a96d9",
         accent: "#64c6fb",
         baseText: "#272a30",
+        navbar: "#272a30",
+        footer: "#3f3c47",
+        discordBlue: "#5865F2",
       },
       fontFamily: {
         sans: "var(--font-roboto), sans-serif",

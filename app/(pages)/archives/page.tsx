@@ -36,7 +36,7 @@ export default function Archives() {
                 key={index}
                 className="bg-white border-4 border-primary rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
               >
-                <h2 className="text-2xl font-semibold">{info.title}</h2>
+                <h2 className="text-2xl font-semibold slab">{info.title}</h2>
                 <span className="inline-block w-fit text-lg font-medium text-gray-400 italic">
                   {info.category}
                 </span>
