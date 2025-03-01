@@ -23,7 +23,6 @@ function calculateTimeLeft() {
 }
 
 export default function HomePage() {
-  const eventTimestamp = new Date("July 4, 2025 09:00:00").getTime();
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   const [isModalOpen, setModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
