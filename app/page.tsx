@@ -32,21 +32,21 @@ export default function HomePage() {
       difficulty: "Easy",
       difficultyColor: "bg-[#D4F5E2] text-[#2E7D32]",
       description: "We learn macroeconomics to analyse our world. Do these macroeconomic forces still apply in the world of DUNE?",
-      link: "/sample-questions/easy.pdf",
+      link: "/sample-questions/[Sample]-Easy.pdf",
     },
     {
       title: "Competition Sign-Ups",
       difficulty: "Medium",
       difficultyColor: "bg-[#FFF3C4] text-[#FF9800]",
       description: "Do you have entrepreneurial spirit? Its not just firms — high school students can be profit hungry too.",
-      link: "/sample-questions/moderate.pdf",
+      link: "/sample-questions/[Sample]-Moderate.pdf",
     },
     {
       title: "The AI Dilemma: Growth vs Risk",
       difficulty: "Hard",
       difficultyColor: "bg-[#FFEBEE] text-[#D32F2F]",
       description: "AI poses both existential risk and untapped opportunity? How can humanity balance these factors?",
-      link: "/sample-questions/hard.pdf",
+      link: "/sample-questions/[Sample]-Hard.pdf",
     },
   ];
 
