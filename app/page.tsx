@@ -3,9 +3,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Timeline from "./components/Timeline";
 import CountDown from "./components/CountDown";
-import dynamic from "next/dynamic";
-
-const CandleChart = dynamic(() => import("./components/CandleChart"), { ssr: false });
 
 function calculateTimeLeft() {
   const now = new Date().getTime();
@@ -151,7 +148,7 @@ export default function HomePage() {
         "
       >
         <div className="absolute inset-0 z-0 opacity-30">
-          <CandleChart />
+          {/* <CandleChart /> */ }
         </div>
         <div className="relative z-10 w-full max-w-screen-xl mx-auto flex flex-col items-start">
           <div
@@ -254,7 +251,19 @@ export default function HomePage() {
         </section>
       )}
 
-      <section className="py-16 px-6 sm:py-20 sm:px-8 lg:py-24 lg:px-36 w-full max-w-screen-xl mx-auto">
+      <section
+        className="
+          py-16 
+          px-4       /* narrower default padding on mobile */
+          sm:py-20 
+          sm:px-8 
+          lg:py-24 
+          lg:px-12   /* consistent with the rest of the layout */
+          w-full 
+          max-w-screen-xl 
+          mx-auto
+        "
+      >
         <div className="flex flex-col gap-24">
           <div className="flex items-center justify-start">
             <div className="border-4 border-primary rounded-xl px-8 py-6 inline-flex items-center gap-6">
@@ -262,9 +271,7 @@ export default function HomePage() {
                 1
               </span>
               <div>
-                <h3 className="text-3xl font-bold text-baseText">
-                  No Boundaries, No Limits
-                </h3>
+                <h3 className="text-3xl font-bold text-baseText">No Boundaries, No Limits</h3>
                 <p className="text-baseText mt-4 text-xl">
                   An online contest, accessible from anywhere. Log on from <br />
                   the comfort of your home and put your wits to the test!
@@ -279,7 +286,6 @@ export default function HomePage() {
               className="w-96 h-auto ml-32"
             />
           </div>
-
           <div className="flex items-center justify-end">
             <Image
               src="/emoticons/ThumbsUp.png"
@@ -290,9 +296,7 @@ export default function HomePage() {
             />
             <div className="border-4 border-primary rounded-xl px-8 py-6 inline-flex items-center gap-6">
               <div className="text-right">
-                <h3 className="text-3xl font-bold text-baseText">
-                  Calling all Pre-U Students!
-                </h3>
+                <h3 className="text-3xl font-bold text-baseText">Calling all Pre-U Students!</h3>
                 <p className="text-baseText mt-4 text-xl">
                   Studying in a JC/MI, local polytechnic, ITE, or <br />
                   secondary school? You are eligible to participate!
@@ -303,16 +307,13 @@ export default function HomePage() {
               </span>
             </div>
           </div>
-
           <div className="flex items-center justify-start">
             <div className="border-4 border-primary rounded-xl px-8 py-6 inline-flex items-center gap-6">
               <span className="text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#AAD8F9] to-[#4E8EE2]">
                 3
               </span>
               <div>
-                <h3 className="text-3xl font-bold text-baseText">
-                  Build Your Dream Team
-                </h3>
+                <h3 className="text-3xl font-bold text-baseText">Build Your Dream Team</h3>
                 <p className="text-baseText mt-4 text-xl">
                   From classmates to friends in other schools, assemble <br />
                   the team of your choice to win it all!
@@ -321,7 +322,23 @@ export default function HomePage() {
                   href="https://tally.so/r/3NRLlG"
                   target="_blank"
                   rel="noreferrer"
-                  className="border-4 border-primary mt-6 inline-block px-8 py-2 bg-[#ffffff] text-secondary text-xl font-medium rounded-lg hover:bg-[#eaf2fb] transition-transform duration-200 ease-in-out hover:scale-105"
+                  className="
+                    border-4 border-primary 
+                    mt-6 
+                    inline-block 
+                    px-8 
+                    py-2 
+                    bg-[#ffffff] 
+                    text-secondary 
+                    text-xl 
+                    font-medium 
+                    rounded-lg 
+                    hover:bg-[#eaf2fb] 
+                    transition-transform 
+                    duration-200 
+                    ease-in-out 
+                    hover:scale-105
+                  "
                 >
                   Register Now!
                 </a>
@@ -337,6 +354,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
 
       {isModalOpen && (
         <div
