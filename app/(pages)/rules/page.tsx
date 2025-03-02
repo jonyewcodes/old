@@ -115,6 +115,18 @@ function CompetitionPlatform() {
 }
 
 function ContestFormatAndScoring() {
+  useEffect(() => {
+    // Load MathJax
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <section id="Contest Format and Scoring" className="mt-12">
       <SubHeading>Contest Format and Scoring</SubHeading>
@@ -233,14 +245,13 @@ function ContestFormatAndScoring() {
         Each sub-question or question-part has a certain number of points.
       </p>
       <p>
-        If a question-part had previous incorrect attempts, fewer points will be
-        awarded. The points awarded for a correct answer is:
+        If a question-part had previous incorrect attempts, fewer points will be awarded for a correct answer. The points awarded for a correct answer is{" "}
+        <span style={{ display: 'inline-block' }}>
+          {"\\(\\left\\lceil \\frac{P}{x+1} \\right\\rceil\\)"}
+        </span>
+        , where {"\\(P\\)"} is the full number of points, {"\\(x\\)"} is the number of incorrect submissions prior to the correct answer, and {"\\(\\lceil \\rceil\\)"} denotes the ceiling function.
       </p>
-      <p>
-        where P is the full number of points, x is the number of incorrect
-        submissions prior to the correct answer, and the notation denotes the
-        ceiling function.
-      </p>
+
       <p className="mt-4">
         The following lookup table illustrates SEL&apos;s scoring scheme:
       </p>
@@ -783,7 +794,7 @@ function SideBar({ selected }: { selected?: string }) {
   };
 
   return (
-    <aside className="hidden lg:block sticky top-24 self-start h-fit">
+    <aside className="hidden lg:block sticky top-24 self-start h-fit w-64">
       <div className="flex flex-col gap-2 border-b-2 lg:border-b-0 border-[#D0D0D0] px-2 py-4 lg:py-8">
         {sectionIds.map((id) => {
           const isActive = selected === id;
@@ -806,7 +817,7 @@ function SideBar({ selected }: { selected?: string }) {
         })}
       </div>
     </aside>
-  );
+      );
 }
 
 function MobileContents() {
@@ -955,8 +966,8 @@ export default function RulesPage() {
       </div>
       <MobileContents />
       <div className="flex justify-center mt-16">
-        <div className="max-w-screen-xl w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row">
-          <SideBar selected={selected} />
+        <div className="max-w-screen-xl w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row min-h-screen overflow-y-auto">
+          <SideBar selected={selected} /> 
           <div className="w-full lg:pl-8 flex-1">
             <div className="max-w-3xl text-lg">
               <BriefRules />
