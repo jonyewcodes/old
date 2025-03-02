@@ -72,7 +72,7 @@ export default function CustomizedTimeline() {
             <Typography variant="h6" component="span">
               Registration Closes
             </Typography>
-            <Typography sx={{ color: "text.secondary" }}>11:59 PM</Typography>
+            <Typography sx={{ color: "text.secondary" }}>23:59 PM</Typography>
           </TimelineContent>
         </TimelineItem>
         <TimelineItem>

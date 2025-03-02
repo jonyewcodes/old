@@ -11,19 +11,60 @@ export default function Navbar() {
       <nav className="max-w-screen-xl mx-auto px-4 py-6 flex items-center justify-between">
         <div className="flex items-center space-x-6 font-semibold">
           <Link href="/" aria-label="Go to Home">
-            <Image src="/logos/navbar.png" alt="Logo" width={200} height={160} />
+            <Image
+              src="/logos/navbar.png"
+              alt="Logo"
+              width={200}
+              height={160}
+            />
           </Link>
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="/about" className="hover:text-secondary">
+            <Link
+              href="/about"
+              className="
+                px-3 py-1 
+                rounded-md 
+                transition-colors 
+                duration-200
+                hover:bg-white/20
+              "
+            >
               About
             </Link>
-            <Link href="/rules" className="hover:text-secondary">
+            <Link
+              href="/rules"
+              className="
+                px-3 py-1 
+                rounded-md 
+                transition-colors 
+                duration-200
+                hover:bg-white/20
+              "
+            >
               Rules
             </Link>
-            <Link href="/faq" className="hover:text-secondary">
+            <Link
+              href="/faq"
+              className="
+                px-3 py-1 
+                rounded-md 
+                transition-colors 
+                duration-200
+                hover:bg-white/20
+              "
+            >
               FAQ
             </Link>
-            <Link href="/archives" className="hover:text-secondary">
+            <Link
+              href="/archives"
+              className="
+                px-3 py-1 
+                rounded-md 
+                transition-colors 
+                duration-200
+                hover:bg-white/20
+              "
+            >
               Archives
             </Link>
           </div>
@@ -33,8 +74,17 @@ export default function Navbar() {
             href="https://tally.so/r/3NRLlG"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 bg-primary text-white hover:bg-secondary
-                       font-medium border-2 border-white rounded-lg"
+            className="
+              px-4 py-2 
+              bg-primary 
+              text-white 
+              font-medium 
+              border-2 border-white 
+              rounded-lg 
+              hover:bg-secondary 
+              transition-colors 
+              duration-200
+            "
           >
             Register Now!
           </a>
@@ -95,19 +145,74 @@ export default function Navbar() {
           </svg>
         </button>
         <div className="flex flex-col items-start px-6 space-y-6 mt-4 text-[#273a30] slab font-semibold">
-          <Link href="/" onClick={() => setIsOpen(false)} className="text-xl">
+          <Link
+            href="/"
+            onClick={() => setIsOpen(false)}
+            className="
+              text-xl
+              px-3 py-1 
+              rounded-md 
+              transition-colors 
+              duration-200
+              hover:bg-[#ffffff]/40
+            "
+          >
             Home
           </Link>
-          <Link href="/about" onClick={() => setIsOpen(false)} className="text-xl">
+          <Link
+            href="/about"
+            onClick={() => setIsOpen(false)}
+            className="
+              text-xl
+              px-3 py-1 
+              rounded-md 
+              transition-colors 
+              duration-200
+              hover:bg-[#ffffff]/40
+            "
+          >
             About
           </Link>
-          <Link href="/rules" onClick={() => setIsOpen(false)} className="text-xl">
+          <Link
+            href="/rules"
+            onClick={() => setIsOpen(false)}
+            className="
+              text-xl
+              px-3 py-1 
+              rounded-md 
+              transition-colors 
+              duration-200
+              hover:bg-[#ffffff]/40
+            "
+          >
             Rules
           </Link>
-          <Link href="/archives" onClick={() => setIsOpen(false)} className="text-xl">
+          <Link
+            href="/archives"
+            onClick={() => setIsOpen(false)}
+            className="
+              text-xl
+              px-3 py-1 
+              rounded-md 
+              transition-colors 
+              duration-200
+              hover:bg-[#ffffff]/40
+            "
+          >
             Archives
           </Link>
-          <Link href="/faq" onClick={() => setIsOpen(false)} className="text-xl">
+          <Link
+            href="/faq"
+            onClick={() => setIsOpen(false)}
+            className="
+              text-xl
+              px-3 py-1 
+              rounded-md 
+              transition-colors 
+              duration-200
+              hover:bg-[#ffffff]/40
+            "
+          >
             FAQ
           </Link>
           <a
@@ -115,8 +220,17 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
-            className="mt-4 px-4 py-2 bg-primary text-white hover:bg-secondary
-                       font-medium rounded-lg"
+            className="
+              mt-4 
+              px-4 py-2 
+              bg-primary 
+              text-white 
+              font-medium 
+              rounded-lg 
+              hover:bg-secondary
+              transition-colors
+              duration-200
+            "
           >
             Register Now!
           </a>

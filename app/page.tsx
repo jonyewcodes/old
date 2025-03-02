@@ -42,7 +42,7 @@ export default function HomePage() {
       difficulty: "Medium",
       difficultyColor: "bg-[#FFF3C4] text-[#FF9800]",
       description: "Do you have entrepreneurial spirit? Its not just firms — high school students can be profit hungry too.",
-      link: "/sample-questions/medium.pdf",
+      link: "/sample-questions/moderate.pdf",
     },
     {
       title: "The AI Dilemma: Growth vs Risk",
@@ -140,27 +140,43 @@ export default function HomePage() {
       <section
         className="
           relative
-          bg-[#122560]/90
           backdrop-blur-lg
           border border-white/20
           py-16 px-4
           sm:py-20 sm:px-6
           lg:py-24 lg:px-32
-          text-white
+          text-background
           overflow-hidden
+          animate-bg-switch
         "
       >
         <div className="absolute inset-0 z-0 opacity-30">
           <CandleChart />
         </div>
-        <div className="relative z-10 flex flex-col items-center">
+        <div className="relative z-10 w-full max-w-screen-xl mx-auto flex flex-col items-start">
+          <div
+            className="
+              inline-block
+              bg-background
+              text-secondary
+              rounded-md
+              px-4 py-3
+              shadow-sm
+              whitespace-nowrap
+              mb-4
+            "
+          >
+            <p className="font-semibold text-lg leading-tight text-left">
+              Sat · 26 July 2025 · 09:00 AM — 01:00 PM SGT
+            </p>
+          </div>
           <h1
             className="
               text-[5rem]
               sm:text-[6rem]
               lg:text-[7rem]
               font-medium
-              text-center
+              text-left
               mb-4
               mt-4
               slab
@@ -170,50 +186,29 @@ export default function HomePage() {
             Singapore <br />
             Economics League
           </h1>
-          <div className="w-full max-w-screen-xl mx-auto flex flex-col sm:flex-row items-stretch justify-center gap-6 mb-8">
-            <div
-              className="
-                basis-1/2
-                bg-secondary/85
-                text-white
-                border-4 border-white
-                rounded-xl
-                px-4 py-3
-                shadow-sm
-                flex
-                items-center
-                justify-center
-              "
-            >
-              <p className="font-semibold text-xl leading-tight whitespace-normal text-center text-sm">
-                Fri · 4 July 2025 · 11:59 PM SGT (Registration Closes)
-              </p>
-            </div>
-            <div
-              className="
-                basis-1/2
-                bg-secondary/85
-                text-white
-                border-4 border-white
-                rounded-xl
-                px-4 py-3
-                shadow-sm
-                flex
-                items-center
-                justify-center
-              "
-            >
-              <p className="font-semibold text-xl leading-tight whitespace-normal text-center text-sm">
-                Sat · 26 July 2025 · 09:00 AM — 01:00 PM SGT (Competition)
-              </p>
-            </div>
-          </div>
-          <p className="max-w-3xl text-xl text-center text-white">
-            A team based competition for problem solving in economics. 
-            <br />Battle your fellow students for the crown!
+          <p className="max-w-3xl text-xl text-left text-background">
+            A team based competition for problem solving in economics.
+            <br />
+            Battle your fellow students for the crown!
           </p>
         </div>
       </section>
+      <style>
+        {`
+          @keyframes bgSwitch {
+            0%, 48% {
+              background-color: rgba(48,101,191,255);
+            }
+            52%, 100% {
+              background-color: rgba(46,96,181,255);
+            }
+          }
+
+          .animate-bg-switch {
+            animation: bgSwitch 120s ease-in-out infinite;
+          }
+        `}
+      </style>
 
       {hasMounted && (
         <section className="flex flex-col items-center justify-center py-12 px-10 relative">

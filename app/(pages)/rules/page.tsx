@@ -56,13 +56,13 @@ function BriefRules() {
         <b>3 to 5 members</b>.
       </p>
       <p className="mt-4">
-        <span className="font-semibold">Who can participate?:</span> SEL is open
+        <span className="font-semibold">Who can participate:</span> SEL is open
         to all students in <b>pre-university education</b>, i.e. Junior Colleges,
         Secondary Schools, Polytechnics, ITE, international high schools or
         equivalent.
       </p>
       <p className="mt-4">
-        <span className="font-semibold">What is allowed?:</span> All internet
+        <span className="font-semibold">What is allowed:</span> All internet
         resources such as textbooks, and any computer programs (e.g. graphing
         software, IDEs) are allowed. Communication with individuals outside the
         team related to the problems is <b>strictly prohibited</b>. The usage of{" "}
@@ -794,7 +794,7 @@ function SideBar({ selected }: { selected?: string }) {
   };
 
   return (
-    <aside className="hidden lg:block sticky top-24 self-start h-fit w-64">
+    <aside className="hidden lg:block top-24 self-start h-fit w-64">
       <div className="flex flex-col gap-2 border-b-2 lg:border-b-0 border-[#D0D0D0] px-2 py-4 lg:py-8">
         {sectionIds.map((id) => {
           const isActive = selected === id;
