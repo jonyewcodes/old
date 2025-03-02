@@ -18,15 +18,15 @@ export default function Archives() {
   return (
     <main className="flex min-h-screen flex-col text-gray-800">
       <div className="flex justify-center pt-8 pb-6">
-        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-7xl mx-6 slab">
+        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-screen-xl mx-6 slab">
           Archives
         </div>
       </div>
       <div className="flex items-center justify-center py-16">
-        <div className="max-w-7xl w-full px-6 lg:px-12">
+        <div className="max-w-screen-xl w-full px-6 lg:px-12">
           <div className="text-center text-lg mb-12">
             <p className="mb-4">
-              Want to know who took the crown every year at SEL? <br />
+              Want to know who took the 👑 every year at SEL? <br />
               View the results here now!
             </p>
           </div>
@@ -34,16 +34,52 @@ export default function Archives() {
             {archiveInfo.map((info, index) => (
               <div
                 key={index}
-                className="bg-white border-4 border-primary rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
+                className="
+                  bg-white
+                  border-4 border-primary
+                  rounded-xl
+                  shadow-md
+                  p-6
+                  flex flex-col
+                  gap-4
+                  hover:shadow-lg
+                  transition
+                "
               >
                 <h2 className="text-2xl font-semibold slab">{info.title}</h2>
-                <span className="inline-block w-fit text-lg font-medium text-gray-400 italic">
+                <span
+                  className="
+                    inline-block
+                    text-lg
+                    font-medium
+                    bg-gradient-to-r
+                    from-[#70b8ff]
+                    to-[#6783ff]
+                    bg-clip-text
+                    text-transparent
+                    italic
+                  "
+                >
                   {info.category}
                 </span>
                 <p className="text-gray-600 text-lg">{info.content}</p>
                 <button
                   disabled
-                  className="flex items-center justify-center w-full text-gray-400 font-semibold border-2 border-gray-300 rounded-xl px-4 py-2 cursor-not-allowed text-lg"
+                  className="
+                    flex
+                    items-center
+                    justify-center
+                    w-full
+                    text-gray-400
+                    font-semibold
+                    border-2
+                    border-gray-300
+                    rounded-xl
+                    px-4
+                    py-2
+                    cursor-not-allowed
+                    text-lg
+                  "
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +91,13 @@ export default function Archives() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="icon icon-tabler icons-tabler-outline icon-tabler-speakerphone mr-2"
+                    className="
+                      icon
+                      icon-tabler
+                      icons-tabler-outline
+                      icon-tabler-speakerphone
+                      mr-2
+                    "
                   >
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M18 8a3 3 0 0 1 0 6" />

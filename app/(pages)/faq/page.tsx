@@ -14,8 +14,8 @@ export default function Faq() {
         </div>
       </div>
       <div className="flex items-center justify-center">
-        <div className="max-w-[1400px] w-full px-6 lg:px-12">
-          <div className="w-full max-w-[1800px] mt-16 text-lg">
+        <div className="max-w-screen-xl w-full px-6 lg:px-12">
+          <div className="mt-16 text-lg">
             <FaqBox
               question="Can my team be composed of members from different schools?"
               answer="Absolutely, as long as each teammate meets the eligibility criteria!"

@@ -9,8 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#fefefb",
         primary: "#5073b1",
         secondary: "#5a96d9",
         accent: "#64c6fb",
@@ -18,13 +17,11 @@ const config: Config = {
         navbar: "#272a30",
         footer: "#3f3c47",
         discordBlue: "#5865F2",
+        divider: "#cdcac8",
       },
       fontFamily: {
         sans: "var(--font-roboto), sans-serif",
-        geist: "var(--font-geist-sans), sans-serif",
-        mono: "var(--font-geist-mono), monospace",
         serif: "var(--font-roboto-serif), serif",
-        raleway: "var(--font-raleway), sans-serif",
       },
     },
   },

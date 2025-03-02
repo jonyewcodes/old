@@ -8,10 +8,10 @@ export default function Navbar() {
 
   return (
     <header className="bg-navbar text-lg text-white">
-      <nav className="max-w-screen-lg mx-auto px-4 py-6 flex items-center justify-between">
+      <nav className="max-w-screen-xl mx-auto px-4 py-6 flex items-center justify-between">
         <div className="flex items-center space-x-6 font-semibold">
           <Link href="/" aria-label="Go to Home">
-            <Image src="/logos/navbar.png" alt="Logo" width={160} height={120} />
+            <Image src="/logos/navbar.png" alt="Logo" width={200} height={160} />
           </Link>
           <div className="hidden md:flex items-center space-x-6">
             <Link href="/about" className="hover:text-secondary">

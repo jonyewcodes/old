@@ -10,7 +10,7 @@
 body {
   margin: 0;
   font-family: var(--font-roboto), sans-serif;
-  background-color: #fefefb;
+  background-color: background;
 }
 
 html, body {

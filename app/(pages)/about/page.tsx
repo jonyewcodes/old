@@ -77,7 +77,7 @@ const teamMembers = [
 export default function AboutPage() {
   return (
     <main className="flex flex-col items-center w-full">
-      <section className="max-w-[1400px] w-full px-6 sm:px-12 py-16">
+      <section className="max-w-screen-xl w-full px-6 sm:px-12 py-16">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-primary mb-8 slab">
           What is SEL?
         </h2>
@@ -172,7 +172,6 @@ export default function AboutPage() {
               Open-book, the sky’s your limit
             </h3>
             <p className="text-baseText text-lg">
-              <br />
               SEL is open-book, letting you consult references, papers, or even
               software. Explore advanced topics and push your limits without the
               fear of closed-book restrictions.
@@ -283,7 +282,7 @@ export default function AboutPage() {
             2025
           </span>
         </h3>
-        <div className="border-b border-[#cdcac8] mb-8 w-full max-w-[1400px] mx-auto" />
+        <div className="border-b border-divider mb-8 w-full max-w-[1400px] mx-auto" />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
           {teamMembers.map((member) => (
             <a
@@ -311,7 +310,7 @@ export default function AboutPage() {
             </a>
           ))}
         </div>
-        <div className="border-b border-[#cdcac8] mt-8 w-full max-w-[1400px] mx-auto" />
+        <div className="border-b border-divider mt-8 w-full max-w-[1400px] mx-auto" />
       </section>
       <p className="text-center text-baseText max-w-3xl mx-auto text-lg">
         SEL was originally inspired by (but is not directly associated with) the{" "}

@@ -12,7 +12,7 @@ export default function SyllabusPage() {
           Syllabus
         </div>
       </div>
-      <div className="max-w-screen-lg mx-auto mt-16">
+      <div className="max-w-screen-xl mx-auto mt-16">
         <p className="mb-4">
           The content tested in SEL can be classified according to 5 broad
           topics, namely:

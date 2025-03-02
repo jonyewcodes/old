@@ -34,21 +34,21 @@ export default function HomePage() {
       title: "Economic Crisis on Arrakis",
       difficulty: "Easy",
       difficultyColor: "bg-[#D4F5E2] text-[#2E7D32]",
-      description: "Solve economic instability on a desert planet using optimal resource management.",
+      description: "We learn macroeconomics to analyse our world. Do these macroeconomic forces still apply in the world of DUNE?",
       link: "/sample-questions/easy.pdf",
     },
     {
       title: "Competition Sign-Ups",
       difficulty: "Medium",
       difficultyColor: "bg-[#FFF3C4] text-[#FF9800]",
-      description: "Efficiently manage multiple sign-ups for an event using data structures.",
+      description: "Do you have entrepreneurial spirit? Its not just firms — high school students can be profit hungry too.",
       link: "/sample-questions/medium.pdf",
     },
     {
       title: "The AI Dilemma: Growth vs Risk",
       difficulty: "Hard",
       difficultyColor: "bg-[#FFEBEE] text-[#D32F2F]",
-      description: "Balance AI development while mitigating risks in a futuristic society.",
+      description: "AI poses both existential risk and untapped opportunity? How can humanity balance these factors?",
       link: "/sample-questions/hard.pdf",
     },
   ];
@@ -170,7 +170,7 @@ export default function HomePage() {
             Singapore <br />
             Economics League
           </h1>
-          <div className="w-full max-w-7xl mx-auto flex flex-col sm:flex-row items-stretch justify-center gap-6 mb-8">
+          <div className="w-full max-w-screen-xl mx-auto flex flex-col sm:flex-row items-stretch justify-center gap-6 mb-8">
             <div
               className="
                 basis-1/2
@@ -209,8 +209,8 @@ export default function HomePage() {
             </div>
           </div>
           <p className="max-w-3xl text-xl text-center text-white">
-            A team based competition for problem solving in economics. Battle your fellow
-            students for the crown!
+            A team based competition for problem solving in economics. 
+            <br />Battle your fellow students for the crown!
           </p>
         </div>
       </section>
@@ -259,7 +259,7 @@ export default function HomePage() {
         </section>
       )}
 
-      <section className="py-16 px-6 sm:py-20 sm:px-8 lg:py-24 lg:px-36 w-full max-w-[1400px] mx-auto">
+      <section className="py-16 px-6 sm:py-20 sm:px-8 lg:py-24 lg:px-36 w-full max-w-screen-xl mx-auto">
         <div className="flex flex-col gap-24">
           <div className="flex items-center justify-start">
             <div className="border-4 border-primary rounded-xl px-8 py-6 inline-flex items-center gap-6">
@@ -368,7 +368,7 @@ export default function HomePage() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="icon icon-tabler icons-tabler-outline icon-tabler-x text-gray-600 hover:text-gray-900 transition"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-x text-baseText hover:text-gray-900 transition"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M18 6l-12 12" />
@@ -387,32 +387,32 @@ export default function HomePage() {
       )}
 
       <section className="relative w-full flex items-center justify-center">
-        <div className=" w-full relative z-10 max-w-[1400px] w-full px-6 lg:px-12">
+        <div className=" w-full relative z-10 max-w-screen-xl w-full px-6 lg:px-12">
           <h2 className="text-6xl font-bold slab text-baseText text-center mb-6">
             Important{" "}
             <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
               Dates
             </span>
           </h2>
-          <div className="border-b border-[#cdcac8] mb-8 w-full max-w-[1400px] mx-auto" />
+          <div className="border-b border-divider mb-8 w-full max-w-screen-xl mx-auto" />
           <div className="flex justify-center">
             <div className="w-full">
               <Timeline />
             </div>
           </div>
-          <div className="border-b border-[#cdcac8] mt-8 w-full max-w-[1400px] mx-auto mb-32" />
+          <div className="border-b border-divider mt-8 w-full max-w-screen-xl mx-auto mb-32" />
         </div>
       </section>
 
       <section className="flex items-center justify-center">
-        <div className="max-w-[1400px] w-full px-6 lg:px-12">
+        <div className="max-w-screen-xl w-full px-6 lg:px-12">
           <h1 className="text-black text-6xl font-bold mb-6 text-center slab">
             Sample{" "}
             <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
               Questions
             </span>
           </h1>
-          <div className="border-b border-[#cdcac8] mb-8 w-full max-w-[1400px] mx-auto" />
+          <div className="border-b border-divider mb-8 w-full max-w-screen-xl mx-auto" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {sampleQuestions.map((question, index) => (
               <div
@@ -425,14 +425,14 @@ export default function HomePage() {
                 >
                   {question.difficulty}
                 </span>
-                <p className="text-gray-600 text-lg">{question.description}</p>
+                <p className="text-baseText text-lg">{question.description}</p>
                 <a
                   href={question.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
                     flex items-center justify-center w-full
-                    text-secondary font-semibold text-lg
+                    text-secondary font-semibold text-xl
                     border-4 border-secondary
                     rounded-xl px-4 py-2
                     hover:bg-[#eaf2fb]
@@ -463,19 +463,19 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <div className="border-b border-[#cdcac8] mt-8 w-full max-w-[1400px] mx-auto mb-32" />
+          <div className="border-b border-divider mt-8 w-full max-w-screen-xl mx-auto mb-32" />
         </div>
       </section>
 
       <section className="flex items-center justify-center">
-        <div className="max-w-[1400px] w-full px-6 lg:px-12">
+        <div className="max-w-screen-xl w-full px-6 lg:px-12">
           <h1 className="text-baseText text-6xl lg:text-6xl font-bold mb-6 text-center slab">
             Useful{" "}
             <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
               Resources
             </span>
           </h1>
-          <div className="border-b border-[#cdcac8] mb-8 w-full max-w-[1400px] mx-auto" />
+          <div className="border-b border-divider mb-8 w-full max-w-screen-xl mx-auto" />
           <div className="flex flex-col gap-6">
             <div
               className="
@@ -501,7 +501,7 @@ export default function HomePage() {
                   transform
                   -translate-y-1/2
                   h-auto
-                  ml-12
+                  ml-4
                 "
               />
               <Image
@@ -518,7 +518,7 @@ export default function HomePage() {
                   transform
                   -translate-y-1/2
                   h-auto
-                  mr-12
+                  mr-4
                 "
               />
               <h3 className="text-4xl font-medium slab text-baseText mt-6">
@@ -581,10 +581,10 @@ export default function HomePage() {
                   <a
                     href="/faq"
                     className="
-                      border-4 border-primary
+                      border-4 border-secondary
                       mt-6 inline-block
                       px-6 py-2.5
-                      bg-[#ffffff]
+                      bg-background
                       text-secondary
                       text-lg font-medium
                       rounded-lg
@@ -601,8 +601,8 @@ export default function HomePage() {
                 <Image
                   src="/emoticons/Cool.png"
                   alt="FAQ Illustration"
-                  width={256}
-                  height={256}
+                  width={200}
+                  height={200}
                   className="
                     hidden
                     md:block
@@ -639,10 +639,10 @@ export default function HomePage() {
                   <a
                     href="/syllabus"
                     className="
-                      border-4 border-primary
+                      border-4 border-secondary
                       mt-6 inline-block
                       px-6 py-2.5
-                      bg-[#ffffff]
+                      bg-background
                       text-secondary
                       text-lg font-medium
                       rounded-lg
@@ -657,10 +657,10 @@ export default function HomePage() {
                   </a>
                 </div>
                 <Image
-                  src="/emoticons/Excited.png"
+                  src="/emoticons/Cool.png"
                   alt="Syllabus Illustration"
-                  width={256}
-                  height={256}
+                  width={200}
+                  height={200}
                   className="
                     hidden
                     md:block
@@ -670,11 +670,12 @@ export default function HomePage() {
                     transform
                     -translate-y-1/2
                     h-auto
+                    ml-4
                   "
                 />
               </div>
             </div>
-            <div className="border-b border-[#cdcac8] mt-8 w-full max-w-[1400px] mx-auto" />
+            <div className="border-b border-divider mt-8 w-full max-w-screen-xl mx-auto" />
           </div>
         </div>
       </section>
