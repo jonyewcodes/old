@@ -145,14 +145,14 @@ function ContestFormatAndScoring() {
       <div className="mt-6 space-y-6">
         <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-baseText">1. Multiple Choice (MCQ)</h4>
-          <p className="text-sm text-baseText mt-1">
+          <p className="text-lg text-baseText mt-1">
             Choose <b>1</b> answer out of <b>4</b> options (A, B, C, D).
           </p>
         </div>
 
         <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-baseText">2. MCQ Multi-select</h4>
-          <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-baseText">
+          <ul className="list-disc ml-6 text-lg mt-1 space-y-1 text-baseText">
             <li>Choose N answers out of M options, where N ≤ M.</li>
             <li>No marks are awarded for partially correct answers.</li>
           </ul>
@@ -160,21 +160,21 @@ function ContestFormatAndScoring() {
 
         <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-baseText">3. Integer</h4>
-          <p className="text-sm text-baseText mt-1">
+          <p className="text-lg text-baseText mt-1">
             Enter an integer from <b>-99999</b> to <b>99999</b>.
           </p>
         </div>
 
         <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-baseText">4. Integer Set</h4>
-          <p className="text-sm text-baseText mt-1">
+          <p className="text-lg text-baseText mt-1">
             Individually input a set of N integers.
           </p>
         </div>
 
         <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-baseText">5. Float</h4>
-          <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-baseText">
+          <ul className="list-disc ml-6 text-lg mt-1 space-y-1 text-baseText">
             <li>
               Enter numeric values (with decimals) from <b>-99999.99999</b> to{" "}
               <b>99999.99999</b>.
@@ -188,21 +188,21 @@ function ContestFormatAndScoring() {
 
         <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-baseText">6. Sort</h4>
-          <p className="text-sm text-baseText mt-1">
+          <p className="text-lg text-baseText mt-1">
             Sort N different values into the correct sequence.
           </p>
         </div>
 
         <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-baseText">7. True/False Set</h4>
-          <p className="text-sm text-baseText mt-1">
+          <p className="text-lg text-baseText mt-1">
             Give your answer to N True/False questions.
           </p>
         </div>
 
         <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-baseText">8. String</h4>
-          <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-baseText">
+          <ul className="list-disc ml-6 text-lg mt-1 space-y-1 text-baseText">
             <li>Input a string of up to 30 characters in length.</li>
             <li>
               An exact match is required. Extra characters or spaces result in
@@ -213,14 +213,14 @@ function ContestFormatAndScoring() {
 
         <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-baseText">9. String Set</h4>
-          <p className="text-sm text-baseText mt-1">
+          <p className="text-lg text-baseText mt-1">
             Input a set of N strings. Each must be exactly correct.
           </p>
         </div>
 
         <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-baseText">10. Table</h4>
-          <ul className="list-disc ml-6 text-sm mt-1 space-y-1 text-baseText">
+          <ul className="list-disc ml-6 text-lg mt-1 space-y-1 text-baseText">
             <li>Key in the contents of an N×M table.</li>
             <li>Answers can require either string or integer table entries.</li>
           </ul>
