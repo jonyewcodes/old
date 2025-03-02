@@ -42,7 +42,7 @@ export default function HomePage() {
       link: "/sample-questions/[Sample]-Moderate.pdf",
     },
     {
-      title: "The AI Dilemma: Growth vs Risk",
+      title: "The AI Dilemma",
       difficulty: "Hard",
       difficultyColor: "bg-[#FFEBEE] text-[#D32F2F]",
       description: "AI poses both existential risk and untapped opportunity? How can humanity balance these factors?",
