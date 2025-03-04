@@ -7,7 +7,7 @@ export default function AnimatedBackground() {
       <div className="absolute top-0 left-0 w-full h-full z-0 scrolling-bg" />
       <style jsx>{`
         .scrolling-bg {
-          background-image: url("/animation.svg"); 
+          background-image: url("/animation.png"); 
           background-repeat: repeat-x; 
           background-size: auto 100%; 
           width: 200%;  
