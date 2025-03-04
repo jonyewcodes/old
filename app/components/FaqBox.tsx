@@ -34,20 +34,21 @@ export default function FaqBox({ question, answer }: FaqProps): JSX.Element {
             stroke="currentColor"
             className="h-6 w-6"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </span>
       </button>
+
       <div
-        className={`transition-all duration-500 ease-in-out overflow-hidden ${
-          isOpen ? "max-h-96 opacity-100 py-4" : "max-h-0 opacity-0"
-        }`}
+        className={`
+          transition-all duration-500 ease-in-out overflow-hidden
+          ${isOpen ? "max-h-96 opacity-100 py-4" : "max-h-0 opacity-0"}
+        `}
       >
-        <div className="px-6 text-left text-gray-700">{answer}</div>
+        <div
+          className="px-6 text-left text-gray-700"
+          dangerouslySetInnerHTML={{ __html: answer }}
+        />
       </div>
     </div>
   );

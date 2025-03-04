@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import AnimatedBackground from "./components/AnimatedBackground";
 import Timeline from "./components/Timeline";
 import CountDown from "./components/CountDown";
 
@@ -137,18 +138,15 @@ export default function HomePage() {
       <section
         className="
           relative
-          backdrop-blur-lg
-          border border-white/20
           py-16 px-4
           sm:py-20 sm:px-6
           lg:py-24 lg:px-32
           text-background
           overflow-hidden
-          animate-bg-switch
         "
       >
-        <div className="absolute inset-0 z-0 opacity-30">
-          {/* <CandleChart /> */ }
+        <div className="absolute inset-0 z-0">
+          <AnimatedBackground />
         </div>
         <div className="relative z-10 w-full max-w-screen-xl mx-auto flex flex-col items-start">
           <div
@@ -190,22 +188,6 @@ export default function HomePage() {
           </p>
         </div>
       </section>
-      <style>
-        {`
-          @keyframes bgSwitch {
-            0%, 48% {
-              background-color: rgba(48,101,191,255);
-            }
-            52%, 100% {
-              background-color: rgba(46,96,181,255);
-            }
-          }
-
-          .animate-bg-switch {
-            animation: bgSwitch 120s ease-in-out infinite;
-          }
-        `}
-      </style>
 
       {hasMounted && (
         <section className="flex flex-col items-center justify-center py-12 px-10 relative">
@@ -254,11 +236,11 @@ export default function HomePage() {
       <section
         className="
           py-16 
-          px-4       /* narrower default padding on mobile */
+          px-4      
           sm:py-20 
           sm:px-8 
           lg:py-24 
-          lg:px-12   /* consistent with the rest of the layout */
+          lg:px-12  
           w-full 
           max-w-screen-xl 
           mx-auto
@@ -279,20 +261,20 @@ export default function HomePage() {
               </div>
             </div>
             <Image
-              src="/emoticons/Excited.png"
+              src="/graphics/problemSolving.png"
               alt="Box 1 illustration"
-              width={384}
-              height={384}
-              className="w-96 h-auto ml-32"
+              width={420}
+              height={420}
+              className="w-96 h-auto ml-16"
             />
           </div>
           <div className="flex items-center justify-end">
             <Image
-              src="/emoticons/ThumbsUp.png"
+              src="/graphics/backpack.png"
               alt="Box 2 illustration"
               width={320}
               height={320}
-              className="w-80 h-auto mr-32"
+              className="w-96 h-auto mr-16"
             />
             <div className="border-4 border-primary rounded-xl px-8 py-6 inline-flex items-center gap-6">
               <div className="text-right">
@@ -345,11 +327,11 @@ export default function HomePage() {
               </div>
             </div>
             <Image
-              src="/emoticons/Excited.png"
+              src="/graphics/teamUp.png"
               alt="Box 3 illustration"
               width={384}
               height={384}
-              className="w-96 h-auto ml-24"
+              className="w-96 h-auto ml-16"
             />
           </div>
         </div>
@@ -500,6 +482,7 @@ export default function HomePage() {
                 text-center bg-white text-lg
               "
             >
+              {/* 
               <Image
                 src="/emoticons/Laughing.png"
                 alt="Community Left"
@@ -533,7 +516,9 @@ export default function HomePage() {
                   h-auto
                   mr-4
                 "
+                
               />
+              */}
               <h3 className="text-4xl font-medium slab text-baseText mt-6">
                 Join our Community
               </h3>
@@ -627,8 +612,9 @@ export default function HomePage() {
                     </svg>
                   </a>
                 </div>
+                {/* 
                 <Image
-                  src="/emoticons/Cool.png"
+                  src="/graphics/..png"
                   alt="FAQ Illustration"
                   width={200}
                   height={200}
@@ -644,6 +630,7 @@ export default function HomePage() {
                     mr-4
                   "
                 />
+                */}
               </div>
               <div
                 className="
@@ -703,7 +690,7 @@ export default function HomePage() {
                   </a>
                 </div>
                 <Image
-                  src="/emoticons/Cool.png"
+                  src="/graphics/studying.png"
                   alt="Syllabus Illustration"
                   width={200}
                   height={200}

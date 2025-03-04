@@ -4,7 +4,6 @@ import React from "react";
 export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen w-full flex flex-col items-center">
-      {/* Header */}
       <div className="flex justify-center pt-8 pb-6">
         <div className="
           text-baseText
@@ -22,8 +21,6 @@ export default function PrivacyPolicyPage() {
           Privacy Policy
         </div>
       </div>
-
-      {/* Main Content */}
       <div className="
         max-w-screen-xl
         w-full

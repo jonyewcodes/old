@@ -56,10 +56,10 @@ function BriefRules() {
         <b>3 to 5 members</b>.
       </p>
       <p className="mt-4">
-        <span className="font-semibold">Who can participate:</span> SEL is open
-        to all students in <b>pre-university education</b>, i.e. Junior Colleges,
+        <span className="font-semibold">Who can participate:</span> The school category is open exclusively to students in 
+        <b>pre-university education</b>, i.e. Junior Colleges,
         Secondary Schools, Polytechnics, ITE, international high schools or
-        equivalent.
+        equivalent. There are no restrictions on who can participate in the open category. 
       </p>
       <p className="mt-4">
         <span className="font-semibold">What is allowed:</span> All internet
@@ -88,7 +88,7 @@ function Registration() {
           "Participants must register in the competition in order to participate.",
           "Registration is open at sgeconsleague.org from <b>1 May</b> to <b>4 July 2025</b>.",
           "Each team must comprise <b>3 to 5 members</b>.",
-          "All team members must be <b>pre-university students</b>: i.e. studying in high school/equivalent or below (JCs/MI, Secondary Schools, Polytechnics, international high schools, etc.).",
+          "For the school category, all team members must be pre-university students: i.e. studying in high school/equivalent or below (JCs/MI, Secondary Schools, Polytechnics, international high schools, etc.).",
           "Each contestant must be a member of only <b>one team</b>.",
           "Team names <b>cannot be offensive</b>. The SEL Organisers reserve the right to alter the name or disqualify any team whose name is deemed offensive.",
           "By participating in SEL, all participants agree to follow the rules of Singapore Economics League, as well as the Participant Code of Conduct.",
@@ -115,18 +115,6 @@ function CompetitionPlatform() {
 }
 
 function ContestFormatAndScoring() {
-  useEffect(() => {
-    // Load MathJax
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-    script.async = true;
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
-
   return (
     <section id="Contest Format and Scoring" className="mt-12">
       <SubHeading>Contest Format and Scoring</SubHeading>
@@ -242,107 +230,131 @@ function ContestFormatAndScoring() {
 
       <SubHeading2 className="mt-12">Main Problems Scoring</SubHeading2>
       <p className="mt-4">
-        Each sub-question or question-part has a certain number of points.
-      </p>
-      <p>
-        If a question-part had previous incorrect attempts, fewer points will be awarded for a correct answer. The points awarded for a correct answer is{" "}
-        <span style={{ display: 'inline-block' }}>
-          {"\\(\\left\\lceil \\frac{P}{x+1} \\right\\rceil\\)"}
-        </span>
-        , where {"\\(P\\)"} is the full number of points, {"\\(x\\)"} is the number of incorrect submissions prior to the correct answer, and {"\\(\\lceil \\rceil\\)"} denotes the ceiling function.
-      </p>
-
-      <p className="mt-4">
         The following lookup table illustrates SEL&apos;s scoring scheme:
       </p>
 
       <div className="mt-6 border-2 border-primary rounded-xl overflow-hidden w-full">
-        <table
-          className="w-full text-center border-separate"
-          style={{ borderSpacing: 0 }}
-        >
-          <colgroup>
-            <col className="w-[140px]" />
-            <col className="w-[90px]" />
-            <col className="w-[90px]" />
-            <col className="w-[90px]" />
-            <col className="w-[90px]" />
-            <col className="w-[90px]" />
-            <col className="w-[90px]" />
-          </colgroup>
-          <thead className="bg-secondary text-white">
-            <tr>
-              <th
-                rowSpan={2}
-                className="px-3 py-2 border border-primary font-medium whitespace-normal break-words"
-              >
-                Full number of points
-              </th>
-              <th
-                colSpan={6}
-                className="px-3 py-2 border border-primary font-medium whitespace-normal break-words"
-              >
-                Number of incorrect answers
-              </th>
-            </tr>
-            <tr>
-              <th className="px-3 py-2 border border-primary font-medium">
-                0
-              </th>
-              <th className="px-3 py-2 border border-primary font-medium">
-                1
-              </th>
-              <th className="px-3 py-2 border border-primary font-medium">
-                2
-              </th>
-              <th className="px-3 py-2 border border-primary font-medium">
-                3
-              </th>
-              <th className="px-3 py-2 border border-primary font-medium">
-                4
-              </th>
-              <th className="px-3 py-2 border border-primary font-medium">
-                5+
-              </th>
-            </tr>
-          </thead>
-          <tbody className="bg-white text-baseText">
-            {[...Array(9)].map((_, i) => {
-              const rowNumber = i + 2;
-              const getPoints = (incorrect: number): number => {
-                if (incorrect === 0) return rowNumber;
-                if (incorrect >= 4) return 1;
-                return Math.max(rowNumber - incorrect, 1);
-              };
-              return (
-                <tr key={rowNumber}>
-                  <td className="px-3 py-2 border border-primary font-semibold">
-                    {rowNumber}
-                  </td>
-                  <td className="px-3 py-2 border border-primary">
-                    {getPoints(0)}
-                  </td>
-                  <td className="px-3 py-2 border border-primary">
-                    {getPoints(1)}
-                  </td>
-                  <td className="px-3 py-2 border border-primary">
-                    {getPoints(2)}
-                  </td>
-                  <td className="px-3 py-2 border border-primary">
-                    {getPoints(3)}
-                  </td>
-                  <td className="px-3 py-2 border border-primary">
-                    {getPoints(4)}
-                  </td>
-                  <td className="px-3 py-2 border border-primary">
-                    {getPoints(5)}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+       <table className="w-full text-center border-separate" style={{ borderSpacing: 0 }}>
+        <colgroup>
+          <col className="w-[140px]" />
+          <col className="w-[90px]" />
+          <col className="w-[90px]" />
+          <col className="w-[90px]" />
+          <col className="w-[90px]" />
+          <col className="w-[90px]" />
+          <col className="w-[90px]" />
+        </colgroup>
+
+        <thead className="bg-secondary text-white">
+          <tr>
+            <th
+              rowSpan={2}
+              className="px-3 py-2 border border-primary font-medium whitespace-normal break-words"
+            >
+              Full number of points
+            </th>
+            <th
+              colSpan={6}
+              className="px-3 py-2 border border-primary font-medium whitespace-normal break-words"
+            >
+              Number of incorrect answers
+            </th>
+          </tr>
+          <tr>
+            <th className="px-3 py-2 border border-primary font-medium">0</th>
+            <th className="px-3 py-2 border border-primary font-medium">1</th>
+            <th className="px-3 py-2 border border-primary font-medium">2</th>
+            <th className="px-3 py-2 border border-primary font-medium">3</th>
+            <th className="px-3 py-2 border border-primary font-medium">4</th>
+            <th className="px-3 py-2 border border-primary font-medium">5+</th>
+          </tr>
+        </thead>
+
+        <tbody className="bg-white text-baseText">
+          <tr>
+            <td className="px-3 py-2 border border-primary font-semibold">2</td>
+            <td className="px-3 py-2 border border-primary">2</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2 border border-primary font-semibold">3</td>
+            <td className="px-3 py-2 border border-primary">3</td>
+            <td className="px-3 py-2 border border-primary">2</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2 border border-primary font-semibold">4</td>
+            <td className="px-3 py-2 border border-primary">4</td>
+            <td className="px-3 py-2 border border-primary">3</td>
+            <td className="px-3 py-2 border border-primary">2</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2 border border-primary font-semibold">5</td>
+            <td className="px-3 py-2 border border-primary">5</td>
+            <td className="px-3 py-2 border border-primary">3</td>
+            <td className="px-3 py-2 border border-primary">2</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2 border border-primary font-semibold">6</td>
+            <td className="px-3 py-2 border border-primary">6</td>
+            <td className="px-3 py-2 border border-primary">4</td>
+            <td className="px-3 py-2 border border-primary">3</td>
+            <td className="px-3 py-2 border border-primary">2</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2 border border-primary font-semibold">7</td>
+            <td className="px-3 py-2 border border-primary">7</td>
+            <td className="px-3 py-2 border border-primary">4</td>
+            <td className="px-3 py-2 border border-primary">3</td>
+            <td className="px-3 py-2 border border-primary">2</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2 border border-primary font-semibold">8</td>
+            <td className="px-3 py-2 border border-primary">8</td>
+            <td className="px-3 py-2 border border-primary">5</td>
+            <td className="px-3 py-2 border border-primary">3</td>
+            <td className="px-3 py-2 border border-primary">2</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2 border border-primary font-semibold">9</td>
+            <td className="px-3 py-2 border border-primary">9</td>
+            <td className="px-3 py-2 border border-primary">5</td>
+            <td className="px-3 py-2 border border-primary">4</td>
+            <td className="px-3 py-2 border border-primary">3</td>
+            <td className="px-3 py-2 border border-primary">2</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+          </tr>
+          <tr>
+            <td className="px-3 py-2 border border-primary font-semibold">10</td>
+            <td className="px-3 py-2 border border-primary">10</td>
+            <td className="px-3 py-2 border border-primary">6</td>
+            <td className="px-3 py-2 border border-primary">4</td>
+            <td className="px-3 py-2 border border-primary">3</td>
+            <td className="px-3 py-2 border border-primary">2</td>
+            <td className="px-3 py-2 border border-primary">1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
       <ul className="list-disc ml-6 mt-4 space-y-2 text-baseText">
         <li>
@@ -456,6 +468,9 @@ function AwardsAndRankings() {
   return (
     <section className="mt-12" id="Awards and Rankings">
       <SubHeading>Awards and Rankings</SubHeading>
+      <p className="mt-4">
+        The school category and open category have separate leaderboards and rankings.
+      </p>
       <p className="mt-4">
         The awards are determined according to the cutoffs below, where <b>n</b>{" "}
         is the total number of teams, and <b>⌈x⌉</b> represents the ceiling

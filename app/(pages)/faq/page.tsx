@@ -26,31 +26,35 @@ export default function Faq() {
             />
             <FaqBox
               question="Should I participate even if I have not studied H2 or Olympiad level economics?"
-              answer="Yes! All pre-U students, regardless of their subjects, can participate. SEL has questions of a wide range of difficulties, so you can challenge yourself regardless of your economics proficiency."
+              answer="Yes! All Pre-U students, regardless of their subjects, can participate in the school category. SEL has questions of a wide range of difficulties, so you can challenge yourself regardless of your economics proficiency."
+            />
+            <FaqBox
+              question="Should I participate in the School Category or Open Category?"
+              answer="SEL collaborates with JCs and schools by sharing the performance of their students who have registered under the School Category. Thus, only participants of the school category will have their prizes and awards recorded in their CCA certificates and transcripts."
             />
             <FaqBox
               question="May I use the internet during this competition?"
-              answer="Yes! Online resources such as textbooks, research papers, graphing calculators, and computing software can all be used to aid in solving questions."
+              answer="Yes! Most online resources such as textbooks, research papers, graphing calculators, and computing software can all be used to aid in solving questions. The one exception is that any usage of AI tools such as Chatbots is strictly prohibited."
             />
             <FaqBox
               question="How do we obtain new problems to solve during the contest?"
               answer="After completing or skipping an existing question, your team can choose new questions from a pool of subsequent questions. You can attempt a maximum of 4 main problems at any one time."
             />
             <FaqBox
-              question="What is the difficulty of SEL questions?"
+              question="How hard are SEL questions? "
               answer="SEL questions range in difficulty from those similar to the ones you have encountered in school, to questions set at the undergraduate and olympiad level."
             />
             <FaqBox
               question="What happens if I submit a wrong answer?"
-              answer="You can reattempt a question-part as many times as you need, but the points awarded for a correct answer will diminish. Certain questions such as MCQs have a limit of 3 attempts."
+              answer="You can reattempt a question-part as many times as you need, but the points awarded for a correct answer will decrease after incorrect attempts. Certain questions such as MCQs have a limit of 3 attempts."
             />
             <FaqBox
               question="May I skip questions?"
-              answer="Yes, but this can incur a penalty of 2 points. Your team will receive a free skip that allows you to skip a question without penalty every 30 minutes."
+              answer="Yes, but 2 points will be deducted from your teams overall score per skip. Your team will receive a free skip that allows you to skip a question without penalty every 30 minutes."
             />
             <FaqBox
               question="How do I obtain bonus points?"
-              answer="From 10 am, the Economania section will be unlocked, featuring 5 categories of 3 questions each in ascending difficulty. If your team completes some or all categories of Economania before 11 am, the points obtained from those categories will be doubled."
+              answer="From 10 am, the Economania section will be unlocked, featuring 5 categories of 3 questions each in ascending difficulty. If your team completes some or all categories of Economania before 11 am, the points which your team obtained from those categories will be doubled."
             />
             <FaqBox
               question="Where can I send my enquiries about SEL?"

@@ -254,18 +254,10 @@ export default function AboutPage() {
         <div className="flex justify-center mb-8">
           <div className="mr-4">
             <Image
-              src="/emoticons/Cool.png"
+              src="/graphics/team.png"
               alt="Team Bubble Left"
-              width={280}
-              height={280}
-            />
-          </div>
-          <div>
-            <Image
-              src="/emoticons/Laughing.png"
-              alt="Team Bubble Right"
-              width={300}
-              height={300}
+              width={640}
+              height={640}
             />
           </div>
         </div>
