@@ -482,9 +482,8 @@ export default function HomePage() {
                 text-center bg-white text-lg
               "
             >
-              {/* 
               <Image
-                src="/emoticons/Laughing.png"
+                src="/graphics/flowerPot.png"
                 alt="Community Left"
                 width={256}
                 height={256}
@@ -501,7 +500,7 @@ export default function HomePage() {
                 "
               />
               <Image
-                src="/emoticons/Laughing.png"
+                src="/graphics/piggyBank.png"
                 alt="Community Right"
                 width={256}
                 height={256}
@@ -518,7 +517,6 @@ export default function HomePage() {
                 "
                 
               />
-              */}
               <h3 className="text-4xl font-medium slab text-baseText mt-6">
                 Join our Community
               </h3>
@@ -612,12 +610,11 @@ export default function HomePage() {
                     </svg>
                   </a>
                 </div>
-                {/* 
                 <Image
-                  src="/graphics/..png"
+                  src="/graphics/bank.png"
                   alt="FAQ Illustration"
-                  width={200}
-                  height={200}
+                  width={196}
+                  height={196}
                   className="
                     hidden
                     md:block
@@ -630,7 +627,6 @@ export default function HomePage() {
                     mr-4
                   "
                 />
-                */}
               </div>
               <div
                 className="
