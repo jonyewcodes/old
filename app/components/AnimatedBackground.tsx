@@ -3,8 +3,8 @@ import React from "react";
 
 export default function AnimatedBackground() {
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full scrolling-bg" />
+    <div className="absolute inset-0 z-0 overflow-hidden bg-[#2B4F9C]">
+      <div className="absolute inset-0 scrolling-bg" />
       <style jsx>{`
         .scrolling-bg {
           background-image: url("/animation.png");
