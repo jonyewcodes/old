@@ -18,10 +18,10 @@ export default function AnimatedBackground() {
 
         @keyframes scroll-bg {
           0% {
-            transform: translateX(0);
+            transform: translateX(-100px);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(calc(-50% - 100px));
           }
         }
       `}</style>
