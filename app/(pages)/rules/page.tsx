@@ -1,6 +1,5 @@
 "use client";
-
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // Keep `sectionIds` outside the component to prevent unnecessary re-renders
 const sectionIds = [
@@ -837,9 +836,8 @@ function SideBar({ selected }: { selected?: string }) {
   const handleScroll = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const offset = 80; // Adjust for navbar height
       window.scrollTo({
-        top: el.getBoundingClientRect().top + window.scrollY - offset,
+        top: el.offsetTop - 20,
         behavior: "smooth",
       });
     }
@@ -976,29 +974,37 @@ function MobileContents() {
 }
 
 export default function RulesPage() {
-  const [selected, setSelected] = useState("rules");
+  const [selected, setSelected] = useState("");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
+        let topRatio = 0;
+        let topId = "";
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setSelected(entry.target.id);
+          if (entry.isIntersecting && entry.intersectionRatio > topRatio) {
+            topRatio = entry.intersectionRatio;
+            topId = entry.target.id;
           }
         });
+        if (topId) {
+          setSelected(topId);
+        }
       },
-      { threshold: 0.3 }
+      {
+        threshold: 0.4,
+      }
     );
 
     sectionIds.forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
     });
 
     return () => {
       sectionIds.forEach((id) => {
-        const section = document.getElementById(id);
-        if (section) observer.unobserve(section);
+        const el = document.getElementById(id);
+        if (el) observer.unobserve(el);
       });
     };
   }, []);
