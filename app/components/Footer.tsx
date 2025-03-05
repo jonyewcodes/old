@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <footer className="relative bg-footer text-lg text-gray-400 mt-12">
       <div className="absolute top-0 left-0 w-full h-2 pointer-events-none" />
-      <div className="relative max-w-screen-lg mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-4">
+      <div className="relative max-w-screen-lg mx-auto px-4 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4 sm:mb-0">
           <Link
             href="mailto:contact@sgeconsleague.org"
             className="group flex items-center gap-1 hover:text-white transition"
@@ -67,8 +67,8 @@ export default function Footer() {
           Privacy Policy
         </Link>
       </div>
-      <hr className="mx-auto max-w-screen-lg border-t border-white" />
-      <div className="text-center py-4 text-xl text-white pb-8">
+      <hr className="mx-4 sm:mx-auto max-w-screen-lg border-t border-white  " />
+      <div className="text-center sm:text-left py-4 text-sm text-white pb-8">
         © 2025 Singapore Economics League
       </div>
     </footer>
