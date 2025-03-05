@@ -1,6 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
+//hi guys can we please have some comments in the code i'm starting to strugle figuring out what is where 
+
+
 // Keep `sectionIds` outside the component to prevent unnecessary re-renders
 const sectionIds = [
   "Brief Rules",
@@ -41,14 +44,14 @@ function UnorderedList({
           if (Array.isArray(item)) {
             return (
               <li key={index} className="ml-4">
-                {typeof item[0] === "string" && item[0]}
+                {typeof item[0] === 'string' && renderStringWithBold(item[0])}
                 {Array.isArray(item.slice(1)) && renderList(item.slice(1))}
               </li>
             );
           } else {
             return (
               <li key={index} className="ml-4">
-                {item}
+                {renderStringWithBold(item)}
               </li>
             );
           }
@@ -56,6 +59,21 @@ function UnorderedList({
       </ul>
     );
   };
+
+  const renderStringWithBold = (str: string) => {
+    const parts = str.split(/(<b>.*?<\/b>)/g); // Split by <b> tags
+
+    return parts.map((part, index) => {
+      if (part.match(/<b>.*<\/b>/)) {
+        return (
+          <b key={index} dangerouslySetInnerHTML={{ __html: part }} />
+        );
+      } else {
+        return part; // Return text as it is
+      }
+    });
+  };
+
   return renderList(items);
 }
 
@@ -833,15 +851,19 @@ function TermsAndConditions() {
 }
 
 function SideBar({ selected }: { selected?: string }) {
+  //function to scroll to the selected element
   const handleScroll = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      window.scrollTo({
-        top: el.offsetTop - 20,
-        behavior: "smooth",
-      });
+      const offset = 20;
+  
+      el.scrollIntoView({ behavior: "smooth", block: "start" });  
+      setTimeout(() => {
+        window.scrollBy({ top: -offset, behavior: "smooth" });   //offset scroll by a variable amount 
+      }, 100);
     }
   };
+   
 
   return (
     <aside className="hidden lg:block top-24 self-start h-fit w-120">
@@ -992,7 +1014,7 @@ export default function RulesPage() {
         }
       },
       {
-        threshold: 0.4,
+        threshold: 0.2, //update sidebar selection if 20% of selection is visible. Needs a better solution IMO 
       }
     );
 
