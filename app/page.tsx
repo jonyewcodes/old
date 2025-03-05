@@ -32,21 +32,24 @@ export default function HomePage() {
       title: "Economic Crisis on Arrakis",
       difficulty: "Easy",
       difficultyColor: "bg-[#D4F5E2] text-[#2E7D32]",
-      description: "We learn macroeconomics to analyse our world. Do these macroeconomic forces still apply in the world of DUNE?",
+      description:
+        "We learn macroeconomics to analyse our world. Do these macroeconomic forces still apply in the world of DUNE?",
       link: "/sample-questions/[Sample]-Easy.pdf",
     },
     {
       title: "Competition Sign-Ups",
       difficulty: "Medium",
       difficultyColor: "bg-[#FFF3C4] text-[#FF9800]",
-      description: "Do you have entrepreneurial spirit? Its not just firms — high school students can be profit hungry too.",
+      description:
+        "Do you have entrepreneurial spirit? Its not just firms — high school students can be profit hungry too.",
       link: "/sample-questions/[Sample]-Moderate.pdf",
     },
     {
       title: "The AI Dilemma",
       difficulty: "Hard",
       difficultyColor: "bg-[#FFEBEE] text-[#D32F2F]",
-      description: "AI poses both existential risk and untapped opportunity? How can humanity balance these factors?",
+      description:
+        "AI poses both existential risk and untapped opportunity? How can humanity balance these factors?",
       link: "/sample-questions/[Sample]-Hard.pdf",
     },
   ];
@@ -72,6 +75,7 @@ export default function HomePage() {
 
   return (
     <>
+      {/* Announcement Banner */}
       <div
         className={`
           bg-[#C22224] text-white
@@ -80,7 +84,7 @@ export default function HomePage() {
           ${showAnnouncement ? "opacity-100 max-h-28 py-4" : "opacity-0 max-h-0 py-0"}
         `}
       >
-        <div className="max-w-100% mx-auto px-4 flex items-center justify-between">
+        <div className="max-w-100% mx-auto px-4 flex flex-col items-center justify-between">
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,12 +104,7 @@ export default function HomePage() {
             </svg>
             <p className="text-base sm:text-lg">
               We are actively expanding our team and looking for passionate individuals. If you’re interested in any role(s), please{" "}
-              <a
-                href="https://tally.so/r/3yd5qd"
-                target="_blank"
-                rel="noreferrer"
-                className="underline"
-              >
+              <a href="https://tally.so/r/3yd5qd" target="_blank" rel="noreferrer" className="underline">
                 <b>apply here</b>
               </a>
               !
@@ -138,8 +137,8 @@ export default function HomePage() {
       <section
         className="
           relative
-          py-16 px-4
-          sm:py-20 sm:px-6
+          py-8 px-4
+          sm:py-16 sm:px-6
           lg:py-24 lg:px-32
           text-background
           overflow-hidden
@@ -157,19 +156,18 @@ export default function HomePage() {
               rounded-md
               px-4 py-3
               shadow-sm
-              whitespace-nowrap
               mb-4
             "
           >
-            <p className="font-semibold text-lg leading-tight text-left">
+            <p className="font-semibold text-lg leading-tight text-left ">
               Sat · 26 July 2025 · 09:00 AM — 01:00 PM SGT
             </p>
           </div>
           <h1
             className="
-              text-[5rem]
-              sm:text-[6rem]
-              lg:text-[7rem]
+              text-[3rem]
+              sm:text-[4rem]
+              lg:text-[5rem]
               font-medium
               text-left
               mb-4
@@ -190,11 +188,11 @@ export default function HomePage() {
       </section>
 
       {hasMounted && (
-        <section className="flex flex-col items-center justify-center py-12 px-10 relative">
-          <h2 className="text-6xl sm:text-7xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#7f9fd8] to-[#5073b1]">
+        <section className="flex flex-col items-center justify-center py-8 px-4 sm:py-12 sm:px-10 relative">
+          <h2 className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#7f9fd8] to-[#5073b1]">
             Let’s Roll
           </h2>
-          <div className="mt-10 flex items-center justify-center gap-3 sm:gap-6">
+          <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
             {["Days", "Hours", "Minutes", "Seconds"]
               .map((label, index) => {
                 const value = Object.values(timeLeft)[index] as string;
@@ -209,11 +207,10 @@ export default function HomePage() {
                       key={`colon-${idx}`}
                       className="
                         flex
+                        flex-col
                         items-center
                         justify-center
-                        h-32
-                        text-6xl
-                        sm:text-7xl
+
                         font-light
                         mx-1
                         sm:mx-2
@@ -228,16 +225,16 @@ export default function HomePage() {
                 return [...acc, elem];
               }, [])}
           </div>
-          <p className="text-baseText text-2xl mt-8">Till Registration Ends</p>
-          <p className="text-2xl font-semibold text-baseText">— 4 July 2025 —</p>
+          <p className="text-baseText text-xl sm:text-2xl mt-6 sm:mt-8">Till Registration Ends</p>
+          <p className="text-xl sm:text-2xl font-semibold text-baseText">— 4 July 2025 —</p>
         </section>
       )}
 
       <section
         className="
-          py-16 
+          py-8 
           px-4      
-          sm:py-20 
+          sm:py-16 
           sm:px-8 
           lg:py-24 
           lg:px-12  
@@ -246,15 +243,16 @@ export default function HomePage() {
           mx-auto
         "
       >
-        <div className="flex flex-col gap-24">
-          <div className="flex items-center justify-start">
-            <div className="border-4 border-primary rounded-xl px-8 py-6 inline-flex items-center gap-6">
-              <span className="text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#C0ADFB] to-[#0790FF]">
+        <div className="flex flex-col gap-12 sm:gap-24">
+          {/* Feature 1 */}
+          <div className="flex flex-col sm:flex-row items-center justify-start">
+            <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+              <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#C0ADFB] to-[#0790FF]">
                 1
               </span>
               <div>
-                <h3 className="text-3xl font-bold text-baseText">No Boundaries, No Limits</h3>
-                <p className="text-baseText mt-4 text-xl">
+                <h3 className="text-2xl sm:text-3xl font-bold text-baseText">No Boundaries, No Limits</h3>
+                <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
                   An online contest, accessible from anywhere. Log on from <br />
                   the comfort of your home and put your wits to the test!
                 </p>
@@ -263,40 +261,44 @@ export default function HomePage() {
             <Image
               src="/graphics/problemSolving.png"
               alt="Box 1 illustration"
-              width={420}
-              height={420}
-              className="w-96 h-auto ml-16"
+              width={300}
+              height={300}
+              className="w-full sm:w-96 h-auto mt-6 sm:mt-0 sm:ml-16"
             />
           </div>
-          <div className="flex items-center justify-end">
+
+          {/* Feature 2 */}
+          <div className="flex flex-col sm:flex-row items-center justify-end">
             <Image
               src="/graphics/backpack.png"
               alt="Box 2 illustration"
-              width={320}
-              height={320}
-              className="w-96 h-auto mr-16"
+              width={300}
+              height={300}
+              className="w-full sm:w-96 h-auto mt-6 sm:mt-0 sm:mr-16"
             />
-            <div className="border-4 border-primary rounded-xl px-8 py-6 inline-flex items-center gap-6">
-              <div className="text-right">
-                <h3 className="text-3xl font-bold text-baseText">Calling all Pre-U Students!</h3>
-                <p className="text-baseText mt-4 text-xl">
+            <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-6 sm:mt-0">
+              <div className="text-center sm:text-right">
+                <h3 className="text-2xl sm:text-3xl font-bold text-baseText">Calling all Pre-U Students!</h3>
+                <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
                   Studying in a JC/MI, local polytechnic, ITE, or <br />
                   secondary school? You are eligible to participate!
                 </p>
               </div>
-              <span className="text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#5FA1FE] to-[#3539FF]">
+              <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#5FA1FE] to-[#3539FF]">
                 2
               </span>
             </div>
           </div>
-          <div className="flex items-center justify-start">
-            <div className="border-4 border-primary rounded-xl px-8 py-6 inline-flex items-center gap-6">
-              <span className="text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#AAD8F9] to-[#4E8EE2]">
+
+          {/* Feature 3 */}
+          <div className="flex flex-col sm:flex-row items-center justify-start">
+            <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+              <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#AAD8F9] to-[#4E8EE2]">
                 3
               </span>
               <div>
-                <h3 className="text-3xl font-bold text-baseText">Build Your Dream Team</h3>
-                <p className="text-baseText mt-4 text-xl">
+                <h3 className="text-2xl sm:text-3xl font-bold text-baseText">Build Your Dream Team</h3>
+                <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
                   From classmates to friends in other schools, assemble <br />
                   the team of your choice to win it all!
                 </p>
@@ -306,13 +308,13 @@ export default function HomePage() {
                   rel="noreferrer"
                   className="
                     border-4 border-primary 
-                    mt-6 
+                    mt-4 sm:mt-6 
                     inline-block 
-                    px-8 
+                    px-6 sm:px-8 
                     py-2 
                     bg-[#ffffff] 
                     text-secondary 
-                    text-xl 
+                    text-lg 
                     font-medium 
                     rounded-lg 
                     hover:bg-[#eaf2fb] 
@@ -329,14 +331,13 @@ export default function HomePage() {
             <Image
               src="/graphics/teamUp.png"
               alt="Box 3 illustration"
-              width={384}
-              height={384}
-              className="w-96 h-auto ml-16"
+              width={300}
+              height={300}
+              className="w-full sm:w-96 h-auto mt-6 sm:mt-0 sm:ml-16"
             />
           </div>
         </div>
       </section>
-
 
       {isModalOpen && (
         <div
@@ -373,7 +374,7 @@ export default function HomePage() {
             <iframe
               data-tally-src="https://tally.so/r/3NRLlG?transparentBackground=1"
               width="100%"
-              height="700px"
+              height="500px"
               title="SG Econs League: Registration"
               className="rounded-lg"
             ></iframe>
@@ -382,8 +383,8 @@ export default function HomePage() {
       )}
 
       <section className="relative w-full flex items-center justify-center">
-        <div className=" w-full relative z-10 max-w-screen-xl w-full px-6 lg:px-12">
-          <h2 className="text-6xl font-bold slab text-baseText text-center mb-6">
+        <div className="w-full relative z-10 max-w-screen-xl w-full px-4 sm:px-6 lg:px-12">
+          <h2 className="text-4xl sm:text-6xl font-bold slab text-baseText text-center mb-6">
             Important{" "}
             <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
               Dates
