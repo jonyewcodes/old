@@ -4,14 +4,12 @@ import { useState, useEffect } from "react";
 
 // Keep `sectionIds` outside the component to prevent unnecessary re-renders
 const sectionIds = [
-  "Brief Rules",
+  "Rules",
   "Registration",
   "Competition Platform",
-  "Contest Format and Scoring",
+  "Question Types",
+  "Points and Scoring",
   "Awards and Rankings",
-  "Conduct of the Contest",
-  "Participants' Code of Conduct",
-  "Terms and Conditions",
 ];
 
 interface SubHeadingProps {
@@ -837,16 +835,15 @@ function SideBar({ selected }: { selected?: string }) {
   const handleScroll = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const offset = 80; // Adjust for navbar height
       window.scrollTo({
-        top: el.getBoundingClientRect().top + window.scrollY - offset,
+        top: el.offsetTop - 20,
         behavior: "smooth",
       });
     }
   };
 
   return (
-    <aside className="hidden lg:block top-24 self-start h-fit w-120">
+    <aside className="hidden lg:block top-24 self-start h-fit w-64">
       <div className="flex flex-col gap-2 border-b-2 lg:border-b-0 border-[#D0D0D0] px-2 py-4 lg:py-8">
         {sectionIds.map((id) => {
           const isActive = selected === id;
@@ -854,7 +851,8 @@ function SideBar({ selected }: { selected?: string }) {
             <button
               key={id}
               onClick={() => handleScroll(id)}
-              className={`block w-full text-left px-3 py-2 rounded transition-colors
+              className={`
+                block w-full text-left px-3 py-2 rounded transition-colors
                 ${
                   isActive
                     ? "bg-secondary rounded-xl border-2 border-[#272a30] text-white font-semibold"
@@ -894,9 +892,8 @@ function MobileContents() {
     setIsOpen(false);
     const el = document.getElementById(id);
     if (el) {
-      const offset = 80; // Adjust for fixed navbar height
       window.scrollTo({
-        top: el.getBoundingClientRect().top + window.scrollY - offset,
+        top: el.offsetTop - 20,
         behavior: "smooth",
       });
     }
@@ -1014,10 +1011,12 @@ export default function RulesPage() {
         }
       `}</style>
 
-      {/* Page Title */}
-      <div className="flex justify-center pt-8 pb-6">
-        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-7xl mx-6 slab">
-          Rules
+      {/* Gradient Header */}
+      <div className="bg-gradient-to-b from-[#f3f8fc] to-[#fafcff] h-[80px] sm:h-[100px] md:h-[120px] flex items-center justify-center">
+        <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-left font-serif">
+            Rules
+          </h1>
         </div>
       </div>
 
@@ -1034,7 +1033,10 @@ export default function RulesPage() {
           </div>
 
           {/* Main Content (Expands Fully) */}
-          <div id="main-content" className="w-full  lg:pl-8">
+          <div
+            id="main-content"
+            className="w-full lg:border-l-2 lg:border-[#D0D0D0] lg:pl-8"
+          >
             <BriefRules />
             <Registration />
             <CompetitionPlatform />

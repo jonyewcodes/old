@@ -1,8 +1,6 @@
 "use client";
+import React, { useEffect, useState } from "react";
 
-import { useState, useEffect } from "react";
-
-// Keep `sectionIds` outside the component to prevent unnecessary re-renders
 const sectionIds = [
   "Brief Rules",
   "Registration",
@@ -18,46 +16,31 @@ interface SubHeadingProps {
   children: string;
   className?: string;
 }
+
 function SubHeading({ children, className }: SubHeadingProps) {
   return (
-    <h2 className={`${className} text-xl text-[#3D9796] font-bold`}>
+    <h2 className={`${className} text-xl text-primary font-bold mb-6`}>
       {children}
     </h2>
   );
 }
+
 function SubHeading2({ children, className }: SubHeadingProps) {
   return <h3 className={`${className} text-lg font-bold`}>{children}</h3>;
 }
 
-// Unordered List Component
-function UnorderedList({
-  items,
-}: {
-  items: (string | (string | string[])[])[];
-}) {
-  const renderList = (items: (string | (string | string[])[])[]) => {
-    return (
-      <ul className="list-disc ml-4">
-        {items.map((item, index) => {
-          if (Array.isArray(item)) {
-            return (
-              <li key={index} className="ml-4">
-                {typeof item[0] === "string" && item[0]}
-                {Array.isArray(item.slice(1)) && renderList(item.slice(1))}
-              </li>
-            );
-          } else {
-            return (
-              <li key={index} className="ml-4">
-                {item}
-              </li>
-            );
-          }
-        })}
-      </ul>
-    );
-  };
-  return renderList(items);
+function UnorderedList({ items }: { items: string[] }) {
+  return (
+    <ul className="list-disc ml-4">
+      {items.map((item, index) => (
+        <li
+          key={index}
+          className="ml-4"
+          dangerouslySetInnerHTML={{ __html: item }}
+        />
+      ))}
+    </ul>
+  );
 }
 
 function BriefRules() {
@@ -837,24 +820,24 @@ function SideBar({ selected }: { selected?: string }) {
   const handleScroll = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const offset = 80; // Adjust for navbar height
       window.scrollTo({
-        top: el.getBoundingClientRect().top + window.scrollY - offset,
+        top: el.offsetTop - 20,
         behavior: "smooth",
       });
     }
   };
 
   return (
-    <aside className="hidden lg:block top-24 self-start h-fit w-120">
-      <div className="flex flex-col gap-2 border-b-2 lg:border-b-0 border-[#D0D0D0] px-2 py-4 lg:py-8">
+    <div className="sticky hidden lg:block top-24 self-start h-fit w-64">
+      <div className="sticky flex flex-col gap-2 border-b-2 lg:border-b-0 border-[#D0D0D0] px-2 py-4 lg:py-8">
         {sectionIds.map((id) => {
           const isActive = selected === id;
           return (
             <button
               key={id}
               onClick={() => handleScroll(id)}
-              className={`block w-full text-left px-3 py-2 rounded transition-colors
+              className={`
+                block w-full text-left px-3 py-2 rounded transition-colors
                 ${
                   isActive
                     ? "bg-secondary rounded-xl border-2 border-[#272a30] text-white font-semibold"
@@ -867,7 +850,7 @@ function SideBar({ selected }: { selected?: string }) {
           );
         })}
       </div>
-    </aside>
+    </div>
   );
 }
 
@@ -894,9 +877,8 @@ function MobileContents() {
     setIsOpen(false);
     const el = document.getElementById(id);
     if (el) {
-      const offset = 80; // Adjust for fixed navbar height
       window.scrollTo({
-        top: el.getBoundingClientRect().top + window.scrollY - offset,
+        top: el.offsetTop - 20,
         behavior: "smooth",
       });
     }
@@ -976,73 +958,67 @@ function MobileContents() {
 }
 
 export default function RulesPage() {
-  const [selected, setSelected] = useState("rules");
+  const [selected, setSelected] = useState("");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
+        let topRatio = 0;
+        let topId = "";
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setSelected(entry.target.id);
+          if (entry.isIntersecting && entry.intersectionRatio > topRatio) {
+            topRatio = entry.intersectionRatio;
+            topId = entry.target.id;
           }
         });
+        if (topId) {
+          setSelected(topId);
+        }
       },
-      { threshold: 0.3 }
+      {
+        threshold: 0.4,
+      }
     );
 
     sectionIds.forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
     });
 
     return () => {
       sectionIds.forEach((id) => {
-        const section = document.getElementById(id);
-        if (section) observer.unobserve(section);
+        const el = document.getElementById(id);
+        if (el) observer.unobserve(el);
       });
     };
   }, []);
 
   return (
     <>
-      {/* Prevent global horizontal scrolling */}
-      <style jsx global>{`
-        html,
-        body {
-          height: 100vh;
-          overflow-x: hidden;
-        }
-      `}</style>
-
       {/* Page Title */}
       <div className="flex justify-center pt-8 pb-6">
         <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-7xl mx-6 slab">
           Rules
         </div>
       </div>
-
       <MobileContents />
-
-      {/* Main Layout */}
-      <div className="flex justify-center mb-10">
-        <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row">
-          {/* Sidebar Navigation (Sticky & No X-Overflow) */}
-          <div className="hidden lg:block lg:w-64 lg:pr-4">
-            <div className="sticky top-6 h-[calc(100vh-160px)] overflow-y-auto overflow-x-hidden">
-              <SideBar selected={selected} />
+      <div className="flex justify-center mt-16">
+        <div className="max-w-screen-xl w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row min-h-screen overflow-y-auto">
+          <SideBar selected={selected} />
+          <div className="w-full lg:pl-8 flex-1">
+            <div className="max-w-3xl text-lg">
+              <BriefRules />
+              <Registration />
+              <CompetitionPlatform />
+              <ContestFormatAndScoring />
+              <AwardsAndRankings />
+              <ConductOfTheContest />
+              <ParticipantsCodeofConduct />
+              <TermsAndConditions />
+              <p className="text-base text-gray-500 mt-8">
+                Last modified: 1 March 2025.
+              </p>
             </div>
-          </div>
-
-          {/* Main Content (Expands Fully) */}
-          <div id="main-content" className="w-full  lg:pl-8">
-            <BriefRules />
-            <Registration />
-            <CompetitionPlatform />
-            <ContestFormatAndScoring />
-            <AwardsAndRankings />
-            <ConductOfTheContest />
-            <ParticipantsCodeofConduct />
-            <TermsAndConditions />
           </div>
         </div>
       </div>
