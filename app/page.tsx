@@ -84,7 +84,7 @@ export default function HomePage() {
           ${showAnnouncement ? "opacity-100 max-h-28 py-4" : "opacity-0 max-h-0 py-0"}
         `}
       >
-        <div className="max-w-100% mx-auto px-4 flex flex-col items-center justify-between">
+        <div className="max-w-100% mx-auto px-4 flex justify-between">
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -192,11 +192,11 @@ export default function HomePage() {
           <h2 className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#7f9fd8] to-[#5073b1]">
             Let’s Roll
           </h2>
-          <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+          <div className="mt-6 sm:mt-10 flex sm:flex-row items-center justify-center gap-0 sm:gap-6">
             {["Days", "Hours", "Minutes", "Seconds"]
               .map((label, index) => {
                 const value = Object.values(timeLeft)[index] as string;
-                return <CountDown key={label} label={label} value={value} />;
+                return <CountDown key={label} label={label} value={value}  />;
               })
               .reduce<JSX.Element[]>((acc, elem, idx, arr) => {
                 if (idx < arr.length - 1) {
