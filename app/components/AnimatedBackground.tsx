@@ -15,13 +15,12 @@ export default function AnimatedBackground() {
           animation: scroll-bg 80s linear infinite;
           animation-timing-function: linear;
         }
-
         @keyframes scroll-bg {
           0% {
-            transform: translateX(-100px);
+            transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-50% - 100px));
+            transform: translateX(-50%);
           }
         }
       `}</style>
