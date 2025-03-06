@@ -49,7 +49,7 @@ export default function HomePage() {
       difficulty: "Hard",
       difficultyColor: "bg-[#FFEBEE] text-[#D32F2F]",
       description:
-        "AI poses both existential risk and untapped opportunity? How can humanity balance these factors?",
+        "AI poses both existential risk and untapped opportunity. How can humanity balance these factors?",
       link: "/sample-questions/[Sample]-Hard.pdf",
     },
   ];
@@ -85,7 +85,7 @@ export default function HomePage() {
         `}
       >
         <div className="max-w-100% mx-auto px-4 flex justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -95,7 +95,7 @@ export default function HomePage() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="icon icon-tabler icons-tabler-outline icon-tabler-speakerphone"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-speakerphone mr-4"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M18 8a3 3 0 0 1 0 6" />
@@ -103,8 +103,14 @@ export default function HomePage() {
               <path d="M12 8h0l4.524 -3.77a.9 .9 0 0 1 1.476 .692v12.156a.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8" />
             </svg>
             <p className="text-base sm:text-lg">
-              We are actively expanding our team and looking for passionate individuals. If you’re interested in any role(s), please{" "}
-              <a href="https://tally.so/r/3yd5qd" target="_blank" rel="noreferrer" className="underline">
+              We are actively expanding our team and looking for passionate
+              individuals. If you’re interested in any role(s), please{" "}
+              <a
+                href="https://tally.so/r/3yd5qd"
+                target="_blank"
+                rel="noreferrer"
+                className="underline"
+              >
                 <b>apply here</b>
               </a>
               !
@@ -133,7 +139,6 @@ export default function HomePage() {
           </button>
         </div>
       </div>
-
       <section
         className="
           relative
@@ -144,7 +149,7 @@ export default function HomePage() {
           overflow-hidden
         "
       >
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 bg-backdrop">
           <AnimatedBackground />
         </div>
         <div className="relative z-10 w-full max-w-screen-xl mx-auto flex flex-col items-start">
@@ -244,16 +249,40 @@ export default function HomePage() {
         "
       >
         <div className="flex flex-col gap-12 sm:gap-24">
-          {/* Feature 1 */}
           <div className="flex flex-col sm:flex-row items-center justify-start">
-            <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 block sm:hidden">
+              <Image
+                src="/graphics/problemSolving.png"
+                alt="Box 1 illustration"
+                width={300}
+                height={300}
+                className="mx-auto mb-4"
+              />
+              <div className="flex flex-row items-start gap-4">
+                <span className="text-[8rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#C0ADFB] to-[#0790FF]">
+                  1
+                </span>
+                <div>
+                  <h3 className="text-2xl font-bold text-baseText">
+                    No Boundaries, No Limits
+                  </h3>
+                  <p className="text-baseText mt-2 text-lg">
+                    An online contest, accessible from anywhere. Log on from
+                    the comfort of your home and put your wits to the test!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 hidden sm:flex">
               <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#C0ADFB] to-[#0790FF]">
                 1
               </span>
               <div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-baseText">No Boundaries, No Limits</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-baseText">
+                  No Boundaries, No Limits
+                </h3>
                 <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
-                  An online contest, accessible from anywhere. Log on from <br />
+                  An online contest, accessible from anywhere. Log on from
                   the comfort of your home and put your wits to the test!
                 </p>
               </div>
@@ -263,78 +292,148 @@ export default function HomePage() {
               alt="Box 1 illustration"
               width={300}
               height={300}
-              className="w-full sm:w-96 h-auto mt-6 sm:mt-0 sm:ml-16"
+              className="hidden sm:block w-full sm:w-96 h-auto mt-6 sm:mt-0 sm:ml-16"
             />
           </div>
-
-          {/* Feature 2 */}
-          <div className="flex flex-col sm:flex-row items-center justify-end">
-            <Image
-              src="/graphics/backpack.png"
-              alt="Box 2 illustration"
-              width={300}
-              height={300}
-              className="w-full sm:w-96 h-auto mt-6 sm:mt-0 sm:mr-16"
-            />
-            <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-6 sm:mt-0">
-              <div className="text-center sm:text-right">
-                <h3 className="text-2xl sm:text-3xl font-bold text-baseText">Calling all Pre-U Students!</h3>
-                <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
-                  Studying in a JC/MI, local polytechnic, ITE, or <br />
-                  secondary school? You are eligible to participate!
-                </p>
+          <div>
+            <div className="block sm:hidden border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6">
+              <Image
+                src="/graphics/backpack.png"
+                alt="Box 2 illustration"
+                width={300}
+                height={300}
+                className="mx-auto mb-4"
+              />
+              <div className="flex items-start gap-4">
+                <span className="text-[8rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#5FA1FE] to-[#3539FF]">
+                  2
+                </span>
+                <div>
+                  <h3 className="text-2xl font-bold text-baseText">Calling all Pre-U Students!</h3>
+                  <p className="text-baseText mt-2 text-lg">
+                    Studying in a JC/MI, local polytechnic, ITE, or
+                    <br />
+                    secondary school? You are eligible to participate!
+                  </p>
+                </div>
               </div>
-              <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#5FA1FE] to-[#3539FF]">
-                2
-              </span>
+            </div>
+            <div className="hidden sm:flex flex-col sm:flex-row items-center justify-end">
+              <Image
+                src="/graphics/backpack.png"
+                alt="Box 2 illustration"
+                width={300}
+                height={300}
+                className="w-full sm:w-96 h-auto mt-6 sm:mt-0 sm:mr-16"
+              />
+              <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-6 sm:mt-0">
+                <div className="text-center sm:text-right">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-baseText">Calling all Pre-U Students!</h3>
+                  <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
+                    Studying in a JC/MI, local polytechnic, ITE, or
+                    <br />
+                    secondary school? You are eligible to participate!
+                  </p>
+                </div>
+                <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#5FA1FE] to-[#3539FF]">
+                  2
+                </span>
+              </div>
             </div>
           </div>
-
-          {/* Feature 3 */}
-          <div className="flex flex-col sm:flex-row items-center justify-start">
-            <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-              <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#AAD8F9] to-[#4E8EE2]">
-                3
-              </span>
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-baseText">Build Your Dream Team</h3>
-                <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
-                  From classmates to friends in other schools, assemble <br />
-                  the team of your choice to win it all!
-                </p>
-                <a
-                  href="https://tally.so/r/3NRLlG"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="
-                    border-4 border-primary 
-                    mt-4 sm:mt-6 
-                    inline-block 
-                    px-6 sm:px-8 
-                    py-2 
-                    bg-[#ffffff] 
-                    text-secondary 
-                    text-lg 
-                    font-medium 
-                    rounded-lg 
-                    hover:bg-[#eaf2fb] 
-                    transition-transform 
-                    duration-200 
-                    ease-in-out 
-                    hover:scale-105
-                  "
-                >
-                  Register Now!
-                </a>
+          <div>
+            <div className="block sm:hidden border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6">
+              <Image
+                src="/graphics/teamUp.png"
+                alt="Box 3 illustration"
+                width={300}
+                height={300}
+                className="mx-auto mb-4"
+              />
+              <div className="flex items-start gap-4">
+                <span className="text-[8rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#AAD8F9] to-[#4E8EE2]">
+                  3
+                </span>
+                <div>
+                  <h3 className="text-2xl font-bold text-baseText">Build Your Dream Team</h3>
+                  <p className="text-baseText mt-2 text-lg">
+                    From classmates to friends in other schools, assemble
+                    <br />
+                    the team of your choice to win it all!
+                  </p>
+                  <a
+                    href="https://tally.so/r/3NRLlG"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="
+                      border-4 border-primary 
+                      mt-4
+                      inline-block 
+                      px-6
+                      py-2 
+                      bg-[#ffffff] 
+                      text-secondary 
+                      text-lg 
+                      font-medium 
+                      rounded-lg 
+                      hover:bg-[#eaf2fb] 
+                      transition-transform 
+                      duration-200 
+                      ease-in-out 
+                      hover:scale-105
+                    "
+                  >
+                    Register Now!
+                  </a>
+                </div>
               </div>
             </div>
-            <Image
-              src="/graphics/teamUp.png"
-              alt="Box 3 illustration"
-              width={300}
-              height={300}
-              className="w-full sm:w-96 h-auto mt-6 sm:mt-0 sm:ml-16"
-            />
+            <div className="hidden sm:flex flex-col sm:flex-row items-center justify-start">
+              <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#AAD8F9] to-[#4E8EE2]">
+                  3
+                </span>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-baseText">Build Your Dream Team</h3>
+                  <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
+                    From classmates to friends in other schools, assemble
+                    <br />
+                    the team of your choice to win it all!
+                  </p>
+                  <a
+                    href="https://tally.so/r/3NRLlG"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="
+                      border-4 border-primary 
+                      mt-4 sm:mt-6 
+                      inline-block 
+                      px-6 sm:px-8 
+                      py-2 
+                      bg-[#ffffff] 
+                      text-secondary 
+                      text-lg 
+                      font-medium 
+                      rounded-lg 
+                      hover:bg-[#eaf2fb] 
+                      transition-transform 
+                      duration-200 
+                      ease-in-out 
+                      hover:scale-105
+                    "
+                  >
+                    Register Now!
+                  </a>
+                </div>
+              </div>
+              <Image
+                src="/graphics/teamUp.png"
+                alt="Box 3 illustration"
+                width={300}
+                height={300}
+                className="w-full sm:w-96 h-auto mt-6 sm:mt-0 sm:ml-16"
+              />
+            </div>
           </div>
         </div>
       </section>

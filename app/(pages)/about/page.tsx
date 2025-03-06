@@ -30,7 +30,7 @@ const teamMembers = [
   {
     name: "Zhao Yuxuan",
     roles: ["Academics Consultant", "Problem Setter"],
-    link: "#",
+    link: "https://www.linkedin.com/in/yuxuan-zhao-a44789338",
   },
   {
     name: "Jonas Lim",
@@ -304,7 +304,7 @@ export default function AboutPage() {
         </div>
         <div className="border-b border-divider mt-8 w-full max-w-[1400px] mx-auto" />
       </section>
-      <p className="text-center text-baseText max-w-3xl mx-auto text-lg">
+      <p className="text-center text-baseText mx-auto text-lg max-w-sm md:max-w-4xl">
         SEL was originally inspired by (but is not directly associated with) the{" "}
         <a
           href="https://singaporephysicsleague.com"
@@ -323,7 +323,7 @@ export default function AboutPage() {
         >
           Singapore Chemistry League (SChL)
         </a>
-        , and{" "}
+        ,{" "}
         <a
           href="https://singaporebiologyleague.com"
           className="underline text-secondary font-bold"
@@ -332,9 +332,29 @@ export default function AboutPage() {
         >
           Singapore Biology League (SBL)
         </a>
-        .<br />
-        If you enjoy SEL, you would probably enjoy the other leagues too, so do
-        check them out!
+        ,{" "}
+        <a
+          href="https://ieo-official.org/"
+          className="underline text-secondary font-bold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          International Economics Olympiad (IEO)
+        </a>
+        , and{" "}
+        <a
+          href="https://physicsbrawl.org/"
+          className="underline text-secondary font-bold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          PhysicsBrawl
+        </a>
+        .
+      </p>
+      <p className="text-center text-baseText mx-auto text-lg max-w-sm md:max-w-4xl mt-4">
+        If you enjoy SEL, you would probably enjoy the other leagues and competitions
+        too, so do check them out!
       </p>
     </main>
   );

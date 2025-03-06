@@ -1,10 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-//hi guys can we please have some comments in the code i'm starting to strugle figuring out what is where 
-
-
-// Keep `sectionIds` outside the component to prevent unnecessary re-renders
 const sectionIds = [
   "Brief Rules",
   "Registration",
@@ -22,7 +18,7 @@ interface SubHeadingProps {
 }
 function SubHeading({ children, className }: SubHeadingProps) {
   return (
-    <h2 className={`${className} text-xl text-[#3D9796] font-bold`}>
+    <h2 className={`${className} text-xl text-primary font-bold`}>
       {children}
     </h2>
   );
@@ -31,7 +27,6 @@ function SubHeading2({ children, className }: SubHeadingProps) {
   return <h3 className={`${className} text-lg font-bold`}>{children}</h3>;
 }
 
-// Unordered List Component
 function UnorderedList({
   items,
 }: {
@@ -61,7 +56,7 @@ function UnorderedList({
   };
 
   const renderStringWithBold = (str: string) => {
-    const parts = str.split(/(<b>.*?<\/b>)/g); // Split by <b> tags
+    const parts = str.split(/(<b>.*?<\/b>)/g);
 
     return parts.map((part, index) => {
       if (part.match(/<b>.*<\/b>/)) {
@@ -69,7 +64,7 @@ function UnorderedList({
           <b key={index} dangerouslySetInnerHTML={{ __html: part }} />
         );
       } else {
-        return part; // Return text as it is
+        return part; 
       }
     });
   };
@@ -117,7 +112,7 @@ function BriefRules() {
 function Registration() {
   return (
     <section className="mt-12" id="Registration">
-      <SubHeading className="slab">Registration</SubHeading>
+      <SubHeading className="slab mb-4">Registration</SubHeading>
       <UnorderedList
         items={[
           "Participants must register in the competition in order to participate.",
@@ -136,7 +131,7 @@ function Registration() {
 function CompetitionPlatform() {
   return (
     <section className="mt-12" id="Competition Platform">
-      <SubHeading>Competition Platform</SubHeading>
+      <SubHeading className="slab mb-4">Competition Platform</SubHeading>
       <UnorderedList
         items={[
           "Teams participate through SEL's own online competition platform",
@@ -152,7 +147,7 @@ function CompetitionPlatform() {
 function ContestFormatAndScoring() {
   return (
     <section id="Contest Format and Scoring" className="mt-12">
-      <SubHeading>Contest Format and Scoring</SubHeading>
+      <SubHeading className="slab">Contest Format and Scoring</SubHeading>
       <p className="mt-4">
         The contest includes a variety of question formats to test your
         versatility. Below is an overview of the different question formats you
@@ -519,7 +514,7 @@ function ContestFormatAndScoring() {
 function AwardsAndRankings() {
   return (
     <section className="mt-12" id="Awards and Rankings">
-      <SubHeading>Awards and Rankings</SubHeading>
+      <SubHeading className="slab">Awards and Rankings</SubHeading>
       <p className="mt-4">
         The school category and open category have separate leaderboards and
         rankings.
@@ -602,7 +597,7 @@ function AwardsAndRankings() {
 function ConductOfTheContest() {
   return (
     <section className="mt-12" id="Conduct of the Contest">
-      <SubHeading>Conduct of the Contest</SubHeading>
+      <SubHeading className="slab">Conduct of the Contest</SubHeading>
       <p className="mt-4">
         Participants may sign into the official <b>SEL Platform</b> at{" "}
         <b>08:40</b> on the day of the contest. The contest will begin promptly
@@ -652,7 +647,7 @@ function ConductOfTheContest() {
 function ParticipantsCodeofConduct() {
   return (
     <section className="mt-12" id="Participants' Code of Conduct">
-      <SubHeading>Participants&apos; Code of Conduct</SubHeading>
+      <SubHeading className="slab">Participants&apos; Code of Conduct</SubHeading>
       <p className="mt-4">
         This Code of Conduct outlines the rules and expectations that all
         participants must follow during the competition.
@@ -756,7 +751,7 @@ function ParticipantsCodeofConduct() {
 function TermsAndConditions() {
   return (
     <section className="mt-12" id="Terms and Conditions">
-      <SubHeading>Terms and Conditions</SubHeading>
+      <SubHeading className="slab">Terms and Conditions</SubHeading>
       <p className="mt-4">
         These Terms and Conditions govern your use of this website and
         participation in the Singapore Economics League.
@@ -851,7 +846,6 @@ function TermsAndConditions() {
 }
 
 function SideBar({ selected }: { selected?: string }) {
-  //function to scroll to the selected element
   const handleScroll = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -859,7 +853,7 @@ function SideBar({ selected }: { selected?: string }) {
   
       el.scrollIntoView({ behavior: "smooth", block: "start" });  
       setTimeout(() => {
-        window.scrollBy({ top: -offset, behavior: "smooth" });   //offset scroll by a variable amount 
+        window.scrollBy({ top: -offset, behavior: "smooth" }); 
       }, 100);
     }
   };
@@ -914,7 +908,7 @@ function MobileContents() {
     setIsOpen(false);
     const el = document.getElementById(id);
     if (el) {
-      const offset = 80; // Adjust for fixed navbar height
+      const offset = 80;
       window.scrollTo({
         top: el.getBoundingClientRect().top + window.scrollY - offset,
         behavior: "smooth",
@@ -982,7 +976,7 @@ function MobileContents() {
               <li key={id}>
                 <button
                   onClick={() => handleScrollTo(id)}
-                  className="text-primary font-semibold text-left w-full"
+                  className="text-primary font-semibold text-left w-full slab"
                 >
                   {id}
                 </button>
@@ -1014,7 +1008,7 @@ export default function RulesPage() {
         }
       },
       {
-        threshold: 0.2, //update sidebar selection if 20% of selection is visible. Needs a better solution IMO 
+        threshold: 0.2,
       }
     );
 
@@ -1033,7 +1027,6 @@ export default function RulesPage() {
 
   return (
     <>
-      {/* Prevent global horizontal scrolling */}
       <style jsx global>{`
         html,
         body {
@@ -1042,27 +1035,21 @@ export default function RulesPage() {
         }
       `}</style>
 
-      {/* Page Title */}
       <div className="flex justify-center pt-8 pb-6">
-        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-7xl mx-6 slab">
+        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-screen-xl mx-6 slab">
           Rules
         </div>
       </div>
-
       <MobileContents />
-
-      {/* Main Layout */}
       <div className="flex justify-center mb-10">
-        <div className="max-w-[1400px] w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row">
-          {/* Sidebar Navigation (Sticky & No X-Overflow) */}
-          <div className="hidden lg:block lg:w-64 lg:pr-4">
-            <div className="sticky top-6 h-[calc(100vh-160px)] overflow-y-auto overflow-x-hidden">
+        <div className="max-w-screen-xl w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row">
+          <div className="hidden lg:block lg:w-96 lg:pr-4">
+            <div className="sticky top-6 h-[calc(100vh-160px)] overflow-y-auto overflow-x-hidden mt-10">
               <SideBar selected={selected} />
             </div>
           </div>
 
-          {/* Main Content (Expands Fully) */}
-          <div id="main-content" className="w-full  lg:pl-8">
+          <div id="main-content" className="w-full lg:pl-16 mt-16">
             <BriefRules />
             <Registration />
             <CompetitionPlatform />

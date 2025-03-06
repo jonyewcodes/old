@@ -3,9 +3,12 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="relative bg-footer text-lg text-gray-400 mt-12">
+      {/* Decorative top bar */}
       <div className="absolute top-0 left-0 w-full h-2 pointer-events-none" />
-      <div className="relative max-w-screen-lg mx-auto px-4 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4 sm:mb-0">
+
+      {/* Top row: email, social links, privacy */}
+      <div className="max-w-screen-xl w-full mx-auto px-6 sm:px-12 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4 sm:mb-0 mt-2">
           <Link
             href="mailto:contact@sgeconsleague.org"
             className="group flex items-center gap-1 hover:text-white transition"
@@ -24,6 +27,7 @@ export default function Footer() {
             </svg>
             <span>contact@sgeconsleague.org</span>
           </Link>
+
           <Link
             href="https://www.instagram.com/sgeconsleague/"
             target="_blank"
@@ -43,6 +47,7 @@ export default function Footer() {
             </svg>
             <span>@sgeconsleague</span>
           </Link>
+
           <Link
             href="https://www.linkedin.com/company/singapore-economics-league"
             target="_blank"
@@ -57,19 +62,28 @@ export default function Footer() {
               fill="currentColor"
               className="icon icon-tabler icons-tabler-filled icon-tabler-brand-linkedin w-4 h-4"
             >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M17 2a5 5 0 0 1 5 5v10a5 5 0 0 1 -5 5h-10a5 5 0 0 1 -5 -5v-10a5 5 0 0 1 5 -5zm-9 8a1 1 0 0 0 -1 1v5a1 1 0 0 0 2 0v-5a1 1 0 0 0 -1 -1m6 0a3 3 0 0 0 -1.168 .236l-.125 .057a1 1 0 0 0 -1.707 .707v5a1 1 0 0 0 2 0v-3a1 1 0 0 1 2 0v3a1 1 0 0 0 2 0v-3a3 3 0 0 0 -3 -3m-6 -3a1 1 0 0 0 -.993 .883l-.007 .127a1 1 0 0 0 1.993 .117l.007 -.127a1 1 0 0 0 -1 -1" />
             </svg>
             <span>LinkedIn</span>
           </Link>
         </div>
+
         <Link href="/privacy" className="group hover:text-white transition">
           Privacy Policy
         </Link>
       </div>
-      <hr className="mx-4 sm:mx-auto max-w-screen-lg border-t border-white  " />
-      <div className="text-center sm:text-left py-4 text-sm text-white pb-8">
-        © 2025 Singapore Economics League
+
+      {/* Divider in the same container width */}
+      <div className="max-w-screen-xl w-full mx-auto px-6 sm:px-12">
+        <hr className="border-t border-white" />
+      </div>
+
+      {/* Bottom row: copyright */}
+      <div className="max-w-screen-xl w-full mx-auto px-6 sm:px-12">
+        <div className="py-4 pb-8 text-base text-left text-white lg:text-lg lg:text-center">
+          © 2025 Singapore Economics League
+        </div>
       </div>
     </footer>
   );
