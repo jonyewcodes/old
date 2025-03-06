@@ -150,12 +150,12 @@ export default function HomePage() {
                         flex-col
                         items-center
                         justify-center
-
                         font-light
                         mx-1
                         sm:mx-2
                         text-baseText
                         leading-none
+                        text-5xl sm:text-6xl
                       "
                     >
                       :
