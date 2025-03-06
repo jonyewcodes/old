@@ -43,7 +43,9 @@ export default function RootLayout({
           ${robotoSerif.variable}
           ${robotoSlab.variable}
           antialiased
+          mt-[4rem] md:mt-[5rem]
         `}
+        // Margin added to account for the extra space the navbar takes up. It's not exactly 4rem or 5rem but just an estimate.
       >
         <Navbar />
         {children}
