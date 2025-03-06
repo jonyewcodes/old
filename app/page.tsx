@@ -129,7 +129,7 @@ export default function HomePage() {
 
       {hasMounted && (
         <section className="flex flex-col items-center justify-center py-8 px-4 sm:py-12 sm:px-10 relative">
-          <h2 className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#7f9fd8] to-[#5073b1]">
+          <h2 className="text-6xl sm:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#7f9fd8] to-[#5073b1]">
             Let’s Roll
           </h2>
           <div className="mt-6 sm:mt-10 flex sm:flex-row items-center justify-center gap-0 sm:gap-6">
