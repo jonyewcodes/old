@@ -3,12 +3,11 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="relative bg-footer text-lg text-gray-400 mt-12">
-      {/* Decorative top bar */}
       <div className="absolute top-0 left-0 w-full h-2 pointer-events-none" />
 
-      {/* Top row: email, social links, privacy */}
       <div className="max-w-screen-xl w-full mx-auto px-6 sm:px-12 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4 sm:mb-0 mt-2">
+        {/* Apply mt-2 on mobile, remove on desktop */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4 sm:mb-0 mt-2 sm:mt-0">
           <Link
             href="mailto:contact@sgeconsleague.org"
             className="group flex items-center gap-1 hover:text-white transition"
@@ -74,12 +73,10 @@ export default function Footer() {
         </Link>
       </div>
 
-      {/* Divider in the same container width */}
       <div className="max-w-screen-xl w-full mx-auto px-6 sm:px-12">
         <hr className="border-t border-white" />
       </div>
 
-      {/* Bottom row: copyright */}
       <div className="max-w-screen-xl w-full mx-auto px-6 sm:px-12">
         <div className="py-4 pb-8 text-base text-left text-white lg:text-lg lg:text-center">
           © 2025 Singapore Economics League

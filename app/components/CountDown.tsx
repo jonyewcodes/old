@@ -20,7 +20,7 @@ export default function CountDown({ label, value }: CountDownProps) {
       <div
         className="
           relative
-          w-16 h-24 sm:w-36 sm:h-48
+          w-20 h-28 sm:w-36 sm:h-48
           flex items-center justify-center
           bg-[#272a30]
           rounded-md
@@ -33,14 +33,14 @@ export default function CountDown({ label, value }: CountDownProps) {
           absolute
           top-1/2 left-0
           w-full h-px
-          bg-[#fefefb]
+          bg-background
           -translate-y-1/2
           pointer-events-none
         "
         />
         {currentValue}
       </div>
-      <span className="mt-2 text-xs sm:text-base font-medium uppercase tracking-widest text-[#43291F]">
+      <span className="mt-2 text-xs sm:text-base font-medium uppercase tracking-widest text-baseText">
         {label}
       </span>
     </div>
