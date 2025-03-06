@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import AnimatedBackground from "./components/AnimatedBackground";
+import Animation from "./components/AnimatedBackground";
 import Timeline from "./components/Timeline";
 import CountDown from "./components/CountDown";
 
@@ -25,7 +25,6 @@ export default function HomePage() {
   const [isModalOpen, setModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
-  const [showAnnouncement, setShowAnnouncement] = useState(true);
 
   const sampleQuestions = [
     {
@@ -75,70 +74,6 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Announcement Banner */}
-      <div
-        className={`
-          bg-[#C22224] text-white
-          overflow-hidden
-          transition-all duration-500 ease-in-out
-          ${showAnnouncement ? "opacity-100 max-h-28 py-4" : "opacity-0 max-h-0 py-0"}
-        `}
-      >
-        <div className="max-w-100% mx-auto px-4 flex justify-between">
-          <div className="flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="icon icon-tabler icons-tabler-outline icon-tabler-speakerphone mr-4"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M18 8a3 3 0 0 1 0 6" />
-              <path d="M10 8v11a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-5" />
-              <path d="M12 8h0l4.524 -3.77a.9 .9 0 0 1 1.476 .692v12.156a.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8" />
-            </svg>
-            <p className="text-base sm:text-lg">
-              We are actively expanding our team and looking for passionate
-              individuals. If you’re interested in any role(s), please{" "}
-              <a
-                href="https://tally.so/r/3yd5qd"
-                target="_blank"
-                rel="noreferrer"
-                className="underline"
-              >
-                <b>apply here</b>
-              </a>
-              !
-            </p>
-          </div>
-          <button
-            onClick={() => setShowAnnouncement(false)}
-            className="hover:scale-110 transition-transform"
-            aria-label="Close announcement"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="icon icon-tabler icons-tabler-outline icon-tabler-x"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M18 6l-12 12" />
-              <path d="M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      </div>
       <section
         className="
           relative
@@ -150,7 +85,7 @@ export default function HomePage() {
         "
       >
         <div className="absolute inset-0 z-0 bg-backdrop">
-          <AnimatedBackground />
+          <Animation />
         </div>
         <div className="relative z-10 w-full max-w-screen-xl mx-auto flex flex-col items-start">
           <div
