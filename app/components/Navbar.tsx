@@ -59,7 +59,7 @@ export default function Navbar() {
                 FAQ
               </Link>
               <Link
-                href="/archives"
+                href="/syllabus"
                 className="
                   px-3 py-1
                   rounded-md
@@ -68,7 +68,7 @@ export default function Navbar() {
                   hover:bg-white/20
                 "
               >
-                Archives
+                Syllabus
               </Link>
             </div>
           </div>

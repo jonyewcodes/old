@@ -9,7 +9,7 @@ import "./styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Singapore Economics League | SEL ", 
-  description: "Your default site-wide description here",
+  description: "An exciting new contest in Economics.",
 };
 
 const roboto = Roboto({
