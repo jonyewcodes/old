@@ -12,7 +12,7 @@ export default function SyllabusPage() {
           Syllabus
         </div>
       </div>
-      <div className="max-w-screen-xl mx-auto mt-16">
+      <div className="max-w-screen-lg mx-auto mt-16">
       <h2 className="text-2xl font-semibold mb-2 text-primary slab">Content</h2>
         <p className="mb-4">
           The content tested in SEL can be classified according to 5 broad
@@ -41,7 +41,7 @@ export default function SyllabusPage() {
           syllabus, some harder questions can sometimes delve into topics
           covered at the university level.
         </p>
-        <h2 className="text-2xl font-semibold mb-2 text-primary slab">Mathematical methods</h2>
+        <h2 className="text-2xl font-semibold mb-2 text-primary slab">Mathematical Methods</h2>
         <p className="mb-4">
           Some of the economics questions set in SEL will be highly rigorous and
           analytical in their approach. Therefore, we encourage teams to
@@ -60,7 +60,7 @@ export default function SyllabusPage() {
           <li>Sequences and Series</li>
           <li>Geometry</li>
         </ul>
-        <h2 className="text-2xl font-semibold mb-2 text-primary slab">How to prepare</h2>
+        <h2 className="text-2xl font-semibold mb-2 text-primary slab">How To Prepare</h2>
         <p className="mb-4">
           While SEL questions range in difficulty, a majority of our problems
           are solvable via the application of concepts taught at the JC level.
@@ -92,7 +92,7 @@ export default function SyllabusPage() {
             of the IEO
           </li>
           <li>
-            Undergraduate textbooks, such as <em>Principles of Economics</em> by
+            Undergraduate textbooks, such as Principles of Economics by
             N. Gregory Mankiw
           </li>
         </ul>

@@ -9,12 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#fefefb",
+        background: "#f6f2ec",
         backdrop: "#3864bc",
         primary: "#5073b1",
         secondary: "#5a96d9",
         accent: "#64c6fb",
         baseText: "#272a30",
+        lightBlack: "#3a3e44",
+        lightGrey: "#797979",
         navbar: "#272a30",
         footer: "#0b1c2e",
         discordBlue: "#5865F2",

@@ -7,15 +7,13 @@ export const metadata = {
 
 export default function Faq() {
   return (
-    <main className="flex min-h-screen flex-col text-gray-800">
-      <div className="flex justify-center pt-8 pb-6">
-        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-7xl mx-6 slab">
-          FAQ
-        </div>
-      </div>
-      <div className="flex items-center justify-center">
-        <div className="max-w-screen-xl w-full px-6 lg:px-12">
-          <div className="mt-16 text-lg">
+    <>
+      <section className="w-full py-16">
+        <div className="max-w-screen-md mx-auto px-6 lg:px-12">
+          <h2 className="text-6xl font-bold text-gray-800 slab text-center mb-8">
+            FAQs
+          </h2>
+          <div className="space-y-6 text-lg">
             <FaqBox
               question="Can my team be composed of members from different schools?"
               answer="Absolutely, as long as each teammate meets the eligibility criteria!"
@@ -41,7 +39,7 @@ export default function Faq() {
               answer="After completing or skipping an existing question, your team can choose new questions from a pool of subsequent questions. You can attempt a maximum of 4 main problems at any one time."
             />
             <FaqBox
-              question="How hard are SEL questions? "
+              question="How hard are SEL questions?"
               answer="SEL questions range in difficulty from those similar to the ones you have encountered in school, to questions set at the undergraduate and olympiad level."
             />
             <FaqBox
@@ -50,7 +48,7 @@ export default function Faq() {
             />
             <FaqBox
               question="May I skip questions?"
-              answer="Yes, but 2 points will be deducted from your teams overall score per skip. Your team will receive a free skip that allows you to skip a question without penalty every 30 minutes."
+              answer="Yes, but 2 points will be deducted from your team's overall score per skip. Your team will receive a free skip that allows you to skip a question without penalty every 30 minutes."
             />
             <FaqBox
               question="How do I obtain bonus points?"
@@ -60,19 +58,26 @@ export default function Faq() {
               question="Where can I send my enquiries about SEL?"
               answer="Please email contact@sgeconsleague.org, and we will tend to any further questions you may have!"
             />
-            <div className="mt-8">
-              Still have more questions? Send us an email at{" "}
-              <a
-                href="mailto:contact@sgeconsleague.org"
-                className="underline text-secondary font-bold"
-              >
-                contact@sgeconsleague.org
-              </a>
-              .
-            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </section>
+      <section className="w-full py-8">
+        <div className="max-w-screen-md mx-auto px-6 lg:px-12 text-left">
+          <h3 className="text-3xl sm:text-4xl font-bold text-black slab mb-4">
+            Still have questions?
+          </h3>
+          <p className="text-lg text-gray-700">
+            Drop us an email at{" "}
+            <a
+              href="mailto:contact@sgeconsleague.org"
+              className="text-primary underline font-semibold"
+            >
+              contact@sgeconsleague.org
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+    </>
   );
 }

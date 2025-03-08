@@ -72,6 +72,78 @@ export default function HomePage() {
     setTimeout(() => setModalOpen(false), 300);
   };
 
+  const teamMembers = [
+    {
+      name: "Ho Jon Yew",
+      roles: ["Chief Organiser"],
+      link: "https://www.linkedin.com/in/jon-yew-ho/",
+    },
+    {
+      name: "Tevel Sho",
+      roles: ["Deputy Chief Organiser", "Lead Developer"],
+      link: "https://www.linkedin.com/in/tevelsho",
+    },
+    {
+      name: "Lucas Lee",
+      roles: ["Head of Operations", "Head of Outreach"],
+      link: "https://www.linkedin.com/in/lucas-lee-zy ",
+    },
+    {
+      name: "Li Zonglun",
+      roles: ["Head of Academics", "Problem Setter"],
+      link: "https://www.linkedin.com/in/zonglun-li-80970a276",
+    },
+    {
+      name: "Zhao Yuxuan",
+      roles: ["Academics Consultant", "Problem Setter"],
+      link: "https://www.linkedin.com/in/yuxuan-zhao-a44789338",
+    },
+    {
+      name: "Jonas Lim",
+      roles: ["Problem Setter"],
+      link: "https://www.linkedin.com/in/jonas-lim-489a05330",
+    },
+    {
+      name: "Fan Yixiang",
+      roles: ["Problem Setter"],
+      link: "https://www.linkedin.com/in/yixiang-fan-38700a352",
+    },
+    {
+      name: "Theodore Chou",
+      roles: ["Problem Setter"],
+      link: "https://www.linkedin.com/in/theodore-chou-sales-marketing-entrepreneurship-economics",
+    },
+    {
+      name: "Jeffrey Lee",
+      roles: ["Lead Developer"],
+      link: "https://www.linkedin.com/in/jeffrey-lee-8a9461236",
+    },
+    {
+      name: "Chua Zhong Ding",
+      roles: ["Full Stack Developer", "Penetration Tester"],
+      link: "https://www.linkedin.com/in/chua-zhong-ding-94412728b",
+    },
+    {
+      name: "Chew Jin Hao",
+      roles: ["Full Stack Developer"],
+      link: "http://www.linkedin.com/in/chew-jin-hao-274850196",
+    },
+    {
+      name: "Granwyn Tan",
+      roles: ["Front End Developer"],
+      link: "https://www.linkedin.com/in/granwyntan",
+    },
+    {
+      name: "Dylan Saga",
+      roles: ["Data Analyst"],
+      link: "https://www.linkedin.com/in/dylan-saga-551430273",
+    },
+    {
+      name: "Raeanne Zou",
+      roles: ["Graphic Illustrator"],
+      link: "https://www.linkedin.com/in/raeanne-zou/",
+    },
+  ];
   return (
     <>
       <section
@@ -128,64 +200,72 @@ export default function HomePage() {
       </section>
 
       {hasMounted && (
-        <section className="flex flex-col items-center justify-center py-8 px-4 sm:py-12 sm:px-10 relative">
-          <h2 className="text-6xl sm:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#7f9fd8] to-[#5073b1]">
-            Let’s Roll
-          </h2>
-          <div className="mt-6 sm:mt-10 flex sm:flex-row items-center justify-center gap-0 sm:gap-6">
-            {["Days", "Hours", "Minutes", "Seconds"]
-              .map((label, index) => {
-                const value = Object.values(timeLeft)[index] as string;
-                return <CountDown key={label} label={label} value={value}  />;
-              })
-              .reduce<JSX.Element[]>((acc, elem, idx, arr) => {
-                if (idx < arr.length - 1) {
-                  return [
-                    ...acc,
-                    elem,
-                    <span
-                      key={`colon-${idx}`}
-                      className="
-                        flex
-                        flex-col
-                        items-center
-                        justify-center
-                        font-light
-                        mx-1
-                        sm:mx-2
-                        text-baseText
-                        leading-none
-                        text-5xl sm:text-6xl
-                      "
-                    >
-                      :
-                    </span>,
-                  ];
-                }
-                return [...acc, elem];
-              }, [])}
+        <section className="flex items-center justify-center mb-32">
+          <div className="max-w-screen-xl w-full px-6 lg:px-12">
+            {/* Add text-center here */}
+            <h2 className="text-center text-6xl sm:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#7f9fd8] to-[#5073b1] mt-24">
+              Let’s Roll
+            </h2>
+
+            {/* Also give the box content a text-center */}
+            <div className="border-2 border-primary bg-white rounded-xl p-8 sm:p-10 text-center">
+              <div className="flex sm:flex-row items-center justify-center gap-0 sm:gap-6">
+                {["Days", "Hours", "Minutes", "Seconds"]
+                  .map((label, index) => {
+                    const value = Object.values(timeLeft)[index] as string;
+                    return <CountDown key={label} label={label} value={value} />;
+                  })
+                  .reduce<JSX.Element[]>((acc, elem, idx, arr) => {
+                    if (idx < arr.length - 1) {
+                      return [
+                        ...acc,
+                        elem,
+                        <span
+                          key={`colon-${idx}`}
+                          className="
+                            flex
+                            flex-col
+                            items-center
+                            justify-center
+                            font-light
+                            mx-1
+                            sm:mx-2
+                            text-baseText
+                            leading-none
+                            text-5xl sm:text-6xl
+                          "
+                        >
+                          :
+                        </span>,
+                      ];
+                    }
+                    return [...acc, elem];
+                  }, [])}
+              </div>
+
+              {/* These paragraphs are now also centered by text-center */}
+              <p className="text-baseText text-xl sm:text-2xl mt-6 sm:mt-8">
+                Till Registration Ends
+              </p>
+              <p className="text-xl sm:text-2xl font-medium text-baseText">
+                — 4 July 2025 —
+              </p>
+            </div>
           </div>
-          <p className="text-baseText text-xl sm:text-2xl mt-6 sm:mt-8">Till Registration Ends</p>
-          <p className="text-xl sm:text-2xl font-semibold text-baseText">— 4 July 2025 —</p>
         </section>
       )}
 
-      <section
-        className="
-          py-8 
-          px-4      
-          sm:py-16 
-          sm:px-8 
-          lg:py-24 
-          lg:px-12  
-          w-full 
-          max-w-screen-xl 
-          mx-auto
-        "
-      >
-        <div className="flex flex-col gap-12 sm:gap-24">
+
+
+
+      <section className="w-full py-8 sm:py-16 lg:py-24">
+        {/* Centered container with max width */}
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-12 flex flex-col gap-12 sm:gap-24">
+
+          {/* BOX 1 */}
           <div className="flex flex-col sm:flex-row items-center justify-start">
-            <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 block sm:hidden">
+            {/* Mobile version */}
+            <div className="border-2 border-primary bg-white shadow-lg rounded-xl px-6 py-4 sm:px-8 sm:py-6 block sm:hidden">
               <Image
                 src="/graphics/problemSolving.png"
                 alt="Box 1 illustration"
@@ -198,7 +278,7 @@ export default function HomePage() {
                   1
                 </span>
                 <div>
-                  <h3 className="text-2xl font-bold text-baseText">
+                  <h3 className="text-2xl font-bold text-baseText slab">
                     No Boundaries, No Limits
                   </h3>
                   <p className="text-baseText mt-2 text-lg">
@@ -208,12 +288,14 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 hidden sm:flex">
+
+            {/* Desktop version */}
+            <div className="border-2 border-primary bg-white shadow-lg rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 hidden sm:flex">
               <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#C0ADFB] to-[#0790FF]">
                 1
               </span>
               <div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-baseText">
+                <h3 className="text-2xl sm:text-3xl font-bold text-baseText slab">
                   No Boundaries, No Limits
                 </h3>
                 <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
@@ -222,6 +304,7 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
+
             <Image
               src="/graphics/problemSolving.png"
               alt="Box 1 illustration"
@@ -230,8 +313,11 @@ export default function HomePage() {
               className="hidden sm:block w-full sm:w-96 h-auto mt-6 sm:mt-0 sm:ml-16"
             />
           </div>
+
+          {/* BOX 2 */}
           <div>
-            <div className="block sm:hidden border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6">
+            {/* Mobile version */}
+            <div className="block sm:hidden border-2 border-primary bg-white shadow-lg rounded-xl px-6 py-4 sm:px-8 sm:py-6">
               <Image
                 src="/graphics/backpack.png"
                 alt="Box 2 illustration"
@@ -244,7 +330,7 @@ export default function HomePage() {
                   2
                 </span>
                 <div>
-                  <h3 className="text-2xl font-bold text-baseText">Calling all Pre-U Students!</h3>
+                  <h3 className="text-2xl font-bold text-baseText slab">Calling all Pre-U Students!</h3>
                   <p className="text-baseText mt-2 text-lg">
                     Studying in a JC/MI, local polytechnic, ITE, or
                     <br />
@@ -253,6 +339,8 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+
+            {/* Desktop version */}
             <div className="hidden sm:flex flex-col sm:flex-row items-center justify-end">
               <Image
                 src="/graphics/backpack.png"
@@ -261,9 +349,11 @@ export default function HomePage() {
                 height={300}
                 className="w-full sm:w-96 h-auto mt-6 sm:mt-0 sm:mr-16"
               />
-              <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-6 sm:mt-0">
+              <div className="border-2 border-primary bg-white shadow-lg rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-6 sm:mt-0">
                 <div className="text-center sm:text-right">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-baseText">Calling all Pre-U Students!</h3>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-baseText slab">
+                    Calling all Pre-U Students!
+                  </h3>
                   <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
                     Studying in a JC/MI, local polytechnic, ITE, or
                     <br />
@@ -276,8 +366,11 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          {/* BOX 3 */}
           <div>
-            <div className="block sm:hidden border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6">
+            {/* Mobile version */}
+            <div className="block sm:hidden border-2 border-primary bg-white shadow-lg rounded-xl px-6 py-4 sm:px-8 sm:py-6">
               <Image
                 src="/graphics/teamUp.png"
                 alt="Box 3 illustration"
@@ -290,7 +383,7 @@ export default function HomePage() {
                   3
                 </span>
                 <div>
-                  <h3 className="text-2xl font-bold text-baseText">Build Your Dream Team</h3>
+                  <h3 className="text-2xl font-bold text-baseText slab">Build Your Dream Team</h3>
                   <p className="text-baseText mt-2 text-lg">
                     From classmates to friends in other schools, assemble
                     <br />
@@ -301,17 +394,21 @@ export default function HomePage() {
                     target="_blank"
                     rel="noreferrer"
                     className="
-                      border-4 border-primary 
-                      mt-4
+                      mt-4 sm:mt-6 
                       inline-block 
-                      px-6
+                      px-6 sm:px-8 
                       py-2 
                       bg-[#ffffff] 
                       text-secondary 
                       text-lg 
                       font-medium 
-                      rounded-lg 
-                      hover:bg-[#eaf2fb] 
+                      border-2
+                      rounded-xl
+                      border-b-4
+                      border-secondary
+                      transition-all
+                      duration-200
+                      hover:scale-105
                       transition-transform 
                       duration-200 
                       ease-in-out 
@@ -323,13 +420,15 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+
+            {/* Desktop version */}
             <div className="hidden sm:flex flex-col sm:flex-row items-center justify-start">
-              <div className="border-4 border-primary rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+              <div className="border-2 border-primary bg-white shadow-lg rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                 <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#AAD8F9] to-[#4E8EE2]">
                   3
                 </span>
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-baseText">Build Your Dream Team</h3>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-baseText slab">Build Your Dream Team</h3>
                   <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
                     From classmates to friends in other schools, assemble
                     <br />
@@ -340,7 +439,6 @@ export default function HomePage() {
                     target="_blank"
                     rel="noreferrer"
                     className="
-                      border-4 border-primary 
                       mt-4 sm:mt-6 
                       inline-block 
                       px-6 sm:px-8 
@@ -349,8 +447,13 @@ export default function HomePage() {
                       text-secondary 
                       text-lg 
                       font-medium 
-                      rounded-lg 
-                      hover:bg-[#eaf2fb] 
+                      border-2
+                      rounded-xl
+                      border-b-4
+                      border-secondary
+                      transition-all
+                      duration-200
+                      hover:scale-105
                       transition-transform 
                       duration-200 
                       ease-in-out 
@@ -416,102 +519,86 @@ export default function HomePage() {
         </div>
       )}
 
-      <section className="relative w-full flex items-center justify-center">
-        <div className="w-full relative z-10 max-w-screen-xl w-full px-4 sm:px-6 lg:px-12">
-          <h2 className="text-4xl sm:text-6xl font-bold slab text-baseText text-center mb-6">
-            Important{" "}
-            <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
-              Dates
-            </span>
-          </h2>
-          <div className="border-b border-divider mb-8 w-full max-w-screen-xl mx-auto" />
-          <div className="flex justify-center">
-            <div className="w-full">
-              <Timeline />
+      <section className="w-full bg-[#fbfafb] py-16">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="flex flex-col md:flex-row items-start gap-12">
+            <div className="md:w-1/2">
+              <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4 slab">
+                Sample <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">Questions</span>
+              </h2>
+              <p className="text-gray-700 text-lg">
+                Wonder what types of questions SEL tests?<br /> Check out these curated examples!
+              </p>
+              <button className="px-6 py-3 bg-white text-secondary font-semibold border-2 rounded-xl border-b-4 border-secondary transition-all duration-200 hover:scale-105 transition-transform ease-in-out hover:scale-105 mt-6">
+                View the Syllabus
+              </button>
+              <Image
+                src="/graphics/studying.png"
+                alt="Syllabus Illustration"
+                width={480}
+                height={480}
+                className="hidden md:block mt-6 h-auto"
+              />
+            </div>
+            <div className="md:w-1/2 flex flex-col gap-6">
+              {sampleQuestions.map((question, index) => (
+                <div
+                  key={index}
+                  className="border-2 border-primary shadow-lg rounded-xl p-6"
+                >
+                  <h3 className="text-2xl font-bold mb-2 text-baseText slab">
+                    {question.title}
+                  </h3>
+                  <span
+                    className={`inline-block px-3 py-1 text-base font-medium rounded-full ${question.difficultyColor}`}
+                  >
+                    {question.difficulty}
+                  </span>
+                  <p className="text-baseText text-lg mt-3">
+                    {question.description}
+                  </p>
+                  <a
+                    href={question.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center justify-center w-full text-secondary font-semibold text-xl rounded-xl px-4 py-2 border-2 rounded-xl border-b-4 border-secondary transition-all duration-200 hover:scale-105 transition-transform ease-in-out hover:scale-105"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="mr-2 text-secondary"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                      <path d="M7 11l5 5l5 -5" />
+                      <path d="M12 4l0 12" />
+                    </svg>
+                    Download
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="border-b border-divider mt-8 w-full max-w-screen-xl mx-auto mb-32" />
         </div>
       </section>
 
-      <section className="flex items-center justify-center">
-        <div className="max-w-screen-xl w-full px-6 lg:px-12">
-          <h1 className="text-black text-6xl font-bold mb-6 text-center slab">
-            Sample{" "}
-            <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
-              Questions
-            </span>
-          </h1>
-          <div className="border-b border-divider mb-8 w-full max-w-screen-xl mx-auto" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sampleQuestions.map((question, index) => (
-              <div
-                key={index}
-                className="bg-white border-4 border-primary rounded-xl shadow-md p-6 flex flex-col gap-4 hover:shadow-lg transition"
-              >
-                <h3 className="text-2xl font-semibold">{question.title}</h3>
-                <span
-                  className={`inline-block w-fit px-3 py-1 text-base font-medium rounded-full ${question.difficultyColor}`}
-                >
-                  {question.difficulty}
-                </span>
-                <p className="text-baseText text-lg">{question.description}</p>
-                <a
-                  href={question.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    flex items-center justify-center w-full
-                    text-secondary font-semibold text-xl
-                    border-4 border-secondary
-                    rounded-xl px-4 py-2
-                    hover:bg-[#eaf2fb]
-                    shadow-lg
-                    transition-transform duration-200 ease-in-out
-                    hover:scale-105
-                  "
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="mr-2 text-secondary"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
-                    <path d="M7 11l5 5l5 -5" />
-                    <path d="M12 4l0 12" />
-                  </svg>
-                  Download
-                </a>
-              </div>
-            ))}
-          </div>
-          <div className="border-b border-divider mt-8 w-full max-w-screen-xl mx-auto mb-32" />
-        </div>
-      </section>
 
-      <section className="flex items-center justify-center">
+
+      <section className="flex items-center justify-center mt-24">
         <div className="max-w-screen-xl w-full px-6 lg:px-12">
-          <h1 className="text-baseText text-6xl lg:text-6xl font-bold mb-6 text-center slab">
-            Useful{" "}
-            <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
-              Resources
-            </span>
-          </h1>
-          <div className="border-b border-divider mb-8 w-full max-w-screen-xl mx-auto" />
           <div className="flex flex-col gap-6">
             <div
               className="
                 relative
-                border-4 border-primary
-                rounded-tl-3xl rounded-tr-3xl
+                border-2 border-secondary
+                rounded-3xl
                 p-14 w-full
                 flex flex-col items-center
                 text-center bg-white text-lg
@@ -589,160 +676,50 @@ export default function HomePage() {
                 <span>Join the SEL Discord Server!</span>
               </a>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 text-lg">
-              <div
-                className="
-                  relative
-                  border-4 border-primary
-                  rounded-3xl
-                  bg-white
-                  p-14
-                  flex flex-col
-                  items-start
-                "
-              >
-                <div className="max-w-sm">
-                  <h3 className="font-medium slab text-4xl text-baseText">FAQ</h3>
-                  <p className="text-baseText mt-4">
-                    Have a burning question?
-                    <br />
-                    We might&apos;ve answered it already!
-                  </p>
-                  <a
-                    href="/faq"
-                    className="
-                      border-4 border-secondary
-                      mt-6 inline-block
-                      px-6 py-2.5
-                      bg-background
-                      text-secondary
-                      text-lg font-medium
-                      rounded-lg
-                      hover:bg-[#eaf2fb]
-                      transition-transform
-                      duration-200
-                      ease-in-out
-                      hover:scale-105
-                    "
-                  >
-                    Read Our FAQ
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right inline-block ml-2 w-5 h-5"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M5 12l14 0" />
-                      <path d="M13 18l6 -6" />
-                      <path d="M13 6l6 6" />
-                    </svg>
-                  </a>
-                </div>
-                <Image
-                  src="/graphics/bank.png"
-                  alt="FAQ Illustration"
-                  width={196}
-                  height={196}
-                  className="
-                    hidden
-                    md:block
-                    absolute
-                    right-4
-                    top-1/2
-                    transform
-                    -translate-y-1/2
-                    h-auto
-                    mr-4
-                  "
-                />
-              </div>
-              <div
-                className="
-                  relative
-                  border-4 border-primary
-                  rounded-3xl
-                  bg-white
-                  p-14
-                  flex flex-col
-                  items-start
-                "
-              >
-                <div className="max-w-sm">
-                  <h3 className="text-4xl font-medium slab text-baseText">
-                    Syllabus
-                  </h3>
-                  <p className="text-baseText mt-4">
-                    Curious how SEL drives the contest?
-                    <br />
-                    SEL follows the IEO syllabus!
-                  </p>
-                  <a
-                    href="/syllabus"
-                    className="
-                      border-4 border-secondary
-                      mt-6 inline-block
-                      px-6 py-2.5
-                      bg-background
-                      text-secondary
-                      text-lg font-medium
-                      rounded-lg
-                      hover:bg-[#eaf2fb]
-                      transition-transform
-                      duration-200
-                      ease-in-out
-                      hover:scale-105
-                    "
-                  >
-                    View the Syllabus
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right inline-block ml-2 w-5 h-5"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M5 12l14 0" />
-                      <path d="M13 18l6 -6" />
-                      <path d="M13 6l6 6" />
-                    </svg>
-                  </a>
-                </div>
-                <Image
-                  src="/graphics/studying.png"
-                  alt="Syllabus Illustration"
-                  width={200}
-                  height={200}
-                  className="
-                    hidden
-                    md:block
-                    absolute
-                    right-4
-                    top-1/2
-                    transform
-                    -translate-y-1/2
-                    h-auto
-                    ml-4
-                  "
-                />
-              </div>
-            </div>
-            <div className="border-b border-divider mt-8 w-full max-w-screen-xl mx-auto" />
           </div>
         </div>
       </section>
+
+      <section className="w-full bg-white py-16">
+  <div className="max-w-screen-lg mx-auto px-6 sm:px-12">
+    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-black slab mb-4">
+      Organising Team{" "}
+      <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
+          2025
+      </span>
+    </h2>
+    <p className="text-center text-gray-700 text-base mb-16">
+      Massive shout out to our team for taking time out of their day to make this competition possible!
+    </p>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+      {teamMembers.map((member) => (
+        <a
+          key={member.name}
+          href={member.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105"
+        >
+          <div className="relative w-28 h-28 rounded-full bg-white border-4 border-gray-100 shadow-lg overflow-hidden">
+            <Image
+              src="/default-pfp.png"
+              alt={member.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <p className="mt-4 font-semibold text-primary text-lg">{member.name}</p>
+          {member.roles.map((role) => (
+            <p key={role} className="text-gray-600 text-sm">
+              {role}
+            </p>
+          ))}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
     </>
   );
 }

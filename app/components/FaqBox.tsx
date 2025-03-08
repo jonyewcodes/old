@@ -10,21 +10,39 @@ export default function FaqBox({ question, answer }: FaqProps): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
-    setIsOpen((prev) => !prev);
+    setIsOpen(!isOpen);
   };
 
   return (
-    <div className="w-full max-w-[1800px] border-4 border-primary rounded-tl-3xl rounded-tr-3xl bg-white mb-6 overflow-hidden">
+    <div className="w-full border-b border-gray-300">
       <button
         type="button"
         onClick={toggleDropdown}
-        className="w-full max-w-[1800px] flex justify-between items-center px-6 py-4 text-left text-xl font-normal bg-white hover:bg-[#f3f8fc] transition-all duration-300 ease-in-out focus:outline-none"
+        className="
+          w-full
+          flex
+          items-center
+          justify-between
+          py-4
+          text-left
+          text-black
+          text-lg
+          font-normal
+          transition-colors
+          duration-200
+          focus:outline-none
+        "
       >
         {question}
         <span
-          className={`transform transition-transform duration-300 ease-in-out ${
-            isOpen ? "rotate-180" : "rotate-0"
-          }`}
+          className={`
+            text-primary
+            transform
+            transition-transform
+            duration-300
+            ease-in-out
+            ${isOpen ? "rotate-180" : "rotate-0"}
+          `}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -38,17 +56,18 @@ export default function FaqBox({ question, answer }: FaqProps): JSX.Element {
           </svg>
         </span>
       </button>
-
       <div
         className={`
-          transition-all duration-500 ease-in-out overflow-hidden
-          ${isOpen ? "max-h-96 opacity-100 py-4" : "max-h-0 opacity-0"}
+          overflow-hidden
+          transition-all
+          duration-300
+          ease-in-out
+          ${isOpen ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0"}
         `}
       >
-        <div
-          className="px-6 text-left text-gray-700"
-          dangerouslySetInnerHTML={{ __html: answer }}
-        />
+        <div className="bg-blue-100 p-4 text-base leading-relaxed text-gray-600">
+          {answer}
+        </div>
       </div>
     </div>
   );
