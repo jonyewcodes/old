@@ -43,7 +43,10 @@ export default function Footer() {
               </svg>
               <span>contact@sgeconsleague.org</span>
             </Link>
-            <div className="py-4 pb-8 text-base text-left text-white lg:text-lg">
+            <Link href="/privacy" className="group hover:text-white transition">
+              Privacy Policy
+            </Link>
+            <div className="text-left text-white">
             © 2025 Singapore Economics League
             </div>
           </div>
@@ -88,17 +91,8 @@ export default function Footer() {
               </svg>
               <span>LinkedIn</span>
             </Link>
-            <Link href="/privacy" className="group hover:text-white transition">
-              Privacy Policy
-            </Link>
+            
           </div>
-        </div>
-      </div>
-      
-      {/* Copyright section */}
-      <div className="max-w-screen-xl w-full mx-auto px-6 sm:px-12">
-        <div className="py-4 pb-8 text-base text-left text-white lg:text-lg lg:text-center">
-          © 2025 Singapore Economics League
         </div>
       </div>
     </footer>
