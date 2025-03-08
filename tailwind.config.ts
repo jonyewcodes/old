@@ -16,7 +16,7 @@ const config: Config = {
         accent: "#64c6fb",
         baseText: "#272a30",
         navbar: "#272a30",
-        footer: "#3f3c47",
+        footer: "#0b1c2e",
         discordBlue: "#5865F2",
         divider: "#cdcac8",
       },
