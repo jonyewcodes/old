@@ -253,7 +253,7 @@ function ContestFormatAndScoring() {
       <ul className="list-disc ml-6 mt-2 space-y-2 text-baseText">
         <li>
           Each MCQ, MCQ Multi-select, Sort, and True/False Set question-part
-          allows <b>3 attempts</b>. After <b>3 incorrect attempts</b>, such question-parts will be disabled and
+          allows for no more than <b>3 attempts</b>. After <b>3 incorrect attempts</b>, such question-parts will be disabled and
           score <b>0</b>. No partial credit is given; an exact match is always required.
         </li>
       </ul>
@@ -420,7 +420,7 @@ function ContestFormatAndScoring() {
         </li>
       </ul>
 
-      <SubHeading2 className="mt-12">Ecomania</SubHeading2>
+      <SubHeading2 className="mt-12">Economania</SubHeading2>
       <p className="mt-4">
         At <b>10:00 AM</b>, the Economania section unlocks, offering 15 new
         problems across <b>5 categories</b> (Microeconomics, Firms, Game Theory,

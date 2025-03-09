@@ -106,11 +106,6 @@ export default function Footer() {
                     Archives
                   </Link>
                 </li>
-                <li>
-                  <Link href="/privacy" className="hover:underline text-gray-400">
-                    Privacy Policy
-                  </Link>
-                </li>
               </ul>
             </div>
             <div className="text-left">
@@ -162,7 +157,10 @@ export default function Footer() {
         <hr className="border-gray-600 my-6" />
 
         <div className="flex items-center text-sm text-gray-400">
-          © Singapore Economics League 2025
+        <span className="mr-4">© Singapore Economics League 2025</span>
+        <Link href="/privacy" className="hover:underline text-gray-400">
+          Privacy Policy
+        </Link>
         </div>
       </div>
     </footer>
