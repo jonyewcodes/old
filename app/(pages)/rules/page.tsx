@@ -1053,6 +1053,9 @@ export default function RulesPage() {
             <ConductOfTheContest />
             <ParticipantsCodeofConduct />
             <TermsAndConditions />
+            <p className="text-sm text-gray-500 mt-8">
+              Last Updated: 1 March 2025
+            </p>
           </div>
         </div>
       </div>
