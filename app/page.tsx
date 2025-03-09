@@ -76,7 +76,7 @@ export default function HomePage() {
       name: "Ho Jon Yew",
       roles: ["Chief Organiser"],
       link: "https://www.linkedin.com/in/jon-yew-ho/",
-      image: "/team-pics/default.png",
+      image: "/team-pics/jonyew-ho.png",
     },
     {
       name: "Tevel Sho",
@@ -148,7 +148,7 @@ export default function HomePage() {
       name: "Dylan Saga",
       roles: ["Data Analyst"],
       link: "https://www.linkedin.com/in/dylan-saga-551430273",
-      image: "/team-pics/default.png",
+      image: "/team-pics/dylan-saga.png",
     },
     {
       name: "Raeanne Zou",

@@ -4,8 +4,11 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-baseText text-white w-full mt-24">
+      {/* Container with max width and centered */}
       <div className="max-w-screen-lg mx-auto py-8">
+        {/* Main row with two columns */}
         <div className="flex flex-col md:flex-row gap-8 justify-between">
+          {/* Left Column: about + paragraph */}
           <div className="md:w-1/2 flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <Image
@@ -17,11 +20,58 @@ export default function Footer() {
               />
             </div>
             <p className="text-sm leading-relaxed">
-              Singapore Economics League is a problem solving competition by students, for students. We are a non profit team of volunteers dedicated to promoting an interest in economics among students in Singapore. Our academic content follows the syllabus set by the International Economics Olympiad Association, which is located in Bern, Switzerland.
+              Singapore Economics League is a problem solving competition by students, for students.
+              We are a non profit team of volunteers dedicated to promoting an interest in economics
+              among students in Singapore. Our academic content follows the syllabus set by the
+              International Economics Olympiad Association, which is located in Bern,&nbsp;Switzerland.
               <br />
               <br />
-              The realisation of the competition was supported by the Ministry
-              of Education, Youth and Sports of the Czech Republic.
+              The realisation of the competition was inspired by other leagues including{" "}
+              <Link
+                href="https://example.com/sphl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Singore Physics League (SPhL)
+              </Link>
+              ,{" "}
+              <Link
+                href="https://example.com/schl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Singapore Chemistry League (SChL)
+              </Link>
+              , and{" "}
+              <Link
+                href="https://example.com/sbl"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Singapore Biology League (SBL)
+              </Link>
+              , as well as the{" "}
+              <Link
+                href="https://ieo-official.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                International Economics Olympiad (IEO)
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="https://physicsbrawl.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                PhysicsBrawl
+              </Link>
+              .
               <br />
               <br />
               #sgeconsleague{" "}
@@ -31,7 +81,8 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="md:w-1/2 flex flex-col md:flex-row justify-end gap-12">
+          {/* Right Column: links */}
+          <div className="md:w-2/3 flex flex-col md:flex-row justify-end gap-12">
             <div className="text-left">
               <h3 className="font-semibold mb-2">For Contestants and Teachers</h3>
               <ul className="space-y-1 text-sm">
@@ -71,6 +122,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  {/* Instagram icon */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -89,6 +141,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  {/* LinkedIn icon */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
