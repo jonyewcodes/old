@@ -28,16 +28,16 @@ export default function Footer() {
               <br />
               The realisation of the competition was inspired by other leagues including{" "}
               <Link
-                href="https://example.com/sphl"
+                href="https://sgphysicsleague.org/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline"
               >
-                Singore Physics League (SPhL)
+                Singapore Physics League (SPhL)
               </Link>
               ,{" "}
               <Link
-                href="https://example.com/schl"
+                href="https://www.sgchemleague.org/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline"
@@ -46,7 +46,7 @@ export default function Footer() {
               </Link>
               , and{" "}
               <Link
-                href="https://example.com/sbl"
+                href="https://sgbioleague.org/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline"
@@ -55,7 +55,7 @@ export default function Footer() {
               </Link>
               , as well as the{" "}
               <Link
-                href="https://ieo-official.org"
+                href="https://ieo-official.org/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline"
@@ -64,7 +64,7 @@ export default function Footer() {
               </Link>{" "}
               and{" "}
               <Link
-                href="https://physicsbrawl.org"
+                href="https://physicsbrawl.org/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline"
