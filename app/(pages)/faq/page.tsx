@@ -59,10 +59,6 @@ export default function Faq() {
               question="How do I obtain bonus points?"
               answer="From 10 am, the Economania section will be unlocked, featuring 5 categories of 3 questions each in ascending difficulty. If your team completes some or all categories of Economania before 11 am, the points which your team obtained from those categories will be doubled."
             />
-            <FaqBox
-              question="Where can I send my enquiries about SEL?"
-              answer="Please email contact@sgeconsleague.org, and we will tend to any further questions you may have!"
-            />
           </div>
         </div>
       </section>

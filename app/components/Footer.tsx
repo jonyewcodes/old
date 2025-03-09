@@ -84,7 +84,7 @@ export default function Footer() {
           {/* Right Column: links */}
           <div className="md:w-2/3 flex flex-col md:flex-row justify-end gap-12">
             <div className="text-left">
-              <h3 className="font-semibold mb-2">For Contestants and Teachers</h3>
+              <h3 className="font-semibold mb-2">Navigation</h3>
               <ul className="space-y-1 text-sm">
                 <li>
                   <Link href="/rules" className="hover:underline">
@@ -114,7 +114,7 @@ export default function Footer() {
               </ul>
             </div>
             <div className="text-left">
-              <h3 className="font-semibold mb-2">Social Media</h3>
+              <h3 className="font-semibold mb-2">Connect with us</h3>
               <div className="flex items-center gap-3">
                 <Link
                   href="https://instagram.com/sgeconsleague"
