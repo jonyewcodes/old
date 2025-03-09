@@ -253,13 +253,9 @@ function ContestFormatAndScoring() {
       <ul className="list-disc ml-6 mt-2 space-y-2 text-baseText">
         <li>
           Each MCQ, MCQ Multi-select, Sort, and True/False Set question-part
-          allows <b>3 attempts</b>.
+          allows <b>3 attempts</b>. After <b>3 incorrect attempts</b>, such question-parts will be disabled and
+          score <b>0</b>. No partial credit is given; an exact match is always required.
         </li>
-        <li>
-          After <b>3 incorrect attempts</b>, that question-part is disabled and
-          scores <b>0</b>.
-        </li>
-        <li>No partial credit is given; an exact match is always required.</li>
       </ul>
 
       <SubHeading2 className="mt-12">Main Problems Scoring</SubHeading2>
@@ -426,7 +422,7 @@ function ContestFormatAndScoring() {
 
       <SubHeading2 className="mt-12">Ecomania</SubHeading2>
       <p className="mt-4">
-        At <b>10:00 AM</b>, the Ecomania section unlocks, offering 15 new
+        At <b>10:00 AM</b>, the Economania section unlocks, offering 15 new
         problems across <b>5 categories</b> (Microeconomics, Firms, Game Theory,
         Macroeconomics, and Financial Economics). Each category has 3 problems
         in ascending difficulty:
@@ -505,7 +501,7 @@ function ContestFormatAndScoring() {
           After <b>11:00 AM</b>, participants can still access Economania
           questions, however bonus points shall no longer be awarded.
         </li>
-        <li>Ecomania problems cannot be skipped.</li>
+        <li>Economania problems cannot be skipped.</li>
       </ul>
     </section>
   );
@@ -649,101 +645,103 @@ function ParticipantsCodeofConduct() {
     <section className="mt-12" id="Participants' Code of Conduct">
       <SubHeading className="slab">Participants&apos; Code of Conduct</SubHeading>
       <p className="mt-4">
-        All competitors in this event are required to follow the directives
-        listed here, ensuring a fair and respectful atmosphere for everyone
-        involved.
+        This Code of Conduct outlines the rules and expectations that all
+        participants must follow during the competition.
       </p>
 
       <SubHeading2 className="mt-6">
-        Approved Collaboration and Reference Materials
+        Permissible Collaboration and Resources
       </SubHeading2>
       <p className="mt-4">
-        Team members may work collaboratively throughout the competition,
-        drawing upon a wide range of permissible resources, which include:
+        Participants may confer with their team members for the duration of the
+        contest, and are allowed the use of open-book aids and sources of
+        information including but not limited to:
       </p>
       <UnorderedList
         items={[
-          "Allowed calculators and other computational devices",
-          "Software applications (e.g., spreadsheet tools, graphing apps, programming languages)",
-          "Internet-based research, including search engines and websites",
-          "Hardcopy or digital reading materials such as books, articles, or academic papers",
+          "The internet, including websites and search engines",
+          "Digital or printed matter (e.g., notes, textbooks, research papers)",
+          "Software, such as Microsoft Excel, Desmos, Python, MATLAB, etc.",
+          "Calculators and Graphing Software",
         ]}
       />
       <p className="mt-6">
-        These examples are neither exhaustive nor do they represent an
-        endorsement of specific items. Every participant must ensure that all
-        materials are used responsibly and in line with the rules outlined in
-        this document.
+        The examples listed above do not constitute endorsement for any named item. Participants
+        agree that they must access such resources in accordance with all other
+        rules specified in this Code of Conduct.
       </p>
 
       <SubHeading2 className="mt-10">
-        Confidential Discussions and Restricted Communications
+        Confidentiality and Prohibited External Communication
       </SubHeading2>
       <p className="mt-4">
-        Entrants are prohibited from sharing details of the competition tasks
-        with anyone beyond their own group. Each team is responsible for
-        protecting its strategies, solutions, and data from external access by:
+        Participants must not communicate about contest problems with anyone
+        outside their own team. In addition, they should exercise due caution to
+        safeguard their team’s communications, contest materials, and solutions
+        from unauthorized access. Such measures include but are not limited to:
       </p>
       <UnorderedList
         items={[
-          "Keeping discussions limited to secure, private channels rather than open forums",
-          "Preventing non-team individuals from overhearing or intercepting communications",
-          "Avoiding any information exchange with or assistance to other teams",
+          "Conducting all team discussions in private or secure channels, not in public forums",
+          "Ensuring non-team members cannot overhear or intercept communications",
+          "Refraining from sharing information with or collaborating with other teams",
         ]}
       />
 
-      <SubHeading2 className="mt-10">Ban on AI-Based Assistance</SubHeading2>
+      <SubHeading2 className="mt-10">Ban of Generative AI</SubHeading2>
       <p className="mt-4">
-        Competitors are strictly forbidden from using any AI-driven applications
-        that can produce detailed solutions or answers. This prohibition
-        includes, but is not restricted to, chatbots or advanced AI systems
-        capable of generating contextually coherent text.
+        For the duration of the competition, any usage of Generative Artificial
+        Intelligence (Gen AI) tools is strictly prohibited. Participants must
+        refrain from any usage of Gen AI tools, including but not limited to:
+        Chatbots such as ChatGPT and Deepseek that are capable of generating
+        complex, coherent, and contextually relevant answers to questions posed
+        by the user.
       </p>
 
       <SubHeading2 className="mt-10">
-        Upholding Fairness and Respect
+        Maintaining Fair Play and Integrity
       </SubHeading2>
       <p className="mt-4">
-        Participants must maintain the competition’s credibility by refraining
-        from conduct that could undermine the event or harm others. Prohibited
-        actions include, but are not confined to:
+        Each participant is expected to uphold the competition’s integrity and
+        refrain from behaviors that disrupt the Singapore Economics League
+        (SEL). Examples of disallowed actions include, but are not limited to:
       </p>
       <UnorderedList
         items={[
-          "Spreading defamatory statements, engaging in harassment, or promoting hostility",
-          "Performing acts that intentionally or inadvertently disrupt the normal flow of the competition",
-          "Communications that disparage the event, its organizers, or fellow participants",
+          "Libel, slander, harassment, or any kind of bullying",
+          "Deliberate or accidental actions that hinder the normal running of the SEL",
+          "Verbal, physical, or digital communications that malign the reputation of the SEL, the organizers, or any participant",
         ]}
       />
 
       <SubHeading2 className="mt-10">
-        Compliance with Legal Standards and Platform Guidelines
+        Legal Compliance and Responsible Usage of Digital Platforms
       </SubHeading2>
       <p className="mt-4">
-        All contestants must adhere to Singaporean law and use the provided
-        digital platforms responsibly. Activities outlawed under relevant
-        statutes include:
+        All participants must abide by the laws of the Republic of Singapore and
+        use the competition’s platforms, software, and websites responsibly.
+        Offenses covered under the Computer Misuse Act 1993 are strictly
+        prohibited, including:
       </p>
       <UnorderedList
         items={[
-          "Illegitimate access to or manipulation of electronic data",
-          "Initiating or contributing to denial-of-service disruptions",
-          "Unauthorized interception or misuse of online services",
+          "Unauthorized access to and/or alteration of computer data",
+          "Launching or aiding in Denial of Service (DoS) attacks",
+          "Illegally intercepting or misusing computing services",
         ]}
       />
 
-      <SubHeading2 className="mt-10">Consequences and Oversight</SubHeading2>
+      <SubHeading2 className="mt-10">Enforcement and Penalties</SubHeading2>
       <p className="mt-4 mb-6">
-        The organizers enforce a strict stance against any violations of this
-        Code of Conduct. Depending on the severity, offenses may result in
-        immediate disqualification or other disciplinary actions. In especially
-        grave instances, the matter may be referred to the relevant educational
-        institution for additional measures.
+        The SEL Organizing Team enforces a zero-tolerance policy on breaches of
+        this Code of Conduct. Infractions may result in immediate
+        disqualification or other penalties. The organizers reserve the right to
+        refer serious violations to the participants’ respective schools for
+        further disciplinary measures.
       </p>
     </section>
   );
 }
-
 
 function TermsAndConditions() {
   return (
@@ -1033,13 +1031,13 @@ export default function RulesPage() {
       `}</style>
 
       <div className="flex justify-center pt-8 pb-6">
-        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-screen-lg mx-auto slab">
+        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-screen-xl mx-6 slab">
           Rules
         </div>
       </div>
       <MobileContents />
       <div className="flex justify-center mb-10">
-        <div className="max-w-screen-lg w-full  flex flex-col lg:flex-row">
+        <div className="max-w-screen-xl w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row">
           <div className="hidden lg:block lg:w-96 lg:pr-4">
             <div className="sticky top-6 h-[calc(100vh-160px)] overflow-y-auto overflow-x-hidden mt-10">
               <SideBar selected={selected} />
