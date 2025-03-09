@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Animation from "./components/AnimatedBackground";
-import Timeline from "./components/Timeline";
 import CountDown from "./components/CountDown";
 
 function calculateTimeLeft() {
