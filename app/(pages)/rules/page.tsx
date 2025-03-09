@@ -649,104 +649,101 @@ function ParticipantsCodeofConduct() {
     <section className="mt-12" id="Participants' Code of Conduct">
       <SubHeading className="slab">Participants&apos; Code of Conduct</SubHeading>
       <p className="mt-4">
-        This Code of Conduct outlines the rules and expectations that all
-        participants must follow during the competition.
+        All competitors in this event are required to follow the directives
+        listed here, ensuring a fair and respectful atmosphere for everyone
+        involved.
       </p>
 
       <SubHeading2 className="mt-6">
-        Permissible Collaboration and Resources
+        Approved Collaboration and Reference Materials
       </SubHeading2>
       <p className="mt-4">
-        Participants may confer with their team members for the duration of the
-        contest, and are allowed the use of open-book aids and sources of
-        information including but not limited to:
+        Team members may work collaboratively throughout the competition,
+        drawing upon a wide range of permissible resources, which include:
       </p>
       <UnorderedList
         items={[
-          "Computational aids (Scientific and Graphing Calculators)",
-          "Computer programs (Microsoft Excel, Wolfram Mathematica, Desmos, Python, MATLAB, etc.)",
-          "The internet, including websites and search engines",
-          "Digital or printed matter (e.g., notes, textbooks, research papers)",
+          "Allowed calculators and other computational devices",
+          "Software applications (e.g., spreadsheet tools, graphing apps, programming languages)",
+          "Internet-based research, including search engines and websites",
+          "Hardcopy or digital reading materials such as books, articles, or academic papers",
         ]}
       />
       <p className="mt-6">
-        The list above is neither prescriptive nor exhaustive and does not
-        constitute endorsement or warranty for any named item. Participants
-        agree that they must access such resources in accordance with all other
-        conditions specified in this Code of Conduct.
+        These examples are neither exhaustive nor do they represent an
+        endorsement of specific items. Every participant must ensure that all
+        materials are used responsibly and in line with the rules outlined in
+        this document.
       </p>
 
       <SubHeading2 className="mt-10">
-        Confidentiality and Prohibited External Communication
+        Confidential Discussions and Restricted Communications
       </SubHeading2>
       <p className="mt-4">
-        Participants must not communicate about contest problems with anyone
-        outside their own team. In addition, they should exercise due caution to
-        safeguard their team’s communications, contest materials, and solutions
-        from unauthorized access. Such measures include but are not limited to:
+        Entrants are prohibited from sharing details of the competition tasks
+        with anyone beyond their own group. Each team is responsible for
+        protecting its strategies, solutions, and data from external access by:
       </p>
       <UnorderedList
         items={[
-          "Conducting all team discussions in private or secure channels, not in public forums",
-          "Ensuring non-team members cannot overhear or intercept communications",
-          "Refraining from sharing information with or collaborating with other teams",
+          "Keeping discussions limited to secure, private channels rather than open forums",
+          "Preventing non-team individuals from overhearing or intercepting communications",
+          "Avoiding any information exchange with or assistance to other teams",
         ]}
       />
 
-      <SubHeading2 className="mt-10">Ban of Generative AI</SubHeading2>
+      <SubHeading2 className="mt-10">Ban on AI-Based Assistance</SubHeading2>
       <p className="mt-4">
-        For the duration of the competition, any usage of Generative Artificial
-        Intelligence (Gen AI) tools is strictly prohibited. Participants must
-        refrain from any usage of Gen AI tools, including but not limited to:
-        Chatbots such as ChatGPT and Deepseek that are capable of generating
-        complex, coherent, and contextually relevant answers to questions posed
-        by the user.
+        Competitors are strictly forbidden from using any AI-driven applications
+        that can produce detailed solutions or answers. This prohibition
+        includes, but is not restricted to, chatbots or advanced AI systems
+        capable of generating contextually coherent text.
       </p>
 
       <SubHeading2 className="mt-10">
-        Maintaining Fair Play and Integrity
+        Upholding Fairness and Respect
       </SubHeading2>
       <p className="mt-4">
-        Each participant is expected to uphold the competition’s integrity and
-        refrain from behaviors that disrupt the Singapore Economics League
-        (SEL). Examples of disallowed actions include, but are not limited to:
+        Participants must maintain the competition’s credibility by refraining
+        from conduct that could undermine the event or harm others. Prohibited
+        actions include, but are not confined to:
       </p>
       <UnorderedList
         items={[
-          "Libel, slander, harassment, or any kind of bullying",
-          "Deliberate or accidental actions that hinder the normal running of the SEL",
-          "Verbal, physical, or digital communications that malign the reputation of the SEL, the organizers, or any participant",
+          "Spreading defamatory statements, engaging in harassment, or promoting hostility",
+          "Performing acts that intentionally or inadvertently disrupt the normal flow of the competition",
+          "Communications that disparage the event, its organizers, or fellow participants",
         ]}
       />
 
       <SubHeading2 className="mt-10">
-        Legal Compliance and Responsible Usage of Digital Platforms
+        Compliance with Legal Standards and Platform Guidelines
       </SubHeading2>
       <p className="mt-4">
-        All participants must abide by the laws of the Republic of Singapore and
-        use the competition’s platforms, software, and websites responsibly.
-        Offenses covered under the Computer Misuse Act 1993 are strictly
-        prohibited, including:
+        All contestants must adhere to Singaporean law and use the provided
+        digital platforms responsibly. Activities outlawed under relevant
+        statutes include:
       </p>
       <UnorderedList
         items={[
-          "Unauthorized access to and/or alteration of computer data",
-          "Launching or aiding in Denial of Service (DoS) attacks",
-          "Illegally intercepting or misusing computing services",
+          "Illegitimate access to or manipulation of electronic data",
+          "Initiating or contributing to denial-of-service disruptions",
+          "Unauthorized interception or misuse of online services",
         ]}
       />
 
-      <SubHeading2 className="mt-10">Enforcement and Penalties</SubHeading2>
+      <SubHeading2 className="mt-10">Consequences and Oversight</SubHeading2>
       <p className="mt-4 mb-6">
-        The SEL Organizing Team enforces a zero-tolerance policy on breaches of
-        this Code of Conduct. Infractions may result in immediate
-        disqualification or other penalties. The organizers reserve the right to
-        refer serious violations to the participants’ respective schools for
-        further disciplinary measures.
+        The organizers enforce a strict stance against any violations of this
+        Code of Conduct. Depending on the severity, offenses may result in
+        immediate disqualification or other disciplinary actions. In especially
+        grave instances, the matter may be referred to the relevant educational
+        institution for additional measures.
       </p>
     </section>
   );
 }
+
 
 function TermsAndConditions() {
   return (
@@ -1036,13 +1033,13 @@ export default function RulesPage() {
       `}</style>
 
       <div className="flex justify-center pt-8 pb-6">
-        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-screen-xl mx-6 slab">
+        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-screen-lg mx-auto slab">
           Rules
         </div>
       </div>
       <MobileContents />
       <div className="flex justify-center mb-10">
-        <div className="max-w-screen-xl w-full px-6 sm:px-12 lg:px-12 flex flex-col lg:flex-row">
+        <div className="max-w-screen-lg w-full  flex flex-col lg:flex-row">
           <div className="hidden lg:block lg:w-96 lg:pr-4">
             <div className="sticky top-6 h-[calc(100vh-160px)] overflow-y-auto overflow-x-hidden mt-10">
               <SideBar selected={selected} />

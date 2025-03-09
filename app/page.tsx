@@ -76,71 +76,85 @@ export default function HomePage() {
       name: "Ho Jon Yew",
       roles: ["Chief Organiser"],
       link: "https://www.linkedin.com/in/jon-yew-ho/",
+      image: "/team-pics/default.png",
     },
     {
       name: "Tevel Sho",
       roles: ["Deputy Chief Organiser", "Lead Developer"],
       link: "https://www.linkedin.com/in/tevelsho",
+      image: "/team-pics/default.png",
     },
     {
       name: "Lucas Lee",
       roles: ["Head of Operations", "Head of Outreach"],
       link: "https://www.linkedin.com/in/lucas-lee-zy ",
+      image: "/team-pics/default.png",
     },
     {
       name: "Li Zonglun",
       roles: ["Head of Academics", "Problem Setter"],
       link: "https://www.linkedin.com/in/zonglun-li-80970a276",
+      image: "/team-pics/default.png",
     },
     {
       name: "Zhao Yuxuan",
       roles: ["Academics Consultant", "Problem Setter"],
       link: "https://www.linkedin.com/in/yuxuan-zhao-a44789338",
+      image: "/team-pics/default.png",
     },
     {
       name: "Jonas Lim",
       roles: ["Problem Setter"],
       link: "https://www.linkedin.com/in/jonas-lim-489a05330",
+      image: "/team-pics/default.png",
     },
     {
       name: "Fan Yixiang",
       roles: ["Problem Setter"],
       link: "https://www.linkedin.com/in/yixiang-fan-38700a352",
+      image: "/team-pics/default.png",
     },
     {
       name: "Theodore Chou",
       roles: ["Problem Setter"],
       link: "https://www.linkedin.com/in/theodore-chou-sales-marketing-entrepreneurship-economics",
+      image: "/team-pics/default.png",
     },
     {
       name: "Jeffrey Lee",
       roles: ["Lead Developer"],
       link: "https://www.linkedin.com/in/jeffrey-lee-8a9461236",
+      image: "/team-pics/default.png",
     },
     {
       name: "Chua Zhong Ding",
       roles: ["Full Stack Developer", "Penetration Tester"],
       link: "https://www.linkedin.com/in/chua-zhong-ding-94412728b",
+      image: "/team-pics/default.png",
     },
     {
       name: "Chew Jin Hao",
       roles: ["Full Stack Developer"],
       link: "http://www.linkedin.com/in/chew-jin-hao-274850196",
+      image: "/team-pics/default.png",
     },
     {
       name: "Granwyn Tan",
       roles: ["Front End Developer"],
       link: "https://www.linkedin.com/in/granwyntan",
+      image: "/team-pics/default.png",
     },
     {
       name: "Dylan Saga",
       roles: ["Data Analyst"],
       link: "https://www.linkedin.com/in/dylan-saga-551430273",
+      image: "/team-pics/default.png",
     },
     {
       name: "Raeanne Zou",
       roles: ["Graphic Illustrator"],
       link: "https://www.linkedin.com/in/raeanne-zou/",
+      image: "/team-pics/default.png",
     },
   ];
   return (
@@ -148,7 +162,7 @@ export default function HomePage() {
       <section
         className="
           relative
-          py-8 px-4
+          py-8 
           sm:py-16 sm:px-6
           lg:py-24 lg:px-32
           text-background
@@ -158,7 +172,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0 bg-backdrop">
           <Animation />
         </div>
-        <div className="relative z-10 w-full max-w-screen-xl mx-auto flex flex-col items-start">
+        <div className="relative z-10 w-full max-w-screen-lg mx-auto flex flex-col items-start">
           <div
             className="
               inline-block
@@ -200,7 +214,7 @@ export default function HomePage() {
 
       {hasMounted && (
         <section className="flex items-center justify-center mb-32">
-          <div className="max-w-screen-xl w-full px-6 lg:px-12">
+          <div className="max-w-screen-lg w-full ">
             {/* Add text-center here */}
             <h2 className="text-center text-6xl sm:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#7f9fd8] to-[#5073b1] mt-24">
               Let’s Roll
@@ -259,7 +273,7 @@ export default function HomePage() {
 
       <section className="w-full py-8 sm:py-16 lg:py-24">
         {/* Centered container with max width */}
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-12 flex flex-col gap-12 sm:gap-24">
+        <div className="max-w-screen-lg mx-auto  flex flex-col gap-12 sm:gap-24">
 
           {/* BOX 1 */}
           <div className="flex flex-col sm:flex-row items-center justify-start">
@@ -519,7 +533,7 @@ export default function HomePage() {
       )}
 
       <section className="w-full bg-[#fbfafb] py-16">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="max-w-screen-lg mx-auto ">
           <div className="flex flex-col md:flex-row items-start gap-12">
             <div className="md:w-1/2">
               <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4 slab">
@@ -543,7 +557,7 @@ export default function HomePage() {
               {sampleQuestions.map((question, index) => (
                 <div
                   key={index}
-                  className="border-2 border-primary shadow-lg rounded-xl p-6"
+                  className=" bg-white border-2 border-primary shadow-lg rounded-xl p-6"
                 >
                   <h3 className="text-2xl font-bold mb-2 text-baseText slab">
                     {question.title}
@@ -591,7 +605,7 @@ export default function HomePage() {
 
 
       <section className="flex items-center justify-center mt-24">
-        <div className="max-w-screen-xl w-full px-6 lg:px-12">
+        <div className="max-w-screen-lg w-full">
           <div className="flex flex-col gap-6">
             <div
               className="
@@ -606,8 +620,8 @@ export default function HomePage() {
               <Image
                 src="/graphics/flowerPot.png"
                 alt="Community Left"
-                width={256}
-                height={256}
+                width={200}
+                height={200}
                 className="
                   hidden
                   md:block
@@ -623,8 +637,8 @@ export default function HomePage() {
               <Image
                 src="/graphics/piggyBank.png"
                 alt="Community Right"
-                width={256}
-                height={256}
+                width={200}
+                height={200}
                 className="
                   hidden
                   md:block
@@ -680,16 +694,17 @@ export default function HomePage() {
       </section>
 
       <section className="w-full bg-white py-16">
-  <div className="max-w-screen-lg mx-auto px-6 sm:px-12">
+  <div className="max-w-screen-lg mx-auto">
     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-black slab mb-4">
       Organising Team{" "}
       <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
-          2025
+        2025
       </span>
     </h2>
     <p className="text-center text-gray-700 text-base mb-16">
       Massive shout out to our team for taking time out of their day to make this competition possible!
     </p>
+
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
       {teamMembers.map((member) => (
         <a
@@ -701,13 +716,15 @@ export default function HomePage() {
         >
           <div className="relative w-28 h-28 rounded-full bg-white border-4 border-gray-100 shadow-lg overflow-hidden">
             <Image
-              src="/default-pfp.png"
+              src={member.image || "/team-pics/default.png"}
               alt={member.name}
               fill
               className="object-cover"
             />
           </div>
-          <p className="mt-4 font-semibold text-primary text-lg">{member.name}</p>
+          <p className="mt-4 font-semibold text-primary text-lg">
+            {member.name}
+          </p>
           {member.roles.map((role) => (
             <p key={role} className="text-gray-600 text-sm">
               {role}
@@ -718,6 +735,7 @@ export default function HomePage() {
     </div>
   </div>
 </section>
+
 
     </>
   );

@@ -18,7 +18,7 @@ export default function Navbar() {
             linear-gradient(to_right,#ddd_1px,transparent_1px)]
       "
     >
-      <nav className="max-w-screen-xl mx-auto px-4 py-6 flex items-center justify-between">
+      <nav className="max-w-screen-lg mx-auto py-6 flex items-center justify-between">
         <Link href="/" aria-label="Go to Home" className="flex items-center">
           <Image src="/logos/navbar.png" alt="Logo" width={200} height={160} />
         </Link>

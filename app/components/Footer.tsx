@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-baseText text-white w-full mt-24">
-      <div className="max-w-screen-xl mx-auto px-6 py-8">
+      <div className="max-w-screen-lg mx-auto py-8">
         <div className="flex flex-col md:flex-row gap-8 justify-between">
           <div className="md:w-1/2 flex flex-col gap-4">
             <div className="flex items-center gap-3">
@@ -17,14 +17,17 @@ export default function Footer() {
               />
             </div>
             <p className="text-sm leading-relaxed">
-            Singapore Economics League is a problem solving competition by students, for students. We are a non profit team of volunteers dedicated to promoting an interest in economics among students in Singapore. Our academic content follows the syllabus set by the International Economics Olympiad Association, which is located in Bern, Switzerland.
+              Singapore Economics League is a problem solving competition by students, for students. We are a non profit team of volunteers dedicated to promoting an interest in economics among students in Singapore. Our academic content follows the syllabus set by the International Economics Olympiad Association, which is located in Bern, Switzerland.
               <br />
               <br />
               The realisation of the competition was supported by the Ministry
               of Education, Youth and Sports of the Czech Republic.
               <br />
               <br />
-              #sgeconsleague contact@sgeconsleague
+              #sgeconsleague{" "}
+              <Link href="mailto:contact@sgeconsleague.org" className="hover:underline">
+                contact@sgeconsleague.org
+              </Link>
             </p>
           </div>
 
@@ -40,6 +43,21 @@ export default function Footer() {
                 <li>
                   <Link href="/faq" className="hover:underline">
                     FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/syllabus" className="hover:underline">
+                    Syllabus
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/archives" className="hover:underline">
+                    Archives
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy" className="hover:underline text-gray-400">
+                    Privacy Policy
                   </Link>
                 </li>
               </ul>

@@ -8,7 +8,7 @@ export default function SyllabusPage() {
   return (
     <div className="w-full text-baseText">
       <div className="flex justify-center pt-8 pb-6">
-        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-7xl mx-6 slab">
+        <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-screen-lg mx-auto slab">
           Syllabus
         </div>
       </div>
