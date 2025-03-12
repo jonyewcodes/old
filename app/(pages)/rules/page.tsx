@@ -87,8 +87,8 @@ function BriefRules() {
       <p className="mt-4">
         <span className="font-semibold">Who can participate:</span> The school
         category is open exclusively to students in
-        <b>pre-university education</b>, i.e. Junior Colleges, Secondary
-        Schools, Polytechnics, ITE, international high schools or equivalent.
+        <b> pre-university education</b>, i.e. Junior Colleges, Secondary
+        Schools, Polytechnics, ITE, international high schools or equivalent. 
         There are no restrictions on who can participate in the open category.
       </p>
       <p className="mt-4">
@@ -234,7 +234,7 @@ function ContestFormatAndScoring() {
         <div className="border-l-4 border-primary pl-4 py-2">
           <h4 className="font-semibold text-baseText">9. String Set</h4>
           <p className="text-lg text-baseText mt-1">
-            Input a set of N strings. Each must be exactly correct.
+            Input a set of N strings. Each string must be an exact match with the answer key.
           </p>
         </div>
 
@@ -242,7 +242,7 @@ function ContestFormatAndScoring() {
           <h4 className="font-semibold text-baseText">10. Table</h4>
           <ul className="list-disc ml-6 text-lg mt-1 space-y-1 text-baseText">
             <li>Key in the contents of an N×M table.</li>
-            <li>Answers can require either string or integer table entries.</li>
+            <li>Table answers can require either string or integer table entries, or a mixture of both.</li>
           </ul>
         </div>
       </div>
@@ -416,7 +416,7 @@ function ContestFormatAndScoring() {
         </li>
         <li>
           If no free skips are available, skipping a question incurs a{" "}
-          <b>3 point</b> penalty.
+          <b>3 point</b> penalty. 
         </li>
       </ul>
 
@@ -608,7 +608,7 @@ function ConductOfTheContest() {
         questions.
       </p>
       <p className="mt-4">
-        From <b>10:00</b> to <b>11:00</b>, <b>Ecoonomania</b> problems will be
+        From <b>10:00</b> to <b>11:00</b>, <b>Economania</b> problems will be
         available for teams to attempt independently and concurrently with the
         Main Problems. Economania problems can range from Easy, Medium, or Hard
         levels, and may contain special variants of question types (e.g., unique
@@ -659,10 +659,10 @@ function ParticipantsCodeofConduct() {
       </p>
       <UnorderedList
         items={[
-          "The internet, including websites and search engines",
-          "Digital or printed matter (e.g., notes, textbooks, research papers)",
+          "The internet, including websites and search engines (but excluding AI tools)",
+          "Digital or printed matter (e.g., lecture notes, economics textbooks, research papers)",
           "Software, such as Microsoft Excel, Desmos, Python, MATLAB, etc.",
-          "Calculators and Graphing Software",
+          "Scientific and/or Graphing Calculators",
         ]}
       />
       <p className="mt-6">
