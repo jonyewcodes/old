@@ -345,7 +345,7 @@ export default function HomePage() {
                 <div>
                   <h3 className="text-2xl font-bold text-baseText slab">Calling all Pre-U Students!</h3>
                   <p className="text-baseText mt-2 text-lg">
-                    Studying in a JC/MI, local polytechnic, ITE, or
+                    Studying in JC/High School, a polytechnic, ITE, or
                     <br />
                     secondary school? You are eligible to participate!
                   </p>
@@ -368,7 +368,7 @@ export default function HomePage() {
                     Calling all Pre-U Students!
                   </h3>
                   <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
-                    Studying in a JC/MI, local polytechnic, ITE, or secondary school? You are eligible to participate!
+                    Studying in JC/High School, a polytechnic, ITE, or secondary school? You are eligible to participate!
                   </p>
                 </div>
                 <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#5FA1FE] to-[#3539FF]">

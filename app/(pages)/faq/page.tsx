@@ -25,7 +25,7 @@ export default function Faq() {
             />
             <FaqBox
               question="Can I change the name and details of my team after registration?"
-              answer="The information submitted during registration is final!"
+              answer="The information submitted during registration is final."
             />
             <FaqBox
               question="Should I participate even if I have not studied H2 or Olympiad level economics?"
@@ -34,6 +34,10 @@ export default function Faq() {
             <FaqBox
               question="Should I participate in the School Category or Open Category?"
               answer="SEL collaborates with JCs and schools by sharing the performance of their students who have registered under the School Category. Thus, only participants of the school category will have their prizes and awards recorded in their CCA certificates and transcripts."
+            />
+            <FaqBox
+              question="May I participate even if I am not studying in Singapore?"
+              answer="Yes, you may. The same restrictions on the School and Open Category will apply: only students who are all studying in Pre-University education may participate in the school category."
             />
             <FaqBox
               question="May I use the internet during this competition?"
