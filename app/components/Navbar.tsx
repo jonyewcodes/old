@@ -18,12 +18,10 @@ export default function Navbar() {
             linear-gradient(to_right,#ddd_1px,transparent_1px)]
       "
     >
-      <nav className="max-w-screen-lg mx-auto py-6 flex items-center justify-between">
+      <nav className="w-full md:max-w-screen-lg md:mx-auto py-6 flex items-center justify-between px-4 md:px-0">
         <Link href="/" aria-label="Go to Home" className="flex items-center">
           <Image src="/logos/navbar.png" alt="Logo" width={200} height={160} />
         </Link>
-
-        {/* Desktop Links + Desktop "Register Now!" Button */}
         <div className="hidden md:flex items-center space-x-6 font-medium">
           <Link
             href="/rules"
@@ -67,8 +65,6 @@ export default function Navbar() {
             Register Now!
           </a>
         </div>
-
-        {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(true)}
           className="md:hidden text-white"
@@ -93,8 +89,6 @@ export default function Navbar() {
           </svg>
         </button>
       </nav>
-
-      {/* Mobile Slide-in Menu */}
       <div
         className={`
           fixed top-0 left-0 w-full h-full
@@ -127,7 +121,6 @@ export default function Navbar() {
             <path d="M6 6l12 12" />
           </svg>
         </button>
-
         <div className="flex flex-col items-start px-6 space-y-6 mt-4 text-[#273a30] slab font-semibold">
           <Link
             href="/"
@@ -137,13 +130,6 @@ export default function Navbar() {
             Home
           </Link>
           <Link
-            href="/about"
-            onClick={() => setIsOpen(false)}
-            className="text-xl px-3 py-1 rounded-md transition-colors duration-200 hover:bg-[#ffffff]/40"
-          >
-            About
-          </Link>
-          <Link
             href="/rules"
             onClick={() => setIsOpen(false)}
             className="text-xl px-3 py-1 rounded-md transition-colors duration-200 hover:bg-[#ffffff]/40"
@@ -151,18 +137,18 @@ export default function Navbar() {
             Rules
           </Link>
           <Link
-            href="/archives"
-            onClick={() => setIsOpen(false)}
-            className="text-xl px-3 py-1 rounded-md transition-colors duration-200 hover:bg-[#ffffff]/40"
-          >
-            Archives
-          </Link>
-          <Link
             href="/faq"
             onClick={() => setIsOpen(false)}
             className="text-xl px-3 py-1 rounded-md transition-colors duration-200 hover:bg-[#ffffff]/40"
           >
             FAQ
+          </Link>
+          <Link
+            href="/syllabus"
+            onClick={() => setIsOpen(false)}
+            className="text-xl px-3 py-1 rounded-md transition-colors duration-200 hover:bg-[#ffffff]/40"
+          >
+            Syllabus
           </Link>
           <a
             href="https://tally.so/r/3NRLlG"

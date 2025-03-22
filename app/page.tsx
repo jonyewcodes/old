@@ -139,12 +139,6 @@ export default function HomePage() {
       image: "/team-pics/default.png",
     },
     {
-      name: "Granwyn Tan",
-      roles: ["Front End Developer"],
-      link: "https://www.linkedin.com/in/granwyntan",
-      image: "/team-pics/granwyn-tan.png",
-    },
-    {
       name: "Dylan Saga",
       roles: ["Data Analyst"],
       link: "https://www.linkedin.com/in/dylan-saga-551430273",
@@ -162,7 +156,8 @@ export default function HomePage() {
       <section
         className="
           relative
-          py-8 
+          py-8
+          px-4
           sm:py-16 sm:px-6
           lg:py-24 lg:px-32
           text-background
@@ -184,9 +179,9 @@ export default function HomePage() {
               mb-4
             "
           >
-            <p className="font-semibold text-lg leading-tight text-left ">
-              Sat · 26 July 2025 · 09:00 AM — 01:00 PM SGT
-            </p>
+           <p className="font-semibold text-base sm:text-lg leading-tight text-left">
+            Sat · 26 July 2025 · 09:00 AM — 01:00 PM SGT
+          </p>
           </div>
           <h1
             className="
@@ -213,14 +208,11 @@ export default function HomePage() {
       </section>
 
       {hasMounted && (
-        <section className="flex items-center justify-center mb-32">
-          <div className="max-w-screen-lg w-full ">
-            {/* Add text-center here */}
+        <section className="flex items-center justify-center mb-32 px-4 sm:px-0">
+          <div className="max-w-screen-lg w-full">
             <h2 className="text-center text-6xl sm:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#7f9fd8] to-[#5073b1] mt-24">
               Let’s Roll
             </h2>
-
-            {/* Also give the box content a text-center */}
             <div className="border-2 border-primary bg-white rounded-xl p-8 sm:p-10 text-center">
               <div className="flex sm:flex-row items-center justify-center gap-0 sm:gap-6">
                 {["Days", "Hours", "Minutes", "Seconds"]
@@ -255,8 +247,6 @@ export default function HomePage() {
                     return [...acc, elem];
                   }, [])}
               </div>
-
-              {/* These paragraphs are now also centered by text-center */}
               <p className="text-baseText text-xl sm:text-2xl mt-6 sm:mt-8">
                 Till Registration Ends
               </p>
@@ -268,16 +258,9 @@ export default function HomePage() {
         </section>
       )}
 
-
-
-
       <section className="w-full py-8 sm:py-16 lg:py-24">
-        {/* Centered container with max width */}
-        <div className="max-w-screen-lg mx-auto  flex flex-col gap-12 sm:gap-24">
-
-          {/* BOX 1 */}
+        <div className="max-w-screen-lg mx-auto px-4 sm:px-0 flex flex-col gap-12 sm:gap-24">
           <div className="flex flex-col sm:flex-row items-center justify-start">
-            {/* Mobile version */}
             <div className="border-2 border-primary bg-white shadow-lg rounded-xl px-6 py-4 sm:px-8 sm:py-6 block sm:hidden">
               <Image
                 src="/graphics/problemSolving.png"
@@ -301,8 +284,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-
-            {/* Desktop version */}
             <div className="border-2 border-primary bg-white shadow-lg rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 hidden sm:flex">
               <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#C0ADFB] to-[#0790FF]">
                 1
@@ -317,7 +298,6 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-
             <Image
               src="/graphics/problemSolving.png"
               alt="Box 1 illustration"
@@ -326,10 +306,7 @@ export default function HomePage() {
               className="hidden sm:block w-full sm:w-96 h-auto mt-6 sm:mt-0 sm:ml-16"
             />
           </div>
-
-          {/* BOX 2 */}
           <div>
-            {/* Mobile version */}
             <div className="block sm:hidden border-2 border-primary bg-white shadow-lg rounded-xl px-6 py-4 sm:px-8 sm:py-6">
               <Image
                 src="/graphics/backpack.png"
@@ -345,15 +322,13 @@ export default function HomePage() {
                 <div>
                   <h3 className="text-2xl font-bold text-baseText slab">Calling all Pre-U Students!</h3>
                   <p className="text-baseText mt-2 text-lg">
-                    Studying in JC/High School, a polytechnic, ITE, or
+                    Studying in a JC/MI, local polytechnic, ITE, or
                     <br />
                     secondary school? You are eligible to participate!
                   </p>
                 </div>
               </div>
             </div>
-
-            {/* Desktop version */}
             <div className="hidden sm:flex flex-col sm:flex-row items-center justify-end">
               <Image
                 src="/graphics/backpack.png"
@@ -368,7 +343,9 @@ export default function HomePage() {
                     Calling all Pre-U Students!
                   </h3>
                   <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
-                    Studying in JC/High School, a polytechnic, ITE, or secondary school? You are eligible to participate!
+                    Studying in a JC/MI, local polytechnic, ITE, or
+                    <br />
+                    secondary school? You are eligible to participate!
                   </p>
                 </div>
                 <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#5FA1FE] to-[#3539FF]">
@@ -377,10 +354,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-
-          {/* BOX 3 */}
           <div>
-            {/* Mobile version */}
             <div className="block sm:hidden border-2 border-primary bg-white shadow-lg rounded-xl px-6 py-4 sm:px-8 sm:py-6">
               <Image
                 src="/graphics/teamUp.png"
@@ -405,14 +379,14 @@ export default function HomePage() {
                     target="_blank"
                     rel="noreferrer"
                     className="
-                      mt-4 sm:mt-6 
-                      inline-block 
-                      px-6 sm:px-8 
-                      py-2 
-                      bg-[#ffffff] 
-                      text-secondary 
-                      text-lg 
-                      font-medium 
+                      mt-4 sm:mt-6
+                      inline-block
+                      px-6 sm:px-8
+                      py-2
+                      bg-[#ffffff]
+                      text-secondary
+                      text-lg
+                      font-medium
                       border-2
                       rounded-xl
                       border-b-4
@@ -420,9 +394,9 @@ export default function HomePage() {
                       transition-all
                       duration-200
                       hover:scale-105
-                      transition-transform 
-                      duration-200 
-                      ease-in-out 
+                      transition-transform
+                      duration-200
+                      ease-in-out
                       hover:scale-105
                     "
                   >
@@ -431,8 +405,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-
-            {/* Desktop version */}
             <div className="hidden sm:flex flex-col sm:flex-row items-center justify-start">
               <div className="border-2 border-primary bg-white shadow-lg rounded-xl px-6 py-4 sm:px-8 sm:py-6 inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                 <span className="text-[8rem] sm:text-[12rem] lg:text-[16rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#AAD8F9] to-[#4E8EE2]">
@@ -441,21 +413,23 @@ export default function HomePage() {
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-bold text-baseText slab">Build Your Dream Team</h3>
                   <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
-                    From classmates to friends in other schools, assemble the team of your choice to win it all!
+                    From classmates to friends in other schools, assemble
+                    <br />
+                    the team of your choice to win it all!
                   </p>
                   <a
                     href="https://tally.so/r/3NRLlG"
                     target="_blank"
                     rel="noreferrer"
                     className="
-                      mt-4 sm:mt-6 
-                      inline-block 
-                      px-6 sm:px-8 
-                      py-2 
-                      bg-[#ffffff] 
-                      text-secondary 
-                      text-lg 
-                      font-medium 
+                      mt-4 sm:mt-6
+                      inline-block
+                      px-6 sm:px-8
+                      py-2
+                      bg-[#ffffff]
+                      text-secondary
+                      text-lg
+                      font-medium
                       border-2
                       rounded-xl
                       border-b-4
@@ -463,9 +437,9 @@ export default function HomePage() {
                       transition-all
                       duration-200
                       hover:scale-105
-                      transition-transform 
-                      duration-200 
-                      ease-in-out 
+                      transition-transform
+                      duration-200
+                      ease-in-out
                       hover:scale-105
                     "
                   >
@@ -529,14 +503,15 @@ export default function HomePage() {
       )}
 
       <section className="w-full bg-[#fbfafb] py-16">
-        <div className="max-w-screen-lg mx-auto ">
+        <div className="max-w-screen-lg mx-auto px-4 md:px-0">
           <div className="flex flex-col md:flex-row items-start gap-12">
             <div className="md:w-1/2">
               <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4 slab">
                 Sample <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">Questions</span>
               </h2>
               <p className="text-gray-700 text-lg">
-                Wonder what types of questions SEL tests?<br /> Check out these curated examples!
+                Wonder what types of questions SEL tests?
+                <br /> Check out these curated examples!
               </p>
               <button className="px-6 py-3 bg-white text-secondary font-semibold border-2 rounded-xl border-b-4 border-secondary transition-all duration-200 hover:scale-105 transition-transform ease-in-out hover:scale-105 mt-6">
                 View the Syllabus
@@ -553,7 +528,7 @@ export default function HomePage() {
               {sampleQuestions.map((question, index) => (
                 <div
                   key={index}
-                  className=" bg-white border-2 border-primary shadow-lg rounded-xl p-6"
+                  className="bg-white border-2 border-primary shadow-lg rounded-xl p-6"
                 >
                   <h3 className="text-2xl font-bold mb-2 text-baseText slab">
                     {question.title}
@@ -598,9 +573,7 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
-      <section className="flex items-center justify-center mt-24">
+      <section className="flex items-center justify-center mt-24 px-4 md:px-0">
         <div className="max-w-screen-lg w-full">
           <div className="flex flex-col gap-6">
             <div
@@ -613,6 +586,13 @@ export default function HomePage() {
                 text-center bg-white text-lg
               "
             >
+              <Image
+                src="/graphics/flowerPot.png"
+                alt="Community Mobile"
+                width={200}
+                height={200}
+                className="md:hidden mx-auto mb-4"
+              />
               <Image
                 src="/graphics/flowerPot.png"
                 alt="Community Left"
@@ -646,7 +626,6 @@ export default function HomePage() {
                   h-auto
                   mr-4
                 "
-                
               />
               <h3 className="text-4xl font-medium slab text-baseText mt-6">
                 Join our Community
@@ -690,49 +669,46 @@ export default function HomePage() {
       </section>
 
       <section className="w-full bg-white py-16">
-  <div className="max-w-screen-lg mx-auto">
-    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-black slab mb-4">
-      Organising Team{" "}
-      <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
-        2025
-      </span>
-    </h2>
-    <p className="text-center text-gray-700 text-base mb-16">
-      Massive shout out to our team for taking time out of their day to make this competition possible!
-    </p>
-
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-      {teamMembers.map((member) => (
-        <a
-          key={member.name}
-          href={member.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105"
-        >
-          <div className="relative w-28 h-28 rounded-full bg-white border-4 border-gray-100 shadow-lg overflow-hidden">
-            <Image
-              src={member.image || "/team-pics/default.png"}
-              alt={member.name}
-              fill
-              className="object-cover"
-            />
-          </div>
-          <p className="mt-4 font-semibold text-primary text-lg">
-            {member.name}
+        <div className="max-w-screen-lg mx-auto px-4 md:px-0">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-black slab mb-4">
+            Organising Team{" "}
+            <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
+              2025
+            </span>
+          </h2>
+          <p className="text-center text-gray-700 text-base mb-16">
+            Massive shout out to our team for taking time out of their day to make this competition possible!
           </p>
-          {member.roles.map((role) => (
-            <p key={role} className="text-gray-600 text-sm">
-              {role}
-            </p>
-          ))}
-        </a>
-      ))}
-    </div>
-  </div>
-</section>
-
-
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+            {teamMembers.map((member) => (
+              <a
+                key={member.name}
+                href={member.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105"
+              >
+                <div className="relative w-28 h-28 rounded-full bg-white border-4 border-gray-100 shadow-lg overflow-hidden">
+                  <Image
+                    src={member.image || "/team-pics/default.png"}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <p className="mt-4 font-semibold text-primary text-lg">
+                  {member.name}
+                </p>
+                {member.roles.map((role) => (
+                  <p key={role} className="text-gray-600 text-sm">
+                    {role}
+                  </p>
+                ))}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

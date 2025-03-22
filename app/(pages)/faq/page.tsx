@@ -8,16 +8,13 @@ export const metadata = {
 export default function Faq() {
   return (
     <>
-      {/* Matches the Syllabus “hero” header style */}
       <section className="w-full text-baseText">
         <div className="flex justify-center pt-8 pb-6">
           <div className="text-baseText text-center text-6xl font-bold px-8 py-4 rounded-xl w-full max-w-md mx-auto slab">
             FAQs
           </div>
         </div>
-
-        {/* Main FAQ content container */}
-        <div className="max-w-screen-lg mx-auto mt-16">
+        <div className="max-w-screen-lg mx-auto mt-16 px-4 md:px-0">
           <div className="space-y-6 text-lg">
             <FaqBox
               question="Can my team be composed of members from different schools?"
@@ -66,10 +63,8 @@ export default function Faq() {
           </div>
         </div>
       </section>
-
-      {/* “Still have questions?” section remains separate */}
       <section className="w-full py-8">
-        <div className="max-w-screen-lg mx-auto text-left">
+        <div className="max-w-screen-lg mx-auto text-left px-4 md:px-0">
           <h3 className="text-3xl sm:text-4xl font-bold text-black slab mb-4 mt-4">
             Still have questions?
           </h3>
