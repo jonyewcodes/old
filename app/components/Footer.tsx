@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-baseText text-white w-full mt-24">
-      <div className="max-w-screen-md lg:max-w-screen-lg mx-auto py-8">
+      <div className="max-w-screen-md lg:max-w-screen-lg mx-auto py-8 px-4 md:px-0">
         <div className="flex flex-col md:flex-row gap-8 justify-between">
           <div className="md:w-1/2 flex flex-col gap-4">
             <div className="flex items-center gap-3">
@@ -78,7 +78,6 @@ export default function Footer() {
             </p>
           </div>
 
-]]
           <div className="md:w-2/3 flex flex-col md:flex-row justify-end gap-12">
             <div className="text-left">
               <h3 className="font-semibold mb-2">Navigation</h3>
@@ -114,7 +113,6 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-]
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -133,7 +131,6 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-]
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

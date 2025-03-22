@@ -506,8 +506,19 @@ export default function HomePage() {
         <div className="max-w-screen-lg mx-auto px-4 md:px-0">
           <div className="flex flex-col md:flex-row items-start gap-12">
             <div className="md:w-1/2">
+              <Image
+                src="/graphics/studying.png"
+                alt="Syllabus Illustration"
+                width={480}
+                height={480}
+                className="block md:hidden mx-auto mb-6 h-auto"
+              />
+
               <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4 slab">
-                Sample <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">Questions</span>
+                Sample{" "}
+                <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
+                  Questions
+                </span>
               </h2>
               <p className="text-gray-700 text-lg">
                 Wonder what types of questions SEL tests?
@@ -516,6 +527,8 @@ export default function HomePage() {
               <button className="px-6 py-3 bg-white text-secondary font-semibold border-2 rounded-xl border-b-4 border-secondary transition-all duration-200 hover:scale-105 transition-transform ease-in-out hover:scale-105 mt-6">
                 View the Syllabus
               </button>
+
+              {/* Desktop-only graphic below the header */}
               <Image
                 src="/graphics/studying.png"
                 alt="Syllabus Illustration"
@@ -524,6 +537,7 @@ export default function HomePage() {
                 className="hidden md:block mt-6 h-auto"
               />
             </div>
+
             <div className="md:w-1/2 flex flex-col gap-6">
               {sampleQuestions.map((question, index) => (
                 <div
@@ -538,9 +552,7 @@ export default function HomePage() {
                   >
                     {question.difficulty}
                   </span>
-                  <p className="text-baseText text-lg mt-3">
-                    {question.description}
-                  </p>
+                  <p className="text-baseText text-lg mt-3">{question.description}</p>
                   <a
                     href={question.link}
                     target="_blank"
