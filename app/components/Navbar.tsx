@@ -20,26 +20,26 @@ export default function Navbar() {
     >
       <nav className="max-w-screen-lg mx-auto py-6 flex items-center justify-between">
         <Link href="/" aria-label="Go to Home" className="flex items-center">
-          <Image src="/logos/navbar.png" alt="Logo" width={200} height={160} />
+          <Image src="/logos/navbar.png" alt="Logo" width={240} height={192} />
         </Link>
 
         {/* Desktop Links + Desktop "Register Now!" Button */}
         <div className="hidden md:flex items-center space-x-6 font-medium">
           <Link
             href="/rules"
-            className="px-3 py-1 rounded-md transition-colors duration-200 hover:bg-white/20"
+            className="text-lg px-3 py-1 rounded-md transition-colors duration-200 hover:bg-white/20"
           >
             Rules
           </Link>
           <Link
             href="/faq"
-            className="px-3 py-1 rounded-md transition-colors duration-200 hover:bg-white/20"
+            className="text-lg px-3 py-1 rounded-md transition-colors duration-200 hover:bg-white/20"
           >
             FAQ
           </Link>
           <Link
             href="/syllabus"
-            className="px-3 py-1 rounded-md transition-colors duration-200 hover:bg-white/20"
+            className="text-lg px-3 py-1 rounded-md transition-colors duration-200 hover:bg-white/20"
           >
             Syllabus
           </Link>
@@ -53,6 +53,7 @@ export default function Navbar() {
               py-2
               bg-white
               text-secondary
+              text-lg
               font-semibold
               rounded-2xl
               shadow

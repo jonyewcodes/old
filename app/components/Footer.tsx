@@ -19,7 +19,7 @@ export default function Footer() {
                 className="object-contain"
               />
             </div>
-            <p className="text-sm leading-relaxed">
+            <p className="text-base leading-relaxed">
               Singapore Economics League is a problem solving competition by students, for students.
               We are a non profit team of volunteers dedicated to promoting an interest in economics
               among students in Singapore. Our academic content follows the syllabus set by the
@@ -82,10 +82,10 @@ export default function Footer() {
           </div>
 
           {/* Right Column: links */}
-          <div className="md:w-2/3 flex flex-col md:flex-row justify-end gap-12">
+          <div className="md:w-2/3 flex flex-col md:flex-row justify-end gap-12 text-xl">
             <div className="text-left">
-              <h3 className="font-semibold mb-2">Navigation</h3>
-              <ul className="space-y-1 text-sm">
+              <h3 className="font-semibold mb-2 slab">Navigation</h3>
+              <ul className="space-y-1 text-base">
                 <li>
                   <Link href="/rules" className="hover:underline">
                     Rules
@@ -109,7 +109,7 @@ export default function Footer() {
               </ul>
             </div>
             <div className="text-left">
-              <h3 className="font-semibold mb-2">Connect with us</h3>
+              <h3 className="font-semibold mb-2 text-xlslab">Connect with us</h3>
               <div className="flex items-center gap-3">
                 <Link
                   href="https://instagram.com/sgeconsleague"

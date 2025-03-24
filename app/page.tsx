@@ -4,6 +4,7 @@ import Image from "next/image";
 import Animation from "./components/AnimatedBackground";
 import CountDown from "./components/CountDown";
 
+
 function calculateTimeLeft() {
   const now = new Date().getTime();
   const eventTimestamp = new Date("July 4, 2025 09:00:00").getTime();
@@ -25,6 +26,16 @@ export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
 
+  const institutionImages = [
+    "/institutions/acj.png",
+    "/institutions/ejc.png",
+    "/institutions/ri.png",
+    "/institutions/hci.png",
+    "/institutions/ieo.png",
+    "/institutions/astar.png",
+    "/institutions/rv.png",
+    // Add all your institution images here
+  ];
   const sampleQuestions = [
     {
       title: "Economic Crisis on Arrakis",
@@ -213,12 +224,13 @@ export default function HomePage() {
       </section>
 
       {hasMounted && (
-        <section className="flex items-center justify-center mb-32">
+        <section className="flex items-center justify-center mb-16">
           <div className="max-w-screen-lg w-full ">
             {/* Add text-center here */}
-            <h2 className="text-center text-6xl sm:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#7f9fd8] to-[#5073b1] mt-24">
-              Let’s Roll
+            <h2 className="text-center text-5xl sm:text-7xl font-bold text-black mt-24 slab">
+              Let’s <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent"> Roll </span>
             </h2>
+            
 
             {/* Also give the box content a text-center */}
             <div className="border-2 border-primary bg-white rounded-xl p-8 sm:p-10 text-center">
@@ -236,17 +248,14 @@ export default function HomePage() {
                         <span
                           key={`colon-${idx}`}
                           className="
-                            flex
-                            flex-col
-                            items-center
-                            justify-center
-                            font-light
-                            mx-1
-                            sm:mx-2
-                            text-baseText
-                            leading-none
-                            text-5xl sm:text-6xl
-                          "
+                          font-light
+                          mx-1
+                          sm:mx-2
+                          text-baseText
+                          text-5xl sm:text-6xl
+                          self-start
+                          mt-8 sm:mt-16
+                        "
                         >
                           :
                         </span>,
@@ -271,7 +280,7 @@ export default function HomePage() {
 
 
 
-      <section className="w-full py-8 sm:py-16 lg:py-24">
+      <section className="w-full py-8 sm:py-16 lg:py-8">
         {/* Centered container with max width */}
         <div className="max-w-screen-lg mx-auto  flex flex-col gap-12 sm:gap-24">
 
@@ -598,7 +607,75 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="w-full bg-white py-16">
+  <div className="max-w-screen-lg mx-auto">
+    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-black slab mb-8">
+      Organising Team{" "}
+      <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
+        2025
+      </span>
+    </h2>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+      {teamMembers.map((member) => (
+        <a
+          key={member.name}
+          href={member.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105"
+        >
+          <div className="relative w-28 h-28 rounded-full bg-white border-4 border-gray-100 shadow-lg overflow-hidden">
+            <Image
+              src={member.image || "/team-pics/default.png"}
+              alt={member.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <p className="mt-4 font-semibold text-primary text-lg">
+            {member.name}
+          </p>
+          {member.roles.map((role) => (
+            <p key={role} className="text-gray-600 text-sm">
+              {role}
+            </p>
+          ))}
+        </a>
+      ))}
+    </div>
+  </div>
+      </section>
 
+      <section className="w-full bg-[#fbfafb] py-8">
+      <p className="text-center text-gray-700 text-lg mb-4">
+      Built with love by alumni from:
+    </p>
+      <div className="overflow-hidden">
+      <div className="flex gap-8 animate-scroll h-[50px] sm:h-[100px]  items-center">
+      {[...institutionImages, ...institutionImages].map((img, index) => (
+      <img 
+      key={index} 
+      src={img} 
+      className="h-full w-auto object-cover flex-shrink-0" 
+      />
+      ))}
+      </div>
+        <style jsx>{`
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+  
+          .animate-scroll {
+            animation: scroll 80s linear infinite;
+          }
+        `}</style>
+      </div>
+      </section>
 
       <section className="flex items-center justify-center mt-24">
         <div className="max-w-screen-lg w-full">
@@ -688,49 +765,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <section className="w-full bg-white py-16">
-  <div className="max-w-screen-lg mx-auto">
-    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-black slab mb-4">
-      Organising Team{" "}
-      <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
-        2025
-      </span>
-    </h2>
-    <p className="text-center text-gray-700 text-base mb-16">
-      Massive shout out to our team for taking time out of their day to make this competition possible!
-    </p>
-
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-      {teamMembers.map((member) => (
-        <a
-          key={member.name}
-          href={member.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105"
-        >
-          <div className="relative w-28 h-28 rounded-full bg-white border-4 border-gray-100 shadow-lg overflow-hidden">
-            <Image
-              src={member.image || "/team-pics/default.png"}
-              alt={member.name}
-              fill
-              className="object-cover"
-            />
-          </div>
-          <p className="mt-4 font-semibold text-primary text-lg">
-            {member.name}
-          </p>
-          {member.roles.map((role) => (
-            <p key={role} className="text-gray-600 text-sm">
-              {role}
-            </p>
-          ))}
-        </a>
-      ))}
-    </div>
-  </div>
-</section>
 
 
     </>
