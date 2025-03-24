@@ -270,7 +270,7 @@ export default function HomePage() {
         </section>
       )}
 
-      <section className="w-full py-8 sm:py-16 lg:py-24">
+      <section className="w-full py-8 sm:py-16 lg:py-8">
         <div className="max-w-screen-lg mx-auto px-4 sm:px-0 flex flex-col gap-12 sm:gap-24">
           <div className="flex flex-col sm:flex-row items-center justify-start">
             <div className="border-2 border-primary bg-white shadow-lg rounded-xl px-6 py-4 sm:px-8 sm:py-6 block sm:hidden">
