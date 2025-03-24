@@ -4,11 +4,8 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-baseText text-white w-full mt-24">
-      {/* Container with max width and centered */}
-      <div className="max-w-screen-lg mx-auto py-8">
-        {/* Main row with two columns */}
+      <div className="max-w-screen-md lg:max-w-screen-lg mx-auto py-8 px-4 md:px-0">
         <div className="flex flex-col md:flex-row gap-8 justify-between">
-          {/* Left Column: about + paragraph */}
           <div className="md:w-1/2 flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <Image
@@ -117,7 +114,6 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {/* Instagram icon */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -136,7 +132,6 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {/* LinkedIn icon */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -157,10 +152,10 @@ export default function Footer() {
         <hr className="border-gray-600 my-6" />
 
         <div className="flex items-center text-sm text-gray-400">
-        <span className="mr-4">© Singapore Economics League 2025</span>
-        <Link href="/privacy" className="hover:underline text-gray-400">
-          Privacy Policy
-        </Link>
+          <span className="mr-4">© Singapore Economics League 2025</span>
+          <Link href="/privacy" className="hover:underline text-gray-400">
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>

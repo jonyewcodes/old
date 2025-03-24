@@ -20,23 +20,24 @@ export default function CountDown({ label, value }: CountDownProps) {
       <div
         className="
           relative
-          w-20 h-28 sm:w-36 sm:h-48
+          w-16 h-24 sm:w-36 sm:h-48
           flex items-center justify-center
           bg-[#272a30]
           rounded-md
-          text-3xl sm:text-6xl font-semibold
+          text-2xl sm:text-6xl
+          font-semibold
           text-white
         "
       >
         <div
           className="
-          absolute
-          top-1/2 left-0
-          w-full h-px
-          bg-background
-          -translate-y-1/2
-          pointer-events-none
-        "
+            absolute
+            top-1/2 left-0
+            w-full h-px
+            bg-background
+            -translate-y-1/2
+            pointer-events-none
+          "
         />
         {currentValue}
       </div>
