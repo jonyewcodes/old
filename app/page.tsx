@@ -639,7 +639,7 @@ export default function HomePage() {
 
       <section className="w-full bg-[#fbfafb] py-8">
       <p className="text-center text-gray-700 text-lg mb-4">
-      Built with love by alumni from:
+      Built with love by the alumni of:
     </p>
       <div className="overflow-hidden">
       <div className="flex gap-8 animate-scroll h-[50px] sm:h-[100px]  items-center">
