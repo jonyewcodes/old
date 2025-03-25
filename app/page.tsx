@@ -34,6 +34,7 @@ export default function HomePage() {
     "/institutions/ieo.png",
     "/institutions/astar.png",
     "/institutions/rv.png",
+    "/institutions/np.png",
     // Add all your institution images here
   ];
   const sampleQuestions = [
