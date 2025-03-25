@@ -19,8 +19,7 @@ export default function Footer() {
             <p className="text-base leading-relaxed">
               Singapore Economics League is a problem solving competition by students, for students.
               We are a non profit team of volunteers dedicated to promoting an interest in economics
-              among students in Singapore. Our academic content follows the syllabus set by the
-              International Economics Olympiad Association, which is located in Bern,&nbsp;Switzerland.
+              among students in Singapore. 
               <br />
               <br />
               The realisation of the competition was inspired by other leagues including{" "}
