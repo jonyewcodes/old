@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Animation from "./components/AnimatedBackground";
 import CountDown from "./components/CountDown";
-
+import OrganisingInstitutionBanner from "./components/OrganisingInstitutionBanner";
 
 function calculateTimeLeft() {
   const now = new Date().getTime();
@@ -34,9 +34,9 @@ export default function HomePage() {
     "/institutions/ieo.png",
     "/institutions/astar.png",
     "/institutions/rv.png",
-    "/institutions/np.png",
-    // Add all your institution images here
+    "/institutions/np.png", 
   ];
+
   const sampleQuestions = [
     {
       title: "Economic Crisis on Arrakis",
@@ -220,15 +220,11 @@ export default function HomePage() {
       </section>
 
       {hasMounted && (
-        <section className="flex items-center justify-center mb-16">
+        <section className="flex items-center justify-center mb-16 px-4 md:px-0">
           <div className="max-w-screen-lg w-full ">
-            {/* Add text-center here */}
             <h2 className="text-center text-5xl sm:text-7xl font-bold text-black mt-24 slab">
               Let’s <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent"> Roll </span>
             </h2>
-            
-
-            {/* Also give the box content a text-center */}
             <div className="border-2 border-primary bg-white rounded-xl p-8 sm:p-10 text-center">
               <div className="flex sm:flex-row items-center justify-center gap-0 sm:gap-6">
                 {["Days", "Hours", "Minutes", "Seconds"]
@@ -515,7 +511,7 @@ export default function HomePage() {
         </div>
       )}
 
-      <section className="w-full bg-[#fbfafb] py-16">
+      <section className="w-full bg-[#fbfafb] py-16 mt-16">
         <div className="max-w-screen-lg mx-auto px-4 md:px-0">
           <div className="flex flex-col md:flex-row items-start gap-12">
             <div className="md:w-1/2">
@@ -541,7 +537,6 @@ export default function HomePage() {
                 View the Syllabus
               </button>
 
-              {/* Desktop-only graphic below the header */}
               <Image
                 src="/graphics/studying.png"
                 alt="Syllabus Illustration"
@@ -598,77 +593,50 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="w-full bg-white py-16">
-  <div className="max-w-screen-lg mx-auto">
-    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-black slab mb-8">
-      Organising Team{" "}
-      <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
-        2025
-      </span>
-    </h2>
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-      {teamMembers.map((member) => (
-        <a
-          key={member.name}
-          href={member.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105"
-        >
-          <div className="relative w-28 h-28 rounded-full bg-white border-4 border-gray-100 shadow-lg overflow-hidden">
-            <Image
-              src={member.image || "/team-pics/default.png"}
-              alt={member.name}
-              fill
-              className="object-cover"
-            />
+      <section className="w-full bg-white py-16 mt-16">
+        <div className="max-w-screen-lg mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-black slab mb-8">
+            Organising Team{" "}
+            <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent">
+              2025
+            </span>
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+            {teamMembers.map((member) => (
+              <a
+                key={member.name}
+                href={member.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105"
+              >
+                <div className="relative w-28 h-28 rounded-full bg-white border-4 border-gray-100 shadow-lg overflow-hidden">
+                  <Image
+                    src={member.image || "/team-pics/default.png"}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <p className="mt-4 font-semibold text-primary text-lg">
+                  {member.name}
+                </p>
+                {member.roles.map((role) => (
+                  <p key={role} className="text-gray-600 text-sm">
+                    {role}
+                  </p>
+                ))}
+              </a>
+            ))}
           </div>
-          <p className="mt-4 font-semibold text-primary text-lg">
-            {member.name}
-          </p>
-          {member.roles.map((role) => (
-            <p key={role} className="text-gray-600 text-sm">
-              {role}
-            </p>
-          ))}
-        </a>
-      ))}
-    </div>
-  </div>
+        </div>
       </section>
 
       <section className="w-full bg-[#fbfafb] py-8">
-      <p className="text-center text-gray-700 text-lg mb-4">
-      Built with love by the alumni of:
-    </p>
-      <div className="overflow-hidden">
-      <div className="flex gap-8 animate-scroll h-[50px] sm:h-[100px]  items-center">
-      {[...institutionImages, ...institutionImages].map((img, index) => (
-      <img 
-      key={index} 
-      src={img} 
-      className="h-full w-auto object-cover flex-shrink-0" 
-      />
-      ))}
-      </div>
-        <style jsx>{`
-          @keyframes scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-  
-          .animate-scroll {
-            animation: scroll 80s linear infinite;
-          }
-        `}</style>
-      </div>
+        <OrganisingInstitutionBanner institutionImages={institutionImages} />
       </section>
 
-      <section className="flex items-center justify-center mt-24">
+      <section className="flex items-center justify-center mt-24 px-4 md:px-0">
         <div className="max-w-screen-lg w-full">
           <div className="flex flex-col gap-6">
             <div
