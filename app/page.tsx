@@ -151,6 +151,12 @@ export default function HomePage() {
       image: "/team-pics/default.png",
     },
     {
+      name: "Ooi Jing Shun",
+      roles: ["Front End Developer"],
+      link: "https://www.linkedin.com/in/jing-shun-ooi",
+      image: "/team-pics/ooi-jing-shun.png",
+    },
+    {
       name: "Dylan Saga",
       roles: ["Data Analyst"],
       link: "https://www.linkedin.com/in/dylan-saga-551430273",
@@ -222,7 +228,7 @@ export default function HomePage() {
       {hasMounted && (
         <section className="flex items-center justify-center mb-16 px-4 md:px-0">
           <div className="max-w-screen-lg w-full ">
-            <h2 className="text-center text-5xl sm:text-7xl font-bold text-black mt-24 slab">
+            <h2 className="text-center text-6xl sm:text-9xl font-bold text-black mt-24 slab">
               Let’s <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent"> Roll </span>
             </h2>
             <div className="border-2 border-primary bg-white rounded-xl p-8 sm:p-10 text-center">
