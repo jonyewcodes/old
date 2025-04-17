@@ -25,17 +25,6 @@ export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
 
-  const institutionImages = [
-    "/institutions/acj.png",
-    "/institutions/ejc.png",
-    "/institutions/ri.png",
-    "/institutions/hci.png",
-    "/institutions/ieo.png",
-    "/institutions/astar.png",
-    "/institutions/rv.png",
-    "/institutions/np.png", 
-  ];
-
   const sampleQuestions = [
     {
       title: "Economic Crisis on Arrakis",
