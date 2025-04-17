@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Animation from "./components/AnimatedBackground";
 import CountDown from "./components/CountDown";
-import OrganisingInstitutionBanner from "./components/OrganisingInstitutionBanner";
 
 function calculateTimeLeft() {
   const now = new Date().getTime();
@@ -636,10 +635,6 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
-
-      <section className="w-full bg-[#fbfafb] py-8">
-        <OrganisingInstitutionBanner institutionImages={institutionImages} />
       </section>
 
       <section className="flex items-center justify-center mt-24 px-4 md:px-0">
