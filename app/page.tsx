@@ -687,7 +687,7 @@ export default function HomePage() {
                 Ask questions, make friends, and form teams. Good vibes only!
               </p>
               <a
-                href="https://discord.gg/FMn74arxZd"
+                href="https://discord.gg/fcYDumMpx7"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
