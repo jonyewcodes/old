@@ -22,7 +22,7 @@ export default function Faq() {
             />
             <FaqBox
               question="Can I change the name and details of my team after registration?"
-              answer="The information submitted during registration is final."
+              answer="Changes to registration information may be made prior to the registation closing date. Teams that wish to do so may contact the organisers via email at contact@sgeconsleague.org. Note that if there are multiple form submissions by the same team, only the most recent form submission will be considered for registration."
             />
             <FaqBox
               question="Should I participate even if I have not studied H2 or Olympiad level economics?"
@@ -30,11 +30,11 @@ export default function Faq() {
             />
             <FaqBox
               question="Should I participate in the School Category or Open Category?"
-              answer="SEL collaborates with JCs and schools by sharing the performance of their students who have registered under the School Category. Thus, only participants of the school category will have their prizes and awards recorded in their CCA certificates and transcripts."
+              answer="SEL collaborates with local JCs and schools by sharing the performance of their students who have registered under the School Category. Thus, only participants of the school category will have their prizes and awards recorded in their CCA certificates and transcripts."
             />
             <FaqBox
               question="May I participate even if I am not studying in Singapore?"
-              answer="Yes, you may. The same restrictions on the School and Open Category will apply: only students who are all studying in Pre-University education may participate in the school category."
+              answer="Yes, you may. The same restrictions on the School and Open Category will apply: only students who are all studying in Pre-University education may participate in the school category. International participants in the School category also stand to recieve certificates and awards. International participants should note that the organisers of SEL may not always liason with non-local schools to verify and endorse competition results."
             />
             <FaqBox
               question="May I use the internet during this competition?"
@@ -42,7 +42,7 @@ export default function Faq() {
             />
             <FaqBox
               question="How do we obtain new problems to solve during the contest?"
-              answer="After completing or skipping an existing question, your team can choose new questions from a pool of subsequent questions. You can attempt a maximum of 4 main problems at any one time."
+              answer="After completing or skipping an existing question, your team can choose new questions from a pool of subsequent questions. Your team can attempt a maximum of 4 main problems at any one time."
             />
             <FaqBox
               question="How hard are SEL questions?"
@@ -54,7 +54,7 @@ export default function Faq() {
             />
             <FaqBox
               question="May I skip questions?"
-              answer="Yes, but 2 points will be deducted from your team's overall score per skip. Your team will receive a free skip that allows you to skip a question without penalty every 30 minutes."
+              answer="Yes, but 3 points will be deducted from your team's overall score per skip. Your team will receive a free skip that allows you to skip a question without penalty every 30 minutes."
             />
             <FaqBox
               question="How do I obtain bonus points?"

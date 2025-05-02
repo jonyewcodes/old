@@ -79,10 +79,16 @@ export default function HomePage() {
       image: "/team-pics/jonyew-ho.png",
     },
     {
-      name: "Tevel Sho",
-      roles: ["Deputy Chief Organiser", "Lead Developer"],
-      link: "https://www.linkedin.com/in/tevelsho",
-      image: "/team-pics/tevel-sho.png",
+      name: "Li Zonglun",
+      roles: ["Head of Academics"],
+      link: "https://www.linkedin.com/in/zonglun-li-80970a276",
+      image: "/team-pics/li-zonglun.png",
+    },
+    {
+      name: "Jeffrey Lee",
+      roles: ["Lead Developer"],
+      link: "https://www.linkedin.com/in/jeffrey-lee-8a9461236",
+      image: "/team-pics/jeffrey-lee.png",
     },
     {
       name: "Lucas Lee",
@@ -91,14 +97,8 @@ export default function HomePage() {
       image: "/team-pics/lucas-lee.png",
     },
     {
-      name: "Li Zonglun",
-      roles: ["Head of Academics", "Problem Setter"],
-      link: "https://www.linkedin.com/in/zonglun-li-80970a276",
-      image: "/team-pics/li-zonglun.png",
-    },
-    {
       name: "Zhao Yuxuan",
-      roles: ["Academics Consultant", "Problem Setter"],
+      roles: ["Academics Consultant"],
       link: "https://www.linkedin.com/in/yuxuan-zhao-a44789338",
       image: "/team-pics/zhao-yuxuan.png",
     },
@@ -121,12 +121,6 @@ export default function HomePage() {
       image: "/team-pics/theodore-chou.png",
     },
     {
-      name: "Jeffrey Lee",
-      roles: ["Lead Developer"],
-      link: "https://www.linkedin.com/in/jeffrey-lee-8a9461236",
-      image: "/team-pics/jeffrey-lee.png",
-    },
-    {
       name: "Chua Zhong Ding",
       roles: ["Full Stack Developer", "Penetration Tester"],
       link: "https://www.linkedin.com/in/chua-zhong-ding-94412728b",
@@ -139,12 +133,6 @@ export default function HomePage() {
       image: "/team-pics/default.png",
     },
     {
-      name: "Ooi Jing Shun",
-      roles: ["Front End Developer"],
-      link: "https://www.linkedin.com/in/jing-shun-ooi",
-      image: "/team-pics/ooi-jing-shun.png",
-    },
-    {
       name: "Dylan Saga",
       roles: ["Data Analyst"],
       link: "https://www.linkedin.com/in/dylan-saga-551430273",
@@ -154,6 +142,12 @@ export default function HomePage() {
       name: "Raeanne Zou",
       roles: ["Graphic Illustrator"],
       link: "https://www.linkedin.com/in/raeanne-zou/",
+      image: "/team-pics/default.png",
+    },
+    {
+      name: "Javier Yap",
+      roles: ["Operations"],
+      link: "https://www.linkedin.com/in/javieryap/",
       image: "/team-pics/default.png",
     },
   ];
@@ -170,7 +164,7 @@ export default function HomePage() {
           overflow-hidden
         "
       >
-        <div className="absolute inset-0 z-0 bg-backdrop">
+        <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#3864bc] to-[#3864bc] via-[#4f82e8] pt-24">
           <Animation />
         </div>
         <div className="relative z-10 w-full max-w-screen-lg mx-auto flex flex-col items-start">
@@ -205,7 +199,7 @@ export default function HomePage() {
             Singapore <br />
             Economics League
           </h1>
-          <p className="max-w-3xl text-xl text-left text-background">
+          <p className="max-w-3xl text-xl text-left text-background font-medium">
             A team based competition for problem solving in economics.
             <br />
             Battle your fellow students for the crown!
@@ -216,7 +210,7 @@ export default function HomePage() {
       {hasMounted && (
         <section className="flex items-center justify-center mb-16 px-4 md:px-0">
           <div className="max-w-screen-lg w-full ">
-            <h2 className="text-center text-6xl sm:text-9xl font-bold text-black mt-24 slab">
+            <h2 className="text-center text-6xl sm:text-8xl font-bold text-black mt-24 slab">
               Let’s <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent"> Roll </span>
             </h2>
             <div className="border-2 border-primary bg-white rounded-xl p-8 sm:p-10 text-center">
@@ -250,11 +244,11 @@ export default function HomePage() {
                     return [...acc, elem];
                   }, [])}
               </div>
-              <p className="text-baseText text-xl sm:text-2xl mt-6 sm:mt-8">
-                Till Registration Ends
+              <p className="text-baseText text-xl sm:text-2xl mt-2 sm:mt-4">
+                till registration ends
               </p>
               <p className="text-xl sm:text-2xl font-medium text-baseText">
-                — 4 July 2025 —
+              — 4 July 2025 —
               </p>
             </div>
           </div>
@@ -325,9 +319,7 @@ export default function HomePage() {
                 <div>
                   <h3 className="text-2xl font-bold text-baseText slab">Calling all Pre-U Students!</h3>
                   <p className="text-baseText mt-2 text-lg">
-                    Studying in a JC/MI, local polytechnic, ITE, or
-                    <br />
-                    secondary school? You are eligible to participate!
+                    Studying in a JC/MI, local polytechnic, ITE, or secondary school? You are eligible to participate!
                   </p>
                 </div>
               </div>
@@ -347,7 +339,6 @@ export default function HomePage() {
                   </h3>
                   <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
                     Studying in a JC/MI, local polytechnic, ITE, or
-                    <br />
                     secondary school? You are eligible to participate!
                   </p>
                 </div>
@@ -373,9 +364,7 @@ export default function HomePage() {
                 <div>
                   <h3 className="text-2xl font-bold text-baseText slab">Build Your Dream Team</h3>
                   <p className="text-baseText mt-2 text-lg">
-                    From classmates to friends in other schools, assemble
-                    <br />
-                    the team of your choice to win it all!
+                    From classmates to friends in other schools, assemble the team of your choice to win it all!
                   </p>
                   <a
                     href="https://tally.so/r/3NRLlG"
@@ -416,9 +405,7 @@ export default function HomePage() {
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-bold text-baseText slab">Build Your Dream Team</h3>
                   <p className="text-baseText mt-2 sm:mt-4 text-lg sm:text-xl">
-                    From classmates to friends in other schools, assemble
-                    <br />
-                    the team of your choice to win it all!
+                    From classmates to friends in other schools, assemble the team of your choice to win it all!
                   </p>
                   <a
                     href="https://tally.so/r/3NRLlG"

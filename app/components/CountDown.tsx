@@ -23,7 +23,7 @@ export default function CountDown({ label, value }: CountDownProps) {
           w-16 h-24 sm:w-36 sm:h-48
           flex items-center justify-center
           bg-[#272a30]
-          rounded-md
+          rounded-xl
           text-2xl sm:text-6xl
           font-semibold
           text-white

@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         background: "#f6f2ec",
-        backdrop: "#3864bc",
+        backdrop: "gradient-to-r from #3864bc to rgb(50, 99, 199)",
         primary: "#5073b1",
         secondary: "#5a96d9",
         accent: "#64c6fb",
