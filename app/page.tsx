@@ -164,7 +164,7 @@ export default function HomePage() {
           overflow-hidden
         "
       >
-        <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#3864bc] to-[#3864bc] via-[#4f82e8] pt-24">
+        <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#3864bc] to-[#3864bc] via-[#4f82e8]">
           <Animation />
         </div>
         <div className="relative z-10 w-full max-w-screen-lg mx-auto flex flex-col items-start">
@@ -195,6 +195,9 @@ export default function HomePage() {
               slab
               leading-tight
             "
+            style={{
+              textShadow: '4px 4px 0 rgba(0, 0, 0, 0.3)',
+            }}
           >
             Singapore <br />
             Economics League
@@ -264,7 +267,7 @@ export default function HomePage() {
                 alt="Box 1 illustration"
                 width={300}
                 height={300}
-                className="mx-auto mb-4"
+                className="mx-auto mb-4 hover:"
               />
               <div className="flex flex-row items-start gap-4">
                 <span className="text-[8rem] font-bold text-transparent leading-none bg-clip-text bg-gradient-to-r from-[#C0ADFB] to-[#0790FF]">
