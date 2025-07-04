@@ -6,7 +6,7 @@ import CountDown from "./components/CountDown";
 
 function calculateTimeLeft() {
   const now = new Date().getTime();
-  const eventTimestamp = new Date("July 4, 2025 09:00:00").getTime();
+  const eventTimestamp = new Date("July 4, 2025 23:59:59").getTime();
   const difference = eventTimestamp - now;
   if (difference <= 0) {
     return { days: "00", hours: "00", minutes: "00", seconds: "00" };
@@ -85,10 +85,10 @@ export default function HomePage() {
       image: "/team-pics/li-zonglun.png",
     },
     {
-      name: "Jeffrey Lee",
-      roles: ["Lead Developer"],
-      link: "https://www.linkedin.com/in/jeffrey-lee-8a9461236",
-      image: "/team-pics/jeffrey-lee.png",
+      name: "Chua Zhong Ding",
+      roles: ["Lead Software Engineer"],
+      link: "https://www.linkedin.com/in/chua-zhong-ding-94412728b",
+      image: "/team-pics/chua-zhong-ding.png",
     },
     {
       name: "Lucas Lee",
@@ -121,20 +121,20 @@ export default function HomePage() {
       image: "/team-pics/theodore-chou.png",
     },
     {
-      name: "Chua Zhong Ding",
-      roles: ["Full Stack Developer", "Penetration Tester"],
-      link: "https://www.linkedin.com/in/chua-zhong-ding-94412728b",
-      image: "/team-pics/chua-zhong-ding.png",
+      name: "Jeffrey Lee",
+      roles: ["Software Engineer"],
+      link: "https://www.linkedin.com/in/jeffrey-lee-8a9461236",
+      image: "/team-pics/jeffrey-lee.png",
     },
     {
       name: "Chew Jin Hao",
-      roles: ["Full Stack Developer"],
+      roles: ["Software Engineer"],
       link: "http://www.linkedin.com/in/chew-jin-hao-274850196",
       image: "/team-pics/default.png",
     },
     {
       name: "Dylan Saga",
-      roles: ["Data Analyst"],
+      roles: ["SWE (Data analytics & automation)"],
       link: "https://www.linkedin.com/in/dylan-saga-551430273",
       image: "/team-pics/dylan-saga.png",
     },
