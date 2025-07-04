@@ -42,7 +42,7 @@ export default function Navbar() {
             Syllabus
           </Link>
           <a
-            href="https://tally.so/r/3NRLlG"
+            href="/syllabus"
             target="_blank"
             rel="noopener noreferrer"
             className="
@@ -63,7 +63,7 @@ export default function Navbar() {
               hover:scale-105
             "
           >
-            Register Now!
+            Get ready
           </a>
         </div>
         <button
@@ -152,7 +152,7 @@ export default function Navbar() {
             Syllabus
           </Link>
           <a
-            href="https://tally.so/r/3NRLlG"
+            href="\syllabus"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
@@ -174,7 +174,7 @@ export default function Navbar() {
               hover:scale-105
             "
           >
-            Register Now!
+            Get ready
           </a>
         </div>
       </div>

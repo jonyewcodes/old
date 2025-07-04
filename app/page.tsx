@@ -6,7 +6,7 @@ import CountDown from "./components/CountDown";
 
 function calculateTimeLeft() {
   const now = new Date().getTime();
-  const eventTimestamp = new Date("July 4, 2025 23:59:59").getTime();
+  const eventTimestamp = new Date("July 26, 2025 09:00:00").getTime();
   const difference = eventTimestamp - now;
   if (difference <= 0) {
     return { days: "00", hours: "00", minutes: "00", seconds: "00" };
@@ -179,7 +179,7 @@ export default function HomePage() {
               mb-4
             "
           >
-           <p className="font-semibold text-base sm:text-lg leading-tight text-left">
+           <p className="font-semibold text-baseText sm:text-lg leading-tight text-left">
             Sat · 26 July 2025 · 09:00 AM — 01:00 PM SGT
           </p>
           </div>
@@ -213,10 +213,12 @@ export default function HomePage() {
       {hasMounted && (
         <section className="flex items-center justify-center mb-16 px-4 md:px-0">
           <div className="max-w-screen-lg w-full ">
+            
             <h2 className="text-center text-6xl sm:text-8xl font-bold text-black mt-24 slab">
               Let’s <span className="bg-gradient-to-r from-[#7f9fd8] to-[#5073b1] bg-clip-text text-transparent"> Roll </span>
             </h2>
             <div className="border-2 border-primary bg-white rounded-xl p-8 sm:p-10 text-center">
+
               <div className="flex sm:flex-row items-center justify-center gap-0 sm:gap-6">
                 {["Days", "Hours", "Minutes", "Seconds"]
                   .map((label, index) => {
@@ -247,12 +249,23 @@ export default function HomePage() {
                     return [...acc, elem];
                   }, [])}
               </div>
-              <p className="text-baseText text-xl sm:text-2xl mt-2 sm:mt-4">
-                till registration ends
-              </p>
-              <p className="text-xl sm:text-2xl font-medium text-baseText">
-              — 4 July 2025 —
-              </p>
+
+              <div
+            className="
+              inline-block
+              bg-background
+              text-secondary
+              rounded-md
+              px-4 py-3
+              shadow-sm
+              mb-2
+              mt-8
+            "
+          >
+           <p className="font-semibold text-baseText sm:text-lg leading-tight text-left">
+            left until Singapore Economics League 2025!
+          </p>
+          </div>
             </div>
           </div>
         </section>
