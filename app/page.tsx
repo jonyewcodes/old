@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Animation from "./components/AnimatedBackground";
 import CountDown from "./components/CountDown";
+import Link from "next/link";
 
 function calculateTimeLeft() {
   const now = new Date().getTime();
@@ -530,9 +531,12 @@ export default function HomePage() {
                 Wonder what types of questions SEL tests?
                 <br /> Check out these curated examples!
               </p>
-              <button className="px-6 py-3 bg-white text-secondary font-semibold border-2 rounded-xl border-b-4 border-secondary transition-all duration-200 hover:scale-105 transition-transform ease-in-out hover:scale-105 mt-6">
+              <Link 
+                href="/syllabus"
+                className="inline-block px-6 py-3 bg-white text-secondary font-semibold border-2 rounded-xl border-b-4 border-secondary transition-all duration-200 hover:scale-105 mt-6 text-center no-underline">
                 View the Syllabus
-              </button>
+              </Link>
+              
 
               <Image
                 src="/graphics/studying.png"
