@@ -42,7 +42,7 @@ export default function Navbar() {
             Syllabus
           </Link>
           <a
-            href="/syllabus"
+            href="https://contest.sgeconsleague.org/login"
             target="_blank"
             rel="noopener noreferrer"
             className="
@@ -63,7 +63,7 @@ export default function Navbar() {
               hover:scale-105
             "
           >
-            Get ready
+            Sign in
           </a>
         </div>
         <button
@@ -152,7 +152,7 @@ export default function Navbar() {
             Syllabus
           </Link>
           <a
-            href="\syllabus"
+            href="https://contest.sgeconsleague.org/login"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
@@ -162,19 +162,19 @@ export default function Navbar() {
               px-4
               py-2
               bg-white
-              text-secondary
+              text-[#5a96d9]
               font-semibold
               rounded-2xl
               shadow
               border-2
               border-b-4
-              border-secondary
+              border-[#5a96d9]
               transition-all
               duration-200
               hover:scale-105
             "
           >
-            Get ready
+            Sign in
           </a>
         </div>
       </div>
