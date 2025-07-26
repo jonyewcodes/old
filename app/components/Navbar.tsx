@@ -41,6 +41,13 @@ export default function Navbar() {
           >
             Syllabus
           </Link>
+          <Link
+            href="https://www.dropbox.com/scl/fi/cymwur1t7gjxklzzapc3v/SELanswers.pdf?rlkey=ycu1ul9xs5t6dww13h8jfsvse&st=6akznf1h&dl=0"
+            onClick={() => setIsOpen(false)}
+            className="text-xl px-3 py-1 rounded-md transition-colors duration-200 hover:bg-[#ffffff]/40"
+          >
+            2025 Solutions
+          </Link>
           <a
             href="https://contest.sgeconsleague.org/login"
             target="_blank"
@@ -151,6 +158,14 @@ export default function Navbar() {
           >
             Syllabus
           </Link>
+          <Link
+            href="https://www.dropbox.com/scl/fi/cymwur1t7gjxklzzapc3v/SELanswers.pdf?rlkey=ycu1ul9xs5t6dww13h8jfsvse&st=6akznf1h&dl=0"
+            onClick={() => setIsOpen(false)}
+            className="text-xl px-3 py-1 rounded-md transition-colors duration-200 hover:bg-[#ffffff]/40"
+          >
+            2025 Solutions
+          </Link>
+          
           <a
             href="https://contest.sgeconsleague.org/login"
             target="_blank"
@@ -176,6 +191,7 @@ export default function Navbar() {
           >
             Sign in
           </a>
+
         </div>
       </div>
     </header>
